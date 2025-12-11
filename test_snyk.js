@@ -1,1 +1,0 @@
-const x = eval('1+1');
