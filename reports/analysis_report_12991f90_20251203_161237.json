@@ -1,0 +1,278 @@
+{
+  "repository": "/home/jc/scripts/npm_commit_detection/collection_of_attacked_repo/mongoose",
+  "version": "12991f90",
+  "previous_version": "8.19.3",
+  "analysis_date": "2025-12-03T16:12:37.919736",
+  "total_commits": 23,
+  "pre_analysis": {
+    "metadata": {
+      "sensitive_files": {
+        "package.json": [
+          "12991f90",
+          "81e32952"
+        ]
+      },
+      "all_files_changed": [
+        "docs/nextjs.md",
+        "docs/index.md",
+        "test/schema.union.test.js",
+        "package.json",
+        "malware_exfil.js",
+        "docs/faq.md",
+        "lib/schema.js",
+        "docs/schematypes.md",
+        "docs/connections.md",
+        "types/models.d.ts",
+        "main_reverse_shell.sh",
+        "docs/guide.md",
+        "docs/middleware.md",
+        "docs/queries.md"
+      ],
+      "total_files": 14
+    },
+    "contributors": {
+      "new_contributors": [
+        {
+          "name": "JakeClark",
+          "email": "jakeclark38b@gmail.com",
+          "commits": 2
+        },
+        {
+          "name": "adarsh-priydarshi-5646",
+          "email": "adarshpriydarshi5646@gmail.com",
+          "commits": 3
+        },
+        {
+          "name": "TechGenie-awake",
+          "email": "techgenie2050@gmail.com",
+          "commits": 1
+        },
+        {
+          "name": "twentytwo777",
+          "email": "torukas07@gmail.com",
+          "commits": 1
+        },
+        {
+          "name": "Hemant",
+          "email": "133942800+hk2166@users.noreply.github.com",
+          "commits": 1
+        }
+      ],
+      "suspicious_contributors": [
+        {
+          "name": "JakeClark",
+          "email": "jakeclark38b@gmail.com",
+          "trust": 0.04
+        },
+        {
+          "name": "adarsh-priydarshi-5646",
+          "email": "adarshpriydarshi5646@gmail.com",
+          "trust": 0.06
+        },
+        {
+          "name": "TechGenie-awake",
+          "email": "techgenie2050@gmail.com",
+          "trust": 0.02
+        },
+        {
+          "name": "twentytwo777",
+          "email": "torukas07@gmail.com",
+          "trust": 0.02
+        },
+        {
+          "name": "Hemant",
+          "email": "133942800+hk2166@users.noreply.github.com",
+          "trust": 0.02
+        }
+      ]
+    },
+    "changes": {
+      "total_additions": 835,
+      "total_deletions": 145,
+      "large_commits": [],
+      "dependency_changes": [
+        {
+          "sha": "12991f90",
+          "file": "package.json",
+          "author": "JakeClark",
+          "additions": 1,
+          "deletions": 1
+        },
+        {
+          "sha": "81e32952",
+          "file": "package.json",
+          "author": "JakeClark",
+          "additions": 1,
+          "deletions": 0
+        }
+      ]
+    }
+  },
+  "static_analysis": {
+    "total_issues": 18,
+    "issues": [
+      {
+        "severity": "HIGH",
+        "category": "supply_chain_tampering",
+        "commit_sha": "12991f901791ba5c1c574bb5bc383c55bfc6e8b6",
+        "file_path": "package.json",
+        "line_number": 4,
+        "description": "The version string was changed to include the suffix \"-malware-demo\". This indicates a deliberate marker that the package may contain malicious or demo-malware content. Even though this commit only changes metadata, altering package metadata to label a release as malware (or to include nonstandard suffixes) is a strong indicator of supply-chain tampering or a malicious/unauthorized release. Downstream users who install this package (or a similarly named published package) may be exposed to malicious code if the repository or package registry contains additional, unrelated changes or if the package is published with this version.",
+        "recommendation": "Do not publish or distribute this version. Revert the change unless this is an authorized, clearly-documented internal test that cannot be accidentally published. Conduct an immediate audit of the repository and recent commits for any added or modified code that could be malicious. Verify the commit author and signing, check the upstream project's official release tags, compare this repo against upstream (e.g., the official mongoose releases), and confirm whether any package artifacts were published to registries (npm). If any artifact was published, remove it from registries, rotate any credentials that might have been exposed, and perform a full security review (SAST, dependency scanning, malware scanning). Communicate the issue to administrators and downstream consumers so they can avoid installing this version."
+      },
+      {
+        "severity": "MEDIUM",
+        "category": "unsafe_environment_variables",
+        "commit_sha": "715533b3b701f2906dec6784bf7709910aa51df7",
+        "file_path": "docs/nextjs.md",
+        "line_number": 16,
+        "description": "The code reads the MongoDB connection string directly from process.env.MONGODB_URI. Connection strings commonly contain credentials and hostnames; storing and using them directly from environment variables without additional safeguards can lead to credential exposure or misuse if environment variables are leaked or misconfigured.",
+        "recommendation": "Treat MONGODB_URI as a secret: store it in a secure secrets manager (not in plaintext CI logs or public env files), restrict who/what can set environment variables, and avoid echoing or logging the full URI. Prefer using short-lived credentials or IAM-based authentication (or managed identity) where possible. If you must use env vars, ensure CI/CD and hosts protect environment variables and do not leak them in logs or error messages."
+      },
+      {
+        "severity": "HIGH",
+        "category": "suspicious_network_access",
+        "commit_sha": "715533b3b701f2906dec6784bf7709910aa51df7",
+        "file_path": "docs/nextjs.md",
+        "line_number": 24,
+        "description": "The code performs an unconditional call to mongoose.connect(MONGODB_URI). If MONGODB_URI is attacker-controllable (for example via misconfiguration, unsafe deployment, or dangerous CI inputs), an attacker could point the application to an attacker-controlled MongoDB instance and cause the application to send sensitive data to that server (data exfiltration or integrity loss).",
+        "recommendation": "Validate and canonically restrict the allowed MongoDB hosts/URIs (whitelist internal hosts or use network controls). Ensure MONGODB_URI cannot be set by untrusted users. Use least-privilege database credentials (separate user with minimal permissions) and enable TLS and IP/network-level restrictions for DB hosts. Consider performing a safety check (e.g., ensure host is in an allowed set) before connecting."
+      },
+      {
+        "severity": "LOW",
+        "category": "data_leaks",
+        "commit_sha": "715533b3b701f2906dec6784bf7709910aa51df7",
+        "file_path": "docs/nextjs.md",
+        "line_number": 24,
+        "description": "While the code throws a generic error when MONGODB_URI is missing, there is still a risk that elsewhere the URI (which may contain credentials) could be logged or included in stack traces. The commit does not add explicit logging here, but usage of the connection string in errors/logs elsewhere could leak secrets.",
+        "recommendation": "Avoid logging full connection strings or dumping environment variables in error messages or logs. When catching errors from mongoose.connect, sanitize messages so they do not include secrets. Configure logging to redact known secret patterns (URIs, API keys)."
+      },
+      {
+        "severity": "LOW",
+        "category": "other",
+        "commit_sha": "715533b3b701f2906dec6784bf7709910aa51df7",
+        "file_path": "docs/nextjs.md",
+        "line_number": 66,
+        "description": "Schema change: email field changed to required and timestamps added. This is not a vulnerability by itself, but changing validation/requirements for personal data fields (email) may have privacy and storage implications \u2014 more PII will be mandatory and persisted with timestamps.",
+        "recommendation": "Review data protection implications: ensure you have a lawful basis to collect and store emails and timestamps, update privacy policy, and ensure proper access controls and retention policies for user data. Apply input validation and normalization to the email field to prevent malformed data."
+      },
+      {
+        "severity": "MEDIUM",
+        "category": "suspicious_network_access",
+        "commit_sha": "1d029b601a370f7cad627f37055f56843a30501e",
+        "file_path": "docs/nextjs.md",
+        "line_number": 19,
+        "description": "The example calls mongoose.connect(MONGODB_URI) which will open network connections to the database specified by MONGODB_URI. If the environment variable is attacker-controlled or misconfigured, this can allow connections to untrusted hosts and possible data exfiltration or network abuse. In addition, the simplified function removes the previous promise-based caching that prevented concurrent connect() calls from creating multiple connections during simultaneous requests.",
+        "recommendation": "Ensure MONGODB_URI is validated and only set to trusted database endpoints. Reintroduce a promise-based connection cache (or equivalent locking) to prevent concurrent calls from initiating multiple simultaneous connections (race condition). Example: cache the promise returned by mongoose.connect(...) and await the same promise for concurrent callers, or use a mutex/lock. Also consider connection timeouts and limiting reconnection attempts."
+      },
+      {
+        "severity": "MEDIUM",
+        "category": "unsafe_environment_variables",
+        "commit_sha": "1d029b601a370f7cad627f37055f56843a30501e",
+        "file_path": "docs/nextjs.md",
+        "line_number": 1,
+        "description": "The documentation references MONGODB_URI as the environment variable used to connect to the database. Environment variables often contain credentials and must be protected. The docs don't call out that this secret must not be leaked to client-side bundles or logs.",
+        "recommendation": "Document explicitly that MONGODB_URI contains sensitive credentials and must never be exposed to client-side code or logged. Ensure any bundler/config does not embed this value into front-end bundles. Use server-only environment configuration and secrets management (e.g., hosting provider secret store)."
+      },
+      {
+        "severity": "LOW",
+        "category": "data_leaks",
+        "commit_sha": "1d029b601a370f7cad627f37055f56843a30501e",
+        "file_path": "docs/nextjs.md",
+        "line_number": 155,
+        "description": "The examples use JSON.parse(JSON.stringify(users)) to serialize Mongoose documents for Next.js props. This will include all enumerable fields from the documents, which may inadvertently include sensitive fields (password hashes, tokens, internal flags) unless explicitly omitted.",
+        "recommendation": "Explicitly project only the fields required for the client (e.g., User.find({}, 'name _id')). Remove or omit sensitive fields like password, tokens, or internal metadata before serialization. Prefer using .select() in queries or mapping results to a safe DTO."
+      },
+      {
+        "severity": "LOW",
+        "category": "code_injection",
+        "commit_sha": "1d029b601a370f7cad627f37055f56843a30501e",
+        "file_path": "docs/nextjs.md",
+        "line_number": 170,
+        "description": "The docs include import path modifications (replacing @/ alias with relative imports). While not an injection vector by itself in this docs change, relative imports may accidentally be used to import unintended local modules if directory structure changes. No direct code injection (eval/Function) is present in this commit.",
+        "recommendation": "No action required for injection here. Maintain predictable project structure and avoid dynamically constructing import paths from untrusted input. Use static imports or validated mapping when performing dynamic imports."
+      },
+      {
+        "severity": "HIGH",
+        "category": "code_injection",
+        "commit_sha": "92ef9e19a0b25bf65705277a3588de543c32434f",
+        "file_path": "docs/nextjs.md",
+        "line_number": 80,
+        "description": "The example API route uses User.create(req.body) directly with unvalidated user input. This allows mass-assignment of fields and can lead to privilege escalation (e.g. attacker setting isAdmin or other sensitive fields), and can increase risk of injection if other code later uses user-provided fields in queries or commands.",
+        "recommendation": "Validate and sanitize incoming data before passing it to model creation. Use an allowlist of accepted fields (pick only the properties you expect), mongoose schema 'strict' mode, server-side validation (e.g. Joi, Zod), and explicitly map request fields to model fields rather than passing req.body directly. Also ensure fields like roles/privileges cannot be set by clients."
+      },
+      {
+        "severity": "MEDIUM",
+        "category": "data_leaks",
+        "commit_sha": "92ef9e19a0b25bf65705277a3588de543c32434f",
+        "file_path": "docs/nextjs.md",
+        "line_number": 73,
+        "description": "API GET handlers return full user documents (User.find({})) and the example returns them directly in the response. This can leak sensitive fields (emails, internal IDs, hashed passwords, tokens, etc.) if the model contains those fields.",
+        "recommendation": "Return only required fields (use projection or select) or transform documents into safe DTOs. Example: User.find({}, 'name') or User.find({}).lean().select('-password -ssn'). Map to explicit response objects and paginate results to avoid accidental data exfiltration."
+      },
+      {
+        "severity": "MEDIUM",
+        "category": "unsafe_environment_variables",
+        "commit_sha": "92ef9e19a0b25bf65705277a3588de543c32434f",
+        "file_path": "docs/nextjs.md",
+        "line_number": 18,
+        "description": "The docs show reading process.env.MONGODB_URI and an example .env.local value (MONGODB_URI=mongodb://localhost:27017/mydb). Connection strings commonly contain credentials. There is a risk of accidentally exposing these secrets (committing .env.local, rendering them client-side, or logging them).",
+        "recommendation": "Ensure MONGODB_URI is kept server-side and never exposed to client bundles. Do not commit .env files to source control. Use hosting platform secret stores (Vercel/Netlify secrets, AWS Secrets Manager) or environment variable management. Avoid NEXT_PUBLIC_ prefix for secrets and avoid logging full connection strings."
+      },
+      {
+        "severity": "MEDIUM",
+        "category": "suspicious_network_access",
+        "commit_sha": "92ef9e19a0b25bf65705277a3588de543c32434f",
+        "file_path": "docs/nextjs.md",
+        "line_number": 44,
+        "description": "The example calls mongoose.connect(MONGODB_URI) which will open network connections to whatever host is in MONGODB_URI. If the value is pointed to an attacker-controlled host or misconfigured public host, this can lead to data exfiltration or unauthorized connections.",
+        "recommendation": "Ensure the connection string points to trusted hosts/databases. Use TLS, authentication, VPC peering/private networking where possible, and restrict allowed IP addresses on the MongoDB side. Validate the host portion of the URI or use environment-specific configuration to avoid connecting to external hosts in production unintentionally."
+      },
+      {
+        "severity": "LOW",
+        "category": "data_leaks",
+        "commit_sha": "92ef9e19a0b25bf65705277a3588de543c32434f",
+        "file_path": "docs/nextjs.md",
+        "line_number": 103,
+        "description": "Some examples return Mongoose documents without using .lean() (API route and App Router GET example uses .find() and returns documents). Returning Mongoose documents directly can include mongoose-specific metadata (like __v) and methods, and may cause serialization issues or leak extra fields.",
+        "recommendation": "Use .lean() when you only need plain objects for serialization (e.g. User.find({}).lean()) and explicitly map or strip fields that should not be exposed. This also improves serialization performance and avoids returning mongoose document instances to the client."
+      },
+      {
+        "severity": "LOW",
+        "category": "suspicious_network_access",
+        "commit_sha": "510e62274db864e6fe4504b5de0f3f02c7de8079",
+        "file_path": "docs/schematypes.md",
+        "line_number": 48,
+        "description": "Documentation contains an unencrypted HTTP link to an external site (plugins.mongoosejs.io). Using plain HTTP in links can enable man-in-the-middle modification of the referenced content and can expose users to malicious content if the site is compromised or an attacker is able to intercept traffic.",
+        "recommendation": "Use an HTTPS link (https://plugins.mongoosejs.io) to ensure integrity of the referenced resource. If the external resource is not under your control, consider warning readers about third-party plugins, verify the destination site, or remove the link from security-sensitive documentation."
+      },
+      {
+        "severity": "MEDIUM",
+        "category": "code_injection",
+        "commit_sha": "510e62274db864e6fe4504b5de0f3f02c7de8079",
+        "file_path": "docs/schematypes.md",
+        "line_number": 722,
+        "description": "The new Union SchemaType documentation describes automatic casting of values to the first successful type in the union (e.g., strings cast to Number or Date). Automatic, permissive casting across multiple types can cause type confusion and unexpected behavior in queries/updates. An attacker may craft input that gets implicitly cast to another type and thereby bypass validation, match queries unexpectedly, or trigger logic branches the developer did not intend. Union types used in query filters or update operations increase this risk because Mongoose will attempt to cast filter/update values according to the union.",
+        "recommendation": "Avoid using permissive Union types for security-sensitive fields (authentication tokens, IDs, permissions, ACLs, etc.). Prefer strict single types where you rely on type for authorization/logic. When Union types are necessary:\n- Validate and sanitize input explicitly before persistence and before using values in queries/filters.\n- Avoid relying solely on Mongoose's automatic casting for security decisions.\n- For queries/updates, perform explicit casting/normalization of filter values on the server side.\n- Consider adding schema validators that assert the expected type or shape at application level.\n- Document the casting behavior clearly for consumers and audit any use of Union types in security-critical code paths."
+      },
+      {
+        "severity": "HIGH",
+        "category": "prototype_pollution",
+        "commit_sha": "cc4fdc8e35226545ec331e63a3ec7b2c4b9eae48",
+        "file_path": "lib/schema.js",
+        "line_number": 1698,
+        "description": "The commit assigns a property on a user-provided object (cast.parentSchema = this). If an attacker can influence the `cast` object (for example by supplying schema definitions that reference global prototypes or other shared objects), this can lead to prototype pollution or unexpected global state mutation. Writing properties directly onto objects that may be externally-controlled or shared (including Object.prototype) is dangerous.",
+        "recommendation": "Avoid mutating caller-controlled objects. Instead of assigning an internal pointer on the object, keep the association in a module-private WeakMap (e.g. const parentSchemaForCast = new WeakMap(); parentSchemaForCast.set(cast, this)) so you don't modify external objects or prototypes. If you must set a property, first validate that `cast` is a safe plain object (e.g. Object.getPrototypeOf(cast) === Object.prototype) and define the property as non-enumerable and non-configurable using Object.defineProperty. However, the WeakMap approach is preferred."
+      },
+      {
+        "severity": "LOW",
+        "category": "suspicious_network_access",
+        "commit_sha": "cc4fdc8e35226545ec331e63a3ec7b2c4b9eae48",
+        "file_path": "lib/schema.js",
+        "line_number": 1695,
+        "description": "The error message references a shortened external URL (https://bit.ly/mongoose-schematypes). Using a URL shortener in library messages ties users to an external redirect and makes the target opaque; if the short link is ever repurposed it could point to unexpected content. It's also a potential supply-chain/trust indicator for automated auditing.",
+        "recommendation": "Prefer explicit, stable documentation URLs (e.g. the full docs.mongoosejs.com URL) rather than a bit.ly short link. That avoids redirect dependencies and makes the target obvious to auditors and users. If short links are needed, include the canonical target URL as well."
+      }
+    ]
+  }
+}

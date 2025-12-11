@@ -174,13 +174,21 @@ class Repository:
         return output.split('\n') if output else []
     
     def build_contributor_profiles(self, commit_shas: List[str]) -> None:
-        """Build contributor profiles from a list of commits"""
+        """
+        Scan commits to build a profile for each contributor.
+        
+        Tracks:
+        - Commits made (metadata)
+        - Files modified
+        - Activity timeline
+        """
         self.contributors.clear()
         
         for sha in commit_shas:
             metadata = self.get_commit_metadata(sha)
             email = metadata.author_email
             
+            # Create profile if not exists
             if email not in self.contributors:
                 self.contributors[email] = ContributorProfile(
                     name=metadata.author_name,
@@ -191,48 +199,52 @@ class Repository:
             profile.total_commits += 1
             profile.commit_messages.append(metadata.message)
             
+            # Update timeline (first/last seen)
             if profile.first_commit_date is None or metadata.date < profile.first_commit_date:
                 profile.first_commit_date = metadata.date
             if profile.last_commit_date is None or metadata.date > profile.last_commit_date:
                 profile.last_commit_date = metadata.date
             
-            # Track files touched
+            # Track files touched by this contributor
             changes = self.get_file_changes(sha)
             for change in changes:
                 profile.files_touched.add(change.filename)
 
 
 class SensitiveFileDetector:
-    """Detects sensitive files based on patterns"""
+    """
+    Utility to detect if a file path is considered sensitive or security-critical.
+    Used to flag commits touching these files for higher scrutiny.
+    """
     
-    # Patterns based on Anomalicious paper
+    # Patterns based on Anomalicious paper and common security practices
     SENSITIVE_PATTERNS = [
-        # Package/build files
+        # Package/build files - dependencies
         r'package\.json$',
         r'package-lock\.json$',
         r'yarn\.lock$',
         r'\.npmrc$',
         r'\.npmignore$',
         
-        # Build/config files
+        # Build/config files - execution flow
         r'webpack\.config\.(js|ts)$',
         r'rollup\.config\.(js|ts)$',
         r'tsconfig\.json$',
         r'babel\.config\.(js|json)$',
         r'\.babelrc$',
         
-        # CI/CD files
+        # CI/CD files - automatic execution
         r'\.github/workflows/',
         r'\.travis\.yml$',
         r'\.gitlab-ci\.yml$',
         r'Jenkinsfile$',
         
-        # Security/Auth
+        # Security/Auth - secrets
         r'\.env$',
         r'\.env\.',
         r'config/.*\.(json|yml|yaml)$',
         
-        # Installation/setup scripts
+        # Installation/setup scripts - potential RCE vectors
         r'install\.(sh|js)$',
         r'setup\.(sh|js)$',
         r'postinstall\.(sh|js)$',
@@ -241,7 +253,7 @@ class SensitiveFileDetector:
     
     @classmethod
     def is_sensitive(cls, filename: str) -> bool:
-        """Check if a file is considered sensitive"""
+        """Check if a file is considered sensitive based on regex patterns"""
         for pattern in cls.SENSITIVE_PATTERNS:
             if re.search(pattern, filename, re.IGNORECASE):
                 return True

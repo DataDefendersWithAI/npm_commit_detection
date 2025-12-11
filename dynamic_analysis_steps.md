@@ -32,6 +32,8 @@ Package Hunter:
           next()
         })
         ```
+    + sudo systemctl restart falco
+    + sudo systemctl status falco
     + FALCO_TOKEN=your-secret NODE_ENV=development DEBUG=pkgs* node src/server.js
 
 Inside repo:
@@ -46,3 +48,11 @@ Inside repo:
     + npm pack -> .tgz package
     + curl -v -H 'Content-Type: application/octet-stream' --data-binary @tgz-name http://localhost:3000/monitor/project/npm => get id
     + curl -H 'Authorization: Bearer your-secret' "http://localhost:3000/?id=above-id" -> pending: wait, finished: take result
+
+
++ Obfuscate 100 samples then calculate accuracy
++ Report md
++ Verification: commit
++ 100 commits containing 50 safe, 50 unsafe, run how many commits mal.
++ Note obfuscate tool: https://github.com/javascript-obfuscator/javascript-obfuscator
+

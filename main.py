@@ -18,10 +18,10 @@ from dotenv import load_dotenv
 from langgraph.graph import StateGraph, END
 from langgraph.checkpoint.memory import MemorySaver
 
-from pre_analysis import Repository, PreAnalyzer
-from static_analysis import StaticAnalyzer
-from dynamic_analysis import DynamicAnalyzer
-from tui import CommitDetectionTUI
+from analyzers.pre_analysis import Repository, PreAnalyzer
+from llm.static_analysis import StaticAnalyzer
+from tools.dynamic_analysis import DynamicAnalyzer
+from utils.tui import CommitDetectionTUI
 
 
 # Load environment variables
@@ -50,6 +50,11 @@ class AnalysisState(TypedDict):
     static_analysis_output_file: str
     security_issues: list
     total_issues: int
+    
+    # Snyk analysis outputs
+    snyk_analysis_complete: bool
+    snyk_analysis_results: dict
+    snyk_analysis_output_file: str
     
     # Dynamic analysis outputs
     dynamic_analysis_complete: bool
@@ -272,6 +277,24 @@ def create_workflow() -> StateGraph:
     return app
 
 
+def run_tui_mode():
+    """Run interactive TUI mode"""
+    try:
+        tui = CommitDetectionTUI()
+        config = tui.run()
+        
+        if not config:
+            print("\n❌ Configuration cancelled by user")
+            sys.exit(0)
+        
+        return run_analysis(config)
+    except Exception as e:
+        print(f"❌ Error starting TUI: {e}")
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)
+
+
 def main():
     """Main entry point"""
     # If no arguments provided, run interactive TUI mode
@@ -280,28 +303,32 @@ def main():
     
     # Command-line mode with arguments
     if len(sys.argv) < 3:
-        print("Usage: python main.py <repo_path> <version_tag> [previous_tag] [--dynamic <commit_hash>]")
-        print("   or: python main.py              (interactive mode)")
-        print()
-        print("Examples:")
-        print("  python main.py ../mongoose 8.19.1 8.19.0")
-        print("  python main.py ../mongoose 8.19.1 8.19.0 --dynamic abc123")
-        print("  python main.py                                    (interactive mode)")
+        print("Usage: python main.py <repo_path> <version_tag> [previous_tag] [--dynamic <commit_hash>] [--snyk] [--skip-dynamic]")
         sys.exit(1)
     
     repo_path = sys.argv[1]
     version_tag = sys.argv[2]
     previous_tag = None
     commit_hash = None
+    run_snyk = False
+    skip_dynamic = False
     
     # Parse optional arguments
     i = 3
     while i < len(sys.argv):
-        if sys.argv[i] == '--dynamic' and i + 1 < len(sys.argv):
+        arg = sys.argv[i]
+        if arg == '--dynamic' and i + 1 < len(sys.argv):
             commit_hash = sys.argv[i + 1]
             i += 2
+        elif arg == '--snyk':
+            run_snyk = True
+            i += 1
+        elif arg == '--skip-dynamic':
+            skip_dynamic = True
+            i += 1
         else:
-            previous_tag = sys.argv[i]
+            if not previous_tag:
+                previous_tag = arg
             i += 1
     
     # Verify repository exists
@@ -309,41 +336,21 @@ def main():
         print(f"Error: Repository path does not exist: {repo_path}")
         sys.exit(1)
     
-    if not (Path(repo_path) / ".git").exists():
-        print(f"Error: Not a git repository: {repo_path}")
-        sys.exit(1)
-    
     # Check environment variables
     if not os.getenv("OPENAI_API_KEY"):
         print("Error: OPENAI_API_KEY environment variable not set")
         sys.exit(1)
-    
-    # Enable LangSmith tracing if configured
-    if os.getenv("LANGSMITH_API_KEY"):
-        print("✅ LangSmith tracing enabled")
-        print(f"   Project: {os.getenv('LANGSMITH_PROJECT', 'default')}")
     
     config = {
         'repo_path': repo_path,
         'end_tag': version_tag,
         'start_tag': previous_tag,
         'commit_hash': commit_hash,
+        'run_snyk': run_snyk,
         'skip_static': False,
-        'skip_dynamic': commit_hash is None,
-        'auto_verify': commit_hash is not None
+        'skip_dynamic': skip_dynamic or (commit_hash is None), # Skip dynamic if explicitly skipped or no hash
+        'auto_verify': True # Always try to verify if we have data
     }
-    
-    return run_analysis(config)
-
-
-def run_tui_mode():
-    """Run interactive TUI mode"""
-    tui = CommitDetectionTUI()
-    config = tui.run()
-    
-    if not config:
-        print("\n❌ Configuration cancelled by user")
-        sys.exit(0)
     
     return run_analysis(config)
 
@@ -351,19 +358,6 @@ def run_tui_mode():
 def run_analysis(config: Dict) -> int:
     """
     Run analysis based on configuration
-    
-    Args:
-        config: Configuration dictionary with keys:
-            - repo_path: Path to repository
-            - end_tag: End tag for static analysis
-            - start_tag: Start tag for static analysis (optional)
-            - commit_hash: Commit hash for dynamic analysis (optional)
-            - skip_static: Whether to skip static analysis
-            - skip_dynamic: Whether to skip dynamic analysis
-            - auto_verify: Whether to auto-verify both analyses
-    
-    Returns:
-        Exit code
     """
     print("\n" + "="*80)
     print("NPM COMMIT DETECTION - COMPREHENSIVE ANALYSIS")
@@ -371,93 +365,138 @@ def run_analysis(config: Dict) -> int:
     print(f"Repository: {config['repo_path']}")
     if not config['skip_static']:
         print(f"Static Analysis: {config['start_tag'] or '(beginning)'} -> {config['end_tag']}")
-    if not config['skip_dynamic']:
+    if not config['skip_dynamic']: 
         print(f"Dynamic Analysis: {config['commit_hash']}")
-    if config['auto_verify']:
-        print("Verification: Enabled (auto)")
+    if config['run_snyk']:
+        print(f"Snyk Analysis: Enabled")
+        
     print("="*80)
     
     static_output = None
     dynamic_output = None
+    snyk_output = None
+    
+    analyzed_commits = []
     
     try:
-        # Run analyses in parallel if both are requested
-        if not config['skip_static'] and not config['skip_dynamic']:
-            print("\n🔄 Running static and dynamic analyses in parallel...\n")
+        # Run analyses
+        # Logic:
+        # 1. Start Static Analysis (it finds commits).
+        # 2. Start Dynamic Analysis (if specific hash). 
+        # 3. If Snyk enabled:
+        #    - If specific hash, run parallel.
+        #    - If no specific hash (tag range), must wait for Static to identify commits, then run Snyk on them.
+        
+        with ThreadPoolExecutor(max_workers=3) as executor:
+            futures = {}
             
-            with ThreadPoolExecutor(max_workers=2) as executor:
-                futures = {}
-                
-                # Submit static analysis
+            # Static
+            if not config['skip_static']:
                 futures[executor.submit(
                     run_static_analysis,
                     config['repo_path'],
                     config['end_tag'],
                     config['start_tag']
                 )] = 'static'
-                
-                # Submit dynamic analysis
+            
+            # Dynamic
+            if not config['skip_dynamic'] and config['commit_hash']:
                 futures[executor.submit(
                     run_dynamic_analysis,
                     config['repo_path'],
                     config['commit_hash']
                 )] = 'dynamic'
-                
-                # Wait for completion
-                for future in as_completed(futures):
-                    analysis_type = futures[future]
+            
+            # Snyk (Single Commit)
+            if config['run_snyk'] and config['commit_hash']:
+                 futures[executor.submit(
+                    run_snyk_analysis,
+                    config['repo_path'],
+                    config['commit_hash']
+                )] = 'snyk'
+            
+            # Process results as they complete
+            for future in as_completed(futures):
+                analysis_type = futures[future]
+                try:
+                    result = future.result()
+                    
+                    if analysis_type == 'static':
+                        # Static returns (report_path, commit_shas) now
+                        static_output, analyzed_commits = result
+                        print(f"\n✅ Static analysis completed: {static_output}")
+                        print(f"   Analyzed {len(analyzed_commits)} commits")
+                        
+                    elif analysis_type == 'dynamic':
+                        dynamic_output = result
+                        print(f"\n✅ Dynamic analysis completed: {dynamic_output}")
+                        
+                    elif analysis_type == 'snyk':
+                        snyk_output = result
+                        print(f"\n✅ Snyk analysis completed: {snyk_output}")
+                        
+                except Exception as e:
+                     print(f"\n❌ {analysis_type.capitalize()} analysis failed: {e}")
+                     import traceback
+                     traceback.print_exc()
+
+        # Phase 2: Post-Static Snyk Analysis
+        # If we need to run Snyk on a range of commits (from static analysis) and haven't run it yet
+        if config['run_snyk'] and not config.get('commit_hash') and analyzed_commits:
+            print(f"\n🔄 Running Snyk analysis on {len(analyzed_commits)} commits found by static analysis...")
+            snyk_reports = []
+            
+            # We'll run Snyk only on the 'changes' - likely the commits found.
+            # Running sequentially for now to avoid overloading or temp dir conflicts if not robust
+            for sha in analyzed_commits:
+                print(f"   🛡️ Scanning {sha[:8]}...")
+                report_path = run_snyk_analysis(config['repo_path'], sha)
+                if report_path:
+                    snyk_reports.append(report_path)
+            
+            # For verification, we need to merge these reports or pass a list. 
+            # verification.py expects a single JSON file path currently.
+            # We should probably combine them into one 'snyk_analysis.json'.
+            
+            if snyk_reports:
+                combined_snyk = {'all_issues': [], 'total_issues': 0}
+                for rp in snyk_reports:
                     try:
-                        result = future.result()
-                        if analysis_type == 'static':
-                            static_output = result
-                            print(f"\n✅ Static analysis completed: {static_output}\n")
-                        else:
-                            dynamic_output = result
-                            print(f"\n✅ Dynamic analysis completed: {dynamic_output}\n")
-                    except Exception as e:
-                        print(f"\n❌ {analysis_type.capitalize()} analysis failed: {e}\n")
+                        with open(rp, 'r') as f:
+                            data = json.load(f)
+                            combined_issues = data.get('all_issues', []) 
+                            # If snyk_analysis.py structure is normalized, it might be a list or dict.
+                            # Based on run_snyk_analysis dump: json.dump(result, f)
+                            # Let's check snyk_analysis.py return. It returns a Dict with 'all_issues'.
+                            if isinstance(data, dict):
+                                combined_snyk['all_issues'].extend(data.get('all_issues', []))
+                    except:
+                        pass
+                
+                combined_snyk['total_issues'] = len(combined_snyk['all_issues'])
+                
+                # Save combined
+                reports_dir = Path("reports")
+                combined_path = reports_dir / f"snyk_combined_{config['end_tag'].replace('/', '_')}.json"
+                with open(combined_path, 'w') as f:
+                    json.dump(combined_snyk, f, indent=2)
+                
+                snyk_output = str(combined_path)
+                print(f"\n✅ Combined Snyk analysis completed: {snyk_output}")
         
-        # Run static analysis only
-        elif not config['skip_static']:
-            static_output = run_static_analysis(
-                config['repo_path'],
-                config['end_tag'],
-                config['start_tag']
-            )
-            print(f"\n✅ Static analysis completed: {static_output}\n")
-        
-        # Run dynamic analysis only
-        elif not config['skip_dynamic']:
-            dynamic_output = run_dynamic_analysis(
-                config['repo_path'],
-                config['commit_hash']
-            )
-            print(f"\n✅ Dynamic analysis completed: {dynamic_output}\n")
-        
-        # Run verification if both analyses completed
-        if config['auto_verify'] and static_output and dynamic_output:
-            print("\n" + "="*80)
-            print("🔍 VERIFICATION PHASE")
-            print("="*80)
-            
-            verification_output = run_verification(static_output, dynamic_output)
-            
-            if verification_output:
-                print(f"\n✅ Verification completed: {verification_output}\n")
-            else:
-                print("\n⚠️  Verification completed with warnings\n")
-        
-        print("\n" + "="*80)
-        print("✅ ANALYSIS COMPLETE")
-        print("="*80)
-        
-        if static_output:
-            print(f"Static Analysis Report: {static_output}")
-        if dynamic_output:
-            print(f"Dynamic Analysis Report: {dynamic_output}")
-        if config['auto_verify'] and static_output and dynamic_output:
-            print(f"Verification Report: {verification_output}")
-        
+        # Verify
+        if config['auto_verify'] and (static_output or dynamic_output or snyk_output):
+             print("\n" + "="*80)
+             print("🔍 VERIFICATION PHASE")
+             print("="*80)
+             
+             verification_output = run_verification(static_output, dynamic_output, snyk_output)
+             
+             if verification_output:
+                 print(f"\n✅ Verification completed: {verification_output}\n")
+             else:
+                 print("\n⚠️  Verification completed with warnings\n")
+
         return 0
         
     except KeyboardInterrupt:
@@ -470,12 +509,12 @@ def run_analysis(config: Dict) -> int:
         return 1
 
 
-def run_static_analysis(repo_path: str, end_tag: str, start_tag: Optional[str]) -> str:
+def run_static_analysis(repo_path: str, end_tag: str, start_tag: Optional[str]) -> tuple[str, list]:
     """
     Run static analysis workflow
     
     Returns:
-        Path to output JSON file
+        Tuple of (Path to output JSON file, List of analyzed commit SHAs)
     """
     print("\n" + "="*80)
     print("📊 PRE-ANALYSIS PHASE")
@@ -525,7 +564,7 @@ def run_static_analysis(repo_path: str, end_tag: str, start_tag: Optional[str]) 
         with open(output_file, 'w') as f:
             json.dump(json_data, f, indent=2)
         
-        return str(output_file)
+        return str(output_file), []
     
     static_analyzer = StaticAnalyzer()
     static_results = static_analyzer.analyze_commits(repo, commit_shas)
@@ -572,7 +611,7 @@ def run_static_analysis(repo_path: str, end_tag: str, start_tag: Optional[str]) 
     
     print(f"\n💾 Static analysis report saved: {output_file}")
     
-    return str(output_file)
+    return str(output_file), commit_shas
 
 
 def run_dynamic_analysis(repo_path: str, commit_hash: str) -> Optional[str]:
@@ -613,21 +652,74 @@ def run_dynamic_analysis(repo_path: str, commit_hash: str) -> Optional[str]:
     return report_path
 
 
-def run_verification(static_report_path: str, dynamic_report_path: str) -> Optional[str]:
+def run_snyk_analysis(repo_path: str, commit_hash: str) -> Optional[str]:
     """
-    Run verification to compare static and dynamic analysis
-    
-    Returns:
-        Path to verification report
+    Run Snyk SAST analysis on a specific commit
     """
-    from verification import verify_analysis
+    from tools.snyk_analysis import SnykAnalyzer
+    from analyzers.pre_analysis import Repository
     
+    print("\n" + "="*80)
+    print("🛡️ SNYK ANALYSIS PHASE")
+    print("="*80)
+    
+    repo = Repository(repo_path)
+    snyk = SnykAnalyzer(repo_path)
+    
+    if not snyk.check_auth():
+         print("⚠️  Snyk not authenticated. Skipping.")
+         return None
+         
+    # Get files changed in this commit
+    # We can use repo.get_file_changes(commit_hash) to find changed files
+    # However that returns FileChange objects with filename
+    changes = repo.get_file_changes(commit_hash)
+    changed_files = [c.filename for c in changes]
+    
+    result = snyk.analyze_commit(commit_hash, changed_files)
+    
+    # Save report
+    reports_dir = Path("reports")
+    reports_dir.mkdir(exist_ok=True)
+    output_file = reports_dir / f"snyk_report_{commit_hash[:8]}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+    
+    with open(output_file, 'w') as f:
+        json.dump(result, f, indent=2)
+        
+    print(f"\n💾 Snyk analysis report saved: {output_file}")
+    
+    return str(output_file)
+
+
+def run_verification(static_report_path: Optional[str], dynamic_report_path: Optional[str], snyk_report_path: Optional[str] = None) -> Optional[str]:
+    """
+    Run verification with available reports
+    """
+    from llm.verification import verify_analysis
+    
+    if not static_report_path and not dynamic_report_path and not snyk_report_path:
+        return None
+        
     try:
-        result = verify_analysis(static_report_path, dynamic_report_path, ".")
+        # If static/dynamic are None, we might need to handle them? 
+        # verify_analysis currently expects static_analysis_json as 1st arg. 
+        # If static is None, we might have an issue. 
+        # But typically static is the base. If static is None, verify_analysis might fail loading the json.
+        # Let's assume static is usually present, or we can't do much. 
+        # But wait, if we only have Snyk + Dynamic?
+        # verify_analysis tries to load static_analysis.json.
+        # I should probably ensure static analysis JSON exists or mock it if strictly Snyk+Dynamic.
+        # For now, let's assume Static is required by verification logic structure (it normalizes static first).
+        
+        if not static_report_path:
+             print("⚠️  Static analysis report missing. Cannot run full verification.")
+             return None
+             
+        result = verify_analysis(static_report_path, dynamic_report_path, ".", snyk_report_path)
         
         # Find the most recent verification report
         reports_dir = Path("reports")
-        verification_files = sorted(reports_dir.glob("verification_report_*.txt"))
+        verification_files = sorted(reports_dir.glob("verification_report_*.md"))
         
         if verification_files:
             return str(verification_files[-1])

@@ -159,6 +159,80 @@ class GitHelper:
             return None
     
     @staticmethod
+    def get_first_commit(repo_path: Path) -> Optional[Tuple[str, str]]:
+        """Get the first commit in the repository
+        Returns (hash, date) tuple
+        """
+        try:
+            result = subprocess.run(
+                ["git", "-C", str(repo_path), "rev-list", "--max-parents=0", "HEAD"],
+                capture_output=True,
+                text=True,
+                check=True
+            )
+            first_hash = result.stdout.strip().split('\n')[0]
+            
+            # Get date for this commit
+            date_result = subprocess.run(
+                ["git", "-C", str(repo_path), "log", "-1", "--format=%cs", first_hash],
+                capture_output=True,
+                text=True,
+                check=True
+            )
+            date = date_result.stdout.strip()
+            
+            return (first_hash, date)
+        except Exception:
+            return None
+    
+    @staticmethod
+    def get_latest_commit(repo_path: Path) -> Optional[Tuple[str, str]]:
+        """Get the latest commit in the repository
+        Returns (hash, date) tuple
+        """
+        try:
+            result = subprocess.run(
+                ["git", "-C", str(repo_path), "log", "-1", "--format=%H|%cs"],
+                capture_output=True,
+                text=True,
+                check=True
+            )
+            output = result.stdout.strip()
+            if '|' in output:
+                hash_val, date = output.split('|', 1)
+                return (hash_val, date)
+            return None
+        except Exception:
+            return None
+    
+    @staticmethod
+    def get_head_hash(repo_path: Path) -> Optional[Tuple[str, str]]:
+        """Get the HEAD commit hash
+        Returns (hash, date) tuple
+        """
+        try:
+            result = subprocess.run(
+                ["git", "-C", str(repo_path), "rev-parse", "HEAD"],
+                capture_output=True,
+                text=True,
+                check=True
+            )
+            head_hash = result.stdout.strip()
+            
+            # Get date for HEAD
+            date_result = subprocess.run(
+                ["git", "-C", str(repo_path), "log", "-1", "--format=%cs", "HEAD"],
+                capture_output=True,
+                text=True,
+                check=True
+            )
+            date = date_result.stdout.strip()
+            
+            return (head_hash, date)
+        except Exception:
+            return None
+    
+    @staticmethod
     def get_tags_sorted_by_date(repo_path: Path) -> List[Tuple[str, str]]:
         """
         Get all tags sorted by date (newest first)
@@ -243,6 +317,28 @@ class GitHelper:
             return []
     
     @staticmethod
+    def count_commits_between(repo_path: Path, start_ref: str, end_ref: str) -> int:
+        """
+        Count number of commits between two references
+        """
+        try:
+            if start_ref:
+                commit_range = f"{start_ref}..{end_ref}"
+            else:
+                commit_range = end_ref
+            
+            result = subprocess.run(
+                ["git", "-C", str(repo_path), "rev-list", "--count", commit_range],
+                capture_output=True,
+                text=True,
+                check=True
+            )
+            
+            return int(result.stdout.strip())
+        except Exception:
+            return 0
+    
+    @staticmethod
     def clone_repo(url: str, dest_path: Path) -> bool:
         """Clone repository from URL"""
         try:
@@ -303,6 +399,7 @@ class CommitDetectionTUI:
         self.commit_hash: Optional[str] = None
         self.skip_static: bool = False
         self.skip_dynamic: bool = False
+        self.run_snyk: bool = False
     
     def phase1_choose_repo(self) -> bool:
         """Phase 1: Choose repository source"""
@@ -490,21 +587,30 @@ class CommitDetectionTUI:
         """Phase 2: Choose start tag (earlier point) for static analysis"""
         tags = self.git.get_tags_sorted_by_date(self.repo_path)
         
-        if not tags:
-            print("❌ No tags found in repository")
+        # Format tag list
+        items = ["<< SKIP STATIC ANALYSIS"]
+        
+        # Add first commit option
+        first_commit = self.git.get_first_commit(self.repo_path)
+        if first_commit:
+            first_hash, first_date = first_commit
+            items.append(f"📌 From the beginning of this repo ({first_hash[:8]}) - {first_date}")
+        
+        # Add tags if available
+        if tags:
+            for tag, date in tags:
+                items.append(f"{tag} ({date})")
+        elif not first_commit:
+            # No tags and couldn't get first commit
+            print("❌ No tags found in repository and couldn't get commit history")
             self.skip_static = True
             self.skip_dynamic = True
             return False
         
-        # Format tag list
-        items = ["<< SKIP STATIC ANALYSIS"]
-        for tag, date in tags:
-            items.append(f"{tag} ({date})")
-        
         selection = self.fzf.run(
             items=items,
             title="PHASE 2: Choose start point for static analysis",
-            prompt="Start Tag> "
+            prompt="Start Point> "
         )
         
         if not selection:
@@ -512,6 +618,15 @@ class CommitDetectionTUI:
         
         if selection == "<< SKIP STATIC ANALYSIS":
             self.skip_static = True
+            return True
+        
+        # Check if user selected the first commit option
+        if selection.startswith("📌 From the beginning"):
+            # Extract hash from selection
+            import re
+            match = re.search(r'\(([a-f0-9]+)\)', selection)
+            if match:
+                self.start_tag = match.group(1)
             return True
         
         # Extract tag name
@@ -525,27 +640,54 @@ class CommitDetectionTUI:
         
         tags = self.git.get_tags_sorted_by_date(self.repo_path)
         
+        # Check if start_tag is a commit hash (from "beginning" option)
+        start_is_commit = len(self.start_tag) >= 7 and all(c in '0123456789abcdef' for c in self.start_tag.lower())
+        
         # Filter tags that are after start_tag (newer/later)
         filtered_tags = []
-        for tag, date in tags:
-            if tag == self.start_tag:
-                break # Stop at start_tag
-            filtered_tags.append((tag, date))
+        
+        if not start_is_commit:
+            # start_tag is a tag name. Since tags are sorted newest-first,
+            # we want to collect tags *until* we hit the start_tag.
+            for tag, date in tags:
+                if tag == self.start_tag:
+                    break  # Reached the start tag, stop collecting (rest are older)
+                filtered_tags.append((tag, date))
+        else:
+            # start_tag is a commit hash (beginning), include all tags
+            filtered_tags = tags
         
         # Format tag list
         items = []
+        
+        # Add HEAD option
+        head_commit = self.git.get_head_hash(self.repo_path)
+        if head_commit:
+            head_hash, head_date = head_commit
+            items.append(f"📌 To HEAD ({head_hash[:8]}) - {head_date}")
+        
+        # Add latest commit option (might be same as HEAD)
+        latest_commit = self.git.get_latest_commit(self.repo_path)
+        if latest_commit:
+            latest_hash, latest_date = latest_commit
+            # Only add if different from HEAD
+            if not head_commit or latest_hash != head_commit[0]:
+                items.append(f"📌 To the end of this repo ({latest_hash[:8]}) - {latest_date}")
+        
+        # Add filtered tags
         for tag, date in filtered_tags:
             items.append(f"{tag} ({date})")
         
         if not items:
-            print("ℹ️  No later tags available, will analyze to latest")
+            print("ℹ️  No later points available, will analyze to latest")
             self.end_tag = None
             return True
         
+        start_display = self.start_tag[:8] if start_is_commit else self.start_tag
         selection = self.fzf.run(
             items=items,
-            title=f"PHASE 3: Choose end point (comparing from start tag: {self.start_tag})",
-            prompt="End Tag> "
+            title=f"PHASE 3: Choose end point (comparing from: {start_display})",
+            prompt="End Point> "
         )
         
         if not selection:
@@ -553,8 +695,42 @@ class CommitDetectionTUI:
             self.end_tag = None
             return True
         
+        # Check if user selected HEAD or latest commit option
+        if selection.startswith("📌"):
+            # Extract hash from selection
+            import re
+            match = re.search(r'\(([a-f0-9]+)\)', selection)
+            if match:
+                self.end_tag = match.group(1)
+            return True
+        
         # Extract tag name
         self.end_tag = selection.split(" (")[0]
+        
+        # Check commit count and warn if too large
+        if not self.skip_static and self.start_tag and self.end_tag:
+            commit_count = self.git.count_commits_between(self.repo_path, self.start_tag, self.end_tag)
+            
+            if commit_count > 500:
+                print(f"\n⚠️  WARNING: You selected {commit_count} commits to analyze!")
+                print(f"   This will take a VERY LONG TIME (estimated: {commit_count * 3 // 60} minutes or more)")
+                print(f"   Consider selecting a smaller range for faster analysis.\n")
+                
+                confirm = self.fzf.run(
+                    items=[f"✅ Continue with {commit_count} commits (will take long time)", 
+                           "❌ Go back and select different range"],
+                    title=f"⚠️  Large Commit Range Detected: {commit_count} commits",
+                    prompt="Action> "
+                )
+                
+                if not confirm or "Go back" in confirm:
+                    # Reset and return False to go back
+                    self.end_tag = None
+                    return False
+            elif commit_count > 100:
+                print(f"\nℹ️  Note: Analyzing {commit_count} commits (estimated time: ~{commit_count * 3 // 60} minutes)\n")
+                input("Press Enter to continue...")
+        
         return True
     
     def phase4_choose_commit(self) -> bool:
@@ -605,6 +781,47 @@ class CommitDetectionTUI:
         # Extract commit hash
         self.commit_hash = selection.split(" ")[0]
         return True
+
+    def phase4b_enable_snyk(self) -> bool:
+        """Phase 4b: Enable/Disable Snyk Analysis"""
+        # If dynamic analysis is skipped, we might still want Snyk (static scan), 
+        # but user flow usually pairs them or treats Snyk as supplement.
+        # However, Snyk can run independently on the commit.
+        
+        # Check if snyk is available (optional but good UX)
+        snyk_available = False
+        if shutil.which("snyk") or (Path.cwd() / "node_modules/.bin/snyk").exists():
+            snyk_available = True
+            
+        options = [
+            "1. ✅ Enable Snyk Analysis",
+            "2. ❌ Skip Snyk Analysis"
+        ]
+        
+        status_msg = " (Available)" if snyk_available else " (Command not found - might fail)"
+        
+        selection = self.fzf.run(
+            items=options,
+            title=f"PHASE 4b: Snyk Security Analysis{status_msg}\nDo you want to run Snyk SAST on the identified commits?",
+            prompt="Snyk> "
+        )
+        
+        if not selection:
+            # Default to skip if cancelled? Or return False to go back?
+            # Let's return False to allow going back
+            return False
+            
+        if "Enable" in selection:
+            self.run_snyk = True
+            # Warn if token unlikely to be set? 
+            if not os.getenv("SNYK_TOKEN") and snyk_available:
+                # We can't easily check 'snyk auth' status here without potentially blocking or slow exec.
+                # Just proceed, main.py/snyk_analysis.py handles checks.
+                pass
+        else:
+            self.run_snyk = False
+            
+        return True
     
     def phase5_confirm_and_execute(self) -> Dict:
         """Phase 5: Confirm selection and prepare execution"""
@@ -641,10 +858,19 @@ class CommitDetectionTUI:
             summary_lines.append("  Status: Skipped")
         
         summary_lines.append("")
+
+        # Snyk analysis section
+        summary_lines.append("SNYK ANALYSIS:")
+        if self.run_snyk:
+            summary_lines.append("  Status: Enabled")
+        else:
+            summary_lines.append("  Status: Disabled")
+
+        summary_lines.append("")
         
         # Always show verification line at the end
-        if not self.skip_static and not self.skip_dynamic:
-            summary_lines.append("✅ Automatically verify both analyses after completion")
+        if not self.skip_static and (not self.skip_dynamic or self.run_snyk):
+            summary_lines.append("✅ Automatically verify analyses after completion")
         
         summary_lines.append("="*60)
         
@@ -668,7 +894,8 @@ class CommitDetectionTUI:
             'commit_hash': self.commit_hash,
             'skip_static': self.skip_static,
             'skip_dynamic': self.skip_dynamic,
-            'auto_verify': not self.skip_static and not self.skip_dynamic
+            'run_snyk': self.run_snyk,
+            'auto_verify': not self.skip_static and (not self.skip_dynamic or self.run_snyk)
         }
     
     def run(self) -> Optional[Dict]:
@@ -694,10 +921,18 @@ class CommitDetectionTUI:
         else:
             print("⏭️  Static analysis skipped\n")
         
-        # Phase 3: Choose end tag
-        if not self.phase3_choose_end_tag():
-            print("❌ End tag selection cancelled")
-            return None
+        # Phase 3: Choose end tag (with retry loop for large commit warnings)
+        while True:
+            if not self.phase3_choose_end_tag():
+                print("❌ End tag selection cancelled")
+                return None
+            
+            # If end_tag is None after returning False, user declined large commit warning
+            if self.end_tag is None and not self.skip_static:
+                print("🔄 Returning to end tag selection...\n")
+                continue
+            
+            break
         
         if not self.skip_static:
             if self.end_tag:
@@ -714,6 +949,16 @@ class CommitDetectionTUI:
             print(f"✅ Commit selected: {self.commit_hash}\n")
         else:
             print("⏭️  Dynamic analysis skipped\n")
+
+        # Phase 4b: Enable Snyk
+        if not self.phase4b_enable_snyk():
+             print("❌ Snyk selection cancelled")
+             return None
+             
+        if self.run_snyk:
+            print("✅ Snyk Analysis: Enabled\n")
+        else:
+            print("⏭️  Snyk Analysis: Skipped\n")
         
         # Phase 5: Confirm and execute
         config = self.phase5_confirm_and_execute()

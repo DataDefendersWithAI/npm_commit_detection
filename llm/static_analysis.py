@@ -22,13 +22,22 @@ Detects:
 import os
 import re
 import time
-from typing import Dict, List, Optional
+import subprocess
+import logging
+from typing import Dict, List, Optional, Tuple, Set
 from dataclasses import dataclass, field
 
 import tiktoken
-from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage, SystemMessage
-from langchain_core.prompts import ChatPromptTemplate
+
+from configs.static_config import StaticAnalysisConfig
+from configs.llm_config import LLMConfig
+from llm.service import LLMService
+import prompts.static_prompts as prompts
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -99,27 +108,30 @@ class StaticAnalyzer:
     }
     
     def __init__(self, model_name: str = None):
-        """Initialize static analyzer with LLM"""
-        api_key = os.getenv("OPENAI_API_KEY")
-        if not api_key:
-            raise ValueError("OPENAI_API_KEY environment variable not set")
+        """
+        Initialize static analyzer with LLM configuration.
         
-        # Read configuration from environment
-        self.model_name = model_name or os.getenv("LLM_MODEL", "gpt-4o-mini")
-        self.context_window = int(os.getenv("LLM_CONTEXT_WINDOW", "128000"))
-        self.max_output_tokens = 4000
-        self.max_retries = 3  # Maximum retry attempts for failed LLM calls
+        Args:
+            model_name: Name of the LLM model to use (default: env var or gpt-4o-mini)
+        """
+        # Read configuration from Config classes
+        self.model_name = model_name or StaticAnalysisConfig.MODEL
+        self.context_window = StaticAnalysisConfig.CONTEXT_WINDOW
+        
+        self.max_output_tokens = 4000 # Could be moved to config if needed
+        self.max_retries = 3
+        self.temperature = StaticAnalysisConfig.TEMPERATURE
+        self.concurrent_threads = LLMConfig.CONCURRENT_THREADS
         
         # Calculate max input tokens (reserve space for output and system prompt)
         self.max_input_tokens = self.context_window - self.max_output_tokens - 2000
         
-        self.llm = ChatOpenAI(
-            model=self.model_name,
-            temperature=0.1,  # Low temperature for more consistent analysis
-            max_tokens=self.max_output_tokens
+        self.llm = LLMService.get_llm(
+            model_name=self.model_name,
+            temperature=self.temperature
         )
         
-        # Initialize tokenizer for the model
+        # Initialize tokenizer for the model used for token counting
         try:
             self.tokenizer = tiktoken.encoding_for_model(self.model_name)
         except KeyError:
@@ -128,6 +140,40 @@ class StaticAnalyzer:
         
         self.issues: List[SecurityIssue] = []
         self.import_analyses: List[ImportAnalysis] = []
+        
+        # Path to the deobfuscation tool script
+        self.deobfuscator_script = os.path.join(
+            os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 
+            "tools", 
+            "deobfuscate.js"
+        )
+
+    def _deobfuscate_code(self, code: str) -> str:
+        """
+        Attempt to deobfuscate code using the de4js wrapper tool.
+        Returns the deobfuscated code or the original if failed/no change.
+        """
+        try:
+            # Use node to run the deobfuscator
+            process = subprocess.Popen(
+                ["node", self.deobfuscator_script],
+                stdin=subprocess.PIPE,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True
+            )
+            stdout, stderr = process.communicate(input=code)
+            
+            if process.returncode != 0:
+                logger.warning(f"Deobfuscation failed: {stderr}")
+                return code
+            
+            # If output is significantly different, return it
+            return stdout.strip() if stdout.strip() else code
+            
+        except Exception as e:
+            logger.error(f"Error running deobfuscator: {e}")
+            return code
     
     def analyze_commits(self, repository, commit_shas: List[str]) -> Dict:
         """
@@ -144,6 +190,7 @@ class StaticAnalyzer:
         self.import_analyses.clear()
         
         print(f"\n🔍 Starting static analysis of {len(commit_shas)} commits...")
+        print(f"   ⚙️  Configuration: {self.concurrent_threads} threads, Model: {self.model_name}")
         
         for idx, sha in enumerate(commit_shas, 1):
             print(f"  Analyzing commit {idx}/{len(commit_shas)}: {sha[:8]}...")
@@ -159,6 +206,17 @@ class StaticAnalyzer:
                 
                 # Pattern-based detection (fast)
                 suspicious_patterns = self._detect_suspicious_patterns(sha, diff)
+                
+                # Check for obfuscation and apply deobfuscation if needed
+                if 'obfuscation' in suspicious_patterns:
+                    logger.info(f"    ⚠️  Obfuscation detected in {sha[:8]}, attempting deobfuscation...")
+                    # We deobfuscate the diff (or specific parts if we could parse)
+                    # For now, we deobfuscate the whole diff string which might be messy, 
+                    # ideally we deobfuscate the added lines. But lets try passing it all.
+                    deobfuscated_diff = self._deobfuscate_code(diff)
+                    if deobfuscated_diff != diff:
+                         diff = deobfuscated_diff
+                         logger.info(f"    ✨ Deobfuscation successful (modified content)")
                 
                 # LLM-based deep analysis (for commits with changes or suspicious patterns)
                 if changes or suspicious_patterns:
@@ -303,7 +361,8 @@ class StaticAnalyzer:
         diff: str,
         suspicious_patterns: Dict[str, List[str]]
     ) -> None:
-        """Analyze commit with automatic chunking for large diffs"""
+        """Analyze commit with automatic parallel chunking for large diffs"""
+        from concurrent.futures import ThreadPoolExecutor, as_completed
         
         # Prepare base context (without diff)
         base_context = self._prepare_base_context(commit_sha, metadata, changes, suspicious_patterns)
@@ -326,28 +385,33 @@ class StaticAnalyzer:
         else:
             # Multiple requests with chunking
             chunks = self._split_diff_into_chunks(diff, available_tokens)
-            print(f"    🔀 Splitting into {len(chunks)} chunks")
+            print(f"    🔀 Splitting into {len(chunks)} chunks, processing with {self.concurrent_threads} threads parallel...")
             
-            previous_summary = ""
-            for idx, chunk in enumerate(chunks, 1):
-                chunk_tokens = self._count_tokens(chunk)
-                print(f"    📦 Analyzing chunk {idx}/{len(chunks)} ({chunk_tokens} tokens)...")
+            with ThreadPoolExecutor(max_workers=self.concurrent_threads) as executor:
+                futures = []
+                for idx, chunk in enumerate(chunks, 1):
+                    chunk_tokens = self._count_tokens(chunk)
+                    print(f"    📦 Scheduling chunk {idx}/{len(chunks)} ({chunk_tokens} tokens)...")
+                    
+                    futures.append(executor.submit(
+                        self._llm_analyze_commit,
+                        commit_sha, 
+                        metadata, 
+                        changes, 
+                        chunk, 
+                        suspicious_patterns, 
+                        base_context,
+                        chunk_index=idx,
+                        total_chunks=len(chunks),
+                        previous_summary=""  # Parallel execution cannot have previous summary
+                    ))
                 
-                self._llm_analyze_commit(
-                    commit_sha, 
-                    metadata, 
-                    changes, 
-                    chunk, 
-                    suspicious_patterns, 
-                    base_context,
-                    chunk_index=idx,
-                    total_chunks=len(chunks),
-                    previous_summary=previous_summary
-                )
-                
-                # Generate summary for next chunk
-                if idx < len(chunks):
-                    previous_summary = f"Previous chunk {idx} analysis completed. Continue analyzing remaining code."
+                # Wait for all chunks to complete
+                for future in as_completed(futures):
+                    try:
+                        future.result()
+                    except Exception as e:
+                        print(f"    ⚠️  Chunk analysis failed: {e}")
     
     def _prepare_base_context(
         self,
@@ -412,51 +476,13 @@ class StaticAnalyzer:
         context = '\n'.join(context_parts)
         
         # Create prompt
-        system_prompt = """You are a security expert analyzing code commits for potential vulnerabilities and malicious behavior.
-
-Your task is to analyze the provided commit and identify security issues in these categories:
-
-1. **Code Injection**: eval(), Function(), vm.runInNewContext, etc.
-2. **Suspicious Network Access**: Unexpected HTTP requests, data exfiltration to external servers
-3. **Data Leaks**: Exposure of sensitive data, credentials, tokens
-4. **Unsafe Environment Variables**: Accessing or exposing process.env variables unsafely
-5. **Crypto Activities**: Bitcoin, Ethereum, wallet operations, mining
-6. **Command Execution**: child_process, exec(), spawn() with untrusted input
-7. **Obfuscation**: Hex encoding, base64, String.fromCharCode chains
-
-For each issue found, provide:
-- Severity (CRITICAL, HIGH, MEDIUM, LOW)
-- Category
-- File path (extract from diff header, e.g., "diff --git a/src/file.js")
-- Line number (if identifiable)
-- Description
-- Code snippet
-- Recommendation
-
-Respond in JSON format:
-{
-  "issues": [
-    {
-      "severity": "HIGH",
-      "category": "code_injection",
-      "file": "src/utils.js",
-      "line": 42,
-      "description": "...",
-      "code_snippet": "...",
-      "recommendation": "..."
-    }
-  ],
-  "summary": "Brief summary of findings"
-}
-
-If no issues found, return {"issues": [], "summary": "No security issues detected"}."""
+        system_prompt = prompts.SYSTEM_PROMPT
 
         chunk_info = f" (chunk {chunk_index}/{total_chunks})" if total_chunks > 1 else ""
-        user_prompt = f"""Analyze this commit{chunk_info} for security vulnerabilities:
-
-{context}
-
-Respond in JSON format as specified."""
+        user_prompt = prompts.USER_PROMPT_TEMPLATE.format(
+            chunk_info=chunk_info,
+            context=context
+        )
 
         # Retry logic for LLM calls
         for attempt in range(self.max_retries):
@@ -483,27 +509,10 @@ Respond in JSON format as specified."""
                 # If parsing failed, retry with correction prompt
                 if attempt < self.max_retries - 1:
                     print(f"    🔄 Retry {attempt + 1}/{self.max_retries - 1}: Invalid JSON format, retrying...")
-                    user_prompt = f"""The previous response was not valid JSON. Please analyze this commit{chunk_info} and respond ONLY with valid JSON in this exact format:
-
-{{
-  "issues": [
-    {{
-      "severity": "HIGH",
-      "category": "code_injection",
-      "file": "path/to/file.js",
-      "line": 42,
-      "description": "Description of the issue",
-      "code_snippet": "problematic code",
-      "recommendation": "How to fix it"
-    }}
-  ],
-  "summary": "Brief summary of findings"
-}}
-
-Commit to analyze:
-{context}
-
-Respond ONLY with valid JSON, no markdown formatting, no extra text."""
+                    user_prompt = prompts.JSON_RETRY_PROMPT_TEMPLATE.format(
+                        chunk_info=chunk_info,
+                        context=context
+                    )
                     time.sleep(1)  # Brief delay before retry
                 else:
                     print(f"    ❌ Failed after {self.max_retries} attempts for {commit_sha[:8]}{chunk_info}")
@@ -621,51 +630,76 @@ Respond ONLY with valid JSON, no markdown formatting, no extra text."""
         return counts
     
     def generate_report(self, analysis_results: Dict) -> str:
-        """Generate human-readable report from analysis results"""
+        """
+        Generate a professional executive summary report of the security analysis.
+        
+        Format:
+        - Executive Summary
+        - Detailed Commit Analysis (grouping issues by commit)
+        - Statistical Footer
+        """
+        import datetime
+        
         lines = [
-            "\n" + "="*80,
-            "STATIC ANALYSIS REPORT",
+            "SECURITY ASSESSMENT REPORT",
+            f"Date: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
             "="*80,
-            f"\nTotal Security Issues Found: {analysis_results['total_issues']}",
+            "\n1. EXECUTIVE SUMMARY",
+            "-"*80,
+            f"A comprehensive security analysis was performed on {self.model_name}.",
+            f"Total Security Issues Identified: {analysis_results['total_issues']}",
         ]
         
         # Severity breakdown
-        lines.append("\nIssues by Severity:")
-        for severity, count in analysis_results['issues_by_severity'].items():
-            if count > 0:
-                lines.append(f"  {severity}: {count}")
+        if analysis_results['issues_by_severity']:
+            lines.append("\nSeverity Distribution:")
+            for severity, count in analysis_results['issues_by_severity'].items():
+                if count > 0:
+                    lines.append(f"- {severity}: {count} issue(s)")
         
-        # Category breakdown
-        lines.append("\nIssues by Category:")
-        for category, count in analysis_results['issues_by_category'].items():
-            lines.append(f"  {category}: {count}")
-        
-        # Import analysis
+        # Import analysis summary
         if self.import_analyses:
-            lines.append(f"\nImport Analysis:")
             suspicious_imports = sum(len(a.suspicious_imports) for a in self.import_analyses)
             if suspicious_imports > 0:
-                lines.append(f"  ⚠️  Suspicious imports detected: {suspicious_imports}")
+                lines.append(f"\nObserved {suspicious_imports} suspicious external dependencies that warrant further investigation.")
         
-        # Detailed issues
-        if self.issues:
-            lines.append("\n" + "-"*80)
-            lines.append("DETAILED ISSUES")
-            lines.append("-"*80)
-            
-            for idx, issue in enumerate(self.issues, 1):
-                lines.append(f"\n[{idx}] {issue.severity} - {issue.category}")
-                lines.append(f"    Commit: {issue.commit_sha[:8]}")
-                lines.append(f"    File: {issue.file_path}")
-                if issue.line_number:
-                    lines.append(f"    Line: {issue.line_number}")
-                lines.append(f"    Description: {issue.description}")
-                if issue.code_snippet:
-                    lines.append(f"    Code: {issue.code_snippet[:100]}...")
-                lines.append(f"    Recommendation: {issue.recommendation}")
+        lines.append("\n2. DETAILED COMMIT ANALYSIS")
+        lines.append("-" * 80)
         
-        lines.append("\n" + "="*80)
-        lines.append("END OF STATIC ANALYSIS REPORT")
-        lines.append("="*80 + "\n")
+        # Group issues by commit
+        issues_by_commit = {}
+        for issue in self.issues:
+            if issue.commit_sha not in issues_by_commit:
+                issues_by_commit[issue.commit_sha] = []
+            issues_by_commit[issue.commit_sha].append(issue)
         
+        suspicious_commits_count = len(issues_by_commit)
+        
+        if not issues_by_commit:
+            lines.append("No significant security issues were detected in the analyzed commits.")
+        else:
+            for sha, issues in issues_by_commit.items():
+                lines.append(f"\nCommit: {sha} (Issues: {len(issues)})")
+                lines.append("." * 40)
+                
+                for issue in issues:
+                    lines.append(f"  [{issue.severity}] {issue.category}")
+                    lines.append(f"  File: {issue.file_path}")
+                    if issue.line_number:
+                        lines.append(f"  Line: {issue.line_number}")
+                    lines.append(f"  Description: {issue.description}")
+                    lines.append(f"  Recommendation: {issue.recommendation}")
+                    lines.append("")
+        
+        lines.append("\n3. CONCLUSION & METRICS")
+        lines.append("-" * 80)
+        lines.append(f"Total Suspicious Commits: {suspicious_commits_count}")
+        
+        if suspicious_commits_count > 0:
+             lines.append("Recommendation: Immediate review of the flagged commits is advised.")
+        else:
+             lines.append("Recommendation: Routine monitoring should continue.")
+
+        lines.append("="*80)
         return '\n'.join(lines)
+

