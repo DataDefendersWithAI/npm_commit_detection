@@ -22,6 +22,17 @@
 - Failed Commits: 0
 - Empty Dynamic: 37
 
+## Timing Statistics (Seconds)
+
+| Metric | Max | Min | Average | Total |
+| :--- | :--- | :--- | :--- | :--- |
+| Pre-Analysis | 11.6662s | 0.0060s | 0.1577s | 31.53s |
+| Static Analysis | 15.3016s | 0.0000s | 2.9516s | 590.33s |
+| Dynamic Analysis | 82.9678s | 0.0009s | 17.7045s | 3540.90s |
+| Total Per Commit | 86.3693s | 0.0148s | 20.8138s | 4162.76s |
+
+**Overall Execution Time:** 69.38 minutes (4162.76 seconds)
+
 ## Predictions
 - malware: 127
 - benign: 73
