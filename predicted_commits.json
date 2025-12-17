@@ -1,0 +1,1002 @@
+[
+  {
+    "hash": "4e16637bb6d3267e9966b52678ac31fa0c096e30",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "d3c3f378a946e9d780d820841d58afb13e223ce8",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "aae3118a452965a886ed604e424f36bdae5ae619",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "98b1e819573c66ac133f1019714b0a7a71660643",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "a631ed877af9464c8ca0588772fdf55e5ce1d22d",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "64e45fcbb177d2d1fec73762e4657cd524700a12",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "4555d68f11e4d80bda4b66e24c9563a0cffa9c0e",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "1f970d963747dfe0002209263636f8af6684d37f",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "2829d6a2d0201ebc9eb79a135a19c86dc9aedb4d",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "d4c2e06ac41bd69f7e081d768a9f466bedcbe32c",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "9f99f902ec17f66b626885c8127814931a1400d0",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "657eccd74adad688b628734f3ac00b950ba71411",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "2e9e1ef8b99c75e3a9151d442b8a0d025572a00a",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "6abe477a53ef62b5eb479dc6925393ac526ddcec",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "3b4cebf4f3d6eeac49474e6413c03c0db282e0a1",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "40204310bd97936af6ef7463778bb91d3f04c1a7",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "df31d8f9fcbe9a518bd552e44f357632ea1281c4",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "063e90779ef2b46d08c54ac9a73ae4f4e686d726",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "8a258cc6412ec633c52dcdfca242290d980322d9",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "b2f02b1fb79178d388fd6c54284ac18c9aeb4980",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "e88a54becd722227b99a52ff45dd25c577904e82",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "1bff3b1d589da89f06811f9e8bec7dfcdf45d9e5",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "1ea0894cdb70e1927dcff195db673c8e6a67450b",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "40223784811d65875ce2b80b7aa73024f393fbf6",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "e85b5f5fc7f6dceff87b14176f9622e169c0d74e",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "ef03551ff4eed01552393d17b6f47d252e53acb1",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "ecda94ad9e4ed8faf5107a4e4fe9077eb49354d9",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "40ce970cb4606791b4d4d7a7c3683ade254ada0c",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "43d0641637702b43249dbb28d66df079c5d5e1f2",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "ba3478dff1ac8995199d57c262cbfc683f57ffac",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "c35a42570ff7587302f577b8b5ee57607b31a248",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "4a96c3124d4ea4beeed354c5874405846574c50f",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "acece12f68bd1aae87b3f0b61cec390ad050dc5f",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "7c6c00d8d7b0092f6c384d036c96452685b8da78",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "0ef45ef6f973cfe3aab27ab44c2076cf32d0cde3",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "99e7cd10e3730d1e1e4a4fe4b1962dbdb51eeac9",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "8dcad674120ab9830d38645679fd1aa7bf12768c",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "db9bb1e41079ee969fc2196ea62a541892797e24",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "41bb9d176216d2f0f14392b082875bf63ec241f8",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "54d80ea5d1b43927a17c6e983d39e67899f661f2",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "587b6c37ecb86aae48d5ed36680e6f7c5ff82ef2",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "ecbe5cc14e5b6db7f9119f19f7770acfb56ffbe7",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "3a840947e6b1a1fffdd63b56a554c0e73a621918",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "15eff7fd7b7b9932e4e6823fc6d2b127e163ca77",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "cc737e05d49866f1fbdcf34d1fe8cf4b91cf8cf7",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "6307c863bf796f357f0aefb1622934a262bca534",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "67eafb7dcd628d7985c691564ecd9d2db629f1f6",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "42c9932846df4126ba1e146014c53699d967fd09",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "9a3abb9bff6e73e910ef420c6701ae30f8a2117f",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "48841fd8bd754ecbb533754d1112eacf1f87a0ef",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "ee3a7ed8b922c747f0b4595f7e252a5e5ac55de9",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "bf8cc16eaa6da878b352aebe3a81fd02f41777a6",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "6c66a6530f02aec3c74b14babd024bf9a80c52a5",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "13f793318f774a2bd38d9b132f1a2cdf5b68cc84",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "00fbcb7215a6134f6b1b55fa4778a23028ca7f8f",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "d14e55446013ed8f0c3f5f8d4fea6032513d567b",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "796f51622ce2371052309e36bfd6c84841f5f0b3",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "1b66fbe015b16f0fe7c868616bd4b374592bdcb0",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "cb0f836b6f9d6289d17fb40678ed42858703155b",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "4cbbe59b07744482d1cbd35c2984db5eb3e6812c",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "2556adc6b19b89952a5d82ed4c133a1cfc5c95cd",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "9e1a012e3ccd5a5844e7246c21a7d08f4bfc66db",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "21e2e4a5d6a695450a0b4ac5fe8ca13bb17f06fc",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "09cec2fa2f46f2acd6357ea15c813cfb6e579af3",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "b72cf68917fb3eccf9d35f3227dc6bff2b420829",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "f73bb7fcb7ac3c1d9b1f2d28536f10f45c5fce2d",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "da457357e9b4eded92334c5de90ce8e547e34a86",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "8eead77bbf96dc0dcb17d6fc9ba570868ece46c8",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "c11f4498e91104fc9d35e26c528b11ff1623cfad",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "77a2089b39329de20d1691a5143bc5e9ca2bebdc",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "d8454ef88e8210cddc0a076cba95279fc1a991b5",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "d422bf5ed410b6a6ad167b4f06e03e3b229af50f",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "a3379174586e75f6f4a402153373fd48ed38b905",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "b349279173bacc88347d50ae2ac4b9a08b3a951c",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "2781d783cf85d5cabfd4faed79bc3a74ef9aede2",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "8ba357013b6acdbaf12835530d56d95e5de62091",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "b74e96ae0f395ccee793298f7f1704e2aaabe05c",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "0bc11083c04b0ddbfdd67cd7e651db98b6d47da1",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "6a4463a0743f353c585e59a5621a124c30df448a",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "150c42eb540aca56e57f178721487a92014b92e6",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "7eb5240a9f574522b9468e76d5117933a4aa0cb9",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "43a47be3df5af3242b3b319f74837065db274564",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "6f105c9c5c8f01b9ece5d274711b8fb47bfa1ea7",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "c297ebd39be7b972187ead4ba8316acd8248ff4b",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "9e61d809a8f9f6104c5363cc2305b932f777d8a0",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "28af515cdcab5cc78feb3edfa500845b091276bc",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "51c00013c4af89ec8021fa12969fe77be0ec7f3c",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "54ae8848158a234de7b43205b90b5c4aad01b988",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "1f9f37945efa1c8c2eaa81412c5d1fa6fa9eccab",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "f2b41665dd66adc737a3f95758a711cbd121ab2f",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "3275aaa2114fc7436ee8dc2ef5f349b18829dd19",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "a7d4ba46dd1771af48db0b4c42eb25b72ba705f8",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "07b083cfbd7095354bb66c2566c06675766c44dd",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "15b259928200dc5547076186c4cbb7207df85c1d",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "bcd7145618b92359215fbc47cda77bf596dcd17a",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "8d9a2efa5fba81ed51b4835309e55d30bf2dc775",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "2463b9222317aeecbecc947165be1ed92bb327d3",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "0313c3238830a3cb96339a1012848d5c68ec9fcc",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "d27d3f33cdd0ed624a2334fe33575a5d9bdcb89a",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "359e8c0b93e9e0aa6472ea6405d83f55efd05e20",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "ecacf0e1a49041345fbbfa2535a4b5956599c8bd",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "6309cb1c85c76048d161ed14e62283b740b636ff",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "d928529c79508fc4306a37b1ff308d48281a62e4",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "d6ffd09159737510b7f27d087d3808e825dd672c",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "26af85890c528d5e4ddc228d6a7b5671874f6a54",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "966b0458f552718d344a1526335c77fac764dab9",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "8739370a563ef4205bd4a7c125487298167f7b12",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "38b1b18310abef5565fd25fbe3d55d061ad0257f",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "5b1ce2ae4efa06dc6f62d1ff846a1719f03694ed",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "be91815b46dd5bea39c0c5a28917705ac2432365",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "e3eb6101b2efdb78e155acdbeadba520f369105c",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "0cdadc08cac9cf9e76594250684d3a06018e59ef",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "eedfb7848535784f9502327a3ea0f34369347d05",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "74fc536d4db7d26092965fb72613febd1867e41d",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "35bf02c1724128a4b8a71eac02f7a21043bc9620",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "70bfbb27bed6e880aec92018d8f19c4bb34629a3",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "cd0a3b541aafd6def3731d1af509cea0f3a17935",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "62e82314a910e14997b88c18dc452299fbd98e68",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "00eab55e3a32296c8030c15c058b8fc110f8e089",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "f72f09299f08019a099c2bad07dc7029c122361b",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "a33eac697ae5f0f9902ec8de6982ff0978094c59",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "23e60d3a558a991237d180690dff6fbf4b98b57c",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "896a4604e211f29ef4b1b257bcc87799431b674e",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "280f539bba94abf5e50dd0ff5273c3d16c65c6ff",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "527a9be6b5c2462f15fffa2cc79e0796115e7d9c",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "4a5a797fac962129ec09fbc32c91ec174f0a3a4c",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "eeca4bab1e2013adc38bd9f05aeabf37414125b2",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "6000b88b67627cd322ef293a3de568eeeec4ea39",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "e470e52cbdea0bf4a7c8a3c7033fa59d1d6a0f23",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "c5951d8286738d2bc7679aae3dd2e4abfb21d1bd",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "9ddfe6d493d1aea6e062645ddd80252ca49d7e94",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "279896f835c38c411a27ba68b5ce875531734acf",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "d1c5dff4d99dec6e6a5f31ac87001f7b14b0932a",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "31fd4f37ca1dbcc74557401c29f395f772ae0b3e",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "e9ba800375a19e507ccd2a00cffdfee859ba1675",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "701926878922e20798b6452c8854c18b47072314",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "a27375be51cbdc7d3dd103e901d3f1b8cb8819b8",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "a0b9a69d8c83952288dc26aef0cbe88266494456",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "18d0f143a9c853aa1ce76f18269e3aa7d7856c7b",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "0d0cb779e65f537a9a4503c2902c5991aa8b1eeb",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "14fb839e177ca1e9a8f6c1ec46f091efcbbb27c6",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "f31f195caa862e9608d7bcfd787bda0819f15b39",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "bd256296dc3beab8af90c3ce3888a06b3330ed87",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "fe2ca0bb33f349d74560562073e635038ec6245c",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "df017ad3353598ca23b8a20af3a7e5ab14139f88",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "35b8a7e8d997ce588bc6fdd778e370295127294e",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "ae887ff8747f5901674b6fa18eb3e67d65029050",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "7e2a772c30d1c06812db83545d36fda718b9cf47",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "43e9f03177e902129d588551a105cf1d76d0fc32",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "14c840f34b22728d1cb9a1c9f68f71a3b28cdd31",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "c90e59edfe37ae2765c0a5dabc7d900243579f1c",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "6299bde497cc9630e8da2434586dbb3f5b8ebf29",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "a561ea17e821975be3ff006af427351f7d674fe5",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "0e83ed5c3066d4df57becab2bc5cac1c14436f35",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "2d6dc83b429ebb1e2f1ac0c733f03c9eb3ea0ab0",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "a7aff4aa9c15cb73ea65f0ae593de6b7e630d5fb",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "33c855b09d8ca33fab33e9a17a714c9c25ca1088",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "8f47d451e7ce5bde5ed45ff598d4b12eb86abc3c",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "54f39708bc9f138ea82e72012e66f536a7735f55",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "3b1ce60b39202e129a4c42e98f883fff5ea66f4c",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "082bc95d936a69672c3fb9c4b77ef3f705f63f91",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "721cb1cd5d075b15291f0b01fd89f1042cad148c",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "38c22462b1f35cd00a6b9f5bc7becbc201dd0eb2",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "b21f8225909a39cf00643da92c1339f51d3db384",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "82fde081fe8a4cbdbb5a5590933c404f4c36ddf8",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "ec841458875c5a8906077c4afc2ae03de0d93270",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "c4f7da55e48053e92ccfd01df7efdbbfb0a29021",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "fa7dbef6015745e241986d13348b5dc06459b1a6",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "258d1838e2ae0d942839e20bd5064af0aca8aabe",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "37f1f83abf599438417889fa15970294e38f8cf1",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "3c6f1d05593966a7b4d3e9973e31e6fa08fc9717",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "7bdce9375fc512db8da0893c6471afce12c6c423",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "4298a4f4399d3d004c585c83110903113776d62b",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "60b761cc117ce6860b54686c15b81af43d52add3",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "fbf9cb99b29878b0e1838e75fdb1ae07d5ce5307",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "d8a375ea0422cb2e4ea07a8ec56aeeedbdd3552e",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "a51584de6b3e9bcc498bdc6fab57d9d05dea6880",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "d0542fee9b5d17da080e3992dd8afe31667289f9",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "f78cd51d6b577a41be960804898f02637b60d475",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "fbb9352377771d652ebdf8613f565e0905369614",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "d08a97a9cfc666a8d7a8d1bcb596bc9ca6275996",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "a9fc9e3abcfc5d88903265c3d729d6b815319140",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "82b251ea449338ab7c8b2f507d002b15c9b74a8b",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "cc8a240726fb7a9cfbf46f520369ba47fca641b7",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "3493b528eb195e85b0c4bde3e8884f552086e2ad",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "3977baca22e9e40ce5f4f6e8efdd81db815cd2dd",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "25581fd83c17a3c5d20beee51056e2fc9ee8779c",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "ff7fb6596e937337db581a68251c0f44085dd206",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "c032b17c3944305ddfefd6d5a15f84b71b78cf34",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "bb63fb3d14f65aaf139680a1e5c958455e00a129",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "ca06f6f6b50e1310b41efc374fcc7201b6681932",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "cdff1287e980e7f36874bcd756109fca5a56891d",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "508ac263dd8e2130cde28e4b9d56a8b2df6f529e",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "fbebef64c57fda4b7a1f54472177b5c9c15ae6f3",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "fc70c95682435f3c58ecf15bb719542906aa12f8",
+    "sample_folder": "mongoose",
+    "predict": "benign"
+  },
+  {
+    "hash": "d1cc8e63fdbccaf522999335dde89c5d276d9db1",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "b0f0c8a40a1b01ca8c884a618bb92639979a02e0",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "c6b1c53f11b28c6d50d4b537a36fe73b02bca7c2",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "15258dde08aec19f6815609cf6fcda01bf95c0e6",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  },
+  {
+    "hash": "d56090fb6dc0368b260db6043b47a8af4fef6994",
+    "sample_folder": "mongoose",
+    "predict": "malware"
+  }
+]

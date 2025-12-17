@@ -97,11 +97,11 @@ class DynamicAnalyzer:
             
             # Run npm pack
             result = subprocess.run(
-                ["npm", "pack"],
+                ["npm", "pack", "--ignore-scripts"],
                 cwd=repo_path,
-                check=True,
                 capture_output=True,
-                text=True
+                text=True,
+                check=True
             )
             
             # Extract .tgz filename from output

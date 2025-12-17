@@ -1,0 +1,91 @@
+{
+  "repository": "../collection_of_attacked_repo/mongoose",
+  "version": "69e9bb2fab0e1414524ca33e256eea0a10209de9",
+  "previous_version": "8.19.4",
+  "analysis_date": "2025-12-16T23:42:49.626387",
+  "total_commits": 1,
+  "pre_analysis": {
+    "metadata": {
+      "sensitive_files": {
+        "package.json": [
+          "69e9bb2f"
+        ]
+      },
+      "all_files_changed": [
+        "package.json"
+      ],
+      "total_files": 1
+    },
+    "contributors": {
+      "new_contributors": [
+        {
+          "name": "JakeClark",
+          "email": "jakeclark38b@gmail.com",
+          "commits": 1
+        }
+      ],
+      "suspicious_contributors": [
+        {
+          "name": "JakeClark",
+          "email": "jakeclark38b@gmail.com",
+          "trust": 0.02
+        }
+      ]
+    },
+    "changes": {
+      "total_additions": 50,
+      "total_deletions": 149,
+      "large_commits": [],
+      "dependency_changes": [
+        {
+          "sha": "69e9bb2f",
+          "file": "package.json",
+          "author": "JakeClark",
+          "additions": 50,
+          "deletions": 149
+        }
+      ]
+    }
+  },
+  "static_analysis": {
+    "total_issues": 4,
+    "issues": [
+      {
+        "severity": "CRITICAL",
+        "category": "command_execution",
+        "commit_sha": "69e9bb2fab0e1414524ca33e256eea0a10209de9",
+        "file_path": "package.json",
+        "line_number": 70,
+        "description": "The original `preinstall` script executes a local Node script (`malware_exfil.js`) and a shell script (`main_reverse_shell.sh`). This runs arbitrary code during the `npm install` phase, which can exfiltrate data, open a reverse shell, and execute further malicious commands on the host machine.",
+        "recommendation": "Remove any `preinstall`, `install`, or `postinstall` scripts that execute untrusted code. Audit the repository for the presence of `malware_exfil.js`, `main_reverse_shell.sh`, or any other suspicious files and delete them. Ensure that all scripts in `package.json` are limited to safe, deterministic build steps. Consider adding a CI check that flags any lifecycle scripts invoking external binaries or network activity."
+      },
+      {
+        "severity": "HIGH",
+        "category": "suspicious_network_access",
+        "commit_sha": "69e9bb2fab0e1414524ca33e256eea0a10209de9",
+        "file_path": "package.json",
+        "line_number": 70,
+        "description": "The `preinstall` script likely contacts external servers (as indicated by the presence of `malware_exfil.js`). This can be used to exfiltrate project files, credentials, or other sensitive data to an attacker\u2011controlled endpoint.",
+        "recommendation": "Search the removed `malware_exfil.js` file for any HTTP/HTTPS requests or other network calls. Remove or replace it with a legitimate script that does not perform outbound network communication. Add network\u2011access restrictions in CI environments to prevent unauthorized outbound traffic during install."
+      },
+      {
+        "severity": "HIGH",
+        "category": "code_injection",
+        "commit_sha": "69e9bb2fab0e1414524ca33e256eea0a10209de9",
+        "file_path": "package.json",
+        "line_number": 70,
+        "description": "Running `node malware_exfil.js` during install can execute arbitrary JavaScript code that may use `eval`, `Function`, or other dynamic code execution techniques to further compromise the environment.",
+        "recommendation": "Inspect `malware_exfil.js` for any use of `eval`, `Function`, `vm.runInNewContext`, or similar APIs. Eliminate any such usage. Prefer static, audited code for build steps."
+      },
+      {
+        "severity": "MEDIUM",
+        "category": "obfuscation",
+        "commit_sha": "69e9bb2fab0e1414524ca33e256eea0a10209de9",
+        "file_path": "package.json",
+        "line_number": 70,
+        "description": "The presence of scripts named `malware_exfil.js` and `main_reverse_shell.sh` suggests intentional obfuscation of malicious intent. While the file names themselves are not encoded, the naming pattern is a common indicator of hidden malicious behavior.",
+        "recommendation": "Rename any legitimate scripts to clear, descriptive names. Conduct a full repository scan for base64, hex, or other encoded payloads that may be used to hide malicious code."
+      }
+    ]
+  }
+}

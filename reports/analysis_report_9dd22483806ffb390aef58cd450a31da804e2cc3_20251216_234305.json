@@ -1,0 +1,165 @@
+{
+  "repository": "../collection_of_attacked_repo/mongoose",
+  "version": "9dd22483806ffb390aef58cd450a31da804e2cc3",
+  "previous_version": "69e9bb2fab0e1414524ca33e256eea0a10209de9",
+  "analysis_date": "2025-12-16T23:43:05.178516",
+  "total_commits": 1,
+  "pre_analysis": {
+    "metadata": {
+      "sensitive_files": {
+        "package.json": [
+          "9dd22483"
+        ],
+        "tsconfig.json": [
+          "9dd22483"
+        ]
+      },
+      "all_files_changed": [
+        ".editorconfig",
+        "src/createSchemaFile.ts",
+        "tsconfig.json",
+        "build.mjs",
+        "tsconfig.build.json",
+        "src/types/type.ts",
+        "src/main.ts",
+        "src/options.ts",
+        "todo.txt",
+        "addShebang.mjs",
+        "README.md",
+        ".eslintrc.json",
+        "package.json",
+        "src/toZod.ts",
+        ".eslintignore",
+        "src/init.ts",
+        "mysqlToZod.config.js",
+        "jest.config.json",
+        "src/dbManipulateFunctions.ts",
+        ".prettierignore"
+      ],
+      "total_files": 20
+    },
+    "contributors": {
+      "new_contributors": [
+        {
+          "name": "JakeClark",
+          "email": "jakeclark38b@gmail.com",
+          "commits": 1
+        }
+      ],
+      "suspicious_contributors": [
+        {
+          "name": "JakeClark",
+          "email": "jakeclark38b@gmail.com",
+          "trust": 0.02
+        }
+      ]
+    },
+    "changes": {
+      "total_additions": 568,
+      "total_deletions": 427,
+      "large_commits": [
+        {
+          "sha": "9dd22483",
+          "author": "JakeClark",
+          "changes": 995,
+          "files": 20
+        }
+      ],
+      "dependency_changes": [
+        {
+          "sha": "9dd22483",
+          "file": "package.json",
+          "author": "JakeClark",
+          "additions": 64,
+          "deletions": 49
+        }
+      ]
+    }
+  },
+  "static_analysis": {
+    "total_issues": 9,
+    "issues": [
+      {
+        "severity": "HIGH",
+        "category": "data_leaks",
+        "commit_sha": "9dd22483806ffb390aef58cd450a31da804e2cc3",
+        "file_path": "mysqlToZod.config.js",
+        "line_number": 6,
+        "description": "Hard\u2011coded database credentials (username and password) are committed to source control, exposing sensitive information that could be used to gain unauthorized access to the MySQL instance.",
+        "recommendation": "Remove the credentials from the source file. Store connection details in environment variables or a secure secrets manager (e.g., process.env.DB_URL) and reference them in the config. Ensure the file containing secrets is added to .gitignore and never committed."
+      },
+      {
+        "severity": "MEDIUM",
+        "category": "suspicious_dependency",
+        "commit_sha": "9dd22483806ffb390aef58cd450a31da804e2cc3",
+        "file_path": "package.json",
+        "line_number": 45,
+        "description": "The package `crossenv` (version ^0.0.2-security) is added as a devDependency. The name and version suggest it could be a malicious or compromised package that may perform unwanted actions such as data exfiltration, code injection, or execution of arbitrary commands during the build process.",
+        "recommendation": "Verify the origin and integrity of the `crossenv` package. Check its source repository, review its code, and ensure it is a legitimate, maintained library. If the functionality is not required, remove it. Consider pinning to a known safe version or replacing it with a well\u2011known alternative."
+      },
+      {
+        "severity": "LOW",
+        "category": "command_execution",
+        "commit_sha": "9dd22483806ffb390aef58cd450a31da804e2cc3",
+        "file_path": "package.json",
+        "line_number": 30,
+        "description": "The `build` script uses `zx` to execute JavaScript files (`build.mjs` and `addShebang.mjs`). `zx` runs scripts with full shell access, which could be abused if those scripts are compromised or if an attacker can modify them.",
+        "recommendation": "Review the contents of `build.mjs` and `addShebang.mjs` to ensure they do not contain unsafe shell commands or accept untrusted input. Limit the execution environment (e.g., avoid running as root) and consider adding linting or static analysis to detect dangerous patterns."
+      },
+      {
+        "severity": "HIGH",
+        "category": "data_leak",
+        "commit_sha": "9dd22483806ffb390aef58cd450a31da804e2cc3",
+        "file_path": "src/init.ts",
+        "line_number": 13,
+        "description": "Hard\u2011coded MySQL connection string with clear\u2011text credentials (`root:root`). Committing secrets to source control exposes them to anyone with repository access and can be leaked publicly if the repo is ever made public.",
+        "recommendation": "Remove hard\u2011coded credentials. Load the connection string from a secure source such as environment variables (e.g., `process.env.MYSQL_CONNECTION`) or a secrets manager. Ensure the `.env` file is added to `.gitignore` and never committed. Consider validating the format of the connection string before use."
+      },
+      {
+        "severity": "MEDIUM",
+        "category": "unsafe_environment_variables",
+        "commit_sha": "9dd22483806ffb390aef58cd450a31da804e2cc3",
+        "file_path": "src/init.ts",
+        "line_number": 30,
+        "description": "The code merges a user\u2011provided `dbConnection` argument (from `process.argv`) directly into the configuration without any validation or sanitisation. An attacker who can influence command\u2011line arguments could inject a malicious connection string that might be used later for unintended network connections.",
+        "recommendation": "Validate the `dbConnection` value (e.g., using a URL parser) before accepting it. Prefer explicit configuration via environment variables or a vetted config file rather than arbitrary command\u2011line input."
+      },
+      {
+        "severity": "LOW",
+        "category": "code_injection",
+        "commit_sha": "9dd22483806ffb390aef58cd450a31da804e2cc3",
+        "file_path": "src/init.ts",
+        "line_number": 20,
+        "description": "The `cosmiconfig` library loads a JavaScript configuration file (`mysqlToZod.config.js`). If an attacker can place or modify this file, arbitrary code will be executed during `explorer.search()`. While this is expected behaviour of the library, it can be a vector for code injection if the config location is not controlled.",
+        "recommendation": "Restrict the locations from which configuration files can be loaded and ensure they are owned by a trusted user. Consider using a static JSON/YAML config format that does not execute code, or sandbox the loaded module."
+      },
+      {
+        "severity": "MEDIUM",
+        "category": "code_injection",
+        "commit_sha": "9dd22483806ffb390aef58cd450a31da804e2cc3",
+        "file_path": "src/main.ts",
+        "line_number": 45,
+        "description": "The script concatenates raw database schema information directly into a TypeScript source string (`str += `${s}\\n${EOL}`;`) and writes it to disk. If an attacker can influence the database schema (e.g., by creating a table or column name containing malicious code), that code will be emitted into the generated file and could be executed later when the file is imported, leading to a code\u2011injection risk.",
+        "recommendation": "Sanitize and validate all parts of `tableDefinition` before embedding them into generated source code. Prefer using a templating library that escapes identifiers, or generate code using AST utilities instead of string concatenation. Additionally, enforce a whitelist of allowed characters for table/column names."
+      },
+      {
+        "severity": "LOW",
+        "category": "unsafe_environment_variables",
+        "commit_sha": "9dd22483806ffb390aef58cd450a31da804e2cc3",
+        "file_path": "src/main.ts",
+        "line_number": 38,
+        "description": "The script builds the output file path using `process.cwd()` combined with user\u2011controlled `outFilePath` and `fileName`. If those values are not validated, an attacker could cause the program to write files outside the intended directory (path traversal).",
+        "recommendation": "Validate and normalize `outFilePath` and `fileName` to ensure they do not contain `..` or absolute paths. Use `path.resolve` and compare the result against an allowed base directory before writing."
+      },
+      {
+        "severity": "MEDIUM",
+        "category": "code_injection",
+        "commit_sha": "9dd22483806ffb390aef58cd450a31da804e2cc3",
+        "file_path": "src/dbManipulateFunctions.ts",
+        "line_number": 19,
+        "description": "Potential SQL injection vulnerability: the table name is interpolated into the query using a placeholder, but the placeholder is not supplied as an array/object as required by mysql2. This could allow crafted input to break the query syntax or be executed unintentionally.",
+        "recommendation": "Pass the identifier placeholder value as an array (e.g., `await connection.query('SHOW CREATE TABLE ??', [tableName])`) and validate `tableName` against an allow\u2011list of known tables. Consider using a library function that safely escapes identifiers."
+      }
+    ]
+  }
+}

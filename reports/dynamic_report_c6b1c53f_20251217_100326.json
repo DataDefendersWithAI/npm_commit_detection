@@ -1,0 +1,146 @@
+{
+  "status": "finished",
+  "id": "eebb35d9-a42b-49b2-ac87-5667cdf816e4",
+  "result": [
+    {
+      "output_fields": {
+        "container.name": "some-container-eebb35d9-a42b-49b2-ac87-5667cdf816e4.tgz",
+        "container.id": "bc553123a3eb",
+        "fd.name": "172.17.0.2:38060->34.199.134.30:443",
+        "user.name": "root",
+        "container.image.repository": "maldep",
+        "proc.cmdline": "curl https://eo536ohsnextro9.m.pipedream.net",
+        "evt.time": "03:00:17.466133191"
+      },
+      "time": {
+        "seconds": "1765940417",
+        "nanos": 466133191
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "03:00:17.466133191: Notice Disallowed outbound connection destination (command=curl https://eo536ohsnextro9.m.pipedream.net connection=172.17.0.2:38060->34.199.134.30:443 user=root container_id=bc553123a3eb container_name=some-container-eebb35d9-a42b-49b2-ac87-5667cdf816e4.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "fd.name": "172.17.0.2:60880->54.196.60.80:443",
+        "evt.time": "03:00:17.466142712",
+        "container.image.repository": "maldep",
+        "user.name": "root",
+        "container.name": "some-container-eebb35d9-a42b-49b2-ac87-5667cdf816e4.tgz",
+        "proc.cmdline": "curl https://eo536ohsnextro9.m.pipedream.net",
+        "container.id": "bc553123a3eb"
+      },
+      "time": {
+        "seconds": "1765940417",
+        "nanos": 466142712
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "03:00:17.466142712: Notice Disallowed outbound connection destination (command=curl https://eo536ohsnextro9.m.pipedream.net connection=172.17.0.2:60880->54.196.60.80:443 user=root container_id=bc553123a3eb container_name=some-container-eebb35d9-a42b-49b2-ac87-5667cdf816e4.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "evt.time": "03:00:17.466150031",
+        "container.image.repository": "maldep",
+        "container.id": "bc553123a3eb",
+        "user.name": "root",
+        "container.name": "some-container-eebb35d9-a42b-49b2-ac87-5667cdf816e4.tgz",
+        "proc.cmdline": "curl https://eo536ohsnextro9.m.pipedream.net",
+        "fd.name": "172.17.0.2:59900->54.234.209.145:443"
+      },
+      "time": {
+        "seconds": "1765940417",
+        "nanos": 466150031
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "03:00:17.466150031: Notice Disallowed outbound connection destination (command=curl https://eo536ohsnextro9.m.pipedream.net connection=172.17.0.2:59900->54.234.209.145:443 user=root container_id=bc553123a3eb container_name=some-container-eebb35d9-a42b-49b2-ac87-5667cdf816e4.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "user.name": "root",
+        "container.name": "some-container-eebb35d9-a42b-49b2-ac87-5667cdf816e4.tgz",
+        "container.image.repository": "maldep",
+        "container.id": "bc553123a3eb",
+        "fd.name": "172.17.0.2:57324->23.21.111.217:443",
+        "evt.time": "03:00:17.466157575",
+        "proc.cmdline": "curl https://eo536ohsnextro9.m.pipedream.net"
+      },
+      "time": {
+        "seconds": "1765940417",
+        "nanos": 466157575
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "03:00:17.466157575: Notice Disallowed outbound connection destination (command=curl https://eo536ohsnextro9.m.pipedream.net connection=172.17.0.2:57324->23.21.111.217:443 user=root container_id=bc553123a3eb container_name=some-container-eebb35d9-a42b-49b2-ac87-5667cdf816e4.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.image.repository": "maldep",
+        "container.id": "bc553123a3eb",
+        "evt.time": "03:00:17.466164832",
+        "fd.name": "172.17.0.2:49093->34.202.219.121:443",
+        "container.name": "some-container-eebb35d9-a42b-49b2-ac87-5667cdf816e4.tgz",
+        "proc.cmdline": "curl https://eo536ohsnextro9.m.pipedream.net",
+        "user.name": "root"
+      },
+      "time": {
+        "seconds": "1765940417",
+        "nanos": 466164832
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "03:00:17.466164832: Notice Disallowed outbound connection destination (command=curl https://eo536ohsnextro9.m.pipedream.net connection=172.17.0.2:49093->34.202.219.121:443 user=root container_id=bc553123a3eb container_name=some-container-eebb35d9-a42b-49b2-ac87-5667cdf816e4.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "evt.time": "03:00:17.466171873",
+        "container.id": "bc553123a3eb",
+        "container.image.repository": "maldep",
+        "proc.cmdline": "curl https://eo536ohsnextro9.m.pipedream.net",
+        "fd.name": "172.17.0.2:47875->54.81.210.145:443",
+        "user.name": "root",
+        "container.name": "some-container-eebb35d9-a42b-49b2-ac87-5667cdf816e4.tgz"
+      },
+      "time": {
+        "seconds": "1765940417",
+        "nanos": 466171873
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "03:00:17.466171873: Notice Disallowed outbound connection destination (command=curl https://eo536ohsnextro9.m.pipedream.net connection=172.17.0.2:47875->54.81.210.145:443 user=root container_id=bc553123a3eb container_name=some-container-eebb35d9-a42b-49b2-ac87-5667cdf816e4.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.image.repository": "maldep",
+        "evt.time": "03:00:17.466606619",
+        "fd.name": "172.17.0.2:39968->34.199.134.30:443",
+        "proc.cmdline": "curl https://eo536ohsnextro9.m.pipedream.net",
+        "container.name": "some-container-eebb35d9-a42b-49b2-ac87-5667cdf816e4.tgz",
+        "user.name": "root",
+        "container.id": "bc553123a3eb"
+      },
+      "time": {
+        "seconds": "1765940417",
+        "nanos": 466606619
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "03:00:17.466606619: Notice Disallowed outbound connection destination (command=curl https://eo536ohsnextro9.m.pipedream.net connection=172.17.0.2:39968->34.199.134.30:443 user=root container_id=bc553123a3eb container_name=some-container-eebb35d9-a42b-49b2-ac87-5667cdf816e4.tgz image=maldep)",
+      "hostname": "vagrant"
+    }
+  ]
+}

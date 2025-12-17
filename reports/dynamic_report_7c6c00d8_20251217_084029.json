@@ -1,0 +1,26 @@
+{
+  "status": "finished",
+  "id": "d4fdc091-c7dd-4dcd-afdf-0262bc1bec4e",
+  "result": [
+    {
+      "output_fields": {
+        "container.id": "9e5ccfecdbda",
+        "proc.cmdline": "node /usr/bin/npm install --unsafe-perm",
+        "fd.name": "172.17.0.2:36912->20.205.243.165:443",
+        "container.name": "some-container-d4fdc091-c7dd-4dcd-afdf-0262bc1bec4e.tgz",
+        "user.name": "root",
+        "evt.time": "01:40:14.553368815",
+        "container.image.repository": "maldep"
+      },
+      "time": {
+        "seconds": "1765935614",
+        "nanos": 553368815
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "01:40:14.553368815: Notice Disallowed outbound connection destination (command=node /usr/bin/npm install --unsafe-perm connection=172.17.0.2:36912->20.205.243.165:443 user=root container_id=9e5ccfecdbda container_name=some-container-d4fdc091-c7dd-4dcd-afdf-0262bc1bec4e.tgz image=maldep)",
+      "hostname": "vagrant"
+    }
+  ]
+}
