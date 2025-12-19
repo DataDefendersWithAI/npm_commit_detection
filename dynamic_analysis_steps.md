@@ -56,3 +56,7 @@ Inside repo:
 + 100 commits containing 50 safe, 50 unsafe, run how many commits mal.
 + Note obfuscate tool: https://github.com/javascript-obfuscator/javascript-obfuscator
 
+Wait, We will need to check a little bit about obfuscation and deobfuscation. * Install obfuscator at `$ npm install --save-dev javascript-obfuscator`
+* Use it to obfuscate simple code
+* Then make a new LLM agent with role is a deobfuscator, check that if commit need to deobfuscate, if yes use de4js tool I provided inside my code, deobfuscate, and try to fix code to meaningful/original code. With that step, inside static analysis you will check if I previously implemented tool usage at static analysis agent, if yes remove it
+* Use the new LLM agent to test obfuscated simple code, and then 

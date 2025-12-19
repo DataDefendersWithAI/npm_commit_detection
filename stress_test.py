@@ -7,7 +7,13 @@ from pathlib import Path
 from dotenv import load_dotenv
 import signal
 import requests
+import requests
 import glob
+import argparse
+import contextlib
+import io
+from tqdm import tqdm
+import statistics
 
 load_dotenv()
 
@@ -22,7 +28,7 @@ from analyzers.pre_analysis import Repository
 from llm.static_analysis import StaticAnalyzer
 from tools.dynamic_analysis import DynamicAnalyzer
 from llm.service import LLMService
-from llm.verification import VerificationAnalyzer, DynamicAnalysisParser
+from llm.verification import VerificationAnalyzer, DynamicAnalysisParser, VerificationResult
 from configs.static_config import StaticAnalysisConfig
 from langchain_core.messages import HumanMessage, SystemMessage
 
@@ -32,28 +38,99 @@ PREV_TAG = "8.19.4"
 PREDICTED_COMMITS_FILE = "predicted_commits.json"
 REPORT_FILE = "stress_test_report.md"
 
-def recalculate_empty_dynamic(num_commits):
-    """Recalculate empty dynamic count from actual report files"""
-    report_files = glob.glob('reports/dynamic_report_*.json')
-    report_files.sort(key=os.path.getmtime, reverse=True)
-    latest_reports = report_files[:num_commits]
-    
-    empty_count = 0
-    for report_path in latest_reports:
-        try:
-            with open(report_path, 'r') as f:
-                data = json.load(f)
-            
-            # Case 1: "status": "finished" and "result": []
-            if data.get('status') == 'finished' and isinstance(data.get('result'), list) and not data.get('result'):
-                empty_count += 1
-            # Case 2: Generic error or empty dict
-            elif not data or 'error' in data:
-                empty_count += 1
-        except Exception:
-            empty_count += 1  # Count read errors as empty
-    
     return empty_count
+
+def calculate_accuracy_metrics(predictions):
+    """Calculate accuracy metrics against truth file"""
+    truth_file = 'truth_commits.json'
+    if not os.path.exists(truth_file):
+        truth_file = 'truth_subset_commits.json'
+        
+    if not os.path.exists(truth_file):
+        return None
+        
+    try:
+        with open(truth_file, 'r') as f:
+            truth = json.load(f)
+            
+        truth_map = {item['hash']: item['label'] for item in truth}
+        
+        tp = fp = tn = fn = unknown = missing = 0
+        
+        for pred in predictions:
+            h = pred['hash']
+            p_label = pred['predict']
+            
+            if h not in truth_map:
+                missing += 1
+                continue
+                
+            t_label = truth_map[h]
+            
+            if p_label == 'malware':
+                if t_label == 'malware': tp += 1
+                else: fp += 1
+            elif p_label == 'benign':
+                if t_label == 'benign': tn += 1
+                else: fn += 1
+            else:
+                unknown += 1
+                
+        total_eval = tp + fp + tn + fn
+        if total_eval == 0:
+            return None
+            
+        acc = (tp + tn) / total_eval
+        prec = tp / (tp + fp) if (tp + fp) > 0 else 0
+        rec = tp / (tp + fn) if (tp + fn) > 0 else 0
+        f1 = 2 * (prec * rec) / (prec + rec) if (prec + rec) > 0 else 0
+        
+        return {
+            "tp": tp, "fp": fp, "tn": tn, "fn": fn,
+            "accuracy": acc, "precision": prec, "recall": rec, "f1": f1,
+            "missing": missing, "unknown": unknown, "total_eval": total_eval
+        }
+    except Exception as e:
+        print(f"Error checking accuracy: {e}")
+        return None
+
+def calculate_timing_stats(timings):
+    """Calculate statistics from timings list"""
+    if not timings:
+        return None
+        
+    keys = ['pre_analysis_time', 'static_analysis_time', 'dynamic_analysis_time', 'verification_time']
+    stats = {}
+    
+    # Calculate totals per phase
+    totals = {k: sum(d.get(k, 0) for d in timings) for k in keys}
+    
+    # Calculate total per (successful) commit
+    # Note: Using sum of all phases for each commit
+    total_per_commit = []
+    for d in timings:
+        t = sum(d.get(k, 0) for k in keys)
+        total_per_commit.append(t)
+        
+    overall_total = sum(total_per_commit)
+    
+    def get_stat(values):
+        if not values: return {'max':0, 'min':0, 'avg':0, 'total':0}
+        return {
+            'max': max(values),
+            'min': min(values),
+            'avg': statistics.mean(values),
+            'total': sum(values)
+        }
+
+    for k in keys:
+        values = [d.get(k, 0) for d in timings]
+        stats[k] = get_stat(values)
+        
+    stats['total_per_commit'] = get_stat(total_per_commit)
+    stats['overall_wall_clock'] = overall_total
+    
+    return stats
 
 def get_commits(repo_path, from_tag, to_tag):
     try:
@@ -90,26 +167,84 @@ def simple_verification(commit_sha, static_json, dynamic_json):
     Dynamic Analysis:
     {json.dumps(dynamic_json, indent=2)}
     
-    With all analysis from static and dynamic is this commit benign or malware? If malware, say malware, and if benign, say benign.
+    With all analysis from static and dynamic is this commit benign or malware?
+    
+    Provide your response in JSON format with the following structure:
+    {{
+        "verdict": "MALWARE" or "BENIGN",
+        "findings": [
+            {{
+                "file": "file path",
+                "line": line number (int/string),
+                "code": "relevant code snippet",
+                "reason": "explanation of why this specific part is suspicious/safe"
+            }}
+        ],
+        "general_reason": "Overall summary of the decision"
+    }}
+    output only the json.
     """
     
     messages = [
-        SystemMessage(content="You are a security expert. Output only 'malware' or 'benign'."),
+        SystemMessage(content="You are a security expert. Output only valid JSON."),
         HumanMessage(content=prompt)
     ]
     
     try:
         response = llm.invoke(messages)
-        content = response.content.strip().lower()
-        import re
-        content_clean = re.sub(r'[^\w\s]', '', content)
-        words = content_clean.split()
-        if words:
-            return words[-1]
+        content = response.content.strip()
+        
+        # Remove markdown code blocks if present
+        if content.startswith("```json"):
+            content = content[7:]
+        if content.endswith("```"):
+            content = content[:-3]
+        content = content.strip()
+        
+        try:
+            data = json.loads(content)
+        except json.JSONDecodeError:
+            # Fallback: try to find json block
+            import re
+            match = re.search(r'\{.*\}', content, re.DOTALL)
+            if match:
+                data = json.loads(match.group(0))
+            else:
+                raise ValueError("Could not parse JSON response")
+
+        verdict = data.get("verdict", "unknown").lower()
+        
+        # Format explanation string
+        lines = []
+        findings = data.get("findings", [])
+        general_reason = data.get("general_reason", "")
+        
+        for f in findings:
+            file_path = f.get("file", "Unknown file")
+            line_num = f.get("line", "?")
+            code = f.get("code", "").strip()
+            reason = f.get("reason", "")
+            
+            lines.append(f"**At line {line_num} file {file_path}**:")
+            if code:
+                # Truncate if too long (200 chars)
+                code_snippet = code.replace('\n', ' ')[:200]
+                lines.append(f"Code: `{code_snippet}`")
+            lines.append(f"Reason: {reason}")
+            lines.append("")
+            
+        if general_reason:
+            lines.append(f"**Summary:** {general_reason}")
+            
+        explanation = "\n".join(lines).strip()
+        if not explanation:
+            explanation = "No detailed findings provided."
+            
+        return verdict, explanation
+
     except Exception as e:
         print(f"LLM invocation failed: {e}")
-    
-    return "unknown"
+        return "unknown", f"Analysis failed: {e}"
 
 def advanced_verification(commit_sha, static_output, dynamic_report_path):
     """
@@ -143,25 +278,78 @@ def advanced_verification(commit_sha, static_output, dynamic_report_path):
         high_sev_dynamic = any(f.severity in ['HIGH', 'CRITICAL'] for f in result.suspicious_dynamic_only)
         
         if high_sev_static or high_sev_dynamic:
-            return "malware"  # Conservative: flag high-severity unverified as malware
+            return "malware", result  # Conservative: flag high-severity unverified as malware
         
-        return "benign"
+        return "benign", result
         
     except Exception as e:
         print(f"  Advanced verification failed: {e}")
         import traceback
         traceback.print_exc()
-        return "unknown"
+        return "unknown", None
+
+def format_verification_explanation(result: VerificationResult) -> str:
+    """Format verification result into detailed explanation string"""
+    if not result:
+        return "<No details available>"
+        
+    lines = []
+    
+    # 1. Matched Findings (Highest Confidence)
+    matches = result.static_dynamic_matches + result.static_snyk_matches + result.snyk_dynamic_matches
+    for f1, f2 in matches:
+        # Prefer static finding for file/line info if available
+        base = f1 if f1.source == 'static' else f2
+        file_path = base.file_path or "Unknown file"
+        line_num = base.line_number or "?"
+        
+        lines.append(f"**At line {line_num} file {file_path}**:")
+        if base.evidence:
+             # Truncate evidence if too long
+             evidence = base.evidence.strip()[:200].replace('\n', ' ')
+             lines.append(f"Code: `{evidence}`")
+             
+        lines.append(f"Reason: {base.description}")
+        lines.append(f"Confirmed by {f2.source}: {f2.description}")
+        lines.append("")
+
+    # 2. Unmatched High Severity
+    suspicious = [f for f in result.suspicious_static_only if f.severity in ['HIGH', 'CRITICAL']]
+    suspicious += [f for f in result.suspicious_dynamic_only if f.severity in ['HIGH', 'CRITICAL']]
+    
+    for f in suspicious:
+        file_path = f.file_path or "Unknown file"
+        line_num = f.line_number or "?"
+        
+        lines.append(f"**At line {line_num} file {file_path}**:")
+        if f.evidence:
+             evidence = f.evidence.strip()[:200].replace('\n', ' ')
+             lines.append(f"Code: `{evidence}`")
+        
+        lines.append(f"Reason: [{f.source.upper()}] {f.description}")
+        lines.append("")
+        
+    if not lines:
+        return "No significant issues detailed."
+        
+    return "\n".join(lines).strip()
 
 def main():
+    # Parse arguments
+    parser = argparse.ArgumentParser(description="Stress Test Commit Detection")
+    parser.add_argument("-v", "--verbose", action="store_true", help="Enable verbose output")
+    args = parser.parse_args()
+
     abs_repo_path = Path(REPO_PATH).resolve()
-    print(f"Target Repo: {abs_repo_path}")
+    if args.verbose:
+        print(f"Target Repo: {abs_repo_path}")
     
     # Ensure clean state before starting
     cleanup_repo(str(abs_repo_path))
     
     commits = get_commits(str(abs_repo_path), PREV_TAG, VERSION_TAG)
-    print(f"Found {len(commits)} commits to analyze between {PREV_TAG} and {VERSION_TAG}.")
+    if args.verbose:
+        print(f"Found {len(commits)} commits to analyze between {PREV_TAG} and {VERSION_TAG}.")
     
     if not commits:
         print("No commits found.")
@@ -181,10 +369,23 @@ def main():
     static_analyzer = StaticAnalyzer()
     dynamic_analyzer = DynamicAnalyzer()
     
-    for i, commit in enumerate(commits):
-        print(f"\n[{i+1}/{len(commits)}] Processing commit {commit[:8]}...")
+    dynamic_analyzer = DynamicAnalyzer()
+    
+    # Setup iterator
+    if args.verbose:
+        commit_iter = enumerate(commits)
+    else:
+        commit_iter = enumerate(tqdm(commits, desc="Analyzing Commits", unit="commit"))
+
+    for i, commit in commit_iter:
+        if args.verbose:
+            print(f"\n[{i+1}/{len(commits)}] Processing commit {commit[:8]}...")
+            
+        # Context manager to suppress output if not verbose
+        cm = contextlib.nullcontext() if args.verbose else contextlib.redirect_stdout(io.StringIO())
         
-        # Ensure clean state before each dynamic analysis checkout attempt
+        with cm:
+            # Ensure clean state before each dynamic analysis checkout attempt
         cleanup_repo(str(abs_repo_path))
         
         static_res = {}
@@ -257,9 +458,8 @@ def main():
         verification_start = time.time()
         verification_duration = 0.0
         try:
-            # Use advanced verification with VerificationAnalyzer
-            # Falls back to simple if advanced fails  
-            prediction = advanced_verification(commit, static_output, report_path)
+            # Use simple verification as requested (more robust/consistent for USER)
+            prediction, explanation = simple_verification(commit, static_output, dynamic_res)
             verification_duration = time.time() - verification_start
             
             label = "unknown"
@@ -273,7 +473,8 @@ def main():
             predictions.append({
                 "hash": commit,
                 "sample_folder": "mongoose",
-                "predict": label
+                "predict": label,
+                "explanation": explanation
             })
             print(f"  Result: {label.upper()}")
             
@@ -303,6 +504,10 @@ def main():
     # Recalculate empty dynamic count from actual report files
     actual_empty_dynamic = recalculate_empty_dynamic(len(commits))
     
+    # Calculate accuracy and timing metrics
+    accuracy_metrics = calculate_accuracy_metrics(predictions)
+    timing_stats = calculate_timing_stats(timings)
+    
     # Write Report
     with open(REPORT_FILE, 'w') as f:
         f.write("# Stress Test Report\n\n")
@@ -320,8 +525,36 @@ def main():
         for k, v in stats["predictions"].items():
             f.write(f"- {k}: {v}\n")
             
-        f.write("\n## Accuracy\n")
-        f.write("Accuracy could not be calculated automatically without `truth_commits.json`.\n")
+        f.write("\n## Accuracy Metrics\n")
+        if accuracy_metrics:
+            am = accuracy_metrics
+            f.write(f"- Accuracy: {am['accuracy']:.2%}\n")
+            f.write(f"- Precision: {am['precision']:.2%}\n")
+            f.write(f"- Recall: {am['recall']:.2%}\n")
+            f.write(f"- F1 Score: {am['f1']:.2%}\n")
+            f.write(f"\n*Evaluated against {am['total_eval']} commits (TP:{am['tp']} FP:{am['fp']} TN:{am['tn']} FN:{am['fn']}). Missing/Unknown: {am['missing']}/{am['unknown']}*\n")
+        else:
+            f.write("Could not calculate accuracy (Missing truth file or no matches).\n")
+
+        f.write("\n## Timing Statistics (Seconds)\n")
+        if timing_stats:
+            f.write("| Metric | Max | Min | Average | Total |\n")
+            f.write("| :--- | :--- | :--- | :--- | :--- |\n")
+            for k, v in timing_stats.items():
+                if k != 'overall_wall_clock':
+                    name = k.replace('_', ' ').title()
+                    f.write(f"| {name} | {v['max']:.4f}s | {v['min']:.4f}s | {v['avg']:.4f}s | {v['total']:.2f}s |\n")
+            f.write(f"\n**Overall Wall Clock Time:** {timing_stats['overall_wall_clock']/60:.2f} minutes ({timing_stats['overall_wall_clock']:.2f} seconds)\n")
+        else:
+            f.write("No timing data available.\n")
+        
+        f.write("\n## Detailed Commits\n")
+        for p in predictions:
+            f.write(f"### Commit {p['hash'][:8]}: {p['predict'].capitalize()}\n")
+            if p.get('explanation'):
+                f.write(f"{p['explanation']}\n\n")
+            else:
+                f.write("No detailed explanation available.\n\n")
     
     print(f"Saved report to {REPORT_FILE}")
 
