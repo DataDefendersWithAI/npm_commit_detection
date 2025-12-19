@@ -32,7 +32,66 @@ load_dotenv()
 class NormalizedFinding:
     """Unified schema for static, dynamic, and snyk analysis findings"""
     finding_id: str
-# ... (lines 32-200 same) ...
+    source: str
+    severity: str
+    category: str
+    file_path: Optional[str] = None
+    line_number: Optional[int] = None
+    commit_sha: Optional[str] = None
+    description: str = ""
+    evidence: str = ""
+    recommendation: str = ""
+    verification_status: str = "UNVERIFIED"
+    matched_finding_ids: List[str] = field(default_factory=list)
+    # Dynamic specific
+    command: Optional[str] = None
+    process: Optional[str] = None
+    source_ip: Optional[str] = None
+    dest_ip: Optional[str] = None
+    dest_port: Optional[int] = None
+
+@dataclass
+class VerificationResult:
+    """Holistic result of verification process"""
+    static_dynamic_matches: List[Tuple[NormalizedFinding, NormalizedFinding]] = field(default_factory=list)
+    static_snyk_matches: List[Tuple[NormalizedFinding, NormalizedFinding]] = field(default_factory=list)
+    snyk_dynamic_matches: List[Tuple[NormalizedFinding, NormalizedFinding]] = field(default_factory=list)
+    
+    suspicious_static_only: List[NormalizedFinding] = field(default_factory=list)
+    suspicious_dynamic_only: List[NormalizedFinding] = field(default_factory=list)
+    suspicious_snyk_only: List[NormalizedFinding] = field(default_factory=list)
+    
+    is_malicious: bool = False
+    malicious_confidence: float = 0.0
+    llm_analysis: str = ""
+    comprehensive_report: str = ""
+
+class DynamicAnalysisParser:
+    """Parse dynamic analysis logs (Package Hunter)"""
+    
+    def parse_package_hunter_log(self, log_path: str) -> List[Dict]:
+        """Parse JSON output from Package Hunter"""
+        try:
+            with open(log_path, 'r') as f:
+                data = json.load(f)
+            
+            # Handle standard Package Hunter JSON report
+            if isinstance(data, dict):
+                # If wrapped in { status: ..., result: [...] }
+                if 'result' in data and isinstance(data['result'], list):
+                    return data['result']
+                # If wrapped in { report: [...] } or similar (fallback)
+                return []
+            
+            # If raw list
+            if isinstance(data, list):
+                return data
+                
+            return []
+        except Exception as e:
+            print(f"Error parsing dynamic log: {e}")
+            return []
+
 
 class VerificationAnalyzer:
     """Verify and compare static vs dynamic analysis using LLM"""

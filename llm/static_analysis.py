@@ -214,8 +214,9 @@ class StaticAnalyzer:
             'assets/', 'static/', 'public/',
             'dist/', 'build/', 'out/', 'coverage/',
             'node_modules/', 'vendor/',
-            '.github/', '.vscode/', '.idea/',
+            '.vscode/', '.idea/',
             'examples/', 'samples/',
+            # Note: .github/ intentionally NOT ignored to detect CI poisoning
         ]
 
         # Timing stats

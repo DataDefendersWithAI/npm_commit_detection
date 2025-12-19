@@ -20,7 +20,7 @@
 - Total Commits Analyzed: 200
 - Failed Requests: 0
 - Failed Commits: 0
-- Empty Dynamic: 37
+- Empty Dynamic: 161
 
 ## Timing Statistics (Seconds)
 
@@ -36,4 +36,3 @@
 ## Predictions
 - malware: 127
 - benign: 73
-

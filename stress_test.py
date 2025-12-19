@@ -7,6 +7,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 import signal
 import requests
+import glob
 
 load_dotenv()
 
@@ -21,6 +22,7 @@ from analyzers.pre_analysis import Repository
 from llm.static_analysis import StaticAnalyzer
 from tools.dynamic_analysis import DynamicAnalyzer
 from llm.service import LLMService
+from llm.verification import VerificationAnalyzer, DynamicAnalysisParser
 from configs.static_config import StaticAnalysisConfig
 from langchain_core.messages import HumanMessage, SystemMessage
 
@@ -29,6 +31,29 @@ VERSION_TAG = "8.19.5"
 PREV_TAG = "8.19.4"
 PREDICTED_COMMITS_FILE = "predicted_commits.json"
 REPORT_FILE = "stress_test_report.md"
+
+def recalculate_empty_dynamic(num_commits):
+    """Recalculate empty dynamic count from actual report files"""
+    report_files = glob.glob('reports/dynamic_report_*.json')
+    report_files.sort(key=os.path.getmtime, reverse=True)
+    latest_reports = report_files[:num_commits]
+    
+    empty_count = 0
+    for report_path in latest_reports:
+        try:
+            with open(report_path, 'r') as f:
+                data = json.load(f)
+            
+            # Case 1: "status": "finished" and "result": []
+            if data.get('status') == 'finished' and isinstance(data.get('result'), list) and not data.get('result'):
+                empty_count += 1
+            # Case 2: Generic error or empty dict
+            elif not data or 'error' in data:
+                empty_count += 1
+        except Exception:
+            empty_count += 1  # Count read errors as empty
+    
+    return empty_count
 
 def get_commits(repo_path, from_tag, to_tag):
     try:
@@ -52,7 +77,7 @@ def cleanup_repo(repo_path):
         print(f"Warning: Failed to cleanup repo: {e}")
 
 def simple_verification(commit_sha, static_json, dynamic_json):
-    # Use model from config instead of hardcoded
+    """Legacy simple verification - single LLM call"""
     model_name = StaticAnalysisConfig.MODEL
     llm = LLMService.get_llm(model_name=model_name, temperature=0.0)
     
@@ -85,6 +110,48 @@ def simple_verification(commit_sha, static_json, dynamic_json):
         print(f"LLM invocation failed: {e}")
     
     return "unknown"
+
+def advanced_verification(commit_sha, static_output, dynamic_report_path):
+    """
+    Advanced verification using VerificationAnalyzer
+    - Normalizes static and dynamic findings
+    - Uses LLM to correlate findings across tools
+    - Returns verdict based on evidence matching
+    """
+    try:
+        verifier = VerificationAnalyzer()
+        
+        # Normalize static findings
+        static_findings = verifier.normalize_static_findings(static_output)
+        
+        # Parse and normalize dynamic findings
+        dynamic_events = []
+        if dynamic_report_path and os.path.exists(dynamic_report_path):
+            parser = DynamicAnalysisParser()
+            dynamic_events = parser.parse_package_hunter_log(dynamic_report_path)
+        dynamic_findings = verifier.normalize_dynamic_findings(dynamic_events)
+        
+        # Compare findings
+        result = verifier.compare_findings(static_findings, dynamic_findings, snyk_findings=None)
+        
+        # Determine verdict
+        if result.is_malicious:
+            return "malware"
+        
+        # If no confirmed malicious matches but high-severity unverified findings exist
+        high_sev_static = any(f.severity in ['HIGH', 'CRITICAL'] for f in result.suspicious_static_only)
+        high_sev_dynamic = any(f.severity in ['HIGH', 'CRITICAL'] for f in result.suspicious_dynamic_only)
+        
+        if high_sev_static or high_sev_dynamic:
+            return "malware"  # Conservative: flag high-severity unverified as malware
+        
+        return "benign"
+        
+    except Exception as e:
+        print(f"  Advanced verification failed: {e}")
+        import traceback
+        traceback.print_exc()
+        return "unknown"
 
 def main():
     abs_repo_path = Path(REPO_PATH).resolve()
@@ -122,6 +189,8 @@ def main():
         
         static_res = {}
         dynamic_res = {}
+        static_output = {}  # Full output for advanced verification
+        report_path = None  # Dynamic report path for advanced verification
         analysis_failed = False
         
         # STATIC ANALYSIS
@@ -164,6 +233,12 @@ def main():
             if report_path:
                 with open(report_path, 'r') as f:
                     dynamic_res = json.load(f)
+                
+                # Check for empty result specifically
+                # Example: {"status": "finished", "id": "...", "result": []}
+                if dynamic_res.get('status') == 'finished' and isinstance(dynamic_res.get('result'), list) and not dynamic_res.get('result'):
+                    print("  Dynamic analysis finished with empty result (no findings).")
+                    stats["empty_dynamic"] += 1
             else:
                 print("  Dynamic analysis returned no report.")
                 stats["empty_dynamic"] += 1
@@ -174,26 +249,18 @@ def main():
             analysis_failed = True
             dynamic_duration = 0.0
 
-        # Record Timing
-        timing_entry = {
-            "commit": commit,
-            "pre_analysis_time": commit_timings['pre_analysis'],
-            "static_analysis_time": commit_timings['static_analysis'],
-            "dynamic_analysis_time": dynamic_duration
-        }
-        timings.append(timing_entry)
-        
-        # Save incremental timings
-        with open('predicted_time.json', 'w') as f:
-            json.dump(timings, f, indent=2)
-
         if analysis_failed:
             stats["failed_commits"] += 1
         
-        # Verification
-        print("  Running Verification...")
+        # Verification (using advanced multi-tool correlation)
+        print("  Running Advanced Verification...")
+        verification_start = time.time()
+        verification_duration = 0.0
         try:
-            prediction = simple_verification(commit, static_res, dynamic_res)
+            # Use advanced verification with VerificationAnalyzer
+            # Falls back to simple if advanced fails  
+            prediction = advanced_verification(commit, static_output, report_path)
+            verification_duration = time.time() - verification_start
             
             label = "unknown"
             if "malware" in prediction:
@@ -212,12 +279,30 @@ def main():
             
         except Exception as e:
             print(f"  Verification failed: {e}")
+            verification_duration = time.time() - verification_start
             stats["failed_requests"] += 1
+        
+        # Record Timing (now includes verification time)
+        timing_entry = {
+            "commit": commit,
+            "pre_analysis_time": commit_timings['pre_analysis'],
+            "static_analysis_time": commit_timings['static_analysis'],
+            "dynamic_analysis_time": dynamic_duration,
+            "verification_time": verification_duration
+        }
+        timings.append(timing_entry)
+        
+        # Save incremental timings
+        with open('predicted_time.json', 'w') as f:
+            json.dump(timings, f, indent=2)
             
-        # Incremental save
+        # Incremental save predictions
         with open(PREDICTED_COMMITS_FILE, 'w') as f:
             json.dump(predictions, f, indent=2)
 
+    # Recalculate empty dynamic count from actual report files
+    actual_empty_dynamic = recalculate_empty_dynamic(len(commits))
+    
     # Write Report
     with open(REPORT_FILE, 'w') as f:
         f.write("# Stress Test Report\n\n")
@@ -229,7 +314,7 @@ def main():
         f.write(f"- Total Commits Analyzed: {stats['total_commits']}\n")
         f.write(f"- Failed Requests: {stats['failed_requests']}\n")
         f.write(f"- Failed Commits: {stats['failed_commits']}\n")
-        f.write(f"- Empty Dynamic: {stats['empty_dynamic']}\n")
+        f.write(f"- Empty Dynamic: {actual_empty_dynamic}\n")
         
         f.write("\n## Predictions\n")
         for k, v in stats["predictions"].items():
