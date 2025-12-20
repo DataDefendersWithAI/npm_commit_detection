@@ -538,6 +538,21 @@ def main():
     accuracy_metrics = calculate_accuracy_metrics(predictions)
     timing_stats = calculate_timing_stats(timings)
     
+
+    # Load truth labels for report
+    truth_map = {}
+    truth_file = 'truth_commits.json'
+    if not os.path.exists(truth_file):
+        truth_file = 'truth_subset_commits.json'
+    
+    if os.path.exists(truth_file):
+        try:
+            with open(truth_file, 'r') as f:
+                truth_data = json.load(f)
+            truth_map = {item['hash']: item['label'] for item in truth_data}
+        except Exception as e:
+            print(f"Warning: Could not load truth file for report labels: {e}")
+
     # Write Report
     with open(REPORT_FILE, 'w') as f:
         f.write("# Stress Test Report\n\n")
@@ -580,11 +595,20 @@ def main():
         
         f.write("\n## Detailed Commits\n")
         for p in predictions:
-            f.write(f"### Commit {p['hash'][:8]}: {p['predict'].capitalize()}\n")
+            commit_hash = p['hash']
+            f.write(f"### Commit {commit_hash[:8]}: {p['predict'].capitalize()}\n")
             if p.get('explanation'):
-                f.write(f"{p['explanation']}\n\n")
+                f.write(f"{p['explanation']}\n")
             else:
-                f.write("No detailed explanation available.\n\n")
+                f.write("No detailed explanation available.\n")
+            
+            # Add Truth label
+            if commit_hash in truth_map:
+                t_label = truth_map[commit_hash]
+                # Capitalize: malware -> Malware, benign -> Benign
+                f.write(f"**Truth label:** {t_label.capitalize()}\n\n")
+            else:
+                f.write("**Truth label:** Unknown\n\n")
     
     print(f"Saved report to {REPORT_FILE}")
 

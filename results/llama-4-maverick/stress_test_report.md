@@ -44,6 +44,8 @@ Reason: The 'pingback' script makes an HTTP request to a potentially suspicious 
 
 **Summary:** The static analysis revealed a critical issue with a potentially suspicious external endpoint being accessed, indicating possible malicious activity. Although the dynamic analysis did not yield any results, the presence of a critical issue in the static analysis is sufficient to classify the commit as malware.
 
+**Truth label:** Benign
+
 ### Commit d3c3f378: Malware
 **File index.js**:
 Code: `HTTPS request to 'exzuperi.ftp.sh' on port 449`
@@ -63,11 +65,15 @@ Reason: The presence of a hidden message or signature in the 'test' script could
 
 **Summary:** The commit is classified as malware due to multiple critical and medium severity issues identified during static analysis, including suspicious network access, data exfiltration, and potential backdoor or contact information for the attacker. The dynamic analysis did not provide additional insights but the static analysis findings are sufficient to conclude the commit is malicious.
 
+**Truth label:** Malware
+
 ### Commit aae3118a: Benign
 **File package.json**:
 Reason: The package 'zxcvbnmmmmmmkjhgfdssss' is likely a typo or an unused package, and its presence is not conclusive evidence of malware. The 'docs:check-links' script accessing 'http://127.0.0.1:8089' is likely a local development server and not indicative of malware.
 
 **Summary:** The static analysis raised concerns about a suspicious package and a potential information leak. However, the dynamic analysis did not reveal any malicious activity. Given the context, the commit is likely benign, possibly containing a typo or unused package, and the network access is related to a local development server.
+
+**Truth label:** Benign
 
 ### Commit 98b1e819: Malware
 **File package.json**:
@@ -80,6 +86,8 @@ Reason: Clear case of data exfiltration, sending sensitive system information to
 
 **Summary:** The commit contains code that makes suspicious network requests and exfiltrates sensitive system information, indicating malicious intent.
 
+**Truth label:** Malware
+
 ### Commit a631ed87: Malware
 **File package.json**:
 Code: `nslookup operation to ex.sysdum.net`
@@ -91,11 +99,17 @@ Reason: The 'pingback' script makes an HTTP request to a potentially malicious U
 
 **Summary:** The commit contains scripts that perform suspicious network activities, including exfiltrating sensitive information and making requests to potentially malicious URLs, indicating malware behavior.
 
+**Truth label:** Malware
+
 ### Commit 64e45fcb: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating the commit is likely benign.
 
+**Truth label:** Benign
+
 ### Commit 4555d68f: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign.
+
+**Truth label:** Benign
 
 ### Commit 1f970d96: Malware
 **File lib/index.js**:
@@ -107,6 +121,8 @@ Code: `'cors-parser' dependency`
 Reason: The 'cors-parser' package is not a standard or well-known package, potentially indicating suspicious network access or a malicious dependency.
 
 **Summary:** The commit contains a potentially vulnerable function call to 'cors_parser()' and a suspicious dependency 'cors-parser' in 'package.json', indicating a possible malware or backdoor.
+
+**Truth label:** Malware
 
 ### Commit 2829d6a2: Benign
 **File repeat-str.cjs**:
@@ -123,6 +139,8 @@ Reason: Suspicious URLs detected in commit message, but dynamic analysis did not
 
 **Summary:** The static analysis raised some concerns, but the dynamic analysis did not detect any malicious behavior. The issues identified can be addressed through code review and reformatting.
 
+**Truth label:** Benign
+
 ### Commit d4c2e06a: Malware
 **File index.js**:
 Reason: The code is sending sensitive system information to an external server via HTTPS POST request, indicating malicious data exfiltration.
@@ -132,8 +150,12 @@ Reason: The code is collecting and sending sensitive system information such as 
 
 **Summary:** The static analysis revealed critical and high-severity issues related to sending sensitive system information to an external server, indicating malicious activity. Although the dynamic analysis did not provide additional insights, the static analysis findings are sufficient to classify the commit as malware.
 
+**Truth label:** Malware
+
 ### Commit 9f99f902: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign.
+
+**Truth label:** Benign
 
 ### Commit 657eccd7: Malware
 **File package.json**:
@@ -146,6 +168,8 @@ Reason: The commit message contains a link to a Telegram channel, which could be
 
 **Summary:** The commit contains suspicious network access patterns and potentially malicious communication channels, indicating a possible malware presence.
 
+**Truth label:** Benign
+
 ### Commit 2e9e1ef8: Malware
 **File index.js**:
 Code: `Not Available`
@@ -156,6 +180,8 @@ Code: `Not Available`
 Reason: The code connects to a remote server using a hardcoded URL and port, potentially exfiltrating data or establishing a backdoor.
 
 **Summary:** The commit contains code that establishes a reverse shell and connects to a hardcoded remote server, indicating malicious intent and a significant security risk.
+
+**Truth label:** Malware
 
 ### Commit 6abe477a: Malware
 **File package.json**:
@@ -176,6 +202,8 @@ Reason: Potential exposure of sensitive information, contributing to the larger 
 
 **Summary:** The commit is classified as malware due to multiple critical and high-severity issues identified in the static analysis, including data leaks and suspicious network access to external servers. The dynamic analysis did not provide additional insights but the static findings are sufficient to determine the commit is malicious.
 
+**Truth label:** Malware
+
 ### Commit 3b4cebf4: Benign
 **File data.js**:
 Reason: The data.js file is flagged for containing a large amount of data, but no obvious security issues related to network access were found. The commit message and code changes suggest it was added in this commit, and upon review, it does not contain any sensitive information.
@@ -185,11 +213,17 @@ Reason: The demo.js file uses the require function to import index.js and contai
 
 **Summary:** The static analysis raised some concerns regarding data.js and demo.js, but upon closer inspection, the issues were not critical or indicative of malware. The dynamic analysis did not yield any results indicating malicious behavior. Therefore, the commit is considered benign.
 
+**Truth label:** Benign
+
 ### Commit 40204310: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign.
 
+**Truth label:** Benign
+
 ### Commit df31d8f9: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating the commit is likely benign.
+
+**Truth label:** Benign
 
 ### Commit 063e9077: Malware
 **File installer.js**:
@@ -206,12 +240,16 @@ Reason: The 'pingback' script is making a request to a suspicious domain, indica
 
 **Summary:** The commit contains multiple indicators of malware behavior, including suspicious network requests, potential command execution vulnerabilities, and data exfiltration. The static analysis revealed critical and high-severity issues that are characteristic of malicious code.
 
+**Truth label:** Malware
+
 ### Commit 8a258cc6: Malware
 **File package.json**:
 Code: `pingback script making HTTP request to https://eo536ohsnextro9.m.pipedream.net`
 Reason: The 'pingback' script is making an HTTP request to an external server, which could be used for data exfiltration or other malicious purposes.
 
 **Summary:** The commit is flagged as malware due to the suspicious 'pingback' script in package.json, which makes an HTTP request to an external server. Although the dynamic analysis did not reveal any issues, the static analysis raised a medium-severity concern that warrants caution.
+
+**Truth label:** Benign
 
 ### Commit b2f02b1f: Malware
 **File index.js**:
@@ -228,6 +266,8 @@ Reason: The presence of a Telegram link might indicate suspicious communication 
 
 **Summary:** The commit is classified as malware due to the presence of critical issues such as suspicious network access and data leaks, indicating potential malicious activity.
 
+**Truth label:** Malware
+
 ### Commit e88a54be: Malware
 **File jquery.min.js**:
 Code: `AJAX request to 'https://api-web-vrip.hanznesia.my.id/?cat='`
@@ -238,6 +278,8 @@ Code: `Use of String.fromCharCode and hexadecimal encoding`
 Reason: The presence of obfuscated code is a red flag, as it can be used to hide malicious functionality.
 
 **Summary:** The commit contains suspicious network activity and obfuscated code, indicating potential malware. Although the dynamic analysis did not yield any results, the static analysis findings are concerning enough to classify this commit as malware.
+
+**Truth label:** Malware
 
 ### Commit 1bff3b1d: Malware
 **File index.js**:
@@ -253,6 +295,8 @@ Code: `Suspicious 'pingback' and 'preinstall' scripts`
 Reason: These scripts could be used to execute malicious code during the package installation process, indicating a potential backdoor or malware persistence mechanism.
 
 **Summary:** The commit is flagged as malware due to critical issues identified in the static analysis, including the leakage of sensitive system information and suspicious network requests. The dynamic analysis did not provide additional insights but the static findings are sufficient to classify the commit as malicious.
+
+**Truth label:** Malware
 
 ### Commit 1ea0894c: Malware
 **File index.js**:
@@ -273,8 +317,12 @@ Reason: The code reads data from a serial port and prints it to the console, pot
 
 **Summary:** The commit contains multiple critical and high-severity issues, including command injection vulnerabilities and obfuscated code, indicating a high likelihood of malicious intent.
 
+**Truth label:** Benign
+
 ### Commit 40223784: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign.
+
+**Truth label:** Benign
 
 ### Commit e85b5f5f: Malware
 **File package.json**:
@@ -286,6 +334,8 @@ Code: `'pingback': 'curl https://eo536ohsnextro9.m.pipedream.net'`
 Reason: The 'pingback' script makes an HTTP request to a potentially malicious URL, which could be used for data exfiltration or other malicious activities.
 
 **Summary:** The commit contains scripts that make HTTP requests to potentially malicious URLs, indicating possible data exfiltration or other malicious activities, hence classified as malware.
+
+**Truth label:** Benign
 
 ### Commit ef03551f: Malware
 **File lib/service.js**:
@@ -301,6 +351,8 @@ Code: `node /usr/local/bin/npm install --unsafe-perm connection=172.17.0.2:38048
 Reason: The dynamic analysis shows a disallowed outbound connection during 'npm install', suggesting potential malicious activity or unauthorized communication.
 
 **Summary:** The commit is classified as malware due to suspicious network activities, including a non-standard API endpoint access and a disallowed outbound connection during the execution of 'npm install'. These behaviors are indicative of potential malicious activity.
+
+**Truth label:** Benign
 
 ### Commit ecda94ad: Malware
 **File jquery.min.js**:
@@ -321,6 +373,8 @@ Reason: Made an outbound connection to 20.205.243.165:443, which is considered a
 
 **Summary:** The commit contains multiple indicators of malicious activity, including suspicious network access, potentially malicious packages, and disallowed outbound connections. These findings collectively suggest that the commit is likely to be malware.
 
+**Truth label:** Malware
+
 ### Commit 40ce970c: Malware
 **File Unknown (code not provided)**:
 Code: `Potential use of 'exec'`
@@ -340,6 +394,8 @@ Reason: The dynamic analysis reveals an outbound connection to an external IP ad
 
 **Summary:** The commit is classified as malware due to multiple indicators of potentially malicious behavior, including a potential command injection vulnerability, suspicious container naming, use of '--unsafe-perm' with npm install, and an unexpected outbound network connection.
 
+**Truth label:** Malware
+
 ### Commit 43d06416: Malware
 **File not available**:
 Code: `node /usr/local/bin/npm install --unsafe-perm`
@@ -350,6 +406,8 @@ Code: `connection=172.17.0.2:38060->20.205.243.165:443`
 Reason: An outbound connection is made to a potentially malicious IP address (20.205.243.165), which is flagged by the rule 'Unexpected outbound connection destination'.
 
 **Summary:** The dynamic analysis reveals a suspicious outbound connection and the execution of 'npm install --unsafe-perm', indicating potential malicious activity. The static analysis did not raise any issues, but the dynamic analysis findings suggest that the commit is likely to be malware.
+
+**Truth label:** Benign
 
 ### Commit ba3478df: Malware
 **File not available**:
@@ -366,6 +424,8 @@ Reason: The container image is named 'maldep', which suggests it could be relate
 
 **Summary:** The dynamic analysis reveals a potentially malicious container making an unexpected outbound connection to a potentially malicious IP address. The use of 'npm install --unsafe-perm' with a container image named 'maldep' further indicates a potential malware behavior.
 
+**Truth label:** Benign
+
 ### Commit c35a4257: Malware
 **File not available**:
 Code: `node /usr/local/bin/npm install --unsafe-perm`
@@ -377,12 +437,16 @@ Reason: An outbound connection is made to a potentially malicious destination (2
 
 **Summary:** The dynamic analysis reveals a potentially malicious activity where a container makes an unexpected outbound connection to a destination that is flagged as disallowed. The use of '--unsafe-perm' with 'npm install' and the image 'maldep' further raises security concerns, indicating that this commit is likely to be malware.
 
+**Truth label:** Benign
+
 ### Commit 4a96c312: Malware
 **File commit 4a96c3124d4ea4beeed354c5874405846574c50f**:
 Code: `node /usr/local/bin/npm install --unsafe-perm`
 Reason: The use of '--unsafe-perm' with 'npm install' can potentially allow arbitrary code execution, and the connection to an external IP (20.205.243.165:443) is flagged as a disallowed outbound connection destination.
 
 **Summary:** The dynamic analysis revealed a suspicious outbound connection to an external IP address while running 'npm install' with '--unsafe-perm', indicating potential malware behavior.
+
+**Truth label:** Benign
 
 ### Commit acece12f: Malware
 **File Dynamic Analysis Output**:
@@ -395,6 +459,8 @@ Reason: The container image is named 'maldep', which suggests it might be relate
 
 **Summary:** The dynamic analysis reveals a potentially malicious outbound connection and the use of a container image with a suspicious name. Although the static analysis did not find any issues, the dynamic analysis findings indicate that the commit is likely to be malware.
 
+**Truth label:** Malware
+
 ### Commit 7c6c00d8: Malware
 **File commit 7c6c00d8d7b0092f6c384d036c96452685b8da78**:
 Code: `node /usr/local/bin/npm install --unsafe-perm`
@@ -405,6 +471,8 @@ Code: `172.17.0.2:38080->20.205.243.165:443`
 Reason: The outbound connection to 20.205.243.165:443 is flagged as 'Disallowed outbound connection destination', indicating a potential malicious activity.
 
 **Summary:** The dynamic analysis reveals a suspicious outbound connection and the execution of 'npm install --unsafe-perm', which together indicate potential malware activity. The static analysis did not raise any issues, but the dynamic analysis findings outweigh the static analysis results.
+
+**Truth label:** Benign
 
 ### Commit 0ef45ef6: Malware
 **File main.js**:
@@ -421,6 +489,8 @@ Reason: The dynamic analysis shows that the container is making an unexpected ou
 
 **Summary:** The commit is classified as malware due to the presence of suspicious network access, potential data leaks, and unexpected outbound connections. The static analysis revealed critical and high-severity issues, while the dynamic analysis showed disallowed outbound connections, indicating a potential malicious activity.
 
+**Truth label:** Benign
+
 ### Commit 99e7cd10: Malware
 **File commit 99e7cd10e3730d1e1e4a4fe4b1962dbdb51eeac9**:
 Code: `node /usr/local/bin/npm install --unsafe-perm`
@@ -436,12 +506,16 @@ Reason: The container image repository is named 'maldep', which could be an indi
 
 **Summary:** The dynamic analysis revealed a suspicious command execution and an unexpected outbound connection to a potentially malicious destination. The container image repository name 'maldep' further supports the verdict that this commit is related to malware.
 
+**Truth label:** Benign
+
 ### Commit 8dcad674: Malware
 **File not available**:
 Code: `node /usr/local/bin/npm install --unsafe-perm`
 Reason: The command is running npm install with --unsafe-perm, which can be a security risk as it allows the installation of packages with elevated privileges. The connection to an external IP (20.205.243.165:443) is also flagged as 'Disallowed outbound connection destination', indicating a potential malicious activity.
 
 **Summary:** The dynamic analysis revealed a suspicious outbound connection and the use of --unsafe-perm with npm install, indicating potential malicious activity. The static analysis did not raise any issues, but the dynamic analysis findings suggest that the commit is likely to be malware.
+
+**Truth label:** Benign
 
 ### Commit db9bb1e4: Malware
 **File package.json**:
@@ -462,6 +536,8 @@ Reason: Potential data leak, sensitive information being sent to an external URL
 
 **Summary:** Multiple critical and high-severity issues detected, including suspicious network requests and data leaks, indicating malicious behavior
 
+**Truth label:** Malware
+
 ### Commit 41bb9d17: Malware
 **File index.js**:
 Reason: Sends HTTP requests to potentially malicious URLs with sensitive information as query parameters.
@@ -479,6 +555,8 @@ Reason: Sends sensitive information such as hostname, username, and current work
 Reason: Dynamic analysis detected an unexpected outbound connection to 20.205.243.165:443, indicating potential malicious activity.
 
 **Summary:** The commit is classified as malware due to multiple critical and high-severity issues identified in both static and dynamic analyses, including suspicious network access, data leaks, and obfuscation techniques.
+
+**Truth label:** Malware
 
 ### Commit 54d80ea5: Malware
 **File install.js**:
@@ -499,6 +577,8 @@ Reason: The dynamic analysis detected an unexpected outbound connection, which a
 
 **Summary:** The commit is classified as malware due to multiple indicators of malicious behavior, including suspicious network access, potential data exfiltration, and insecure practices. The static and dynamic analyses collectively provide strong evidence that this commit is not benign.
 
+**Truth label:** Malware
+
 ### Commit 587b6c37: Malware
 **File browser.js**:
 Reason: Sending a POST request to a suspicious domain with sensitive system information.
@@ -516,6 +596,8 @@ Reason: The 'preinstall' script is running the 'browser.js' file which contains 
 Reason: Dynamic analysis detected an unexpected outbound connection to a potentially malicious destination.
 
 **Summary:** The commit is classified as malware due to multiple critical and high-severity issues identified in both static and dynamic analysis, including suspicious network access, data leaks, and unexpected outbound connections.
+
+**Truth label:** Malware
 
 ### Commit ecbe5cc1: Malware
 **File package.json**:
@@ -536,6 +618,8 @@ Reason: Dynamic analysis detected an unexpected outbound connection to 20.205.24
 
 **Summary:** The commit is classified as malware due to multiple indicators of potentially malicious behavior, including suspicious network requests, potential data exfiltration, and backdoor indicators identified in both static and dynamic analysis.
 
+**Truth label:** Malware
+
 ### Commit 3a840947: Malware
 **File build.js**:
 Reason: The code is exfiltrating sensitive system information via DNS lookup and HTTP requests, and is using command execution with potentially user-controlled input.
@@ -544,6 +628,8 @@ Reason: The code is exfiltrating sensitive system information via DNS lookup and
 Reason: The pingback script makes a curl request to an external server, which could be used for data exfiltration or other malicious purposes.
 
 **Summary:** The commit contains code that exfiltrates sensitive information, makes suspicious HTTP requests, and executes system commands with potentially user-controlled input, indicating malicious behavior.
+
+**Truth label:** Malware
 
 ### Commit 15eff7fd: Malware
 **File package.json**:
@@ -559,6 +645,8 @@ Code: `connection=172.17.0.2:38120->20.205.243.165:443`
 Reason: The dynamic analysis showed a disallowed outbound connection to a potentially malicious destination, indicating possible malware activity.
 
 **Summary:** The commit is flagged as malware due to the presence of a suspicious Telegram link, potential code injection patterns, and most critically, dynamic analysis showing unexpected outbound connections during npm install, indicating potential malicious activity.
+
+**Truth label:** Benign
 
 ### Commit cc737e05: Malware
 **File package.json**:
@@ -579,6 +667,8 @@ Reason: Dynamic analysis detected an unexpected outbound connection, indicating 
 
 **Summary:** The commit is classified as malware due to multiple critical and medium severity issues detected during static and dynamic analysis, including suspicious network access, potential obfuscation, and unexpected outbound connections.
 
+**Truth label:** Benign
+
 ### Commit 6307c863: Malware
 **File package.json**:
 Code: `https://bes23.free.beeceptor.com`
@@ -598,6 +688,8 @@ Reason: The dynamic analysis detected an unexpected outbound connection destinat
 
 **Summary:** The commit is classified as malware due to multiple critical and high-severity issues detected in both static and dynamic analyses, including suspicious network access and potential data leaks.
 
+**Truth label:** Benign
+
 ### Commit 67eafb7d: Benign
 **File esm2022/lib/ngx-spinner.component.mjs**:
 Reason: Potential code injection risk due to the use of `innerHTML` with untrusted input. However, this is a known issue and can be mitigated by proper sanitization using Angular's `DomSanitizer`.
@@ -607,8 +699,12 @@ Reason: New dependency `form-data` added. While this is a new dependency, the dy
 
 **Summary:** The commit is considered benign because although there are potential security issues identified in the static analysis, they are not indicative of malware. The dynamic analysis did not reveal any malicious behavior.
 
+**Truth label:** Benign
+
 ### Commit 42c99328: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign.
+
+**Truth label:** Benign
 
 ### Commit 9a3abb9b: Malware
 **File package.json**:
@@ -629,6 +725,8 @@ Reason: The code collects and sends potentially sensitive system information, in
 
 **Summary:** The commit contains multiple critical issues related to suspicious network access and data leaks, indicating malicious behavior.
 
+**Truth label:** Malware
+
 ### Commit 48841fd8: Malware
 **File index.js**:
 Code: `HTTPS request to 'exzuperi.ftp.sh' on port 449`
@@ -648,14 +746,20 @@ Reason: Potential communication channel with the attacker
 
 **Summary:** The commit contains multiple critical and high-severity issues indicating malicious behavior, including suspicious network access and data exfiltration. The presence of these issues strongly suggests that the commit is malware.
 
+**Truth label:** Malware
+
 ### Commit ee3a7ed8: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign.
+
+**Truth label:** Benign
 
 ### Commit bf8cc16e: Benign
 **File package.json**:
 Reason: The static analysis detected suspicious URLs and a new 'test' script. However, without further context or evidence of malicious activity, these findings alone are not conclusive indicators of malware.
 
 **Summary:** The commit is likely benign because, although static analysis raised some issues, they are not severe enough to conclusively indicate malware, and dynamic analysis was not available to provide further insights. The issues raised can be addressed through proper review and configuration.
+
+**Truth label:** Benign
 
 ### Commit 6c66a653: Malware
 **File src/api/sendWebhook.js**:
@@ -668,8 +772,12 @@ Reason: The heavy obfuscation in the code is a red flag, suggesting that the aut
 
 **Summary:** The presence of a critical severity issue related to suspicious network access and multiple instances of obfuscated code strongly suggest that this commit is malicious. While dynamic analysis did not yield any results, the static analysis findings are sufficient to conclude that the commit is likely to be malware.
 
+**Truth label:** Malware
+
 ### Commit 13f79331: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign.
+
+**Truth label:** Benign
 
 ### Commit 00fbcb72: Benign
 **File index.js**:
@@ -683,6 +791,8 @@ Reason: Modifying the 'PATH' environment variable can be risky, but it is not un
 
 **Summary:** The static analysis raised several potential issues, but none of them conclusively indicate malware. The dynamic analysis did not detect any malicious behavior. Given the information available, the commit is likely benign, as the issues identified can be related to common development practices or configurations that are not inherently malicious.
 
+**Truth label:** Benign
+
 ### Commit d14e5544: Malware
 **File package.json**:
 Code: `preinstall script making HTTP request to a suspicious domain`
@@ -694,11 +804,15 @@ Reason: The 'pingback' script is making an HTTP request to an external server, w
 
 **Summary:** The static analysis revealed critical and high-severity issues related to suspicious network access and data leaks in the 'preinstall' script, indicating malicious behavior. Although the dynamic analysis did not yield any results, the static analysis findings are sufficient to classify this commit as malware.
 
+**Truth label:** Malware
+
 ### Commit 796f5162: Benign
 **File package.json**:
 Reason: The static analysis detected suspicious URLs and cryptocurrency references, but without specific lines or code snippets, it's hard to determine their impact. However, the presence of these elements alone does not necessarily indicate malware.
 
 **Summary:** The static analysis raised some concerns due to the presence of suspicious URLs and cryptocurrency references in the commit message or associated files. However, the dynamic analysis did not reveal any malicious behavior. Without concrete evidence of malicious code or behavior, and given that the issues raised are not conclusively tied to specific malicious code, the commit is considered benign. Further review of the commit message and associated code changes is recommended to fully understand the context of the detected issues.
+
+**Truth label:** Benign
 
 ### Commit 1b66fbe0: Malware
 **File Main.js**:
@@ -715,6 +829,8 @@ Reason: Exposing sensitive data such as the user's password in the code is a med
 
 **Summary:** The commit contains critical and high severity issues related to code injection and suspicious network access, indicating malicious intent.
 
+**Truth label:** Malware
+
 ### Commit cb0f836b: Malware
 **File Extra/Html/Classic/script.js**:
 Code: `eval() function used`
@@ -726,17 +842,25 @@ Reason: This request could be a potential data exfiltration or a command and con
 
 **Summary:** The commit contains critical issues such as code injection via eval() and potential data exfiltration, indicating malicious intent.
 
+**Truth label:** Malware
+
 ### Commit 4cbbe59b: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign.
 
+**Truth label:** Benign
+
 ### Commit 2556adc6: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign.
+
+**Truth label:** Benign
 
 ### Commit 9e1a012e: Malware
 **File package.json**:
 Reason: Suspicious URLs detected, potentially indicating unauthorized or malicious activity.
 
 **Summary:** The static analysis revealed a medium-severity issue related to suspicious network access in package.json, indicating potential malicious activity. Although the dynamic analysis did not yield any results, the presence of suspicious URLs in the static analysis is sufficient to raise concerns about the commit's intent.
+
+**Truth label:** Benign
 
 ### Commit 21e2e4a5: Malware
 **File src/file/RGB/hexRGB.js**:
@@ -748,6 +872,8 @@ Code: `N/A`
 Reason: The 'install' script runs 'node scripts/install.js', which could potentially execute malicious code, and the 'axios' dependency is added, which could be used for suspicious network access.
 
 **Summary:** The commit is flagged as malware due to the presence of heavily obfuscated code and potential for command execution through the 'install' script, indicating a high risk of malicious activity.
+
+**Truth label:** Malware
 
 ### Commit 09cec2fa: Malware
 **File scripts/install.js**:
@@ -764,6 +890,8 @@ Reason: The code's complexity and potential obfuscation make its intent unclear,
 
 **Summary:** The commit contains critical and high-severity issues, including potential command injection and suspicious network access, indicating malicious intent.
 
+**Truth label:** Benign
+
 ### Commit b72cf689: Malware
 **File index.js**:
 Code: `N/A`
@@ -775,11 +903,17 @@ Reason: Contains a 'pingback' script that makes a curl request to a suspicious U
 
 **Summary:** The commit is classified as malware due to its suspicious network activities, exposure of sensitive system information, and potentially malicious scripts.
 
+**Truth label:** Malware
+
 ### Commit f73bb7fc: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating the commit is likely benign.
 
+**Truth label:** Benign
+
 ### Commit da457357: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign.
+
+**Truth label:** Malware
 
 ### Commit 8eead77b: Malware
 **File index.js**:
@@ -789,6 +923,8 @@ Reason: Sending sensitive system information to an external server via HTTPS POS
 Reason: The 'pingback' script makes an HTTP request to a suspicious external domain, indicating potential malicious activity.
 
 **Summary:** The commit is classified as malware due to the presence of critical issues related to sending and leaking sensitive system information, along with a suspicious network access. These behaviors are indicative of malicious intent.
+
+**Truth label:** Malware
 
 ### Commit c11f4498: Malware
 **File src/sdk-tester.js**:
@@ -805,8 +941,12 @@ Reason: Hardcoded sensitive information (clientExampleToken) which is a security
 
 **Summary:** The commit contains potential code injection, suspicious network access, and hardcoded sensitive information, indicating a malicious intent.
 
+**Truth label:** Benign
+
 ### Commit 77a2089b: Benign
 **Summary:** Both static and dynamic analyses did not reveal any issues or suspicious behavior, indicating the commit is likely benign.
+
+**Truth label:** Benign
 
 ### Commit d8454ef8: Malware
 **File index.js**:
@@ -823,6 +963,8 @@ Reason: Spawns a new process running 'node index.js' with detached and ignored s
 
 **Summary:** The commit is classified as malware due to its suspicious network activities, data leaks, and potential for command execution. The static analysis revealed critical issues, including sending sensitive information to a potentially malicious IP address, uploading archived sensitive files to an FTP server with hardcoded credentials, and spawning a new process that could be used for malicious purposes.
 
+**Truth label:** Malware
+
 ### Commit d422bf5e: Malware
 **File index.js**:
 Code: `HTTP request to a potentially malicious external server`
@@ -834,6 +976,8 @@ Reason: The presence of a console.log statement with 'HACk!' suggests malicious 
 
 **Summary:** The commit is flagged as malware due to a CRITICAL issue related to suspicious network access and a potentially malicious console.log statement, indicating possible malicious behavior.
 
+**Truth label:** Malware
+
 ### Commit a3379174: Malware
 **File index.js**:
 Reason: The static analysis revealed that the code is sending sensitive system information to a suspicious external server, which is a strong indication of malicious activity.
@@ -842,6 +986,8 @@ Reason: The static analysis revealed that the code is sending sensitive system i
 Reason: The code is collecting and sending sensitive system information such as homedir, hostname, username, and DNS servers without proper justification and user consent, which is a data leak and potentially malicious.
 
 **Summary:** The static analysis results indicate that the commit contains code that is sending sensitive system information to a suspicious external server and is involved in data leaks, which are characteristic behaviors of malware. Although the dynamic analysis did not provide additional insights, the critical and high-severity issues identified in the static analysis are sufficient to classify the commit as malware.
+
+**Truth label:** Malware
 
 ### Commit b3492791: Malware
 **File icon.min.js**:
@@ -853,6 +999,8 @@ Code: `String.fromCharCode and hex encoding`
 Reason: The presence of obfuscated code using String.fromCharCode and hex encoding suggests an attempt to hide malicious functionality.
 
 **Summary:** The commit is flagged as malware due to the presence of a suspicious network request and obfuscated code in 'icon.min.js', indicating potential malicious activity.
+
+**Truth label:** Malware
 
 ### Commit 2781d783: Malware
 **File utils.js**:
@@ -867,6 +1015,8 @@ Reason: The code stores sensitive information such as email and password in plai
 
 **Summary:** The commit contains critical and high-severity issues related to code injection, command execution, and data leaks, indicating malicious intent.
 
+**Truth label:** Malware
+
 ### Commit 8ba35701: Benign
 **File commit message**:
 Code: `Suspicious URL detected`
@@ -877,6 +1027,8 @@ Code: `New dependencies added`
 Reason: The addition of new dependencies without clear justification is a medium-severity issue. However, the static analysis did not indicate that these dependencies are known to be malicious.
 
 **Summary:** The static analysis revealed potential issues, but they are not conclusive evidence of malware. The dynamic analysis did not detect any malicious behavior. Therefore, based on the available information, the commit is considered benign.
+
+**Truth label:** Benign
 
 ### Commit b74e96ae: Malware
 **File index.js**:
@@ -893,6 +1045,8 @@ Reason: The 'pingback' script could be used for tracking or for malicious purpos
 
 **Summary:** The commit is classified as malware due to its suspicious network activities, including sending sensitive system information to an external server and potential command and control communications.
 
+**Truth label:** Malware
+
 ### Commit 0bc11083: Malware
 **File index.js**:
 Code: `HTTPS POST request to 'ngzvokvmcyctbxbgtsobed0hswyf41v6n.oast.fun'`
@@ -908,11 +1062,15 @@ Reason: This could be used for tracking or other malicious purposes, adding to t
 
 **Summary:** The commit is classified as malware due to multiple critical and high-severity issues identified during static analysis, including suspicious network access and data leaks. The dynamic analysis did not provide additional insights but the static analysis findings are sufficient to determine the commit as malicious.
 
+**Truth label:** Malware
+
 ### Commit 6a4463a0: Benign
 **File package.json**:
 Reason: The static analysis flagged a suspicious URL, but without more context, it's not conclusive evidence of malware. The dynamic analysis did not reveal any malicious behavior.
 
 **Summary:** The commit is likely benign because the dynamic analysis did not detect any malicious activity, and the static analysis issue is not conclusive. Further investigation into the suspicious URL is recommended but based on the provided data, there's not enough evidence to classify it as malware.
+
+**Truth label:** Benign
 
 ### Commit 150c42eb: Malware
 **File package.json**:
@@ -929,11 +1087,15 @@ Reason: Suspicious network access to a potentially external URL, could be exfilt
 
 **Summary:** The commit contains multiple indicators of potential malware activity, including code injection, obfuscation, and suspicious network access. While dynamic analysis did not yield results, the static analysis findings are concerning enough to classify this commit as malware.
 
+**Truth label:** Malware
+
 ### Commit 7eb5240a: Malware
 **File package.json**:
 Reason: Suspicious URLs detected, potentially indicating data exfiltration or communication with unknown servers.
 
 **Summary:** The static analysis revealed a high-severity issue related to suspicious network access in the package.json file, indicating potential malicious activity. Although the dynamic analysis did not yield any results, the presence of suspicious URLs in the commit data is a strong indicator of malware.
+
+**Truth label:** Benign
 
 ### Commit 43a47be3: Malware
 **File unknown**:
@@ -945,6 +1107,8 @@ Code: `https://hackzone.uno/psn`
 Reason: The URL 'https://hackzone.uno/psn' is suspicious and potentially indicates unauthorized or malicious network access.
 
 **Summary:** The static analysis revealed critical and high-severity issues, including a potential command execution vulnerability and suspicious network access to a potentially malicious URL. Although the dynamic analysis did not yield any results, the static analysis findings are sufficient to classify the commit as malware.
+
+**Truth label:** Benign
 
 ### Commit 6f105c9c: Malware
 **File index.js**:
@@ -961,6 +1125,8 @@ Reason: Deleting a directory without proper validation can lead to unintended da
 
 **Summary:** The commit is classified as malware due to the presence of critical issues such as command execution with potential unsanitized input, sending sensitive system information to an external server, and suspicious network access. These behaviors are indicative of malicious software.
 
+**Truth label:** Malware
+
 ### Commit c297ebd3: Malware
 **File index.js**:
 Code: `N/A`
@@ -976,6 +1142,8 @@ Reason: Prints a message with a link to a Telegram channel 'https://t.me/exzuper
 
 **Summary:** The commit is classified as malware due to its suspicious network activities, data exfiltration, and potential command and control communication.
 
+**Truth label:** Malware
+
 ### Commit 9e61d809: Malware
 **File build-a-benchmark.js**:
 Reason: The code contains obfuscated JavaScript using hex encoding, makes an HTTPS request to an external server, and executes a system command using execSync, which are all indicators of potential malicious activity.
@@ -984,6 +1152,8 @@ Reason: The code contains obfuscated JavaScript using hex encoding, makes an HTT
 Reason: The 'pingback' script makes a curl request to an external server, which could be used for tracking or data exfiltration, further suggesting malicious intent.
 
 **Summary:** The commit is flagged as malware due to multiple indicators of potentially malicious behavior, including obfuscated code, suspicious network access, command execution, and data exfiltration attempts.
+
+**Truth label:** Malware
 
 ### Commit 28af515c: Malware
 **File index.js**:
@@ -995,6 +1165,8 @@ Code: `Sending homedir, hostname, username, and DNS servers`
 Reason: Leaking sensitive system information over the network is a significant security risk and is considered malicious behavior.
 
 **Summary:** The commit is classified as malware due to the presence of a suspicious network request sending sensitive system information to an untrusted domain, as identified by the static analysis.
+
+**Truth label:** Malware
 
 ### Commit 51c00013: Malware
 **File index.js**:
@@ -1008,6 +1180,8 @@ Reason: Prints a suspicious Telegram link 'https://t.me/exzuperi' to the stdout,
 
 **Summary:** The commit is classified as malware due to its suspicious network activities, data leaks, and potential command and control communication, indicating a possible backdoor or information stealer.
 
+**Truth label:** Malware
+
 ### Commit 54ae8848: Malware
 **File index.js**:
 Reason: Makes an HTTPS request to a suspicious external URL and contains a hardcoded URL similar to Burp Collaborator URL, indicating potential data exfiltration or malicious activity.
@@ -1016,6 +1190,8 @@ Reason: Makes an HTTPS request to a suspicious external URL and contains a hardc
 Reason: The 'postinstall' script executes 'node index.js', which could run malicious code if index.js contains harmful logic.
 
 **Summary:** The commit is flagged as malware due to critical issues identified in the static analysis, including suspicious network access and potential command execution. Although the dynamic analysis did not yield any results, the static analysis findings are sufficient to classify the commit as malicious.
+
+**Truth label:** Malware
 
 ### Commit 1f9f3794: Malware
 **File index.js**:
@@ -1028,6 +1204,8 @@ Reason: Collecting and sending sensitive system information (e.g., homedir, host
 Reason: Making a curl request to a suspicious domain (eo536ohsnextro9.m.pipedream.net) via the 'pingback' script.
 
 **Summary:** The commit contains multiple indicators of malicious activity, including suspicious network requests and data exfiltration. The static analysis revealed critical and high-severity issues that are characteristic of malware behavior.
+
+**Truth label:** Malware
 
 ### Commit f2b41665: Benign
 **File src/components/BaseFieldI18n.stories.js**:
@@ -1053,6 +1231,8 @@ Reason: Uploads files to an external URL, which is a dummy endpoint and not indi
 
 **Summary:** The commit is benign because the static analysis issues are related to hardcoded or external URLs used in storybook stories, which are not indicative of malicious behavior but rather common practices for demonstrating component functionality. The dynamic analysis did not reveal any issues.
 
+**Truth label:** Benign
+
 ### Commit 3275aaa2: Malware
 **File index.js**:
 Code: `child_process.exec with curl and nslookup commands`
@@ -1071,6 +1251,8 @@ Code: `'preinstall' script running 'node index.js'`
 Reason: Running a potentially compromised or malicious index.js during installation could expose sensitive data or perform harmful operations.
 
 **Summary:** The commit is flagged as malware due to multiple critical and high-severity issues identified during static analysis, including command execution with untrusted input, suspicious network requests, and potentially malicious scripts. Although dynamic analysis did not yield specific results, the static analysis findings are sufficient to classify this commit as malicious.
+
+**Truth label:** Malware
 
 ### Commit a7d4ba46: Malware
 **File package.json**:
@@ -1091,14 +1273,20 @@ Reason: Potential code injection
 
 **Summary:** Multiple critical and high severity issues related to suspicious network access and potential data exfiltration indicate malicious activity.
 
+**Truth label:** Malware
+
 ### Commit 07b083cf: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign.
+
+**Truth label:** Benign
 
 ### Commit 15b25992: Benign
 **File package.json**:
 Reason: The static analysis detected suspicious URLs in package.json, but there is no evidence that these URLs are accessed or used maliciously within the application. The dynamic analysis did not reveal any malicious behavior.
 
 **Summary:** Although the static analysis raised a medium-severity issue regarding suspicious URLs in package.json, the dynamic analysis did not detect any malicious activity. Without further evidence of malicious intent or behavior, the commit is considered benign.
+
+**Truth label:** Benign
 
 ### Commit bcd71456: Malware
 **File package.json**:
@@ -1111,8 +1299,12 @@ Reason: The 'getTransform' function uses 'require' to load a module from a user-
 
 **Summary:** The commit contains a CRITICAL issue related to suspicious network access and a MEDIUM issue related to potential code injection, indicating malicious intent.
 
+**Truth label:** Benign
+
 ### Commit 8d9a2efa: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign.
+
+**Truth label:** Benign
 
 ### Commit 2463b922: Malware
 **File index.js**:
@@ -1122,6 +1314,8 @@ Reason: The code is sending sensitive system information to a suspicious externa
 Reason: The code is accessing sensitive information from package.json, which could be a potential security risk if sent over the network.
 
 **Summary:** The commit is classified as malware due to the presence of critical issues related to suspicious network access and data leaks in the static analysis. The dynamic analysis did not provide additional insights but the static analysis findings are sufficient to determine the commit as malicious.
+
+**Truth label:** Malware
 
 ### Commit 0313c323: Malware
 **File package.json**:
@@ -1134,6 +1328,8 @@ Reason: The postinstall script makes an HTTP request to a suspicious URL, potent
 
 **Summary:** The commit is flagged as malware due to the presence of a postinstall script that downloads and executes code from an untrusted source and makes suspicious network requests, indicating a potential for arbitrary code execution and data exfiltration.
 
+**Truth label:** Malware
+
 ### Commit d27d3f33: Malware
 **File index.js**:
 Reason: Makes an HTTPS request to a potentially malicious URL, which could be used for data exfiltration or other malicious activities.
@@ -1142,6 +1338,8 @@ Reason: Makes an HTTPS request to a potentially malicious URL, which could be us
 Reason: Uses an immediately invoked function expression (IIFE) which could potentially be used to obfuscate malicious code.
 
 **Summary:** The static analysis revealed two issues, one of high severity related to suspicious network access and another of medium severity related to potential code injection. Although the dynamic analysis did not yield any results, the presence of a high-severity issue in the static analysis is sufficient to classify the commit as malware.
+
+**Truth label:** Malware
 
 ### Commit 359e8c0b: Malware
 **File src/metrics.js**:
@@ -1158,6 +1356,8 @@ Reason: The code is accessing the 'process.env.JFROG_ARTIFACTORY_URL' environmen
 
 **Summary:** The commit is classified as malware due to the presence of critical and high-severity security risks, including the exfiltration of potentially sensitive system information and environment variables to external servers without proper user consent or notification.
 
+**Truth label:** Malware
+
 ### Commit ecacf0e1: Malware
 **File index.js**:
 Code: `POST request to 'https://bbqurumzwj9l3fccqqhykfliy940srgg.oastify.com'`
@@ -1172,6 +1372,8 @@ Code: `Unexpected outbound connections to various IPs`
 Reason: Dynamic analysis shows the application making unexpected outbound connections, indicating potential malicious activity
 
 **Summary:** The commit is identified as malware due to critical issues found in both static and dynamic analyses, including data leaks to suspicious domains and unexpected outbound network connections.
+
+**Truth label:** Malware
 
 ### Commit 6309cb1c: Malware
 **File package.json**:
@@ -1192,6 +1394,8 @@ Reason: Dynamic analysis revealed unexpected outbound connections to suspicious 
 
 **Summary:** The commit is classified as malware due to the presence of suspicious dependencies, potentially risky environment variables and flags, and unexpected outbound connections to suspicious IP addresses during dynamic analysis.
 
+**Truth label:** Malware
+
 ### Commit d928529c: Malware
 **File index.js**:
 Reason: Makes an HTTPS request to a suspicious domain 'exzuperi.ftp.sh' on a non-standard port 449, potentially exfiltrating sensitive system information.
@@ -1203,6 +1407,8 @@ Reason: Collects and exfiltrates sensitive system information such as homedir, h
 Reason: Contains a suspicious message 'exzuperi made me' in the 'test' script, potentially indicating a backdoor or hidden message.
 
 **Summary:** The commit is classified as malware due to its suspicious network activity, data exfiltration, and potential backdoor or hidden message in the 'test' script.
+
+**Truth label:** Malware
 
 ### Commit d6ffd091: Benign
 **File package.json**:
@@ -1219,8 +1425,12 @@ Reason: The presence of 'sqlite3' is noted, but its usage is not directly relate
 
 **Summary:** The static analysis raised several concerns, but none were conclusive of malware. The dynamic analysis did not reveal any malicious behavior. The commit appears to be related to a legitimate npm publish workflow, and the flagged items are either common practices or not directly indicative of malware.
 
+**Truth label:** Malware
+
 ### Commit 26af8589: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign.
+
+**Truth label:** Benign
 
 ### Commit 966b0458: Malware
 **File index.js**:
@@ -1233,11 +1443,17 @@ Reason: This data is being sent to an external server, potentially leaking sensi
 
 **Summary:** The commit is classified as malware due to its suspicious network activity and potential data leaks, indicating a possible data exfiltration or tracking intent.
 
+**Truth label:** Malware
+
 ### Commit 8739370a: Benign
 **Summary:** Both static and dynamic analyses did not reveal any issues or suspicious behavior, indicating the commit is likely benign.
 
+**Truth label:** Benign
+
 ### Commit 38b1b183: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating the commit is likely benign.
+
+**Truth label:** Benign
 
 ### Commit 5b1ce2ae: Malware
 **File index.js**:
@@ -1254,6 +1470,8 @@ Reason: The reference to 'exzuperi' in the test script could indicate a connecti
 
 **Summary:** The commit is classified as malware due to the presence of a critical severity issue related to suspicious network access, potential data leaks, and obfuscation techniques. The static analysis revealed several red flags, including a suspicious HTTPS request and the collection of sensitive system information. Although the dynamic analysis did not yield any results, the static analysis findings are sufficient to classify the commit as malicious.
 
+**Truth label:** Malware
+
 ### Commit be91815b: Malware
 **File index.js**:
 Code: `sending sensitive system information via HTTPS POST request`
@@ -1264,6 +1482,8 @@ Code: `collecting homedir, hostname, username, and network interfaces`
 Reason: Collecting such detailed system information is suspicious and can be used for malicious purposes, indicating potential malware activity.
 
 **Summary:** The static analysis revealed critical and high-severity issues related to suspicious network access and data leaks, indicating the commit is likely to be malware. The dynamic analysis did not provide additional insights but did not contradict the static analysis findings.
+
+**Truth label:** Malware
 
 ### Commit e3eb6101: Malware
 **File index.js**:
@@ -1280,6 +1500,8 @@ Reason: Potential data leak through the `getAppState` function which returns coo
 
 **Summary:** The commit contains critical and high-severity issues, including potential code injection, suspicious network access, and data leaks, indicating malicious intent.
 
+**Truth label:** Malware
+
 ### Commit 0cdadc08: Malware
 **File index.js**:
 Code: `POST request to '8hqsazb9n32zxshfc7cakdpiz950tqhf.oastify.com'`
@@ -1295,14 +1517,20 @@ Reason: This could be used for tracking or additional data exfiltration, support
 
 **Summary:** The commit is classified as malware due to its behavior of exfiltrating sensitive system information and making suspicious network requests, indicating potential malicious activity.
 
+**Truth label:** Malware
+
 ### Commit eedfb784: Benign
 **Summary:** Both static and dynamic analyses did not reveal any issues or suspicious behavior, indicating the commit is likely benign.
+
+**Truth label:** Benign
 
 ### Commit 74fc536d: Benign
 **File package.json**:
 Reason: The static analysis flagged the mention of a URL shortener service (https://blltly.com/2thgNN) in the commit message or surrounding context as suspicious. However, without further evidence of malicious activity, this alone is not conclusive evidence of malware.
 
 **Summary:** The static analysis raised a low-severity issue regarding the use of a URL shortener service, but the dynamic analysis did not reveal any malicious behavior. Without concrete evidence of malicious activity, the commit is considered benign.
+
+**Truth label:** Benign
 
 ### Commit 35bf02c1: Malware
 **File package.json**:
@@ -1318,8 +1546,12 @@ Reason: The code involves cryptocurrency exchange APIs and handles sensitive inf
 
 **Summary:** The commit is flagged as malware due to potential command injection, suspicious network access for data exfiltration, and handling of sensitive cryptocurrency API information, indicating possible malicious activities or significant security risks.
 
+**Truth label:** Benign
+
 ### Commit 70bfbb27: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating the commit is likely benign.
+
+**Truth label:** Benign
 
 ### Commit cd0a3b54: Malware
 **File package.json**:
@@ -1327,6 +1559,8 @@ Code: `pingback script`
 Reason: The 'pingback' script makes an HTTP request to a potentially suspicious external URL, indicating potential data exfiltration or unauthorized actions.
 
 **Summary:** The static analysis revealed a critical issue related to suspicious network access via the 'pingback' script in package.json, suggesting malicious activity. Although the dynamic analysis did not yield any results, the presence of a critical issue in the static analysis is sufficient to raise concerns about the commit's intent.
+
+**Truth label:** Benign
 
 ### Commit 62e82314: Malware
 **File package.json**:
@@ -1336,6 +1570,8 @@ Reason: New dependencies are added with suspicious URLs detected, indicating pot
 Reason: The presence of 'eval' and 'function' in suspicious patterns suggests potential code injection risks.
 
 **Summary:** The commit is flagged as malware due to the presence of suspicious network access and potential code injection risks identified during static analysis.
+
+**Truth label:** Benign
 
 ### Commit 00eab55e: Malware
 **File Unknown (commit message)**:
@@ -1348,6 +1584,8 @@ Reason: Potential command injection vulnerability detected, which is a common tr
 Reason: Suspicious network URLs detected, potentially used for data exfiltration or other malicious activities, a characteristic of malware.
 
 **Summary:** The static analysis revealed multiple critical and high-severity issues indicative of malware behavior, including cryptocurrency-related activities, command injection vulnerabilities, and suspicious network access. Although the dynamic analysis did not yield specific results, the static analysis findings are sufficient to classify the commit as malware.
+
+**Truth label:** Benign
 
 ### Commit f72f0929: Malware
 **File index.js**:
@@ -1368,11 +1606,17 @@ Reason: This obfuscation technique is often used to hide malicious activity.
 
 **Summary:** The commit contains multiple indicators of malicious activity, including arbitrary command execution, data exfiltration, and obfuscation techniques, leading to the conclusion that it is malware.
 
+**Truth label:** Malware
+
 ### Commit a33eac69: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign.
 
+**Truth label:** Benign
+
 ### Commit 23e60d3a: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign.
+
+**Truth label:** Benign
 
 ### Commit 896a4604: Malware
 **File index.js**:
@@ -1389,8 +1633,12 @@ Reason: The 'pingback' script makes an HTTP request to 'https://eo536ohsnextro9.
 
 **Summary:** The commit is classified as malware due to the presence of multiple indicators of malicious activity, including the exfiltration of sensitive information and suspicious network requests to potentially malicious domains.
 
+**Truth label:** Malware
+
 ### Commit 280f539b: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign.
+
+**Truth label:** Benign
 
 ### Commit 527a9be6: Benign
 **File package.json**:
@@ -1411,6 +1659,8 @@ Reason: Assigning ownership to all files to '@rmc/Games' via a wildcard could be
 
 **Summary:** The static analysis raised several issues, but upon review, they are either related to potentially legitimate activities or common practices that are not inherently malicious. The dynamic analysis did not reveal any malicious behavior. Therefore, the commit is considered benign.
 
+**Truth label:** Benign
+
 ### Commit 4a5a797f: Malware
 **File index.js**:
 Reason: Executes a shell command with untrusted input, potentially leading to command injection attacks.
@@ -1423,12 +1673,16 @@ Reason: The 'pingback' script makes a curl request to https://eo536ohsnextro9.m.
 
 **Summary:** The commit contains multiple indicators of malicious behavior, including potential command injection, data exfiltration, and suspicious network requests, suggesting that it is malware.
 
+**Truth label:** Malware
+
 ### Commit eeca4bab: Malware
 **File package.json**:
 Code: `pingback script making HTTP request to https://eo536ohsnextro9.m.pipedream.net`
 Reason: The 'pingback' script is making an unexpected HTTP request to an external server, which could be a potential data exfiltration point.
 
 **Summary:** The static analysis revealed a critical issue with a suspicious network access, indicating a potential data exfiltration point. Although the dynamic analysis did not yield any results, the static analysis findings are sufficient to classify the commit as malware.
+
+**Truth label:** Benign
 
 ### Commit 6000b88b: Malware
 **File index.js**:
@@ -1441,6 +1695,8 @@ Reason: The use of obfuscation combined with downloading and executing external 
 
 **Summary:** The commit is classified as malware due to its behavior of downloading and executing external executables from untrusted sources, combined with the use of obfuscated code. These actions pose significant security risks and are characteristic of malicious software.
 
+**Truth label:** Malware
+
 ### Commit e470e52c: Malware
 **File index.js**:
 Code: `sending sensitive system information to 'ck09rg22vtc0000gqmrggjorhecyyyyyb.oast.fun' via HTTPS POST request`
@@ -1451,6 +1707,8 @@ Code: `leaking sensitive system information`
 Reason: The code is leaking sensitive system information, which could be used for malicious purposes.
 
 **Summary:** The commit is classified as malware due to its suspicious network activity and data leaks, indicating potential malicious intent.
+
+**Truth label:** Malware
 
 ### Commit c5951d82: Malware
 **File index.js**:
@@ -1466,6 +1724,8 @@ Code: `Heavily obfuscated code`
 Reason: The code is heavily obfuscated, making it difficult to understand its intent, which is a common trait of malware.
 
 **Summary:** The commit contains critical code injection vulnerabilities, suspicious network access, and is heavily obfuscated, indicating malicious intent.
+
+**Truth label:** Malware
 
 ### Commit 9ddfe6d4: Malware
 **File src/scrapers/applications.ts**:
@@ -1486,11 +1746,17 @@ Reason: Stores sensitive configuration values in a file named `config.json`, whi
 
 **Summary:** The commit contains multiple critical and high-severity issues, including potential code injection, SSRF, data leaks, and insecure storage of sensitive information, indicating malicious intent.
 
+**Truth label:** Benign
+
 ### Commit 279896f8: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign.
 
+**Truth label:** Benign
+
 ### Commit d1c5dff4: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign.
+
+**Truth label:** Benign
 
 ### Commit 31fd4f37: Malware
 **File index.js**:
@@ -1498,6 +1764,8 @@ Code: `POST request to mukcn06ozkmmu8xqeet91hy9s0yqmf.burpcollaborator.net`
 Reason: The domain appears to be suspicious and is flagged for potential data exfiltration or other malicious activities.
 
 **Summary:** The commit is flagged as malware due to a critical issue identified in the static analysis, where the code makes a POST request to a suspicious domain, indicating potential malicious activity.
+
+**Truth label:** Malware
 
 ### Commit e9ba8003: Benign
 **File three.module.js**:
@@ -1510,6 +1778,8 @@ Reason: The use of 'String.fromCharCode' or 'atob' is noted, which can be used f
 Reason: The presence of 'XMLHttpRequest' indicates network access, which is a common requirement for many libraries including three.js for loading resources.
 
 **Summary:** While static analysis raised several flags, they are either related to known practices in the three.js library or are not conclusive without further context. Dynamic analysis did not reveal any malicious behavior. Therefore, based on the information provided, the commit is considered benign.
+
+**Truth label:** Benign
 
 ### Commit 70192687: Malware
 **File index.js**:
@@ -1525,6 +1795,8 @@ Code: `N/A`
 Reason: Collecting and sending sensitive system information to an external server.
 
 **Summary:** The commit contains multiple critical and high-severity issues, including sending sensitive system information to a suspicious domain and making a curl request to a suspicious URL, indicating malicious behavior.
+
+**Truth label:** Malware
 
 ### Commit a27375be: Malware
 **File pre.sh**:
@@ -1545,6 +1817,8 @@ Reason: Sending /etc/passwd to an external server is a serious security breach a
 
 **Summary:** The commit is classified as malware due to multiple critical issues identified in the static analysis, including sending sensitive information to external servers and executing suspicious commands. The presence of these issues across multiple files indicates a malicious intent.
 
+**Truth label:** Malware
+
 ### Commit a0b9a69d: Benign
 **File package.json**:
 Code: `npx chromatic with project token`
@@ -1560,6 +1834,8 @@ Reason: The configuration of `@babel/register` with an empty `ignore` array coul
 
 **Summary:** The static analysis revealed some potential security issues, but they are either low severity or common practices that can be mitigated with proper configuration and validation. The dynamic analysis did not reveal any malicious behavior. Therefore, the commit is considered benign.
 
+**Truth label:** Benign
+
 ### Commit 18d0f143: Malware
 **File package.json**:
 Code: `pingback script making HTTP request to https://eo536ohsnextro9.m.pipedream.net`
@@ -1571,6 +1847,8 @@ Reason: The presence of 'wallet-icons' and mentions of 'Bitcoin' may indicate in
 
 **Summary:** The commit contains a CRITICAL issue related to suspicious network access and a MEDIUM issue related to crypto activities, indicating potential malware behavior. Although the dynamic analysis did not yield any results, the static analysis findings are significant enough to classify the commit as malware.
 
+**Truth label:** Benign
+
 ### Commit 0d0cb779: Malware
 **File index.js**:
 Code: `N/A`
@@ -1581,6 +1859,8 @@ Code: `N/A`
 Reason: The 'pingback' script is making a curl request to an external server, which could be used for tracking or data exfiltration.
 
 **Summary:** The commit contains code that is sending sensitive system information to external servers and making suspicious network requests, indicating malicious activity.
+
+**Truth label:** Malware
 
 ### Commit 14fb839e: Malware
 **File index.js**:
@@ -1597,17 +1877,27 @@ Reason: Leaking sensitive system information by sending it to an external server
 
 **Summary:** The commit contains critical issues related to suspicious network access and data leaks, indicating malicious intent. The static analysis revealed multiple critical and high-severity issues, including sending sensitive system information to external servers and making requests to suspicious URLs. Although the dynamic analysis did not provide additional insights, the static analysis findings are sufficient to classify the commit as malware.
 
+**Truth label:** Malware
+
 ### Commit f31f195c: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign.
+
+**Truth label:** Benign
 
 ### Commit bd256296: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign.
 
+**Truth label:** Benign
+
 ### Commit fe2ca0bb: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign.
 
+**Truth label:** Benign
+
 ### Commit df017ad3: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating the commit is likely benign.
+
+**Truth label:** Benign
 
 ### Commit 35b8a7e8: Malware
 **File package.json**:
@@ -1628,6 +1918,8 @@ Reason: Suspicious network access for potential data exfiltration
 
 **Summary:** The commit contains multiple critical and high-severity issues related to suspicious network access and data leaks, indicating malicious behavior.
 
+**Truth label:** Malware
+
 ### Commit ae887ff8: Malware
 **File index.js**:
 Reason: The code is sending sensitive device information to an external server via an HTTPS GET request, indicating potential data exfiltration.
@@ -1637,6 +1929,8 @@ Reason: The code collects and transmits sensitive device information, including 
 
 **Summary:** The commit is classified as malware due to its suspicious behavior of collecting and transmitting sensitive device information to an external server, indicating a potential data exfiltration attempt.
 
+**Truth label:** Malware
+
 ### Commit 7e2a772c: Malware
 **File index.js**:
 Reason: The code is sending a POST request to a suspicious domain with sensitive system information, indicating potential data exfiltration.
@@ -1645,6 +1939,8 @@ Reason: The code is sending a POST request to a suspicious domain with sensitive
 Reason: The code is leaking sensitive system information such as homedir, hostname, username, and DNS servers, which is a serious security risk.
 
 **Summary:** The static analysis revealed critical issues related to suspicious network access and data leaks, indicating that the commit is malicious.
+
+**Truth label:** Malware
 
 ### Commit 43e9f031: Malware
 **File middleware.js**:
@@ -1661,8 +1957,12 @@ Reason: Not properly initialized or validated, potentially leading to unexpected
 
 **Summary:** The commit contains critical and high-severity issues, including potential code injection, suspicious network access, and unsafe environment variables, indicating malicious intent.
 
+**Truth label:** Benign
+
 ### Commit 14c840f3: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign.
+
+**Truth label:** Benign
 
 ### Commit c90e59ed: Benign
 **File lib/rules/cf-env.js**:
@@ -1673,11 +1973,17 @@ Reason: The regular expression used for URL matching may not be comprehensive, b
 
 **Summary:** The static analysis revealed some potential security issues, but they are not severe enough to classify the commit as malware. The dynamic analysis did not find any malicious behavior. Overall, the commit appears to be benign.
 
+**Truth label:** Benign
+
 ### Commit 6299bde4: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating the commit is likely benign.
 
+**Truth label:** Benign
+
 ### Commit a561ea17: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating the commit is likely benign.
+
+**Truth label:** Benign
 
 ### Commit 0e83ed5c: Malware
 **File index.js**:
@@ -1690,12 +1996,16 @@ Reason: Sending sensitive information like homedir, hostname, username, and dns 
 
 **Summary:** The commit is classified as malware due to its suspicious network activity and data exfiltration of sensitive system information, as identified by the static analysis.
 
+**Truth label:** Malware
+
 ### Commit 2d6dc83b: Benign
 **File index.js**:
 Code: `https://35fg3v0vbpoqnai5xtxd16l9t.canarytokens.com`
 Reason: The URL is a canary token, which is a tracking mechanism used to detect or trigger a response. While it is suspicious, its presence alone does not necessarily indicate malware; it could be used for legitimate security testing or monitoring.
 
 **Summary:** The static analysis raised critical issues due to the presence of a canary token URL, which is not inherently malicious but rather a tool for detecting potential security issues. The dynamic analysis did not reveal any malicious behavior. Given the context, the commit is likely benign, possibly related to security testing or monitoring.
+
+**Truth label:** Malware
 
 ### Commit a7aff4aa: Malware
 **File package.json**:
@@ -1708,6 +2018,8 @@ Reason: While the severity is marked as LOW, the addition of a new script that e
 
 **Summary:** The commit is classified as malware due to the presence of a suspicious URL in the package.json file, which poses a significant security risk. Although the dynamic analysis did not yield any results, the static analysis revealed a critical issue that cannot be ignored.
 
+**Truth label:** Benign
+
 ### Commit 33c855b0: Benign
 **File package.json**:
 Code: `addition of 'puppeteer' dependency`
@@ -1719,11 +2031,15 @@ Reason: The '1234567' script seems unusual and could be a sign of obfuscation or
 
 **Summary:** The static analysis raised some concerns regarding the 'puppeteer' dependency and the '1234567' script. However, the dynamic analysis did not detect any malicious behavior, and the code changes do not appear to be executing any harmful commands. The issues identified can be attributed to unusual coding practices rather than malware.
 
+**Truth label:** Benign
+
 ### Commit 8f47d451: Benign
 **File package.json**:
 Reason: The 'pingback' script makes an HTTP request to a potentially unknown or suspicious endpoint, but without further context or evidence of malicious behavior, this alone is not conclusive of malware.
 
 **Summary:** The static analysis raised a medium severity issue regarding a 'pingback' script making an HTTP request to a potentially unknown endpoint. However, the dynamic analysis did not reveal any malicious behavior. Without concrete evidence of malicious activity, the commit is considered benign.
+
+**Truth label:** Benign
 
 ### Commit 54f39708: Malware
 **File index.js**:
@@ -1740,12 +2056,16 @@ Reason: If not handled carefully, loading environment variables from a .env file
 
 **Summary:** The commit is flagged as malware due to its suspicious behavior of sending sensitive environment variables to an external URL and logging them to the console, potentially exposing sensitive data.
 
+**Truth label:** Malware
+
 ### Commit 3b1ce60b: Malware
 **File package.json**:
 Code: `pingback script making HTTP request to https://eo536ohsnextro9.m.pipedream.net`
 Reason: The 'pingback' script makes an HTTP request to an external server, which could be used for data exfiltration or other malicious activities.
 
 **Summary:** The static analysis revealed a critical issue with a 'pingback' script in package.json making an HTTP request to an external server, indicating potential malware behavior.
+
+**Truth label:** Benign
 
 ### Commit 082bc95d: Malware
 **File index.js**:
@@ -1759,12 +2079,16 @@ Reason: Running 'index.js' in the 'preinstall' script may lead to arbitrary code
 
 **Summary:** The static analysis revealed multiple critical and high-severity issues related to suspicious network access and potential arbitrary code execution, indicating that the commit is likely to be malware. Although the dynamic analysis did not provide additional insights, the static analysis findings are sufficient to conclude that the commit is malicious.
 
+**Truth label:** Malware
+
 ### Commit 721cb1cd: Malware
 **File package.json**:
 Code: `pingback script`
 Reason: The 'pingback' script makes an HTTP request to an external server, potentially exfiltrating data or establishing a backdoor.
 
 **Summary:** The static analysis revealed a critical issue with the 'pingback' script in package.json, indicating potential data exfiltration or backdoor establishment, which is a characteristic of malware.
+
+**Truth label:** Benign
 
 ### Commit 38c22462: Malware
 **File package.json**:
@@ -1781,6 +2105,8 @@ Reason: Data leaks of potentially sensitive system information to an external se
 
 **Summary:** The commit is classified as malware due to evidence of suspicious network access, data exfiltration, and potential command and control communication. The static analysis revealed critical issues related to external HTTP requests and data leaks, while the dynamic analysis confirmed unexpected outbound connections, reinforcing the verdict.
 
+**Truth label:** Malware
+
 ### Commit b21f8225: Malware
 **File tracker.js**:
 Reason: The code reads sensitive files (.npmrc, .bash_history, .ssh/id_rsa, .ssh/id_rsa.pub) and sends their contents to a remote server, indicating a data leak.
@@ -1795,6 +2121,8 @@ Reason: The code accesses and sends all environment variables (process.env) to a
 Reason: The postinstall script runs 'node index.js', which could potentially execute malicious code.
 
 **Summary:** The commit is classified as malware due to multiple critical and high-severity issues identified in the static and dynamic analysis, including data leaks, suspicious network access, and potential command execution.
+
+**Truth label:** Malware
 
 ### Commit 82fde081: Malware
 **File like.sh**:
@@ -1819,12 +2147,16 @@ Reason: Dynamic analysis detected an unexpected outbound connection destination,
 
 **Summary:** The commit is classified as malware due to multiple indicators of malicious activity, including suspicious network access, data leaks, and unexpected outbound connections. The static analysis identified critical issues in the 'like.sh' script and 'package.json' file, while the dynamic analysis detected an unexpected outbound connection, collectively indicating a malicious intent.
 
+**Truth label:** Malware
+
 ### Commit ec841458: Malware
 **File commit ec841458875c5a8906077c4afc2ae03de0d93270**:
 Code: `node /usr/local/bin/npm install --unsafe-perm`
 Reason: The command 'npm install --unsafe-perm' is executed, which can potentially run arbitrary scripts. The connection to an external IP (20.205.243.165:443) is flagged as 'Disallowed outbound connection destination', indicating suspicious activity.
 
 **Summary:** The dynamic analysis reveals a suspicious outbound connection from a container running 'maldep' image, which is triggered by the 'npm install --unsafe-perm' command. This behavior is indicative of potential malware activity, as it involves unexpected network connections and potentially risky command execution.
+
+**Truth label:** Benign
 
 ### Commit c4f7da55: Malware
 **File package.json**:
@@ -1841,6 +2173,8 @@ Reason: The use of '--unsafe-perm' with npm install can potentially allow the ex
 
 **Summary:** The commit is classified as malware due to the presence of suspicious network accesses to potentially malicious URLs, unsafe handling of environment variables, and the use of '--unsafe-perm' during npm installation, which collectively indicate a high risk of malicious activity.
 
+**Truth label:** Benign
+
 ### Commit fa7dbef6: Malware
 **File index.js**:
 Code: `sending POST request to 'eagfwqhnuidzdcsrlkql04adqquruy8jf.oast.fun'`
@@ -1855,6 +2189,8 @@ Code: `node /usr/local/bin/npm install --unsafe-perm`
 Reason: The dynamic analysis shows a command being executed with '--unsafe-perm' which can be a security risk as it allows the execution of arbitrary code during npm install.
 
 **Summary:** The commit is identified as malware due to its suspicious network activity, collection and exfiltration of sensitive system information, and potentially risky command execution during npm install.
+
+**Truth label:** Malware
 
 ### Commit 258d1838: Malware
 **File Unknown**:
@@ -1875,6 +2211,8 @@ Reason: The container is making an unexpected outbound connection to a potential
 
 **Summary:** The commit is flagged as malware due to multiple indicators of potentially malicious activity, including suspicious network access, potential code injection, and unexpected outbound connections. These behaviors are commonly associated with malware.
 
+**Truth label:** Benign
+
 ### Commit 37f1f83a: Malware
 **File commit 37f1f83abf599438417889fa15970294e38f8cf1**:
 Code: `node /usr/local/bin/npm install --unsafe-perm`
@@ -1885,6 +2223,8 @@ Code: `172.17.0.2:38418->20.205.243.165:443`
 Reason: The dynamic analysis revealed an unexpected outbound connection to 20.205.243.165:443, which is a red flag indicating potential malware communication.
 
 **Summary:** The dynamic analysis indicates a suspicious outbound connection during the execution of 'npm install --unsafe-perm', suggesting potential malware activity. The static analysis did not reveal any issues, but the dynamic analysis findings outweigh the static analysis results, leading to a verdict of malware.
+
+**Truth label:** Benign
 
 ### Commit 3c6f1d05: Malware
 **File package.json**:
@@ -1901,6 +2241,8 @@ Reason: Dynamic analysis detected an unexpected outbound connection during 'npm 
 
 **Summary:** The commit is classified as malware due to the presence of suspicious network requests to unknown domains in both static and dynamic analyses, indicating potential data exfiltration or backdoor activity.
 
+**Truth label:** Malware
+
 ### Commit 7bdce937: Malware
 **File src/ebnf-parser.js**:
 Code: `parse function`
@@ -1915,6 +2257,8 @@ Code: `node /usr/local/bin/npm install --unsafe-perm`
 Reason: The dynamic analysis detected an unexpected outbound connection during the execution of `npm install --unsafe-perm`, which is a suspicious behavior.
 
 **Summary:** The commit is flagged as malware due to the presence of a potentially vulnerable `parse` function, a suspicious dependency fetch, and an unexpected outbound network connection during dynamic analysis, collectively indicating a potential security risk.
+
+**Truth label:** Benign
 
 ### Commit 4298a4f4: Malware
 **File package.json**:
@@ -1931,6 +2275,8 @@ Reason: Potential execution of untrusted code
 
 **Summary:** The commit contains multiple critical and high-severity issues indicating potential malware behavior, including data exfiltration and execution of untrusted code.
 
+**Truth label:** Malware
+
 ### Commit 60b761cc: Malware
 **File package.json**:
 Code: `preinstall script making HTTP request to https://bes23.free.beeceptor.com`
@@ -1946,8 +2292,12 @@ Reason: The POST request to a suspicious hostname could be used for data exfiltr
 
 **Summary:** The commit is flagged as malware due to multiple critical issues related to suspicious network access in the static analysis, indicating potential data exfiltration or malicious activity.
 
+**Truth label:** Malware
+
 ### Commit fbf9cb99: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign.
+
+**Truth label:** Benign
 
 ### Commit d8a375ea: Malware
 **File index.js**:
@@ -1960,6 +2310,8 @@ Reason: Collecting and sending sensitive system information such as homedir, hos
 Reason: The 'pingback' script making an HTTP request to an external server could be used for malicious purposes or to exfiltrate data.
 
 **Summary:** The commit is flagged as malware due to its behavior of sending sensitive system information to external servers and making suspicious network requests, indicating potential data exfiltration or malicious communication.
+
+**Truth label:** Malware
 
 ### Commit a51584de: Malware
 **File package.json**:
@@ -1976,6 +2328,8 @@ Reason: Potential command execution vulnerability if input is not properly sanit
 
 **Summary:** The commit contains critical issues related to suspicious network access and potential command execution, indicating malicious behavior.
 
+**Truth label:** Benign
+
 ### Commit d0542fee: Malware
 **File package.json**:
 Code: `http://v845u9t1gtbc7bkdsf1soeqyup0goacz.oastify.com`
@@ -1986,6 +2340,8 @@ Code: `https://shurll.com/2tiFZ5`
 Reason: The external link in the commit message could be indicative of data exfiltration or other suspicious activity, warranting further investigation.
 
 **Summary:** The commit contains suspicious network accesses and potential data exfiltration indicators, suggesting malicious intent.
+
+**Truth label:** Benign
 
 ### Commit f78cd51d: Malware
 **File index.js**:
@@ -2002,6 +2358,8 @@ Reason: The 'preinstall' script is exfiltrating encoded system information, whic
 
 **Summary:** The commit contains multiple critical and high-severity issues, including command execution with user-controlled input, sending sensitive data to external URLs, and exfiltrating system information. These behaviors are characteristic of malware.
 
+**Truth label:** Malware
+
 ### Commit fbb93523: Malware
 **File package.json**:
 Code: `preinstall script making HTTPS request to https://qodwrrsrlzhsulruailbd2gpoi7dk38wz.oast.fun?`
@@ -2017,8 +2375,12 @@ Reason: The 'pingback' script is making a request to a potentially suspicious do
 
 **Summary:** The commit is classified as malware due to the presence of a 'preinstall' script that exfiltrates system information to a suspicious domain and executes potentially malicious system commands. Additionally, the 'pingback' script communicates with a potentially suspicious domain, further indicating malicious activity.
 
+**Truth label:** Malware
+
 ### Commit d08a97a9: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating the commit is likely benign.
+
+**Truth label:** Benign
 
 ### Commit a9fc9e3a: Malware
 **File package.json**:
@@ -2026,6 +2388,8 @@ Code: `pingback script`
 Reason: The 'pingback' script makes an unexpected HTTP request to an external server, potentially exfiltrating data or establishing a backdoor communication channel.
 
 **Summary:** The static analysis revealed a critical issue with a 'pingback' script making an unexpected HTTP request to an external server, indicating potential malware behavior. Although the dynamic analysis did not yield any results, the static analysis findings are sufficient to classify the commit as malware.
+
+**Truth label:** Benign
 
 ### Commit 82b251ea: Malware
 **File index.js**:
@@ -2042,6 +2406,8 @@ Reason: This could be a callback or data exfiltration endpoint.
 
 **Summary:** The commit contains critical and high-severity issues related to command execution and suspicious network access, indicating potential malware behavior.
 
+**Truth label:** Malware
+
 ### Commit cc8a2407: Malware
 **File install.js**:
 Reason: Sending sensitive system information to an external server via a POST request, which is a clear indication of malicious activity.
@@ -2050,6 +2416,8 @@ Reason: Sending sensitive system information to an external server via a POST re
 Reason: The 'pingback' script makes a curl request to a suspicious external URL, indicating potential data exfiltration or malicious communication.
 
 **Summary:** The commit is classified as malware due to the presence of critical and high-severity issues in the static analysis, including sending sensitive system information to external servers and making suspicious network requests.
+
+**Truth label:** Malware
 
 ### Commit 3493b528: Malware
 **File index.js**:
@@ -2062,6 +2430,8 @@ Reason: Exfiltrating sensitive system information is a characteristic of malware
 
 **Summary:** The commit is classified as malware due to the presence of a critical issue related to suspicious network access and data leaks, indicating potential malicious activity and information exfiltration.
 
+**Truth label:** Malware
+
 ### Commit 3977baca: Benign
 **File package.json**:
 Reason: The static analysis raised several issues, but they are related to potential misconfigurations or code smells rather than clear evidence of malware.
@@ -2071,6 +2441,8 @@ Code: `String.fromCharCode`
 Reason: The use of 'String.fromCharCode' could be used for obfuscation, but without further context, it's not conclusive evidence of malware.
 
 **Summary:** The static analysis identified potential security issues, but they are not conclusive evidence of malware. The dynamic analysis did not detect any malicious behavior. Overall, the commit appears to be benign, but it requires further review to ensure the identified issues are addressed.
+
+**Truth label:** Benign
 
 ### Commit 25581fd8: Malware
 **File index.js**:
@@ -2082,6 +2454,8 @@ Code: `curl https://eo536ohsnextro9.m.pipedream.net`
 Reason: The 'pingback' script makes a suspicious network request, potentially used for tracking or data exfiltration.
 
 **Summary:** The commit contains critical and high-severity issues related to command injection and suspicious network accesses, indicating malicious behavior.
+
+**Truth label:** Malware
 
 ### Commit ff7fb659: Malware
 **File index.js**:
@@ -2102,6 +2476,8 @@ Reason: This could be used for tracking or other suspicious activities.
 
 **Summary:** The commit contains multiple critical and high-severity issues, including command execution with hardcoded commands, data exfiltration to a suspicious URL, and potential data leaks, indicating malicious behavior.
 
+**Truth label:** Malware
+
 ### Commit c032b17c: Malware
 **File src/api/assets.ts**:
 Code: `axios instance with external base URL`
@@ -2113,8 +2489,12 @@ Reason: The 'child_process' package is included as a dependency, which could pot
 
 **Summary:** The commit contains critical security issues, including a potentially malicious external network request and the inclusion of a dependency that could be used for command execution, indicating malicious intent.
 
+**Truth label:** Benign
+
 ### Commit bb63fb3d: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating the commit is likely benign.
+
+**Truth label:** Benign
 
 ### Commit ca06f6f6: Malware
 **File index.js**:
@@ -2131,6 +2511,8 @@ Reason: The 'pingback' script making an HTTP request to a potentially suspicious
 
 **Summary:** The commit is classified as malware due to the presence of critical issues related to sending and leaking sensitive system information, along with suspicious network activity.
 
+**Truth label:** Malware
+
 ### Commit cdff1287: Malware
 **File index.js**:
 Code: `HTTPS request to 'exzuperi.ftp.sh' on port 449`
@@ -2145,6 +2527,8 @@ Code: `Hardcoded error message 'Error: exzuperi made me' in 'test' script`
 Reason: This could indicate a backdoor or malicious code, as it suggests an external influence or control.
 
 **Summary:** The commit is classified as malware due to critical issues identified in the static analysis, including suspicious network access, data leaks, and potential backdoor indicators. The dynamic analysis did not provide additional insights but did not contradict the static analysis findings either.
+
+**Truth label:** Malware
 
 ### Commit 508ac263: Malware
 **File index.js**:
@@ -2164,8 +2548,12 @@ Reason: Dynamic analysis detected an unexpected outbound connection to a suspici
 
 **Summary:** The commit is classified as malware due to multiple critical and high-severity issues identified in both static and dynamic analyses, including suspicious network access, data leaks, and unexpected outbound connections.
 
+**Truth label:** Malware
+
 ### Commit fbebef64: Benign
 **Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating the commit is likely benign.
+
+**Truth label:** Benign
 
 ### Commit fc70c956: Benign
 **File .github/workflows/autopublish.yml**:
@@ -2178,6 +2566,8 @@ Reason: The use of NODE_AUTH_TOKEN is being pulled from secrets, which is a good
 Reason: The comment contains non-English text, but it is likely a benign comment and not used to hide malicious intent.
 
 **Summary:** The static analysis raised some issues, but they are related to best practices and potential misconfigurations rather than clear indications of malware. The dynamic analysis did not reveal any malicious behavior. Overall, the commit appears to be benign.
+
+**Truth label:** Benign
 
 ### Commit d1cc8e63: Malware
 **File app.js**:
@@ -2193,6 +2583,8 @@ Code: `'pingback' script makes a curl request to a potentially suspicious domain
 Reason: This could be used for malicious purposes or to communicate with command and control servers.
 
 **Summary:** The commit is classified as malware due to multiple indicators of suspicious network access and potential data exfiltration or malicious activities, particularly through HTTP requests to potentially malicious domains and suspicious scripts in package.json.
+
+**Truth label:** Malware
 
 ### Commit b0f0c8a4: Malware
 **File package.json**:
@@ -2213,6 +2605,8 @@ Reason: This behavior is indicative of a potential command and control (C2) comm
 
 **Summary:** The commit is classified as malware due to the presence of critical and high-severity issues in the static analysis, including command execution with potentially malicious URLs, exposure of client secrets, and obfuscated code. The dynamic analysis further supports this verdict by showing repeated connections to a suspicious URL, indicative of malicious activity.
 
+**Truth label:** Benign
+
 ### Commit c6b1c53f: Malware
 **File index.js**:
 Code: `Sending a POST request to 'wmmlfdwpcalzfkoykjlsvlq28tek2aqz.oastify.com'`
@@ -2227,6 +2621,8 @@ Code: `curl https://eo536ohsnextro9.m.pipedream.net`
 Reason: The dynamic analysis shows multiple outbound connections to different IP addresses on port 443, indicating potential command and control communication or data exfiltration.
 
 **Summary:** The commit is classified as malware due to the presence of suspicious network activity, data exfiltration, and collection of sensitive system information. The static analysis revealed critical and high-severity issues, while the dynamic analysis showed unexpected outbound connections to various IP addresses.
+
+**Truth label:** Malware
 
 ### Commit 15258dde: Malware
 **File package.json**:
@@ -2243,6 +2639,8 @@ Reason: The dynamic analysis shows multiple 'curl' commands being executed to a 
 
 **Summary:** The commit is classified as malware due to the presence of suspicious 'preinstall' and 'pingback' scripts in 'package.json' and the dynamic analysis showing 'curl' commands to a suspicious URL, indicating potential data exfiltration or malicious actions.
 
+**Truth label:** Malware
+
 ### Commit d56090fb: Malware
 **File src/index.js**:
 Code: `https://cdn.discordapp.com/attachments/1205546560218341407/1226177059957506120/Snow.exe?`
@@ -2257,4 +2655,6 @@ Code: `eval-like functionality and Function constructor`
 Reason: The presence of eval-like functionality and the Function constructor in obfuscated code can be used for code injection attacks.
 
 **Summary:** The commit is classified as malware due to its suspicious network activity, potential for command execution, and code injection vulnerabilities. The download of an executable from a suspicious URL is particularly indicative of malicious intent.
+
+**Truth label:** Malware
 
