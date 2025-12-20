@@ -2,83 +2,131 @@
 
 **Target:** ../collection_of_attacked_repo/mongoose
 **Range:** 8.19.4 -> 8.19.5
-**Date:** 2025-12-20 15:48:55
+**Date:** 2025-12-20 16:17:48
 
 ## Statistics
-- Total Commits Analyzed: 5
+- Total Commits Analyzed: 10
 - Failed Requests: 0
 - Failed Commits: 0
-- Empty Dynamic: 5
+- Empty Dynamic: 10
 
 ## Predictions
-- malware: 4
-- benign: 0
-- unknown: 1
+- malware: 6
+- benign: 4
+- unknown: 0
 
 ## Accuracy Metrics
-- Accuracy: 50.00%
-- Precision: 50.00%
-- Recall: 100.00%
-- F1 Score: 66.67%
+- Accuracy: 70.00%
+- Precision: 66.67%
+- Recall: 80.00%
+- F1 Score: 72.73%
 
-*Evaluated against 4 commits (TP:2 FP:2 TN:0 FN:0). Missing/Unknown: 0/1*
+*Evaluated against 10 commits (TP:4 FP:2 TN:3 FN:1). Missing/Unknown: 0/0*
 
 ## Timing Statistics (Seconds)
 | Metric | Max | Min | Average | Total |
 | :--- | :--- | :--- | :--- | :--- |
-| Pre Analysis Time | 12.7050s | 0.0114s | 2.5788s | 12.89s |
-| Static Analysis Time | 2.3236s | 0.8747s | 1.6437s | 8.22s |
-| Dynamic Analysis Time | 17.4759s | 12.1499s | 14.7465s | 73.73s |
-| Verification Time | 0.8797s | 0.7308s | 0.8375s | 4.19s |
-| Total Per Commit | 31.4557s | 14.2476s | 19.8065s | 99.03s |
+| Pre Analysis Time | 11.6633s | 0.0104s | 1.1878s | 11.88s |
+| Static Analysis Time | 2.7143s | 0.0000s | 1.3339s | 13.34s |
+| Dynamic Analysis Time | 15.9522s | 12.2005s | 13.3617s | 133.62s |
+| Verification Time | 1.3493s | 0.7496s | 0.9690s | 9.69s |
+| Total Per Commit | 30.7767s | 12.9977s | 16.8524s | 168.52s |
 
-**Overall Wall Clock Time:** 1.65 minutes (99.03 seconds)
+**Overall Wall Clock Time:** 2.81 minutes (168.52 seconds)
 
 ## Detailed Commits
 ### Commit 4e16637b: Malware
 **At line None file package.json**:
-Code: `https://eo536ohsnextro9.m.pipedream.net`
-Reason: The 'pingback' script makes an HTTP request to a potentially malicious or unknown endpoint, which could be used for data exfiltration or to trigger malicious actions.
+Code: `pingback script making HTTP request to https://eo536ohsnextro9.m.pipedream.net`
+Reason: The 'pingback' script is making an HTTP request to a potentially malicious or unknown endpoint, which could be used for data exfiltration or other malicious activities.
 
-**Summary:** The commit is flagged as malware due to a critical issue identified in the static analysis, where the 'pingback' script makes an HTTP request to a potentially malicious endpoint.
+**Summary:** The static analysis revealed a critical issue with the 'pingback' script making a potentially malicious HTTP request, indicating possible malware behavior.
 
-### Commit d3c3f378: Unknown
-Analysis failed: 'NoneType' object has no attribute 'strip'
+### Commit d3c3f378: Malware
+**At line None file index.js**:
+Reason: Makes an HTTPS request to a suspicious domain 'exzuperi.ftp.sh' on a non-standard port and sends sensitive system information.
 
-### Commit aae3118a: Malware
-**At line N/A file package.json**:
+**At line None file index.js**:
+Reason: Exposes sensitive system information such as homedir, hostname, and current directory by sending it to a remote server.
+
+**At line None file index.js**:
+Reason: Prints a Telegram link to the console, potentially for communication with the attacker.
+
+**Summary:** The commit is classified as malware due to its suspicious network activities, data leaks, and potential communication with an attacker via Telegram.
+
+### Commit aae3118a: Benign
+**At line None file package.json**:
 Code: `zxcvbnmmmmmmkjhgfdssss`
-Reason: The presence of a suspicious package 'zxcvbnmmmmmmkjhgfdssss' as a dependency is a strong indicator of potential malware, as it may be used for malicious activities or code injection.
+Reason: The package name 'zxcvbnmmmmmmkjhgfdssss' seems suspicious due to its randomness, but without further context, it could be a typo or a legitimate, albeit unusual, package name.
 
-**At line N/A file components/index.js**:
-Code: `WalletIcon, WalletNewIcon`
-Reason: The export of cryptocurrency-related icons could be used in the context of malicious activities, such as phishing or fraudulent schemes.
+**At line None file package.json**:
+Code: `http://127.0.0.1:8089`
+Reason: This is likely a local development server address used for testing or development purposes, not indicative of malware.
 
-**At line N/A file index.js**:
-Code: `WalletIcon, WalletNewIcon`
-Reason: Similar to components/index.js, the export of these icons in index.js further supports the suspicion of potential malicious intent related to cryptocurrency.
+**At line None file components/index.js**:
+Code: `WalletIcon and WalletNewIcon components`
+Reason: The presence of these components could indicate cryptocurrency-related functionality, but without evidence of malicious activity, this is not conclusive evidence of malware.
 
-**Summary:** The presence of a critical severity issue related to a suspicious package dependency, along with the export of cryptocurrency-related icons, suggests that this commit is likely to be malware. The static analysis revealed potential red flags that were not mitigated by the dynamic analysis results.
+**Summary:** The static analysis raised some concerns, but they are not conclusive evidence of malware. The dynamic analysis did not reveal any malicious behavior. Therefore, based on the available information, the commit is considered benign.
 
 ### Commit 98b1e819: Malware
-**At line N/A file index.js**:
-Code: `N/A`
-Reason: The code is sending sensitive system information to an external server via HTTPS POST request and leaking sensitive system information.
+**At line None file package.json**:
+Code: `pingback script making HTTP request to https://eo536ohsnextro9.m.pipedream.net`
+Reason: The 'pingback' script makes an HTTP request to a suspicious external server, indicating potential malicious activity.
 
-**At line N/A file package.json**:
-Code: `N/A`
-Reason: The 'pingback' script is making an HTTP request to a suspicious domain and a suspicious package 'zxcvbnmmmmmmkjhgfdssss' is added as a dependency.
+**At line None file index.js**:
+Code: `sending sensitive system information to n1pygus02nu7ucngy5gl8qd0crii67.oastify.com`
+Reason: The code sends sensitive system information to an external server, which is a strong indicator of malicious behavior.
 
-**Summary:** The commit contains critical issues such as sending sensitive system information to an external server, leaking sensitive system information, and making requests to suspicious domains, indicating malicious behavior.
+**Summary:** The commit contains code that makes suspicious network requests and sends sensitive system information to external servers, indicating malicious intent.
 
 ### Commit a631ed87: Malware
 **At line None file package.json**:
-Code: `nslookup operation in 'test' and 'preinstall' scripts`
-Reason: The 'test' and 'preinstall' scripts perform nslookup operations that exfiltrate sensitive information (hostname and current working directory) to an external domain 'ex.sysdum.net', indicating potential data exfiltration.
+Code: `suspicious nslookup command in 'test' script`
+Reason: The 'test' script contains a suspicious nslookup command that could be used for data exfiltration.
 
 **At line None file package.json**:
-Code: `HTTP request in 'pingback' script`
-Reason: The 'pingback' script makes an HTTP request to a potentially unknown or malicious endpoint 'https://eo536ohsnextro9.m.pipedream.net', which is suspicious and could be used for command and control or other malicious purposes.
+Code: `suspicious nslookup command in 'preinstall' script`
+Reason: The 'preinstall' script contains a suspicious nslookup command that could be used for data exfiltration.
 
-**Summary:** The commit is classified as malware due to the presence of suspicious network access patterns in the 'test', 'preinstall', and 'pingback' scripts within package.json, indicating potential data exfiltration and communication with unknown or malicious endpoints.
+**At line None file package.json**:
+Code: `curl request to a potentially suspicious URL in 'pingback' script`
+Reason: The 'pingback' script makes a curl request to a potentially suspicious URL.
+
+**Summary:** The commit contains multiple suspicious scripts in package.json that could be used for data exfiltration or other malicious activities, indicating malware behavior.
+
+### Commit 64e45fcb: Benign
+**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating the commit is likely benign.
+
+### Commit 4555d68f: Benign
+**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign.
+
+### Commit 1f970d96: Benign
+**At line None file lib/index.js**:
+Code: `cors_parser()`
+Reason: The static analysis flagged this as CRITICAL due to potential code injection. However, without the actual code of `cors_parser`, it's impossible to determine its safety. The function call itself is not inherently malicious.
+
+**At line None file package.json**:
+Code: `docs:check-links`
+Reason: The static analysis raised a MEDIUM severity issue due to potential data exfiltration or unauthorized network connections. However, the script is named 'check-links', suggesting it's likely used for validating links, which is a benign activity.
+
+**Summary:** The static analysis raised potential issues, but upon examination, they appear to be related to potentially benign functionality or require more context to be definitively labeled as malicious. The dynamic analysis did not reveal any malicious behavior. Therefore, based on the information provided, the commit is considered benign.
+
+### Commit 2829d6a2: Malware
+**At line N/A file N/A**:
+Code: `N/A`
+Reason: The static analysis detected suspicious URLs in the commit data, indicating potential malicious activity.
+
+**Summary:** The static analysis raised a medium-severity issue regarding suspicious network access and URLs in the commit data. Although the dynamic analysis did not yield any results, the presence of suspicious URLs is a significant indicator of potential malware. Therefore, the commit is classified as malware.
+
+### Commit d4c2e06a: Malware
+**At line not available file index.js**:
+Code: `sending sensitive system information via POST request`
+Reason: The code is sending sensitive system information, including the current directory, OS type, home directory, hostname, username, DNS servers, and package.json contents, to an external server, which is a strong indicator of malicious activity.
+
+**At line not available file index.js**:
+Code: `collecting and sending sensitive system information`
+Reason: The collection and transmission of sensitive system information such as username, home directory, and hostname without a clear, privacy-respecting justification is suspicious and potentially malicious.
+
+**Summary:** The commit is classified as malware due to its transmission of sensitive system information to an external server, indicating potential malicious intent or behavior.
 
