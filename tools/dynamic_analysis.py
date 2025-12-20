@@ -247,16 +247,16 @@ class DynamicAnalyzer:
                 poll_count += 1
                 
                 if status == 'finished':
-                    print(f"✅ Analysis complete after {elapsed:.1f}s ({poll_count} polls)")
+                    print(f"\r✅ Analysis complete after {elapsed:.1f}s ({poll_count} polls)")
                     return result
                 elif status == 'pending':
-                    print(f"   ⏳ Status: pending ({elapsed:.0f}s elapsed)...")
+                    print(f"\r   ⏳ Status: pending ({elapsed:.0f}s elapsed)...", end="", flush=True)
                     time.sleep(self.poll_interval)
                 elif status == 'error':
-                    print(f"❌ Analysis failed: {result.get('message', 'Unknown error')}")
+                    print(f"\r❌ Analysis failed: {result.get('message', 'Unknown error')}")
                     return None
                 else:
-                    print(f"⚠️  Unknown status: {status}")
+                    print(f"\r⚠️  Unknown status: {status}")
                     time.sleep(self.poll_interval)
                     
             except requests.exceptions.RequestException as e:

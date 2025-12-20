@@ -14,3 +14,6 @@ venv
 # Temporary files
 tmp/
 node_modules/
+
+# Reports
+reports/

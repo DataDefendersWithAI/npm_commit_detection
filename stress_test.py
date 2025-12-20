@@ -197,7 +197,6 @@ def simple_verification(commit_sha, static_json, dynamic_json):
         "findings": [
             {{
                 "file": "file path",
-                "line": line number (int/string),
                 "code": "relevant code snippet",
                 "reason": "explanation of why this specific part is suspicious/safe"
             }}
@@ -243,11 +242,11 @@ def simple_verification(commit_sha, static_json, dynamic_json):
         
         for f in findings:
             file_path = f.get("file", "Unknown file")
-            line_num = f.get("line", "?")
+
             code = (f.get("code") or "").strip()
             reason = (f.get("reason") or "").strip()
             
-            lines.append(f"**At line {line_num} file {file_path}**:")
+            lines.append(f"**File {file_path}**:")
             if code:
                 # Truncate if too long (200 chars)
                 code_snippet = code.replace('\n', ' ')[:200]
