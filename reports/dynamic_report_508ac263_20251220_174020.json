@@ -1,0 +1,26 @@
+{
+  "status": "finished",
+  "id": "6a35be56-f269-41a0-a280-122d21f50f85",
+  "result": [
+    {
+      "output_fields": {
+        "fd.name": "172.17.0.2:34858->206.189.156.69:443",
+        "container.name": "some-container-6a35be56-f269-41a0-a280-122d21f50f85.tgz",
+        "container.image.repository": "maldep",
+        "proc.cmdline": "node index.js",
+        "user.name": "root",
+        "container.id": "8859985a8923",
+        "evt.time": "10:40:18.640294362"
+      },
+      "time": {
+        "seconds": "1766227218",
+        "nanos": 640294362
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "10:40:18.640294362: Notice Disallowed outbound connection destination (command=node index.js connection=172.17.0.2:34858->206.189.156.69:443 user=root container_id=8859985a8923 container_name=some-container-6a35be56-f269-41a0-a280-122d21f50f85.tgz image=maldep)",
+      "hostname": "vagrant"
+    }
+  ]
+}

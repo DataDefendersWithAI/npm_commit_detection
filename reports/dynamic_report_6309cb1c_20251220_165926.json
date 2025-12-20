@@ -1,0 +1,66 @@
+{
+  "status": "finished",
+  "id": "50531a11-6da1-4e3a-8a5e-a3bfa6f86d2c",
+  "result": [
+    {
+      "output_fields": {
+        "container.id": "9c1237b76314",
+        "proc.cmdline": "npm                                          ",
+        "evt.time": "09:58:12.407931165",
+        "fd.name": "172.17.0.2:36433->172.67.175.222:0",
+        "container.image.repository": "maldep",
+        "user.name": "root",
+        "container.name": "some-container-50531a11-6da1-4e3a-8a5e-a3bfa6f86d2c.tgz"
+      },
+      "time": {
+        "seconds": "1766224692",
+        "nanos": 407931165
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:58:12.407931165: Notice Disallowed outbound connection destination (command=npm                                           connection=172.17.0.2:36433->172.67.175.222:0 user=root container_id=9c1237b76314 container_name=some-container-50531a11-6da1-4e3a-8a5e-a3bfa6f86d2c.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "container.image.repository": "maldep",
+        "evt.time": "09:58:12.407933841",
+        "container.name": "some-container-50531a11-6da1-4e3a-8a5e-a3bfa6f86d2c.tgz",
+        "user.name": "root",
+        "proc.cmdline": "npm                                          ",
+        "fd.name": "172.17.0.2:49638->104.21.83.128:0",
+        "container.id": "9c1237b76314"
+      },
+      "time": {
+        "seconds": "1766224692",
+        "nanos": 407933841
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:58:12.407933841: Notice Disallowed outbound connection destination (command=npm                                           connection=172.17.0.2:49638->104.21.83.128:0 user=root container_id=9c1237b76314 container_name=some-container-50531a11-6da1-4e3a-8a5e-a3bfa6f86d2c.tgz image=maldep)",
+      "hostname": "vagrant"
+    },
+    {
+      "output_fields": {
+        "fd.name": "172.17.0.2:52790->172.67.175.222:443",
+        "evt.time": "09:58:12.408086033",
+        "container.id": "9c1237b76314",
+        "proc.cmdline": "node /usr/local/bin/npm install --unsafe-perm",
+        "container.image.repository": "maldep",
+        "container.name": "some-container-50531a11-6da1-4e3a-8a5e-a3bfa6f86d2c.tgz",
+        "user.name": "root"
+      },
+      "time": {
+        "seconds": "1766224692",
+        "nanos": 408086033
+      },
+      "priority": "NOTICE",
+      "source": "SYSCALL",
+      "rule": "Unexpected outbound connection destination",
+      "output": "09:58:12.408086033: Notice Disallowed outbound connection destination (command=node /usr/local/bin/npm install --unsafe-perm connection=172.17.0.2:52790->172.67.175.222:443 user=root container_id=9c1237b76314 container_name=some-container-50531a11-6da1-4e3a-8a5e-a3bfa6f86d2c.tgz image=maldep)",
+      "hostname": "vagrant"
+    }
+  ]
+}

