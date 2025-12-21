@@ -3,12 +3,14 @@
 **Target:** ../collection_of_attacked_repo/mongoose
 **Range:** 8.19.4 -> 8.19.5
 **Date:** 2025-12-20 22:30:06
+**Model:** openai/gpt-oss-120b by OpenRouter (providers: Groq, DeepInfra)
 
 ## Statistics
 - Total Commits Analyzed: 200
 - Failed Requests: 0
 - Failed Commits: 0
 - Empty Dynamic: 197
+- Cost: $0.358
 
 ## Predictions
 - malware: 119

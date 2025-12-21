@@ -3,14 +3,14 @@
 **Target:** ../collection_of_attacked_repo/mongoose
 **Range:** 8.19.4 -> 8.19.5
 **Date:** 2025-12-20 18:05:17
-**Model:** llama-4-maverick by OpenRouter (providers: Groq, DeepInfra)
-**Cost:** $0.487
+**Model:** meta-llama/llama-4-maverick by OpenRouter (providers: Groq, DeepInfra)
 
 ## Statistics
 - Total Commits Analyzed: 200
 - Failed Requests: 0
 - Failed Commits: 0
 - Empty Dynamic: 163
+- Cost: $0.487
 
 ## Predictions
 - malware: 141

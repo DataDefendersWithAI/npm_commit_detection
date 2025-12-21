@@ -3,12 +3,14 @@
 **Target:** ../collection_of_attacked_repo/mongoose
 **Range:** 8.19.4 -> 8.19.5
 **Date:** 2025-12-21 16:20:06
+**Model:** openai/gpt-5-mini by OpenRouter (providers: OpenAI, Azure)
 
 ## Statistics
 - Total Commits Analyzed: 200
 - Failed Requests: 0
 - Failed Commits: 0
 - Empty Dynamic: 200
+- Cost: $1.86
 
 ## Predictions
 - malware: 120
