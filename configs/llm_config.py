@@ -19,10 +19,11 @@ class LLMConfig(BaseConfig):
         "novita",
         "hyperbolic",
         "together",
+        "openai",
     ]
     
     # Disable fallbacks - only use specified providers in order
-    OPENROUTER_ALLOW_FALLBACKS = False
+    OPENROUTER_ALLOW_FALLBACKS = True
 
     # Sort by throughput
     OPENROUTER_SORT_BY = "throughput"
