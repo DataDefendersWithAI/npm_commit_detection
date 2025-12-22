@@ -1,0 +1,1402 @@
+[
+  {
+    "commit": "4e16637bb6d3267e9966b52678ac31fa0c096e30",
+    "pre_analysis_time": 0.07651329040527344,
+    "static_analysis_time": 3.548929452896118,
+    "dynamic_analysis_time": 15.695111989974976,
+    "verification_time": 2.8777873516082764
+  },
+  {
+    "commit": "d3c3f378a946e9d780d820841d58afb13e223ce8",
+    "pre_analysis_time": 0.023573637008666992,
+    "static_analysis_time": 5.262466669082642,
+    "dynamic_analysis_time": 15.972429275512695,
+    "verification_time": 2.9361941814422607
+  },
+  {
+    "commit": "aae3118a452965a886ed604e424f36bdae5ae619",
+    "pre_analysis_time": 11.487849473953247,
+    "static_analysis_time": 5.993438005447388,
+    "dynamic_analysis_time": 15.395774364471436,
+    "verification_time": 3.3567392826080322
+  },
+  {
+    "commit": "98b1e819573c66ac133f1019714b0a7a71660643",
+    "pre_analysis_time": 0.011310815811157227,
+    "static_analysis_time": 6.854830980300903,
+    "dynamic_analysis_time": 13.005406618118286,
+    "verification_time": 3.000596284866333
+  },
+  {
+    "commit": "a631ed877af9464c8ca0588772fdf55e5ce1d22d",
+    "pre_analysis_time": 0.0198514461517334,
+    "static_analysis_time": 4.882685422897339,
+    "dynamic_analysis_time": 14.05953598022461,
+    "verification_time": 3.303516149520874
+  },
+  {
+    "commit": "64e45fcbb177d2d1fec73762e4657cd524700a12",
+    "pre_analysis_time": 0.008608341217041016,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 13.159681558609009,
+    "verification_time": 2.0219595432281494
+  },
+  {
+    "commit": "4555d68f11e4d80bda4b66e24c9563a0cffa9c0e",
+    "pre_analysis_time": 0.011194705963134766,
+    "static_analysis_time": 2.784151792526245,
+    "dynamic_analysis_time": 12.530592679977417,
+    "verification_time": 2.392381429672241
+  },
+  {
+    "commit": "1f970d963747dfe0002209263636f8af6684d37f",
+    "pre_analysis_time": 0.028863191604614258,
+    "static_analysis_time": 5.211988210678101,
+    "dynamic_analysis_time": 12.568800926208496,
+    "verification_time": 3.437007427215576
+  },
+  {
+    "commit": "2829d6a2d0201ebc9eb79a135a19c86dc9aedb4d",
+    "pre_analysis_time": 0.01265859603881836,
+    "static_analysis_time": 3.523998975753784,
+    "dynamic_analysis_time": 12.581910371780396,
+    "verification_time": 2.921290636062622
+  },
+  {
+    "commit": "d4c2e06ac41bd69f7e081d768a9f466bedcbe32c",
+    "pre_analysis_time": 0.012707948684692383,
+    "static_analysis_time": 4.886314868927002,
+    "dynamic_analysis_time": 12.434075593948364,
+    "verification_time": 3.1685492992401123
+  },
+  {
+    "commit": "9f99f902ec17f66b626885c8127814931a1400d0",
+    "pre_analysis_time": 0.011582136154174805,
+    "static_analysis_time": 2.7657582759857178,
+    "dynamic_analysis_time": 12.467287063598633,
+    "verification_time": 2.2624120712280273
+  },
+  {
+    "commit": "657eccd74adad688b628734f3ac00b950ba71411",
+    "pre_analysis_time": 0.017499208450317383,
+    "static_analysis_time": 5.181868553161621,
+    "dynamic_analysis_time": 12.48517656326294,
+    "verification_time": 3.070796489715576
+  },
+  {
+    "commit": "2e9e1ef8b99c75e3a9151d442b8a0d025572a00a",
+    "pre_analysis_time": 0.013975143432617188,
+    "static_analysis_time": 3.9648048877716064,
+    "dynamic_analysis_time": 12.390997409820557,
+    "verification_time": 2.7152998447418213
+  },
+  {
+    "commit": "6abe477a53ef62b5eb479dc6925393ac526ddcec",
+    "pre_analysis_time": 0.015449762344360352,
+    "static_analysis_time": 5.086930751800537,
+    "dynamic_analysis_time": 12.825815916061401,
+    "verification_time": 3.068470001220703
+  },
+  {
+    "commit": "3b4cebf4f3d6eeac49474e6413c03c0db282e0a1",
+    "pre_analysis_time": 0.036104440689086914,
+    "static_analysis_time": 3.5810763835906982,
+    "dynamic_analysis_time": 12.942739486694336,
+    "verification_time": 2.383039712905884
+  },
+  {
+    "commit": "40204310bd97936af6ef7463778bb91d3f04c1a7",
+    "pre_analysis_time": 0.010102272033691406,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 13.173672199249268,
+    "verification_time": 1.997323989868164
+  },
+  {
+    "commit": "df31d8f9fcbe9a518bd552e44f357632ea1281c4",
+    "pre_analysis_time": 0.011414766311645508,
+    "static_analysis_time": 2.783242702484131,
+    "dynamic_analysis_time": 12.885830163955688,
+    "verification_time": 2.593669891357422
+  },
+  {
+    "commit": "063e90779ef2b46d08c54ac9a73ae4f4e686d726",
+    "pre_analysis_time": 0.06639742851257324,
+    "static_analysis_time": 7.232045650482178,
+    "dynamic_analysis_time": 14.980224847793579,
+    "verification_time": 3.5191380977630615
+  },
+  {
+    "commit": "8a258cc6412ec633c52dcdfca242290d980322d9",
+    "pre_analysis_time": 0.011818408966064453,
+    "static_analysis_time": 3.763833522796631,
+    "dynamic_analysis_time": 12.389803171157837,
+    "verification_time": 4.372472763061523
+  },
+  {
+    "commit": "b2f02b1fb79178d388fd6c54284ac18c9aeb4980",
+    "pre_analysis_time": 0.015494108200073242,
+    "static_analysis_time": 5.07302451133728,
+    "dynamic_analysis_time": 20.438491344451904,
+    "verification_time": 2.6197104454040527
+  },
+  {
+    "commit": "e88a54becd722227b99a52ff45dd25c577904e82",
+    "pre_analysis_time": 0.07250213623046875,
+    "static_analysis_time": 6.052676200866699,
+    "dynamic_analysis_time": 14.561997175216675,
+    "verification_time": 3.212219715118408
+  },
+  {
+    "commit": "1bff3b1d589da89f06811f9e8bec7dfcdf45d9e5",
+    "pre_analysis_time": 0.01753830909729004,
+    "static_analysis_time": 5.413217067718506,
+    "dynamic_analysis_time": 14.432646036148071,
+    "verification_time": 3.154383659362793
+  },
+  {
+    "commit": "1ea0894cdb70e1927dcff195db673c8e6a67450b",
+    "pre_analysis_time": 0.039266347885131836,
+    "static_analysis_time": 5.786034822463989,
+    "dynamic_analysis_time": 16.38681936264038,
+    "verification_time": 3.772812604904175
+  },
+  {
+    "commit": "40223784811d65875ce2b80b7aa73024f393fbf6",
+    "pre_analysis_time": 0.00860595703125,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 12.260503768920898,
+    "verification_time": 1.8996644020080566
+  },
+  {
+    "commit": "e85b5f5fc7f6dceff87b14176f9622e169c0d74e",
+    "pre_analysis_time": 0.015645980834960938,
+    "static_analysis_time": 5.541860342025757,
+    "dynamic_analysis_time": 12.524626016616821,
+    "verification_time": 3.338582992553711
+  },
+  {
+    "commit": "ef03551ff4eed01552393d17b6f47d252e53acb1",
+    "pre_analysis_time": 0.01976633071899414,
+    "static_analysis_time": 3.797657012939453,
+    "dynamic_analysis_time": 56.705172300338745,
+    "verification_time": 3.3559987545013428
+  },
+  {
+    "commit": "ecda94ad9e4ed8faf5107a4e4fe9077eb49354d9",
+    "pre_analysis_time": 0.1554567813873291,
+    "static_analysis_time": 6.875549077987671,
+    "dynamic_analysis_time": 44.51759123802185,
+    "verification_time": 3.9884276390075684
+  },
+  {
+    "commit": "40ce970cb4606791b4d4d7a7c3683ade254ada0c",
+    "pre_analysis_time": 0.028168201446533203,
+    "static_analysis_time": 5.102868318557739,
+    "dynamic_analysis_time": 34.54507660865784,
+    "verification_time": 64.20127153396606
+  },
+  {
+    "commit": "43d0641637702b43249dbb28d66df079c5d5e1f2",
+    "pre_analysis_time": 0.00945901870727539,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 40.57984924316406,
+    "verification_time": 2.483163595199585
+  },
+  {
+    "commit": "ba3478dff1ac8995199d57c262cbfc683f57ffac",
+    "pre_analysis_time": 0.007314205169677734,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 38.473053216934204,
+    "verification_time": 2.4864749908447266
+  },
+  {
+    "commit": "c35a42570ff7587302f577b8b5ee57607b31a248",
+    "pre_analysis_time": 0.008059978485107422,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 60.34140205383301,
+    "verification_time": 2.528203248977661
+  },
+  {
+    "commit": "4a96c3124d4ea4beeed354c5874405846574c50f",
+    "pre_analysis_time": 0.0076847076416015625,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 54.623087882995605,
+    "verification_time": 3.250396251678467
+  },
+  {
+    "commit": "acece12f68bd1aae87b3f0b61cec390ad050dc5f",
+    "pre_analysis_time": 0.00706028938293457,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 39.00213170051575,
+    "verification_time": 2.532881736755371
+  },
+  {
+    "commit": "7c6c00d8d7b0092f6c384d036c96452685b8da78",
+    "pre_analysis_time": 0.013149499893188477,
+    "static_analysis_time": 3.1947598457336426,
+    "dynamic_analysis_time": 54.545992374420166,
+    "verification_time": 2.5323731899261475
+  },
+  {
+    "commit": "0ef45ef6f973cfe3aab27ab44c2076cf32d0cde3",
+    "pre_analysis_time": 0.03213143348693848,
+    "static_analysis_time": 6.151142597198486,
+    "dynamic_analysis_time": 49.397130727767944,
+    "verification_time": 3.3412044048309326
+  },
+  {
+    "commit": "99e7cd10e3730d1e1e4a4fe4b1962dbdb51eeac9",
+    "pre_analysis_time": 0.00712275505065918,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 44.70211458206177,
+    "verification_time": 2.76387882232666
+  },
+  {
+    "commit": "8dcad674120ab9830d38645679fd1aa7bf12768c",
+    "pre_analysis_time": 0.008049249649047852,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 66.63137912750244,
+    "verification_time": 4.042683839797974
+  },
+  {
+    "commit": "db9bb1e41079ee969fc2196ea62a541892797e24",
+    "pre_analysis_time": 0.018453121185302734,
+    "static_analysis_time": 4.5741801261901855,
+    "dynamic_analysis_time": 38.64418435096741,
+    "verification_time": 3.1840531826019287
+  },
+  {
+    "commit": "41bb9d176216d2f0f14392b082875bf63ec241f8",
+    "pre_analysis_time": 0.014772891998291016,
+    "static_analysis_time": 7.957337856292725,
+    "dynamic_analysis_time": 38.459630727767944,
+    "verification_time": 3.380836248397827
+  },
+  {
+    "commit": "54d80ea5d1b43927a17c6e983d39e67899f661f2",
+    "pre_analysis_time": 0.014299154281616211,
+    "static_analysis_time": 4.646159648895264,
+    "dynamic_analysis_time": 36.81757426261902,
+    "verification_time": 3.492569923400879
+  },
+  {
+    "commit": "587b6c37ecb86aae48d5ed36680e6f7c5ff82ef2",
+    "pre_analysis_time": 0.016640186309814453,
+    "static_analysis_time": 5.562878847122192,
+    "dynamic_analysis_time": 39.30423283576965,
+    "verification_time": 3.1662425994873047
+  },
+  {
+    "commit": "ecbe5cc14e5b6db7f9119f19f7770acfb56ffbe7",
+    "pre_analysis_time": 0.011003732681274414,
+    "static_analysis_time": 4.502366542816162,
+    "dynamic_analysis_time": 41.16054630279541,
+    "verification_time": 3.2157857418060303
+  },
+  {
+    "commit": "3a840947e6b1a1fffdd63b56a554c0e73a621918",
+    "pre_analysis_time": 0.017366886138916016,
+    "static_analysis_time": 5.7190306186676025,
+    "dynamic_analysis_time": 56.419936418533325,
+    "verification_time": 3.289722204208374
+  },
+  {
+    "commit": "15eff7fd7b7b9932e4e6823fc6d2b127e163ca77",
+    "pre_analysis_time": 0.013964176177978516,
+    "static_analysis_time": 1.6359038352966309,
+    "dynamic_analysis_time": 36.61637830734253,
+    "verification_time": 2.2708394527435303
+  },
+  {
+    "commit": "cc737e05d49866f1fbdcf34d1fe8cf4b91cf8cf7",
+    "pre_analysis_time": 0.10746097564697266,
+    "static_analysis_time": 4.882232427597046,
+    "dynamic_analysis_time": 37.39923095703125,
+    "verification_time": 3.4003634452819824
+  },
+  {
+    "commit": "6307c863bf796f357f0aefb1622934a262bca534",
+    "pre_analysis_time": 0.10259366035461426,
+    "static_analysis_time": 6.451925992965698,
+    "dynamic_analysis_time": 36.90090012550354,
+    "verification_time": 3.3931050300598145
+  },
+  {
+    "commit": "67eafb7dcd628d7985c691564ecd9d2db629f1f6",
+    "pre_analysis_time": 0.24744606018066406,
+    "static_analysis_time": 4.782587766647339,
+    "dynamic_analysis_time": 13.241537809371948,
+    "verification_time": 2.890305519104004
+  },
+  {
+    "commit": "42c9932846df4126ba1e146014c53699d967fd09",
+    "pre_analysis_time": 0.008579730987548828,
+    "static_analysis_time": 1.5181264877319336,
+    "dynamic_analysis_time": 10.385597944259644,
+    "verification_time": 1.5847909450531006
+  },
+  {
+    "commit": "9a3abb9bff6e73e910ef420c6701ae30f8a2117f",
+    "pre_analysis_time": 0.017099380493164062,
+    "static_analysis_time": 5.8965959548950195,
+    "dynamic_analysis_time": 12.443324327468872,
+    "verification_time": 2.895970344543457
+  },
+  {
+    "commit": "48841fd8bd754ecbb533754d1112eacf1f87a0ef",
+    "pre_analysis_time": 0.01772141456604004,
+    "static_analysis_time": 5.205843210220337,
+    "dynamic_analysis_time": 13.061607122421265,
+    "verification_time": 3.4476261138916016
+  },
+  {
+    "commit": "ee3a7ed8b922c747f0b4595f7e252a5e5ac55de9",
+    "pre_analysis_time": 0.014612436294555664,
+    "static_analysis_time": 2.639019250869751,
+    "dynamic_analysis_time": 11.24729037284851,
+    "verification_time": 2.5755465030670166
+  },
+  {
+    "commit": "bf8cc16eaa6da878b352aebe3a81fd02f41777a6",
+    "pre_analysis_time": 0.012097597122192383,
+    "static_analysis_time": 3.5139622688293457,
+    "dynamic_analysis_time": 12.314996242523193,
+    "verification_time": 3.057126760482788
+  },
+  {
+    "commit": "6c66a6530f02aec3c74b14babd024bf9a80c52a5",
+    "pre_analysis_time": 0.052413225173950195,
+    "static_analysis_time": 5.920487880706787,
+    "dynamic_analysis_time": 12.49981164932251,
+    "verification_time": 2.9474143981933594
+  },
+  {
+    "commit": "13f793318f774a2bd38d9b132f1a2cdf5b68cc84",
+    "pre_analysis_time": 0.007729053497314453,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 10.466656684875488,
+    "verification_time": 1.5924086570739746
+  },
+  {
+    "commit": "00fbcb7215a6134f6b1b55fa4778a23028ca7f8f",
+    "pre_analysis_time": 0.04128217697143555,
+    "static_analysis_time": 4.346742153167725,
+    "dynamic_analysis_time": 11.922723531723022,
+    "verification_time": 3.3520712852478027
+  },
+  {
+    "commit": "d14e55446013ed8f0c3f5f8d4fea6032513d567b",
+    "pre_analysis_time": 0.013536214828491211,
+    "static_analysis_time": 4.370077610015869,
+    "dynamic_analysis_time": 12.267837524414062,
+    "verification_time": 2.8779828548431396
+  },
+  {
+    "commit": "796f51622ce2371052309e36bfd6c84841f5f0b3",
+    "pre_analysis_time": 0.01198124885559082,
+    "static_analysis_time": 1.7173621654510498,
+    "dynamic_analysis_time": 12.452211856842041,
+    "verification_time": 1.615055799484253
+  },
+  {
+    "commit": "1b66fbe015b16f0fe7c868616bd4b374592bdcb0",
+    "pre_analysis_time": 0.3826484680175781,
+    "static_analysis_time": 8.436212062835693,
+    "dynamic_analysis_time": 10.092232942581177,
+    "verification_time": 3.425549030303955
+  },
+  {
+    "commit": "cb0f836b6f9d6289d17fb40678ed42858703155b",
+    "pre_analysis_time": 0.45493292808532715,
+    "static_analysis_time": 10.386752128601074,
+    "dynamic_analysis_time": 12.198855638504028,
+    "verification_time": 3.3908069133758545
+  },
+  {
+    "commit": "4cbbe59b07744482d1cbd35c2984db5eb3e6812c",
+    "pre_analysis_time": 0.00719904899597168,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 12.71139407157898,
+    "verification_time": 1.906855821609497
+  },
+  {
+    "commit": "2556adc6b19b89952a5d82ed4c133a1cfc5c95cd",
+    "pre_analysis_time": 0.009366273880004883,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 12.25059700012207,
+    "verification_time": 2.0697972774505615
+  },
+  {
+    "commit": "9e1a012e3ccd5a5844e7246c21a7d08f4bfc66db",
+    "pre_analysis_time": 0.01768636703491211,
+    "static_analysis_time": 2.8059496879577637,
+    "dynamic_analysis_time": 12.397401809692383,
+    "verification_time": 2.4286386966705322
+  },
+  {
+    "commit": "21e2e4a5d6a695450a0b4ac5fe8ca13bb17f06fc",
+    "pre_analysis_time": 0.07568764686584473,
+    "static_analysis_time": 7.261497735977173,
+    "dynamic_analysis_time": 12.267480611801147,
+    "verification_time": 3.0548408031463623
+  },
+  {
+    "commit": "09cec2fa2f46f2acd6357ea15c813cfb6e579af3",
+    "pre_analysis_time": 0.03314852714538574,
+    "static_analysis_time": 6.551027536392212,
+    "dynamic_analysis_time": 12.56096601486206,
+    "verification_time": 3.577491521835327
+  },
+  {
+    "commit": "b72cf68917fb3eccf9d35f3227dc6bff2b420829",
+    "pre_analysis_time": 0.014945268630981445,
+    "static_analysis_time": 5.686251878738403,
+    "dynamic_analysis_time": 12.56601619720459,
+    "verification_time": 3.0851664543151855
+  },
+  {
+    "commit": "f73bb7fcb7ac3c1d9b1f2d28536f10f45c5fce2d",
+    "pre_analysis_time": 0.007849454879760742,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 12.251562118530273,
+    "verification_time": 1.8527617454528809
+  },
+  {
+    "commit": "da457357e9b4eded92334c5de90ce8e547e34a86",
+    "pre_analysis_time": 0.008266687393188477,
+    "static_analysis_time": 1.98984694480896,
+    "dynamic_analysis_time": 9.983136892318726,
+    "verification_time": 2.0829265117645264
+  },
+  {
+    "commit": "8eead77bbf96dc0dcb17d6fc9ba570868ece46c8",
+    "pre_analysis_time": 0.015678882598876953,
+    "static_analysis_time": 5.679213047027588,
+    "dynamic_analysis_time": 13.287676811218262,
+    "verification_time": 2.850712776184082
+  },
+  {
+    "commit": "c11f4498e91104fc9d35e26c528b11ff1623cfad",
+    "pre_analysis_time": 0.2186892032623291,
+    "static_analysis_time": 7.564707517623901,
+    "dynamic_analysis_time": 12.088500022888184,
+    "verification_time": 3.290800094604492
+  },
+  {
+    "commit": "77a2089b39329de20d1691a5143bc5e9ca2bebdc",
+    "pre_analysis_time": 0.0076236724853515625,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 12.424084186553955,
+    "verification_time": 1.9300165176391602
+  },
+  {
+    "commit": "d8454ef88e8210cddc0a076cba95279fc1a991b5",
+    "pre_analysis_time": 0.018299102783203125,
+    "static_analysis_time": 7.015735864639282,
+    "dynamic_analysis_time": 12.037137031555176,
+    "verification_time": 3.138258695602417
+  },
+  {
+    "commit": "d422bf5ed410b6a6ad167b4f06e03e3b229af50f",
+    "pre_analysis_time": 0.007511615753173828,
+    "static_analysis_time": 3.8430399894714355,
+    "dynamic_analysis_time": 11.97647213935852,
+    "verification_time": 2.869208335876465
+  },
+  {
+    "commit": "a3379174586e75f6f4a402153373fd48ed38b905",
+    "pre_analysis_time": 0.017976045608520508,
+    "static_analysis_time": 4.46699857711792,
+    "dynamic_analysis_time": 12.126875638961792,
+    "verification_time": 2.5621771812438965
+  },
+  {
+    "commit": "b349279173bacc88347d50ae2ac4b9a08b3a951c",
+    "pre_analysis_time": 0.1255204677581787,
+    "static_analysis_time": 6.636305332183838,
+    "dynamic_analysis_time": 12.601297378540039,
+    "verification_time": 3.351900577545166
+  },
+  {
+    "commit": "2781d783cf85d5cabfd4faed79bc3a74ef9aede2",
+    "pre_analysis_time": 0.2725107669830322,
+    "static_analysis_time": 7.295437574386597,
+    "dynamic_analysis_time": 11.93137264251709,
+    "verification_time": 3.8053929805755615
+  },
+  {
+    "commit": "8ba357013b6acdbaf12835530d56d95e5de62091",
+    "pre_analysis_time": 0.053220272064208984,
+    "static_analysis_time": 4.089712142944336,
+    "dynamic_analysis_time": 12.376163005828857,
+    "verification_time": 3.038119077682495
+  },
+  {
+    "commit": "b74e96ae0f395ccee793298f7f1704e2aaabe05c",
+    "pre_analysis_time": 0.013676166534423828,
+    "static_analysis_time": 5.533206939697266,
+    "dynamic_analysis_time": 12.16048264503479,
+    "verification_time": 2.930842399597168
+  },
+  {
+    "commit": "0bc11083c04b0ddbfdd67cd7e651db98b6d47da1",
+    "pre_analysis_time": 0.011603593826293945,
+    "static_analysis_time": 6.503352880477905,
+    "dynamic_analysis_time": 11.95420527458191,
+    "verification_time": 3.0608878135681152
+  },
+  {
+    "commit": "6a4463a0743f353c585e59a5621a124c30df448a",
+    "pre_analysis_time": 0.01506352424621582,
+    "static_analysis_time": 3.0967376232147217,
+    "dynamic_analysis_time": 12.232774496078491,
+    "verification_time": 2.8459341526031494
+  },
+  {
+    "commit": "150c42eb540aca56e57f178721487a92014b92e6",
+    "pre_analysis_time": 2.28015398979187,
+    "static_analysis_time": 5.070851564407349,
+    "dynamic_analysis_time": 12.052530527114868,
+    "verification_time": 3.2074472904205322
+  },
+  {
+    "commit": "7eb5240a9f574522b9468e76d5117933a4aa0cb9",
+    "pre_analysis_time": 0.010825872421264648,
+    "static_analysis_time": 2.3574862480163574,
+    "dynamic_analysis_time": 11.583460330963135,
+    "verification_time": 2.106262445449829
+  },
+  {
+    "commit": "43a47be3df5af3242b3b319f74837065db274564",
+    "pre_analysis_time": 0.020339488983154297,
+    "static_analysis_time": 4.7753753662109375,
+    "dynamic_analysis_time": 11.919318437576294,
+    "verification_time": 3.1341171264648438
+  },
+  {
+    "commit": "6f105c9c5c8f01b9ece5d274711b8fb47bfa1ea7",
+    "pre_analysis_time": 0.20682144165039062,
+    "static_analysis_time": 7.014385461807251,
+    "dynamic_analysis_time": 11.622817993164062,
+    "verification_time": 3.3240063190460205
+  },
+  {
+    "commit": "c297ebd39be7b972187ead4ba8316acd8248ff4b",
+    "pre_analysis_time": 0.014592885971069336,
+    "static_analysis_time": 5.182362079620361,
+    "dynamic_analysis_time": 11.594042301177979,
+    "verification_time": 2.941397190093994
+  },
+  {
+    "commit": "9e61d809a8f9f6104c5363cc2305b932f777d8a0",
+    "pre_analysis_time": 0.032232046127319336,
+    "static_analysis_time": 6.511717796325684,
+    "dynamic_analysis_time": 11.218835830688477,
+    "verification_time": 7.249532222747803
+  },
+  {
+    "commit": "28af515cdcab5cc78feb3edfa500845b091276bc",
+    "pre_analysis_time": 0.016253948211669922,
+    "static_analysis_time": 4.16608190536499,
+    "dynamic_analysis_time": 10.96187949180603,
+    "verification_time": 2.4697301387786865
+  },
+  {
+    "commit": "51c00013c4af89ec8021fa12969fe77be0ec7f3c",
+    "pre_analysis_time": 0.011580705642700195,
+    "static_analysis_time": 5.1441075801849365,
+    "dynamic_analysis_time": 10.952494621276855,
+    "verification_time": 2.347456216812134
+  },
+  {
+    "commit": "54ae8848158a234de7b43205b90b5c4aad01b988",
+    "pre_analysis_time": 0.013117074966430664,
+    "static_analysis_time": 4.128193616867065,
+    "dynamic_analysis_time": 11.04874038696289,
+    "verification_time": 2.719378709793091
+  },
+  {
+    "commit": "1f9f37945efa1c8c2eaa81412c5d1fa6fa9eccab",
+    "pre_analysis_time": 0.011581659317016602,
+    "static_analysis_time": 6.1031341552734375,
+    "dynamic_analysis_time": 10.988677740097046,
+    "verification_time": 2.7447640895843506
+  },
+  {
+    "commit": "f2b41665dd66adc737a3f95758a711cbd121ab2f",
+    "pre_analysis_time": 0.7776799201965332,
+    "static_analysis_time": 4.94679069519043,
+    "dynamic_analysis_time": 11.009122610092163,
+    "verification_time": 3.205104351043701
+  },
+  {
+    "commit": "3275aaa2114fc7436ee8dc2ef5f349b18829dd19",
+    "pre_analysis_time": 0.011763811111450195,
+    "static_analysis_time": 5.016451120376587,
+    "dynamic_analysis_time": 10.84515929222107,
+    "verification_time": 3.007723808288574
+  },
+  {
+    "commit": "a7d4ba46dd1771af48db0b4c42eb25b72ba705f8",
+    "pre_analysis_time": 0.011661767959594727,
+    "static_analysis_time": 6.064167499542236,
+    "dynamic_analysis_time": 10.767226696014404,
+    "verification_time": 3.2051398754119873
+  },
+  {
+    "commit": "07b083cfbd7095354bb66c2566c06675766c44dd",
+    "pre_analysis_time": 0.0068204402923583984,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 10.791434049606323,
+    "verification_time": 1.834979772567749
+  },
+  {
+    "commit": "15b259928200dc5547076186c4cbb7207df85c1d",
+    "pre_analysis_time": 0.011487483978271484,
+    "static_analysis_time": 3.350656509399414,
+    "dynamic_analysis_time": 10.781999588012695,
+    "verification_time": 2.8371739387512207
+  },
+  {
+    "commit": "bcd7145618b92359215fbc47cda77bf596dcd17a",
+    "pre_analysis_time": 0.05668354034423828,
+    "static_analysis_time": 3.921361207962036,
+    "dynamic_analysis_time": 10.71507215499878,
+    "verification_time": 3.415029525756836
+  },
+  {
+    "commit": "8d9a2efa5fba81ed51b4835309e55d30bf2dc775",
+    "pre_analysis_time": 0.006537199020385742,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 10.637653350830078,
+    "verification_time": 2.0840041637420654
+  },
+  {
+    "commit": "2463b9222317aeecbecc947165be1ed92bb327d3",
+    "pre_analysis_time": 0.00811624526977539,
+    "static_analysis_time": 4.3975934982299805,
+    "dynamic_analysis_time": 10.743854522705078,
+    "verification_time": 2.5219039916992188
+  },
+  {
+    "commit": "0313c3238830a3cb96339a1012848d5c68ec9fcc",
+    "pre_analysis_time": 0.008050680160522461,
+    "static_analysis_time": 3.886789321899414,
+    "dynamic_analysis_time": 10.79936146736145,
+    "verification_time": 2.2788736820220947
+  },
+  {
+    "commit": "d27d3f33cdd0ed624a2334fe33575a5d9bdcb89a",
+    "pre_analysis_time": 0.013324737548828125,
+    "static_analysis_time": 4.136402368545532,
+    "dynamic_analysis_time": 10.644309043884277,
+    "verification_time": 2.3853981494903564
+  },
+  {
+    "commit": "359e8c0b93e9e0aa6472ea6405d83f55efd05e20",
+    "pre_analysis_time": 0.04747200012207031,
+    "static_analysis_time": 5.292616367340088,
+    "dynamic_analysis_time": 10.66743803024292,
+    "verification_time": 3.2611184120178223
+  },
+  {
+    "commit": "ecacf0e1a49041345fbbfa2535a4b5956599c8bd",
+    "pre_analysis_time": 0.008709907531738281,
+    "static_analysis_time": 3.7368061542510986,
+    "dynamic_analysis_time": 80.82406449317932,
+    "verification_time": 3.025454521179199
+  },
+  {
+    "commit": "6309cb1c85c76048d161ed14e62283b740b636ff",
+    "pre_analysis_time": 0.010719060897827148,
+    "static_analysis_time": 5.247859954833984,
+    "dynamic_analysis_time": 80.8282036781311,
+    "verification_time": 3.2130484580993652
+  },
+  {
+    "commit": "d928529c79508fc4306a37b1ff308d48281a62e4",
+    "pre_analysis_time": 0.012419700622558594,
+    "static_analysis_time": 4.845188617706299,
+    "dynamic_analysis_time": 8.715214490890503,
+    "verification_time": 2.7587544918060303
+  },
+  {
+    "commit": "d6ffd09159737510b7f27d087d3808e825dd672c",
+    "pre_analysis_time": 0.051278114318847656,
+    "static_analysis_time": 4.5226731300354,
+    "dynamic_analysis_time": 10.664271354675293,
+    "verification_time": 3.091233253479004
+  },
+  {
+    "commit": "26af85890c528d5e4ddc228d6a7b5671874f6a54",
+    "pre_analysis_time": 0.007886409759521484,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 10.579963445663452,
+    "verification_time": 1.8003475666046143
+  },
+  {
+    "commit": "966b0458f552718d344a1526335c77fac764dab9",
+    "pre_analysis_time": 0.008411169052124023,
+    "static_analysis_time": 4.917168378829956,
+    "dynamic_analysis_time": 8.59575605392456,
+    "verification_time": 2.7016303539276123
+  },
+  {
+    "commit": "8739370a563ef4205bd4a7c125487298167f7b12",
+    "pre_analysis_time": 0.006939411163330078,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 10.626339435577393,
+    "verification_time": 1.783085584640503
+  },
+  {
+    "commit": "38b1b18310abef5565fd25fbe3d55d061ad0257f",
+    "pre_analysis_time": 0.012367963790893555,
+    "static_analysis_time": 2.7849438190460205,
+    "dynamic_analysis_time": 10.570668458938599,
+    "verification_time": 2.5917675495147705
+  },
+  {
+    "commit": "5b1ce2ae4efa06dc6f62d1ff846a1719f03694ed",
+    "pre_analysis_time": 0.012044906616210938,
+    "static_analysis_time": 4.943859338760376,
+    "dynamic_analysis_time": 10.519155263900757,
+    "verification_time": 3.013110399246216
+  },
+  {
+    "commit": "be91815b46dd5bea39c0c5a28917705ac2432365",
+    "pre_analysis_time": 0.023294448852539062,
+    "static_analysis_time": 4.17564058303833,
+    "dynamic_analysis_time": 10.575204133987427,
+    "verification_time": 2.726780652999878
+  },
+  {
+    "commit": "e3eb6101b2efdb78e155acdbeadba520f369105c",
+    "pre_analysis_time": 0.2839360237121582,
+    "static_analysis_time": 6.434682846069336,
+    "dynamic_analysis_time": 10.596745729446411,
+    "verification_time": 3.373361349105835
+  },
+  {
+    "commit": "0cdadc08cac9cf9e76594250684d3a06018e59ef",
+    "pre_analysis_time": 0.013733386993408203,
+    "static_analysis_time": 5.2121806144714355,
+    "dynamic_analysis_time": 10.72900390625,
+    "verification_time": 3.4864120483398438
+  },
+  {
+    "commit": "eedfb7848535784f9502327a3ea0f34369347d05",
+    "pre_analysis_time": 0.006422996520996094,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 10.912232398986816,
+    "verification_time": 1.9822673797607422
+  },
+  {
+    "commit": "74fc536d4db7d26092965fb72613febd1867e41d",
+    "pre_analysis_time": 0.011570215225219727,
+    "static_analysis_time": 2.591508150100708,
+    "dynamic_analysis_time": 10.934508085250854,
+    "verification_time": 1.9677228927612305
+  },
+  {
+    "commit": "35bf02c1724128a4b8a71eac02f7a21043bc9620",
+    "pre_analysis_time": 0.5783393383026123,
+    "static_analysis_time": 5.884175062179565,
+    "dynamic_analysis_time": 10.59836745262146,
+    "verification_time": 3.4932947158813477
+  },
+  {
+    "commit": "70bfbb27bed6e880aec92018d8f19c4bb34629a3",
+    "pre_analysis_time": 0.011521577835083008,
+    "static_analysis_time": 2.5735435485839844,
+    "dynamic_analysis_time": 10.650595903396606,
+    "verification_time": 2.54263973236084
+  },
+  {
+    "commit": "cd0a3b541aafd6def3731d1af509cea0f3a17935",
+    "pre_analysis_time": 0.08485293388366699,
+    "static_analysis_time": 4.246448278427124,
+    "dynamic_analysis_time": 8.704727411270142,
+    "verification_time": 3.3088436126708984
+  },
+  {
+    "commit": "62e82314a910e14997b88c18dc452299fbd98e68",
+    "pre_analysis_time": 0.26962709426879883,
+    "static_analysis_time": 3.523348093032837,
+    "dynamic_analysis_time": 10.749125957489014,
+    "verification_time": 2.5420687198638916
+  },
+  {
+    "commit": "00eab55e3a32296c8030c15c058b8fc110f8e089",
+    "pre_analysis_time": 0.014652729034423828,
+    "static_analysis_time": 4.9430975914001465,
+    "dynamic_analysis_time": 8.506211519241333,
+    "verification_time": 2.9254441261291504
+  },
+  {
+    "commit": "f72f09299f08019a099c2bad07dc7029c122361b",
+    "pre_analysis_time": 0.01317286491394043,
+    "static_analysis_time": 5.147487640380859,
+    "dynamic_analysis_time": 10.39810299873352,
+    "verification_time": 3.117797374725342
+  },
+  {
+    "commit": "a33eac697ae5f0f9902ec8de6982ff0978094c59",
+    "pre_analysis_time": 0.007981300354003906,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 10.399671077728271,
+    "verification_time": 1.9934861660003662
+  },
+  {
+    "commit": "23e60d3a558a991237d180690dff6fbf4b98b57c",
+    "pre_analysis_time": 0.006278038024902344,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 8.538188457489014,
+    "verification_time": 1.991206169128418
+  },
+  {
+    "commit": "896a4604e211f29ef4b1b257bcc87799431b674e",
+    "pre_analysis_time": 0.014950037002563477,
+    "static_analysis_time": 6.076665639877319,
+    "dynamic_analysis_time": 10.542521476745605,
+    "verification_time": 2.968557834625244
+  },
+  {
+    "commit": "280f539bba94abf5e50dd0ff5273c3d16c65c6ff",
+    "pre_analysis_time": 0.009346485137939453,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 10.499112606048584,
+    "verification_time": 1.9750993251800537
+  },
+  {
+    "commit": "527a9be6b5c2462f15fffa2cc79e0796115e7d9c",
+    "pre_analysis_time": 3.0963926315307617,
+    "static_analysis_time": 4.359286785125732,
+    "dynamic_analysis_time": 10.566808223724365,
+    "verification_time": 2.8551089763641357
+  },
+  {
+    "commit": "4a5a797fac962129ec09fbc32c91ec174f0a3a4c",
+    "pre_analysis_time": 0.0179750919342041,
+    "static_analysis_time": 5.699578285217285,
+    "dynamic_analysis_time": 10.357320070266724,
+    "verification_time": 3.440398693084717
+  },
+  {
+    "commit": "eeca4bab1e2013adc38bd9f05aeabf37414125b2",
+    "pre_analysis_time": 1.0671918392181396,
+    "static_analysis_time": 5.872255086898804,
+    "dynamic_analysis_time": 10.518534660339355,
+    "verification_time": 3.2343904972076416
+  },
+  {
+    "commit": "6000b88b67627cd322ef293a3de568eeeec4ea39",
+    "pre_analysis_time": 0.024562835693359375,
+    "static_analysis_time": 6.277927875518799,
+    "dynamic_analysis_time": 10.347790002822876,
+    "verification_time": 3.051358222961426
+  },
+  {
+    "commit": "e470e52cbdea0bf4a7c8a3c7033fa59d1d6a0f23",
+    "pre_analysis_time": 0.011086225509643555,
+    "static_analysis_time": 5.458724737167358,
+    "dynamic_analysis_time": 10.127918481826782,
+    "verification_time": 2.801136016845703
+  },
+  {
+    "commit": "c5951d8286738d2bc7679aae3dd2e4abfb21d1bd",
+    "pre_analysis_time": 0.012484312057495117,
+    "static_analysis_time": 5.951165199279785,
+    "dynamic_analysis_time": 10.452293395996094,
+    "verification_time": 2.8010339736938477
+  },
+  {
+    "commit": "9ddfe6d493d1aea6e062645ddd80252ca49d7e94",
+    "pre_analysis_time": 0.2933790683746338,
+    "static_analysis_time": 7.203030109405518,
+    "dynamic_analysis_time": 10.188435316085815,
+    "verification_time": 3.282475471496582
+  },
+  {
+    "commit": "279896f835c38c411a27ba68b5ce875531734acf",
+    "pre_analysis_time": 0.006913423538208008,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 10.171135187149048,
+    "verification_time": 2.113530397415161
+  },
+  {
+    "commit": "d1c5dff4d99dec6e6a5f31ac87001f7b14b0932a",
+    "pre_analysis_time": 0.009487628936767578,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 10.535886526107788,
+    "verification_time": 1.8826487064361572
+  },
+  {
+    "commit": "31fd4f37ca1dbcc74557401c29f395f772ae0b3e",
+    "pre_analysis_time": 0.011293172836303711,
+    "static_analysis_time": 3.9915595054626465,
+    "dynamic_analysis_time": 9.984905481338501,
+    "verification_time": 2.404160737991333
+  },
+  {
+    "commit": "e9ba800375a19e507ccd2a00cffdfee859ba1675",
+    "pre_analysis_time": 0.4317777156829834,
+    "static_analysis_time": 11.00806713104248,
+    "dynamic_analysis_time": 10.218386888504028,
+    "verification_time": 2.379671096801758
+  },
+  {
+    "commit": "701926878922e20798b6452c8854c18b47072314",
+    "pre_analysis_time": 0.015415191650390625,
+    "static_analysis_time": 5.810863494873047,
+    "dynamic_analysis_time": 7.739669561386108,
+    "verification_time": 3.410520315170288
+  },
+  {
+    "commit": "a27375be51cbdc7d3dd103e901d3f1b8cb8819b8",
+    "pre_analysis_time": 0.03076171875,
+    "static_analysis_time": 7.123883485794067,
+    "dynamic_analysis_time": 8.011391878128052,
+    "verification_time": 3.312356948852539
+  },
+  {
+    "commit": "a0b9a69d8c83952288dc26aef0cbe88266494456",
+    "pre_analysis_time": 0.0557403564453125,
+    "static_analysis_time": 4.812331676483154,
+    "dynamic_analysis_time": 10.11532211303711,
+    "verification_time": 3.613919258117676
+  },
+  {
+    "commit": "18d0f143a9c853aa1ce76f18269e3aa7d7856c7b",
+    "pre_analysis_time": 0.021546125411987305,
+    "static_analysis_time": 4.204751491546631,
+    "dynamic_analysis_time": 8.410982370376587,
+    "verification_time": 2.714690923690796
+  },
+  {
+    "commit": "0d0cb779e65f537a9a4503c2902c5991aa8b1eeb",
+    "pre_analysis_time": 0.014236211776733398,
+    "static_analysis_time": 5.367144584655762,
+    "dynamic_analysis_time": 8.609696865081787,
+    "verification_time": 2.6701862812042236
+  },
+  {
+    "commit": "14fb839e177ca1e9a8f6c1ec46f091efcbbb27c6",
+    "pre_analysis_time": 0.013038396835327148,
+    "static_analysis_time": 5.559254884719849,
+    "dynamic_analysis_time": 10.156354904174805,
+    "verification_time": 2.4362471103668213
+  },
+  {
+    "commit": "f31f195caa862e9608d7bcfd787bda0819f15b39",
+    "pre_analysis_time": 0.008126020431518555,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 7.953431606292725,
+    "verification_time": 1.914332389831543
+  },
+  {
+    "commit": "bd256296dc3beab8af90c3ce3888a06b3330ed87",
+    "pre_analysis_time": 0.00898885726928711,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 7.921322584152222,
+    "verification_time": 1.7921016216278076
+  },
+  {
+    "commit": "fe2ca0bb33f349d74560562073e635038ec6245c",
+    "pre_analysis_time": 0.007866621017456055,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 9.99498987197876,
+    "verification_time": 1.5249285697937012
+  },
+  {
+    "commit": "df017ad3353598ca23b8a20af3a7e5ab14139f88",
+    "pre_analysis_time": 0.006533145904541016,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 9.971329927444458,
+    "verification_time": 1.6534993648529053
+  },
+  {
+    "commit": "35b8a7e8d997ce588bc6fdd778e370295127294e",
+    "pre_analysis_time": 0.016402006149291992,
+    "static_analysis_time": 5.232907772064209,
+    "dynamic_analysis_time": 10.08951711654663,
+    "verification_time": 3.3602302074432373
+  },
+  {
+    "commit": "ae887ff8747f5901674b6fa18eb3e67d65029050",
+    "pre_analysis_time": 0.012394428253173828,
+    "static_analysis_time": 4.919520378112793,
+    "dynamic_analysis_time": 9.767462253570557,
+    "verification_time": 2.753420829772949
+  },
+  {
+    "commit": "7e2a772c30d1c06812db83545d36fda718b9cf47",
+    "pre_analysis_time": 0.010262012481689453,
+    "static_analysis_time": 4.189372301101685,
+    "dynamic_analysis_time": 9.963432550430298,
+    "verification_time": 2.489532947540283
+  },
+  {
+    "commit": "43e9f03177e902129d588551a105cf1d76d0fc32",
+    "pre_analysis_time": 0.015773296356201172,
+    "static_analysis_time": 4.214998483657837,
+    "dynamic_analysis_time": 10.176727771759033,
+    "verification_time": 3.281811475753784
+  },
+  {
+    "commit": "14c840f34b22728d1cb9a1c9f68f71a3b28cdd31",
+    "pre_analysis_time": 0.025785207748413086,
+    "static_analysis_time": 2.0102312564849854,
+    "dynamic_analysis_time": 10.437305927276611,
+    "verification_time": 1.5941743850708008
+  },
+  {
+    "commit": "c90e59edfe37ae2765c0a5dabc7d900243579f1c",
+    "pre_analysis_time": 0.05090522766113281,
+    "static_analysis_time": 5.464173316955566,
+    "dynamic_analysis_time": 9.88650393486023,
+    "verification_time": 3.3337996006011963
+  },
+  {
+    "commit": "6299bde497cc9630e8da2434586dbb3f5b8ebf29",
+    "pre_analysis_time": 0.00861501693725586,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 7.892323017120361,
+    "verification_time": 1.9935646057128906
+  },
+  {
+    "commit": "a561ea17e821975be3ff006af427351f7d674fe5",
+    "pre_analysis_time": 0.008852958679199219,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 8.227353811264038,
+    "verification_time": 1.7901372909545898
+  },
+  {
+    "commit": "0e83ed5c3066d4df57becab2bc5cac1c14436f35",
+    "pre_analysis_time": 0.009839534759521484,
+    "static_analysis_time": 4.898509979248047,
+    "dynamic_analysis_time": 7.658494472503662,
+    "verification_time": 2.888936758041382
+  },
+  {
+    "commit": "2d6dc83b429ebb1e2f1ac0c733f03c9eb3ea0ab0",
+    "pre_analysis_time": 0.016345500946044922,
+    "static_analysis_time": 4.414615869522095,
+    "dynamic_analysis_time": 7.52737832069397,
+    "verification_time": 2.822422981262207
+  },
+  {
+    "commit": "a7aff4aa9c15cb73ea65f0ae593de6b7e630d5fb",
+    "pre_analysis_time": 0.03723263740539551,
+    "static_analysis_time": 4.836556673049927,
+    "dynamic_analysis_time": 7.5530242919921875,
+    "verification_time": 2.6147310733795166
+  },
+  {
+    "commit": "33c855b09d8ca33fab33e9a17a714c9c25ca1088",
+    "pre_analysis_time": 0.018254995346069336,
+    "static_analysis_time": 3.7722837924957275,
+    "dynamic_analysis_time": 7.647222518920898,
+    "verification_time": 3.0044238567352295
+  },
+  {
+    "commit": "8f47d451e7ce5bde5ed45ff598d4b12eb86abc3c",
+    "pre_analysis_time": 0.029316186904907227,
+    "static_analysis_time": 4.257783889770508,
+    "dynamic_analysis_time": 9.628489017486572,
+    "verification_time": 3.1587302684783936
+  },
+  {
+    "commit": "54f39708bc9f138ea82e72012e66f536a7735f55",
+    "pre_analysis_time": 0.017747163772583008,
+    "static_analysis_time": 4.256916761398315,
+    "dynamic_analysis_time": 9.60906457901001,
+    "verification_time": 2.9165890216827393
+  },
+  {
+    "commit": "3b1ce60b39202e129a4c42e98f883fff5ea66f4c",
+    "pre_analysis_time": 1.150134801864624,
+    "static_analysis_time": 6.020113468170166,
+    "dynamic_analysis_time": 9.51878309249878,
+    "verification_time": 2.8953328132629395
+  },
+  {
+    "commit": "082bc95d936a69672c3fb9c4b77ef3f705f63f91",
+    "pre_analysis_time": 0.01270437240600586,
+    "static_analysis_time": 5.074010848999023,
+    "dynamic_analysis_time": 7.513997793197632,
+    "verification_time": 3.091787099838257
+  },
+  {
+    "commit": "721cb1cd5d075b15291f0b01fd89f1042cad148c",
+    "pre_analysis_time": 0.016895532608032227,
+    "static_analysis_time": 3.867894172668457,
+    "dynamic_analysis_time": 7.574138402938843,
+    "verification_time": 2.888925790786743
+  },
+  {
+    "commit": "38c22462b1f35cd00a6b9f5bc7becbc201dd0eb2",
+    "pre_analysis_time": 0.015767812728881836,
+    "static_analysis_time": 7.875621318817139,
+    "dynamic_analysis_time": 23.58864665031433,
+    "verification_time": 3.529467821121216
+  },
+  {
+    "commit": "b21f8225909a39cf00643da92c1339f51d3db384",
+    "pre_analysis_time": 0.018929243087768555,
+    "static_analysis_time": 5.455881834030151,
+    "dynamic_analysis_time": 19.56943130493164,
+    "verification_time": 3.896117687225342
+  },
+  {
+    "commit": "82fde081fe8a4cbdbb5a5590933c404f4c36ddf8",
+    "pre_analysis_time": 0.018444299697875977,
+    "static_analysis_time": 5.682749032974243,
+    "dynamic_analysis_time": 21.539323568344116,
+    "verification_time": 3.585923433303833
+  },
+  {
+    "commit": "ec841458875c5a8906077c4afc2ae03de0d93270",
+    "pre_analysis_time": 0.014173269271850586,
+    "static_analysis_time": 2.5659704208374023,
+    "dynamic_analysis_time": 19.526893615722656,
+    "verification_time": 2.943071126937866
+  },
+  {
+    "commit": "c4f7da55e48053e92ccfd01df7efdbbfb0a29021",
+    "pre_analysis_time": 0.36813879013061523,
+    "static_analysis_time": 6.1786463260650635,
+    "dynamic_analysis_time": 19.65156841278076,
+    "verification_time": 3.527057647705078
+  },
+  {
+    "commit": "fa7dbef6015745e241986d13348b5dc06459b1a6",
+    "pre_analysis_time": 0.00858163833618164,
+    "static_analysis_time": 4.114239692687988,
+    "dynamic_analysis_time": 19.537256717681885,
+    "verification_time": 2.922240734100342
+  },
+  {
+    "commit": "258d1838e2ae0d942839e20bd5064af0aca8aabe",
+    "pre_analysis_time": 0.03360939025878906,
+    "static_analysis_time": 4.9359352588653564,
+    "dynamic_analysis_time": 21.4576735496521,
+    "verification_time": 3.3535892963409424
+  },
+  {
+    "commit": "37f1f83abf599438417889fa15970294e38f8cf1",
+    "pre_analysis_time": 0.013641357421875,
+    "static_analysis_time": 2.794032096862793,
+    "dynamic_analysis_time": 19.463071584701538,
+    "verification_time": 2.996351957321167
+  },
+  {
+    "commit": "3c6f1d05593966a7b4d3e9973e31e6fa08fc9717",
+    "pre_analysis_time": 0.015117883682250977,
+    "static_analysis_time": 5.9358131885528564,
+    "dynamic_analysis_time": 19.506595611572266,
+    "verification_time": 3.7029078006744385
+  },
+  {
+    "commit": "7bdce9375fc512db8da0893c6471afce12c6c423",
+    "pre_analysis_time": 0.1513080596923828,
+    "static_analysis_time": 5.5713050365448,
+    "dynamic_analysis_time": 17.468233823776245,
+    "verification_time": 3.2162814140319824
+  },
+  {
+    "commit": "4298a4f4399d3d004c585c83110903113776d62b",
+    "pre_analysis_time": 0.012751102447509766,
+    "static_analysis_time": 4.545697212219238,
+    "dynamic_analysis_time": 17.484386920928955,
+    "verification_time": 3.1224822998046875
+  },
+  {
+    "commit": "60b761cc117ce6860b54686c15b81af43d52add3",
+    "pre_analysis_time": 0.014105796813964844,
+    "static_analysis_time": 5.338273763656616,
+    "dynamic_analysis_time": 23.447455406188965,
+    "verification_time": 3.5105433464050293
+  },
+  {
+    "commit": "fbf9cb99b29878b0e1838e75fdb1ae07d5ce5307",
+    "pre_analysis_time": 0.008131980895996094,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 19.38988184928894,
+    "verification_time": 1.653151035308838
+  },
+  {
+    "commit": "d8a375ea0422cb2e4ea07a8ec56aeeedbdd3552e",
+    "pre_analysis_time": 0.015392780303955078,
+    "static_analysis_time": 5.307131052017212,
+    "dynamic_analysis_time": 17.37120485305786,
+    "verification_time": 3.041832685470581
+  },
+  {
+    "commit": "a51584de6b3e9bcc498bdc6fab57d9d05dea6880",
+    "pre_analysis_time": 0.07058429718017578,
+    "static_analysis_time": 5.331721782684326,
+    "dynamic_analysis_time": 19.40513277053833,
+    "verification_time": 2.6493852138519287
+  },
+  {
+    "commit": "d0542fee9b5d17da080e3992dd8afe31667289f9",
+    "pre_analysis_time": 0.015897750854492188,
+    "static_analysis_time": 5.305375337600708,
+    "dynamic_analysis_time": 15.36618447303772,
+    "verification_time": 3.309497594833374
+  },
+  {
+    "commit": "f78cd51d6b577a41be960804898f02637b60d475",
+    "pre_analysis_time": 0.013547420501708984,
+    "static_analysis_time": 5.437799692153931,
+    "dynamic_analysis_time": 17.357315063476562,
+    "verification_time": 3.5763607025146484
+  },
+  {
+    "commit": "fbb9352377771d652ebdf8613f565e0905369614",
+    "pre_analysis_time": 0.01388692855834961,
+    "static_analysis_time": 5.294813871383667,
+    "dynamic_analysis_time": 15.418602466583252,
+    "verification_time": 2.7373197078704834
+  },
+  {
+    "commit": "d08a97a9cfc666a8d7a8d1bcb596bc9ca6275996",
+    "pre_analysis_time": 0.00771784782409668,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 15.342944383621216,
+    "verification_time": 1.8541221618652344
+  },
+  {
+    "commit": "a9fc9e3abcfc5d88903265c3d729d6b815319140",
+    "pre_analysis_time": 0.010683774948120117,
+    "static_analysis_time": 4.627439737319946,
+    "dynamic_analysis_time": 15.287283420562744,
+    "verification_time": 3.178762197494507
+  },
+  {
+    "commit": "82b251ea449338ab7c8b2f507d002b15c9b74a8b",
+    "pre_analysis_time": 0.014969825744628906,
+    "static_analysis_time": 4.791564226150513,
+    "dynamic_analysis_time": 15.37748670578003,
+    "verification_time": 3.0090088844299316
+  },
+  {
+    "commit": "cc8a240726fb7a9cfbf46f520369ba47fca641b7",
+    "pre_analysis_time": 0.015995264053344727,
+    "static_analysis_time": 4.684218883514404,
+    "dynamic_analysis_time": 15.34429669380188,
+    "verification_time": 3.2040185928344727
+  },
+  {
+    "commit": "3493b528eb195e85b0c4bde3e8884f552086e2ad",
+    "pre_analysis_time": 0.01540374755859375,
+    "static_analysis_time": 5.007676362991333,
+    "dynamic_analysis_time": 17.45904016494751,
+    "verification_time": 2.3883368968963623
+  },
+  {
+    "commit": "3977baca22e9e40ce5f4f6e8efdd81db815cd2dd",
+    "pre_analysis_time": 2.751866340637207,
+    "static_analysis_time": 7.189228773117065,
+    "dynamic_analysis_time": 17.509417295455933,
+    "verification_time": 3.362478494644165
+  },
+  {
+    "commit": "25581fd83c17a3c5d20beee51056e2fc9ee8779c",
+    "pre_analysis_time": 0.014355659484863281,
+    "static_analysis_time": 5.231847524642944,
+    "dynamic_analysis_time": 18.720104217529297,
+    "verification_time": 2.9426286220550537
+  },
+  {
+    "commit": "ff7fb6596e937337db581a68251c0f44085dd206",
+    "pre_analysis_time": 0.013059377670288086,
+    "static_analysis_time": 4.956653118133545,
+    "dynamic_analysis_time": 14.60701060295105,
+    "verification_time": 3.313904285430908
+  },
+  {
+    "commit": "c032b17c3944305ddfefd6d5a15f84b71b78cf34",
+    "pre_analysis_time": 0.16903209686279297,
+    "static_analysis_time": 5.351428747177124,
+    "dynamic_analysis_time": 14.682596206665039,
+    "verification_time": 2.999676465988159
+  },
+  {
+    "commit": "bb63fb3d14f65aaf139680a1e5c958455e00a129",
+    "pre_analysis_time": 0.007911205291748047,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 52.87340569496155,
+    "verification_time": 2.0109987258911133
+  },
+  {
+    "commit": "ca06f6f6b50e1310b41efc374fcc7201b6681932",
+    "pre_analysis_time": 0.013166189193725586,
+    "static_analysis_time": 5.235597372055054,
+    "dynamic_analysis_time": 54.938599824905396,
+    "verification_time": 3.363879680633545
+  },
+  {
+    "commit": "cdff1287e980e7f36874bcd756109fca5a56891d",
+    "pre_analysis_time": 0.012989521026611328,
+    "static_analysis_time": 4.976471662521362,
+    "dynamic_analysis_time": 54.87554168701172,
+    "verification_time": 2.6738555431365967
+  },
+  {
+    "commit": "508ac263dd8e2130cde28e4b9d56a8b2df6f529e",
+    "pre_analysis_time": 0.014992713928222656,
+    "static_analysis_time": 5.812058210372925,
+    "dynamic_analysis_time": 56.859827518463135,
+    "verification_time": 2.8241591453552246
+  },
+  {
+    "commit": "fbebef64c57fda4b7a1f54472177b5c9c15ae6f3",
+    "pre_analysis_time": 0.009248495101928711,
+    "static_analysis_time": 0.0,
+    "dynamic_analysis_time": 60.90477705001831,
+    "verification_time": 1.8188562393188477
+  },
+  {
+    "commit": "fc70c95682435f3c58ecf15bb719542906aa12f8",
+    "pre_analysis_time": 0.009236574172973633,
+    "static_analysis_time": 3.0141210556030273,
+    "dynamic_analysis_time": 62.88262414932251,
+    "verification_time": 2.8646132946014404
+  },
+  {
+    "commit": "d1cc8e63fdbccaf522999335dde89c5d276d9db1",
+    "pre_analysis_time": 0.013848543167114258,
+    "static_analysis_time": 4.927661895751953,
+    "dynamic_analysis_time": 68.97452926635742,
+    "verification_time": 2.8956804275512695
+  },
+  {
+    "commit": "b0f0c8a40a1b01ca8c884a618bb92639979a02e0",
+    "pre_analysis_time": 0.10361099243164062,
+    "static_analysis_time": 6.240927219390869,
+    "dynamic_analysis_time": 66.92276382446289,
+    "verification_time": 3.9423255920410156
+  },
+  {
+    "commit": "c6b1c53f11b28c6d50d4b537a36fe73b02bca7c2",
+    "pre_analysis_time": 0.01007699966430664,
+    "static_analysis_time": 3.832395315170288,
+    "dynamic_analysis_time": 78.89352011680603,
+    "verification_time": 3.3929736614227295
+  },
+  {
+    "commit": "15258dde08aec19f6815609cf6fcda01bf95c0e6",
+    "pre_analysis_time": 0.013887405395507812,
+    "static_analysis_time": 5.236388683319092,
+    "dynamic_analysis_time": 62.8783757686615,
+    "verification_time": 3.4855918884277344
+  },
+  {
+    "commit": "d56090fb6dc0368b260db6043b47a8af4fef6994",
+    "pre_analysis_time": 0.021155595779418945,
+    "static_analysis_time": 6.922827959060669,
+    "dynamic_analysis_time": 52.82673120498657,
+    "verification_time": 3.1868741512298584
+  }
+]

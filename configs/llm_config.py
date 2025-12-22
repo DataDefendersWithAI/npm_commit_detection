@@ -19,7 +19,9 @@ class LLMConfig(BaseConfig):
         "novita",
         "hyperbolic",
         "together",
+        "fireworks",
         "openai",
+        "google-ai-studio"
     ]
     
     # Disable fallbacks - only use specified providers in order
