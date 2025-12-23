@@ -11,6 +11,21 @@ This tool analyzes git repository commits to detect potential security issues an
 1. **Pre-Analysis Phase**: Analyzes metadata, contributor trust, and code changes
 2. **Static Analysis Phase**: Uses OpenAI LLM to detect security vulnerabilities
 
+## 🛡️ Deobfuscation Support
+
+The tool includes a specialized **Deobfuscator Agent** that automatically detects and reverses obfuscated malicious code.
+
+- **Detection**: Uses heuristics and LLM to identify obfuscated files without slowing down the pipeline.
+- **Deobfuscation**: Powered by [javascript-deobfuscator](https://github.com/ben-sb/javascript-deobfuscator) to unpack arrays, simplify expressions, and remove anti-debugging checks.
+- **Refinement**: Uses an LLM to rename variables and restore code readability before static analysis.
+
+### Configuration
+Deobfuscation is enabled by default. You can configure it in `.env`:
+```env
+DEOBFUSCATION_ENABLED=true
+DEOBFUSCATION_MODEL=gpt-4o-mini
+```
+
 ## Features
 
 ### Pre-Analysis

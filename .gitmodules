@@ -1,0 +1,3 @@
+[submodule "tools/javascript-deobfuscator"]
+	path = tools/javascript-deobfuscator
+	url = https://github.com/ben-sb/javascript-deobfuscator
