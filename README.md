@@ -119,6 +119,14 @@ python main.py ../mongoose 8.19.1 8.19.0 --dynamic a1b2c3d
 python main.py ../mongoose 8.19.1 --snyk
 ```
 
+### CI/CD Integration
+
+To automate scanning on Pull Requests, you can use the example GitHub Actions workflow provided in this repository.
+
+1.  Copy [workflows/example_security_scan.yml](workflows/example_security_scan.yml) to your repository's `.github/workflows/` directory.
+2.  Add your `OPENAI_API_KEY` to your repository's GitHub Secrets.
+3.  The workflow will automatically scan new Pull Requests targeting the `master` or `main` branch.
+
 ## 🏗️ Architecture
 
 The tool is built using **LangGraph** to orchestrate the analysis workflow:

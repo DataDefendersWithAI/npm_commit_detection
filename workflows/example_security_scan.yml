@@ -1,0 +1,68 @@
+name: NPM Security Scan
+
+on:
+  pull_request:
+    branches: [ "master", "main" ]
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+      
+    steps:
+      - name: Checkout Target Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all history for commit analysis
+
+      - name: Checkout Analysis Tool
+        uses: actions/checkout@v4
+        with:
+          repository: JakeClark-chan/npm_commit_detection
+          path: npm_commit_detection
+          ref: master
+
+      - name: Install uv
+        run: curl -LsSf https://astral.sh/uv/install.sh | sh
+
+      - name: Setup Environment and Scan
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          # Optional: Add LANGSMITH secrets if needed
+          # LANGSMITH_API_KEY: ${{ secrets.LANGSMITH_API_KEY }}
+        run: |
+          # 1. Setup uv and venv in the tool directory
+          source $HOME/.cargo/env
+          cd npm_commit_detection
+          
+          echo "Setting up virtual environment..."
+          uv venv
+          source .venv/bin/activate
+          
+          echo "Installing dependencies..."
+          uv pip install -e .
+          
+          # 2. Run Analysis
+          # Navigate to the source code directory where main.py resides
+          cd commit_detection
+          
+          # We need to compare the PR HEAD against the base branch (origin/master)
+          # The target repository is at the root of the workspace, so relative path is ../..
+          TARGET_REPO_PATH="../../"
+          
+          # Ensure we have the base branch reference for comparison
+          git -C "$TARGET_REPO_PATH" fetch origin master:master || true
+          
+          echo "Starting analysis..."
+          # Running with --skip-dynamic for faster CI feedback (static analysis + deobfuscation only)
+          # Arguments: <repo_path> <end_tag/hash> <start_tag/hash> <options>
+          python main.py "$TARGET_REPO_PATH" HEAD origin/master --skip-dynamic
+
+      - name: Upload Analysis Report
+        uses: actions/upload-artifact@v4
+        if: always() # Upload even if issues are found (exit code 1)
+        with:
+          name: security-analysis-report
+          path: npm_commit_detection/commit_detection/analysis_report_*.md
