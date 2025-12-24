@@ -32,6 +32,12 @@ jobs:
       - name: Install uv
         run: curl -LsSf https://astral.sh/uv/install.sh | sh
 
+      - name: Install Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: 'npm'
+
       - name: Setup Environment and Scan
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}

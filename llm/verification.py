@@ -23,6 +23,8 @@ from langchain_core.messages import HumanMessage, SystemMessage
 
 from configs.llm_config import LLMConfig
 from configs.dynamic_config import DynamicAnalysisConfig
+from configs.verification_config import VerificationConfig
+from configs.static_config import StaticAnalysisConfig
 from llm.service import LLMService
 import prompts.verification_prompts as prompts
 
@@ -544,6 +546,133 @@ class VerificationAnalyzer:
         if len(findings) > 10:
             lines.append(f"... and {len(findings) - 10} more findings")
         return '\n'.join(lines)
+    
+    def _run_simple_verification(self, static_analysis: Dict, dynamic_analysis: Dict) -> VerificationResult:
+        """
+        Run simple verification using a single LLM call (ported from stress_test.py)
+        Returns a populated VerificationResult.
+        """
+        print("\n⚡ Running Simple Verification Mode...")
+        
+        # Use simple model (gpt-4o-mini usually) or whatever StaticAnalysisConfig uses if we follow stress_test logic
+        # stress_test used: model_name = StaticAnalysisConfig.MODEL, temperature=0.0
+        # But we verify_anlayzer already has self.llm initialized with LLM_VERIFICATION_MODEL
+        # Let's use the initialized LLM for consistency, or re-init if strictly following stress_test?
+        # stress_test: llm = LLMService.get_llm(model_name=StaticAnalysisConfig.MODEL, temperature=0.0)
+        # VerifyAnalyzer init: model_name = verification_model or os.getenv("LLM_VERIFICATION_MODEL", "gpt-4o-mini")
+        
+        # Let's use the one configured in VerificationAnalyzer, assuming it's appropriate.
+        
+        prompt = f"""
+        You are a security expert. Analyze the following reports and determine if it is benign or malware.
+        
+        Static Analysis:
+        {json.dumps(static_analysis, indent=2)}
+        
+        Dynamic Analysis:
+        {json.dumps(dynamic_analysis, indent=2)}
+        
+        With all analysis from static and dynamic is this commit benign or malware?
+        
+        Provide your response in JSON format with the following structure:
+        {{
+            "verdict": "MALWARE" or "BENIGN",
+            "findings": [
+                {{
+                    "file": "file path",
+                    "code": "relevant code snippet",
+                    "reason": "explanation of why this specific part is suspicious/safe"
+                }}
+            ],
+            "general_reason": "Overall summary of the decision"
+        }}
+        output only the json.
+        """
+        
+        try:
+            response = self.llm.invoke([
+                SystemMessage(content="You are a security expert. Output only valid JSON."),
+                HumanMessage(content=prompt)
+            ])
+            
+            content = (response.content or "").strip()
+            
+            # Remove markdown code blocks if present
+            if content.startswith("```json"):
+                content = content[7:]
+            if content.endswith("```"):
+                content = content[:-3]
+            content = content.strip()
+            
+            data = {}
+            try:
+                data = json.loads(content)
+            except json.JSONDecodeError:
+                import re
+                match = re.search(r'\{.*\}', content, re.DOTALL)
+                if match:
+                    data = json.loads(match.group(0))
+                else:
+                    print("⚠️  Could not parse JSON response from Simple Verification")
+            
+            verdict = data.get("verdict", "unknown").upper()
+            is_malicious = "MALWARE" in verdict
+            
+            # Map simple findings to NormalizedFinding structure for report consistency
+            findings_data = data.get("findings", [])
+            normalized_findings = []
+            
+            for idx, f in enumerate(findings_data):
+                finding = NormalizedFinding(
+                    finding_id=f"simple_{idx}",
+                    source="simple_verification",
+                    severity="HIGH" if is_malicious else "INFO",
+                    category="malware" if is_malicious else "info",
+                    file_path=f.get("file"),
+                    evidence=f.get("code"),
+                    description=f.get("reason", "No reason provided")
+                )
+                normalized_findings.append(finding)
+            
+            # Create Result
+            result = VerificationResult()
+            result.is_malicious = is_malicious
+            result.malicious_confidence = 1.0 if is_malicious else 0.0
+            
+            # Populate description
+            general_reason = data.get("general_reason", "No summary provided.")
+            result.llm_analysis = f"Verdict: {verdict}\nSummary: {general_reason}"
+            
+            # Add to suspicious/verified lists just to show in report
+            if is_malicious:
+                 result.suspicious_static_only = normalized_findings # Hack to populate report list
+            
+            # Generate comprehensive report string
+            report_lines = [
+                "=" * 100,
+                "VERIFICATION REPORT - SIMPLE MODE",
+                "=" * 100,
+                f"\nGenerated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
+                f"Repository: {static_analysis.get('repository', 'N/A')}",
+                f"Verdict: {'🚨 MALICIOUS' if is_malicious else '✅ BENIGN'}",
+                f"\n{'=' * 100}",
+                "EXECUTIVE SUMMARY",
+                "=" * 100,
+                result.llm_analysis,
+                f"\n{'=' * 100}",
+                "FINDINGS",
+                "=" * 100,
+                self._format_findings_list(normalized_findings) if normalized_findings else "No specific findings."
+            ]
+            result.comprehensive_report = '\n'.join(report_lines)
+            
+            return result
+            
+        except Exception as e:
+            print(f"❌ Simple verification failed: {e}")
+            import traceback
+            traceback.print_exc()
+            return VerificationResult(llm_analysis=f"Verification failed: {e}")
 
 
 def verify_analysis(
@@ -583,16 +712,22 @@ def verify_analysis(
     # Initialize verifier
     verifier = VerificationAnalyzer()
     
-    # Normalize findings
-    static_findings = verifier.normalize_static_findings(static_analysis)
-    dynamic_findings = verifier.normalize_dynamic_findings(dynamic_events)
-    snyk_findings = verifier.normalize_snyk_findings(snyk_analysis) if snyk_analysis else []
-    
-    # Compare findings
-    result = verifier.compare_findings(static_findings, dynamic_findings, snyk_findings)
-    
-    # Generate comprehensive report
-    report = verifier.generate_comprehensive_report(result, static_analysis, dynamic_analysis_log or "N/A", snyk_analysis)
+    if VerificationConfig._use_simple_verification:
+        # Simple Mode
+        result = verifier._run_simple_verification(static_analysis, dynamic_events if dynamic_events else {})
+        report = result.comprehensive_report
+    else:
+        # Advanced Mode
+        # Normalize findings
+        static_findings = verifier.normalize_static_findings(static_analysis)
+        dynamic_findings = verifier.normalize_dynamic_findings(dynamic_events)
+        snyk_findings = verifier.normalize_snyk_findings(snyk_analysis) if snyk_analysis else []
+        
+        # Compare findings
+        result = verifier.compare_findings(static_findings, dynamic_findings, snyk_findings)
+        
+        # Generate comprehensive report
+        report = verifier.generate_comprehensive_report(result, static_analysis, dynamic_analysis_log or "N/A", snyk_analysis)
     
     # Create reports directory if it doesn't exist
     reports_dir = os.path.join(output_dir, "reports")
