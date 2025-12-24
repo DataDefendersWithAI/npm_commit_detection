@@ -336,10 +336,17 @@ def main():
         print(f"Error: Repository path does not exist: {repo_path}")
         sys.exit(1)
     
-    # Check environment variables
-    if not os.getenv("OPENAI_API_KEY"):
-        print("Error: OPENAI_API_KEY environment variable not set")
-        sys.exit(1)
+    # Check environment variables via Config
+    from configs.llm_config import LLMConfig
+    
+    if LLMConfig.LLM_USE_OPENROUTER:
+        if not LLMConfig.OPENROUTER_API_KEY:
+            print("Error: OPENROUTER_API_KEY environment variable not set (LLM_USE_OPENROUTER=true)")
+            sys.exit(1)
+    else:
+        if not LLMConfig.OPENAI_API_KEY:
+            print("Error: OPENAI_API_KEY environment variable not set")
+            sys.exit(1)
     
     config = {
         'repo_path': repo_path,
@@ -768,9 +775,16 @@ def legacy_main():
         sys.exit(1)
     
     # Check environment variables
-    if not os.getenv("OPENAI_API_KEY"):
-        print("Error: OPENAI_API_KEY environment variable not set")
-        sys.exit(1)
+    # Check environment variables
+    from configs.llm_config import LLMConfig
+    if LLMConfig.LLM_USE_OPENROUTER:
+        if not LLMConfig.OPENROUTER_API_KEY:
+            print("Error: OPENROUTER_API_KEY environment variable not set")
+            sys.exit(1)
+    else:
+        if not LLMConfig.OPENAI_API_KEY:
+            print("Error: OPENAI_API_KEY environment variable not set")
+            sys.exit(1)
     
     # Enable LangSmith tracing if configured
     if os.getenv("LANGSMITH_API_KEY"):
