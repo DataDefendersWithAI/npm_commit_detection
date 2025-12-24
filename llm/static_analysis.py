@@ -185,7 +185,7 @@ class StaticAnalyzer:
             'dist/', 'build/', 'out/', 'coverage/',
             'node_modules/', 'vendor/',
             '.vscode/', '.idea/',
-            'examples/', 'samples/',
+            'examples/', 'samples/', '.github/'
             # Note: .github/ intentionally NOT ignored to detect CI poisoning
         ]
 
